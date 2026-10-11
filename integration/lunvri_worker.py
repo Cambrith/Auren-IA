@@ -5,10 +5,17 @@ system messages. The source checkout and its generation logic stay intact.
 """
 
 from dataclasses import replace
+import json
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from cavren import desktop_worker
 from cavren.models import Message
 from cavren.prompt_adapter import OpenAIChatPromptAdapter
+from cavren.errors import CavrenError
+from integration.lunvri_manual import run as run_manual
 
 
 def normalize_messages(messages):
@@ -34,10 +41,62 @@ _original_adapt = OpenAIChatPromptAdapter.adapt
 
 
 def adapt_single_system(self, messages, *, provider=""):
-    return _original_adapt(self, normalize_messages(messages), provider=provider)
+    result = _original_adapt(self, normalize_messages(messages), provider=provider)
+    if provider == 'openrouter':
+        for message in result:
+            if isinstance(message.get('content'), list):
+                message['content'] = [
+                    (
+                        {
+                            'type': 'video_url',
+                            'video_url': {
+                                'url': f'data:{part["input_video"]["mime_type"]};base64,{part["input_video"]["data"]}'
+                            },
+                        }
+                        if part.get('type') == 'input_video'
+                        else part
+                    )
+                    for part in message['content']
+                ]
+    return result
 
 
 OpenAIChatPromptAdapter.adapt = adapt_single_system
 
 if __name__ == "__main__":
+    # Dispatch manual catalog routes without adding them to automatic fallback.
+    raw = sys.stdin.read()
+    job = json.loads(raw)
+    if job.get('lunvri_direct'):
+        try:
+            raise SystemExit(run_manual(job, normalize_messages))
+        except CavrenError as error:
+            print(
+                json.dumps(
+                    {
+                        'type': 'generation.error',
+                        'generation_id': job['generation_id'],
+                        'code': error.code,
+                        'message': str(error).replace('Cavren', 'Lunvri'),
+                    }
+                ),
+                flush=True,
+            )
+            raise SystemExit(1)
+        except Exception:
+            print(
+                json.dumps(
+                    {
+                        'type': 'generation.error',
+                        'generation_id': job['generation_id'],
+                        'code': 'provider',
+                        'message': 'Não foi possível concluir a chamada ao provedor.',
+                    }
+                ),
+                flush=True,
+            )
+            raise SystemExit(1)
+    from io import StringIO
+
+    sys.stdin = StringIO(raw)
     raise SystemExit(desktop_worker.main())

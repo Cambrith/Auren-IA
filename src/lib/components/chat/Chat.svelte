@@ -12,6 +12,7 @@
 	import { get, type Unsubscriber, type Writable } from 'svelte/store';
 	import type { i18n as i18nType } from 'i18next';
 	import { WEBUI_BASE_URL } from '$lib/constants';
+	import { lunvriGenerating } from '$lib/stores/lunvri';
 	import equal from 'fast-deep-equal';
 
 	import {
@@ -462,6 +463,10 @@
 	};
 
 	let taskIds = null;
+	$: lunvriGenerating.set(
+		Boolean(selectedModels[0]?.startsWith('cavren:') && (generating || !!taskIds?.length))
+	);
+	onDestroy(() => lunvriGenerating.set(false));
 
 	// Chat Input
 	let prompt = '';
@@ -4022,10 +4027,11 @@
 		}
 
 		const stream =
-			model?.info?.params?.stream_response ??
-			params?.stream_response ??
-			$settings?.params?.stream_response ??
-			true;
+			params.lunvri_image_generation === true ||
+			(model?.info?.params?.stream_response ??
+				params?.stream_response ??
+				$settings?.params?.stream_response ??
+				true);
 		// Always include system prompt — backend extracts it and prepends to DB messages.
 		// Only temp chats need conversation messages (persisted chats load from DB).
 		let messages: any[] = [
@@ -4046,7 +4052,7 @@
 			].filter((message) => message);
 
 			messages = messages
-				.map((message) => {
+				.map((message): any => {
 					const imageFiles = (message?.files ?? []).filter(
 						(file) => file.type === 'image' || isRasterImageContentType(file?.content_type)
 					);
@@ -4063,6 +4069,7 @@
 					if (message.role === 'user' && imageFiles.length > 0) {
 						return {
 							role: message.role,
+							...(model.id.startsWith('cavren:') ? { files: message.files } : {}),
 							content: [
 								{
 									type: 'text',
@@ -4080,6 +4087,7 @@
 
 					return {
 						role: message.role,
+						...(model.id.startsWith('cavren:') ? { files: message.files } : {}),
 						content: message?.merged?.content ?? message.content,
 						model: message.model,
 						meta: message.meta
@@ -4127,7 +4135,8 @@
 					? {
 							cavren_mode_id: userMessage?.cavren_mode_id ?? params.cavren_mode_id ?? 'ether',
 							cavren_web_search: params.cavren_web_search === true,
-							cavren_billing_confirmed: params.cavren_billing_confirmed === true
+							cavren_billing_confirmed: params.cavren_billing_confirmed === true,
+							lunvri_image_generation: params.lunvri_image_generation === true
 						}
 					: {}),
 				...(messages.length > 0 ? { messages } : {}),
@@ -4936,14 +4945,16 @@
 							cavrenOptions={{
 								mode_id: params.cavren_mode_id ?? 'ether',
 								web_search: params.cavren_web_search === true,
-								billing_confirmed: params.cavren_billing_confirmed === true
+								billing_confirmed: params.cavren_billing_confirmed === true,
+								image_generation: params.lunvri_image_generation === true
 							}}
 							onCavrenChange={(options) => {
 								params = {
 									...params,
 									cavren_mode_id: options.mode_id,
 									cavren_web_search: options.web_search,
-									cavren_billing_confirmed: options.billing_confirmed
+									cavren_billing_confirmed: options.billing_confirmed,
+									lunvri_image_generation: options.image_generation
 								};
 								saveControls();
 							}}
@@ -5035,7 +5046,9 @@
 										}}
 										bind:selectedModels
 										{atSelectedModel}
-										className={embedded ? 'h-full flex pt-4' : 'h-full flex pt-18'}
+										className={embedded || selectedModels[0]?.startsWith('cavren:')
+											? 'h-full flex pt-4'
+											: 'h-full flex pt-18'}
 										{sendMessage}
 										{showMessage}
 										{submitMessage}

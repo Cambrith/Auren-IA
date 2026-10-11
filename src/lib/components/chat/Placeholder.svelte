@@ -144,41 +144,43 @@
 				/>
 			{:else}
 				<div class="flex flex-row justify-center gap-2.5 @sm:gap-3 w-fit px-5 max-w-xl">
-					<div class="flex shrink-0 justify-center">
-						<div class="flex -space-x-4 mb-0.5" in:fade={{ duration: 100 }}>
-							{#each models as model, modelIdx}
-								<Tooltip
-									content={(models[modelIdx]?.info?.meta?.tags ?? [])
-										.map((tag) => tag.name.toUpperCase())
-										.join(', ')}
-									placement="top"
-								>
-									<button
-										aria-hidden={models.length <= 1}
-										aria-label={$i18n.t('Get information on {{name}} in the UI', {
-											name: models[modelIdx]?.name
-										})}
-										on:click={() => {
-											selectedModelIdx = modelIdx;
-										}}
+					{#if !cavrenActive}
+						<div class="flex shrink-0 justify-center">
+							<div class="flex -space-x-4 mb-0.5" in:fade={{ duration: 100 }}>
+								{#each models as model, modelIdx}
+									<Tooltip
+										content={(models[modelIdx]?.info?.meta?.tags ?? [])
+											.map((tag) => tag.name.toUpperCase())
+											.join(', ')}
+										placement="top"
 									>
-										<img
-											src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model?.id}&lang=${$i18n.language}`}
-											class=" size-9 @sm:size-10 rounded-2xl"
-											aria-hidden="true"
-											draggable="false"
-											on:error={(e) => {
-												// LICENSE covers this Open WebUI fallback logo.
-												// Do not alter, remove, obscure, or replace it except as LICENSE permits:
-												// https://docs.openwebui.com/license.
-												e.currentTarget.src = '/favicon.png';
+										<button
+											aria-hidden={models.length <= 1}
+											aria-label={$i18n.t('Get information on {{name}} in the UI', {
+												name: models[modelIdx]?.name
+											})}
+											on:click={() => {
+												selectedModelIdx = modelIdx;
 											}}
-										/>
-									</button>
-								</Tooltip>
-							{/each}
+										>
+											<img
+												src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model?.id}&lang=${$i18n.language}`}
+												class=" size-9 @sm:size-10 rounded-2xl"
+												aria-hidden="true"
+												draggable="false"
+												on:error={(e) => {
+													// LICENSE covers this Open WebUI fallback logo.
+													// Do not alter, remove, obscure, or replace it except as LICENSE permits:
+													// https://docs.openwebui.com/license.
+													e.currentTarget.src = '/favicon.png';
+												}}
+											/>
+										</button>
+									</Tooltip>
+								{/each}
+							</div>
 						</div>
-					</div>
+					{/if}
 
 					<div
 						class=" text-2xl @sm:text-2xl line-clamp-1 flex items-center"

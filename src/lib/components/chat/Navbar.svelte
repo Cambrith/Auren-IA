@@ -51,7 +51,12 @@
 	export let history;
 	export let title = '';
 	export let selectedModels = [''];
-	export let cavrenOptions = { mode_id: 'ether', web_search: false, billing_confirmed: false };
+	export let cavrenOptions = {
+		mode_id: 'ether',
+		web_search: false,
+		billing_confirmed: false,
+		image_generation: false
+	};
 	export let onCavrenChange: (options: typeof cavrenOptions) => void = () => {};
 	export let generating = false;
 	$: cavrenActive = $models.some((model) => model.id.startsWith('cavren:'));
@@ -86,6 +91,8 @@
 />
 
 <nav
+	class:lunvri-navbar={cavrenActive}
+	style:margin-bottom={cavrenActive ? '0px' : undefined}
 	class="sticky top-0 z-30 w-full {$mobile
 		? 'pt-1.5'
 		: 'pt-0.5'} pb-1 -mb-12 flex flex-col items-center drag-region"

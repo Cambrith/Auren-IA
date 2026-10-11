@@ -946,6 +946,8 @@
 			return null;
 		}
 
+		const lunvri = selectedModelIds.every((id) => id.startsWith('cavren:'));
+		if (lunvri) process = false;
 		const tempItemId = uuidv4();
 		const fileItem: any = {
 			type: 'file',
@@ -958,6 +960,7 @@
 			size: file.size,
 			error: '',
 			itemId: tempItemId,
+			...(lunvri ? { lunvri_native: true } : {}),
 			// Stamp the user's default upload mode so the sent payload carries it;
 			// the per-file toggle in FileItemModal can still override it afterwards.
 			...($settings?.defaultUploadContext === 'full' ? { context: 'full' } : {}),
@@ -1017,6 +1020,28 @@
 			return;
 		}
 
+		if (lunvri && $temporaryChatEnabled) {
+			try {
+				const dataUrl = await new Promise<string>((resolve, reject) => {
+					const reader = new FileReader();
+					reader.onload = () => resolve(String(reader.result));
+					reader.onerror = reject;
+					reader.readAsDataURL(file);
+				});
+				Object.assign(fileItem, {
+					status: 'uploaded',
+					url: dataUrl,
+					content_type: file.type,
+					id: tempItemId
+				});
+				files = files;
+			} catch {
+				files = files.filter((item) => item.itemId !== tempItemId);
+				toast.error('Não foi possível ler o anexo.');
+			}
+			onUpdate({ file: fileItem });
+			return;
+		}
 		if (!$temporaryChatEnabled) {
 			try {
 				// If the file is an audio file, provide the language for STT.
@@ -1141,6 +1166,18 @@
 				return;
 			}
 
+			if (selectedModelIds.every((id) => id.startsWith('cavren:'))) {
+				const capabilities =
+					($models.find((model) => model.id === selectedModelIds[0]) as any)?.cavren
+						?.capabilities ?? {};
+				if (
+					(file.type.startsWith('video/') && !capabilities.video) ||
+					(file.type.startsWith('audio/') && !capabilities.audio)
+				) {
+					toast.error('Escolha um modelo com suporte a este tipo de anexo.');
+					return;
+				}
+			}
 			if (isRasterImageContentType(file['type']) || isHeicImage(file)) {
 				if (visionCapableModels.length === 0) {
 					toast.error($i18n.t('Selected model(s) do not support image inputs'));

@@ -14,35 +14,16 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from uuid import uuid4
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from cavren.errors import CavrenError
 from cavren.models import Message
 from cavren.modes import DEFAULT_MODE_ID, MODE_BY_ID
 from cavren.nextchat_server import CavrenHandler, worker_env
+from integration.lunvri_connections import catalog, credentials_env
 
-MAX_BODY = 8 * 1024 * 1024
+MAX_BODY = 40 * 1024 * 1024
 WORKER = Path(__file__).with_name("lunvri_worker.py")
-
-
-def catalog() -> list[dict]:
-    return [
-        {
-            "id": "cavren:auto",
-            "object": "model",
-            "name": "Lunvri",
-            "owned_by": "openai",
-            "cavren": {"label": "Automático", "available": True, "price_kind": "free"},
-        },
-        *[
-            {
-                "id": "cavren:" + model["route_id"],
-                "object": "model",
-                "name": "Lunvri",
-                "owned_by": "openai",
-                "cavren": {**model, "label": model["name"] + " · " + model["provider"]},
-            }
-            for model in CavrenHandler._integrated_models()
-        ],
-    ]
 
 
 def prepare_job(body: dict, generation_id: str) -> dict:
@@ -50,9 +31,15 @@ def prepare_job(body: dict, generation_id: str) -> dict:
     if mode not in MODE_BY_ID:
         raise ValueError("Escolha um modo Lunvri válido.")
     model = body.get("model", "")
-    allowed = {item["id"] for item in catalog()}
+    allowed = {item["id"]: item for item in catalog()}
     if model not in allowed:
         raise ValueError("Escolha um modelo integrado à Lunvri.")
+    info = allowed[model].get('cavren', {})
+    if info.get('price_kind', 'free') != 'free' and body.get('cavren_billing_confirmed') is not True:
+        raise ValueError('Confirme o possível custo deste modelo antes de usá-lo.')
+    images = body.get('lunvri_image_generation') is True or info.get('image_only') is True
+    if images and not info.get('capabilities', {}).get('image_generation'):
+        raise ValueError('Escolha um modelo que tenha suporte a geração de imagens.')
     raw_messages = body.get("messages")
     if not isinstance(raw_messages, list) or not raw_messages:
         raise ValueError("A conversa precisa de uma mensagem.")
@@ -85,6 +72,8 @@ def prepare_job(body: dict, generation_id: str) -> dict:
         "prompt": prompt or "Analise o conteúdo enviado.",
         "task_kind": "chat",
         "max_tokens": limit,
+        "lunvri_direct": info.get('integrated') is False or images,
+        "lunvri_image_generation": images,
     }
 
 
@@ -134,11 +123,11 @@ class BridgeHandler(BaseHTTPRequestHandler):
         if not self.authorized():
             self.error(401, "Ponte local não autorizada.", "auth")
             return
-        if self.path != "/v1/models":
+        if self.path.split('?', 1)[0] != "/v1/models":
             self.error(404, "Recurso não encontrado.")
             return
         try:
-            self.respond(200, {"object": "list", "data": catalog()})
+            self.respond(200, {"object": "list", "data": catalog(refresh='refresh=true' in self.path)})
         except (OSError, ValueError, CavrenError):
             self.error(503, "Não foi possível acessar o cofre ou catálogo da Lunvri.", "credentials")
 
@@ -162,7 +151,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
                 raise ValueError("Pedido inválido.")
             generation_id = "chatcmpl-" + str(uuid4())
             job = prepare_job(body, generation_id)
-            env = worker_env()
+            env = credentials_env()
             env["CAVREN_MAX_TOKENS"] = str(job.pop("max_tokens"))
             process = subprocess.Popen(
                 [sys.executable, str(WORKER)],
@@ -249,6 +238,8 @@ class BridgeHandler(BaseHTTPRequestHandler):
                         final = event["response"]
                         terminal = True
                         break
+                    elif kind == 'generation.files' and streaming:
+                        self.sse({'event': {'type': 'files', 'data': {'files': event['files']}}})
                     elif kind == "generation.error":
                         terminal = True
                         if streaming:

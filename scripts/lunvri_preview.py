@@ -66,6 +66,7 @@ def main():
     token = secrets.token_urlsafe(48)
     for port in [args.port, *([args.dev_port] if args.dev else [])]:
         with socket.socket() as check:
+            check.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             try:
                 check.bind(('127.0.0.1', port))
             except OSError:
@@ -112,6 +113,8 @@ def main():
                 'OPENAI_API_KEYS': token,
                 'DEFAULT_MODELS': 'cavren:auto',
                 'DEFAULT_LOCALE': 'pt-BR',
+                'RAG_FILE_MAX_SIZE': '20',
+                'RAG_FILE_MAX_COUNT': '5',
                 'DEFAULT_INTERFACE_SETTINGS': json.dumps(
                     {'theme': 'dark', 'landingPageMode': 'default', 'showChangelog': False}
                 ),

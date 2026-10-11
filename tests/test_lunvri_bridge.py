@@ -100,12 +100,13 @@ class BridgeTests(unittest.TestCase):
 job = json.load(sys.stdin)
 print(json.dumps({"type": "generation.searching"}), flush=True)
 print(json.dumps({"type": "generation.sources", "sources": [{"title": "Fonte de teste", "url": "https://example.org", "snippet": "Trecho de teste"}]}), flush=True)
+print(json.dumps({"type": "generation.files", "files": [{"type": "image", "url": "data:image/png;base64,aW1hZ2U="}]}), flush=True)
 print(json.dumps({"type": "generation.delta", "text": "Olá, Lunvri!"}), flush=True)
 print(json.dumps({"type": "generation.completed", "response": {"text": "Olá, Lunvri!", "provider": "test", "model": "test", "public_mode": job["mode_id"], "fallback_index": 0, "usage": {"input_tokens": 3, "output_tokens": 4, "total_tokens": 7}}}), flush=True)
 ''')
             with (
                 patch.object(bridge, 'WORKER', worker),
-                patch.object(bridge, 'worker_env', return_value=os.environ.copy()),
+                patch.object(bridge, 'credentials_env', return_value=os.environ.copy()),
             ):
                 body = {
                     'model': 'cavren:auto',
@@ -125,6 +126,7 @@ print(json.dumps({"type": "generation.completed", "response": {"text": "Olá, Lu
                 self.assertIn('"finish_reason": "stop"', data)
                 self.assertIn('"type": "source"', data)
                 self.assertIn('https://example.org', data)
+                self.assertIn('data:image/png;base64,aW1hZ2U=', data)
         self.assertFalse(self.server.active)
 
     def test_disconnect_terminates_the_generation_process(self):
@@ -133,7 +135,7 @@ print(json.dumps({"type": "generation.completed", "response": {"text": "Olá, Lu
             worker.write_text('import json, sys, time\njson.load(sys.stdin)\ntime.sleep(60)\n')
             with (
                 patch.object(bridge, 'WORKER', worker),
-                patch.object(bridge, 'worker_env', return_value=os.environ.copy()),
+                patch.object(bridge, 'credentials_env', return_value=os.environ.copy()),
             ):
                 client = http.client.HTTPConnection('127.0.0.1', self.server.server_port, timeout=10)
                 body = {

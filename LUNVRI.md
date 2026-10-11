@@ -5,9 +5,13 @@ O fork é `Cambrith/Lunvri-IA`; o código original permanece como remote `upstre
 
 ## O que esta prévia implementa
 
-- Identidade Lunvri, logo existente, português e tema escuro inicial.
+- Identidade Lunvri, português e paleta original da Cavren: fundo `#080D17`, superfícies `#0D1727`/`#121E2D`, azul `#0162F8` e ciano `#21D4FB`.
+- Logo somente na barra lateral, animada durante a geração, com deslocamento máximo de 4 px e respeito à preferência de movimento reduzido. Respostas sem avatar ou cabeçalho da IA.
 - Seletor de modo no topo: Éter, Ímpeto, Insight e Arquiteto.
-- Seletor de modelo independente: Automático ou uma rota integrada do motor.
+- Seletor de modelo independente, com busca: Automático, rotas integradas e modelos de conversa/imagem descobertos nas APIs configuradas.
+- Conexões Gemini, Groq, Mistral, OpenRouter, Cloudflare e DeepSeek, usando o cofre existente e o arquivo local para conexões ausentes.
+- Anexos de imagens e vídeos conforme a capacidade declarada pelo modelo; documentos extraídos localmente.
+- Geração de imagens nativa de Gemini e OpenRouter, retornada como anexo da resposta.
 - Preservação da escolha de modo e modelo por conversa; cada mensagem registra seu modo.
 - Geração real em streaming, interrupção de geração e conversa persistida pelo Open WebUI.
 - Pesquisa opcional pelo SearXNG do motor, com status e fontes na conversa.
@@ -57,8 +61,8 @@ O backend chama um adaptador OpenAI local, autenticado por um token aleatório v
 somente nessa execução. Esse token é diferente das credenciais dos provedores.
 
 O adaptador lê o cofre através do motor e inicia um processo de geração cancelável.
-O motor continua responsável por planejamento de rotas, limites, fallback, contexto,
-saúde dos provedores e pesquisa. As chaves ficam apenas no ambiente desse processo.
+No modo Automático e nas rotas já integradas, o motor continua responsável por planejamento de rotas, limites, fallback, contexto,
+saúde dos provedores e pesquisa. Os modelos adicionais usam a rota manual solicitada, as instruções do modo e a pesquisa do motor, sem entrar no fallback automático. As chaves ficam apenas nos processos da ponte e de geração; não são enviadas ao navegador nem gravadas no banco do Open WebUI.
 Os eventos do motor são convertidos em streaming compatível com o Open WebUI.
 
 Para compatibilidade com provedores que exigem uma única mensagem de sistema,
@@ -74,18 +78,19 @@ uma configuração própria de autenticação e implantação.
 ## Limites da entrega
 
 As conversas antigas não foram importadas; ficam preservadas no aplicativo anterior.
-A base da prévia é separada. O catálogo de modelos é o conjunto integrado do motor,
-incluindo suas verificações de credenciais e custo; o catálogo remoto não autoriza
-automaticamente novos modelos.
+A base da prévia é separada. A descoberta remota confirma acesso ao catálogo, mas não garante saldo, quota ou permissão de geração para todos os modelos. O catálogo é renovado a cada cinco minutos quando consultado. Modelos adicionais com preço não confirmado e todos os geradores de imagens exigem confirmação de possível custo por seleção.
 
-Arquivos para RAG, voz, memória automática, execução de ferramentas e controle do
-computador não fazem parte da validação desta primeira prévia. Upload de documentos
-para RAG está desabilitado nas capacidades dos modelos, pois a ponte não oferece
-embeddings. A opção de pesquisa no topo usa o SearXNG do motor.
+Os documentos aceitos incluem PDF com texto, DOCX, XLSX, CSV, TXT, Markdown e arquivos de código. A leitura local não usa embeddings: envia o texto extraído no contexto da conversa. O Gemini recebe PDF nativamente quando o modelo permite. PDFs digitalizados sem texto exigem um modelo com leitura nativa; não há OCR local. Limites: cinco anexos por mensagem, 20 MB por arquivo e 24 MB de anexos na conversa; texto limitado a 180 mil caracteres, PDFs a 80 páginas e planilhas a 2.000 linhas por aba. A interface avisa quando limita a extração. O limite de contexto do provedor ainda pode ser menor.
+
+Vídeos são enviados como dados locais às rotas que declaram suporte (Gemini e modelos compatíveis no OpenRouter). A pesquisa usa o SearXNG existente. A geração de imagens usa os endpoints nativos dos provedores; as chaves permanecem na ponte. Voz, memória automática, outros plugins e controle do computador não fazem parte desta entrega.
+
+O arquivo de credenciais padrão é `~/Documentos/Chaves de API - Cavren` (o nome histórico do arquivo é preservado). A variável `LUNVRI_CREDENTIALS_FILE` permite indicar outro arquivo. O parser aceita somente os nomes dos seis provedores, no formato `Provedor: chave` ou uma variável conhecida `NOME_API_KEY=chave`. Credenciais existentes no cofre têm prioridade. Cloudflare também precisa do identificador da conta, já presente na configuração do motor nesta máquina. Não inclua esse arquivo no repositório.
 
 ## Verificação
 
-Foram verificados 12 testes de contrato, autorização, origem, modo, modelo, streaming, contexto e cancelamento, sem chamadas a provedores nos testes automatizados.
+Os testes automatizados verificam contrato, autorização, origem, modo, modelo, streaming, contexto, cancelamento, leitura de anexos, propriedade de arquivos, capacidades e os formatos nativos de geração de imagens e vídeo. Esses testes usam transporte simulado, sem consumir APIs pagas.
+
+Nesta atualização, 23 testes automatizados passaram. As seis APIs aceitaram a consulta de catálogo; a lista final possui 618 opções de conversa e imagem, incluindo 66 geradores de imagens. Documentos e imagens foram anexados e interpretados por um modelo real na interface; as conversas e os anexos persistiram após recarregar. A animação lateral foi observada durante a geração e a resposta foi conferida sem avatar. O modo Insight também respondeu corretamente 391 ao teste 17 × 23 nesta versão final. Vídeos e geração de imagens têm testes de transporte/contrato; não houve chamada paga para gerar imagem nesta validação.
 
 A compilação de produção passou. A checagem de tipos da versão original apresenta 6.040 erros; esta adaptação apresenta 6.022, sem diagnósticos novos na comparação por arquivo e mensagem. A checagem global continua falhando por problemas anteriores do projeto base.
 
@@ -96,12 +101,14 @@ Comandos dos testes:
 ```bash
 PYTHONPATH=../cavren-nextchat/src ../cavren-nextchat/.venv/bin/python -m unittest discover -s tests -p test_lunvri_bridge.py -v
 PYTHONPATH=backend .cavren/venv/bin/python -m unittest discover -s tests -p test_lunvri_local.py -v
+PYTHONPATH=../cavren-nextchat/src ../cavren-nextchat/.venv/bin/python -m unittest discover -s tests -p test_lunvri_media.py -v
+PYTHONPATH=backend .cavren/venv/bin/python -m unittest discover -s tests -p test_lunvri_attachments.py -v
 ```
 
 Compilação:
 
 ```bash
-PATH="$PWD/.cavren/runtime/node/bin:$PATH" npm run build
+NODE_OPTIONS=--max-old-space-size=8192 PATH="$PWD/.cavren/runtime/node/bin:$PATH" npm run build
 ```
 
 ## Licença e identidade visual

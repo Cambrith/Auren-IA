@@ -1,0 +1,80 @@
+/* Exact palette from the existing Cavren theme/tokens.py. */
+html.dark {
+	--color-gray-50: #f4faff;
+	--color-gray-100: #f4faff;
+	--color-gray-200: #d7e4ef;
+	--color-gray-300: #a9bdd0;
+	--color-gray-400: #a9bdd0;
+	--color-gray-500: #71859c;
+	--color-gray-600: #50667e;
+	--color-gray-700: #2a3b50;
+	--color-gray-800: #1a2b3d;
+	--color-gray-850: #121e2d;
+	--color-gray-900: #0d1727;
+	--color-gray-950: #080d17;
+	--lunvri-accent: #0162f8;
+	--lunvri-focus: #59e0f3;
+}
+html.dark .app > div {
+	background: #080d17;
+}
+html.dark body {
+	background: #080d17;
+	color: #f4faff;
+}
+html.dark #sidebar,
+html.dark #sidebar .sidebar {
+	background: #0d1727;
+	border-color: #2a3b50;
+}
+html.dark #chat-input-container {
+	color: #f4faff;
+}
+html.dark #message-input-container > div {
+	border-color: #2a3b50;
+}
+html.dark #send-message-button:not(:disabled) {
+	background: #0162f8;
+	color: #f4faff;
+}
+html.dark #send-message-button:not(:disabled):hover {
+	background: #089ffa;
+}
+html.dark :is(button, select, input, a):focus-visible {
+	outline: 2px solid #59e0f3;
+	outline-offset: 2px;
+}
+html.dark .lunvri-response a {
+	color: #21d4fb;
+}
+.lunvri-response {
+	padding-left: 0;
+}
+.lunvri-response [id='response-content-container'] {
+	overflow-wrap: anywhere;
+}
+.lunvri-working {
+	color: #a9bdd0;
+	font-size: 12px;
+	margin: 6px 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.lunvri-response [id='response-content-container'] > * {
+		animation: lunvri-text-arrive 180ms ease-out;
+	}
+}
+@keyframes lunvri-text-arrive {
+	from {
+		opacity: 0.65;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+html.dark .lunvri-navbar {
+	background: #080d17;
+}
+.lunvri-navbar #navbar-bg-gradient-to-b {
+	display: none;
+}
