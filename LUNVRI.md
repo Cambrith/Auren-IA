@@ -119,3 +119,9 @@ em um período móvel de 30 dias descrita na licença. Uma distribuição acima 
 limite precisa respeitar as condições de branding ou obter a permissão aplicável.
 
 DeepSeek: a API direta permanece desativada. No OpenRouter, apenas variantes `:free` com preços zero são aceitas. No Cloudflare, somente `@cf/deepseek-ai/deepseek-r1-distill-qwen-32b` é permitido quando `.cavren/provider_policy.json` registra `cloudflare_workers_free: true`, conforme o plano informado pelo usuário. Se o plano mudar para Paid, retire essa confirmação antes de usar o modelo. Variantes pagas ou sem confirmação ficam bloqueadas.
+
+## Aplicativo do KDE
+
+Execute `python scripts/install_lunvri_desktop.py` para substituir o atalho pessoal Cavren pela Lunvri. O identificador `cavren.desktop` é mantido para preservar favoritos; o atalho anterior fica em `.cavren/desktop-backup/cavren.desktop`. O instalador atualiza somente o menu do usuário e cria `lunvri.service`, iniciado sob demanda pelo app, sem habilitar execução no login.
+
+`scripts/run_lunvri.sh` abre uma janela Qt maximizada com perfil persistente próprio. Abrir novamente ativa a janela existente. O serviço mantém interface e ponte disponíveis em `127.0.0.1:8175`, mesmo depois de fechar a janela. Para encerrá-lo, use `systemctl --user stop lunvri.service`. Conversas e anexos da Lunvri permanecem em `.cavren/data`; o histórico anterior da Cavren é preservado, sem migração automática. O app ainda usa o ambiente e motor de `../cavren-nextchat`, que precisa permanecer instalado.
