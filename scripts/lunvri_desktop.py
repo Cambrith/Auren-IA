@@ -21,7 +21,9 @@ def main():
     app.setApplicationName('Lunvri')
     app.setOrganizationName('Cambrith')
     app.setDesktopFileName('cavren')
-    app.setWindowIcon(QIcon(str(ROOT / 'static/lunvri-logo.png')))
+    QIcon.setThemeSearchPaths([str(Path.home() / '.local/share/icons'), '/usr/share/icons', *QIcon.themeSearchPaths()])
+    QIcon.setFallbackThemeName('hicolor')
+    app.setWindowIcon(QIcon.fromTheme('lunvri', QIcon(str(ROOT / 'static/lunvri-icon.png'))))
     instance = f'lunvri-desktop-{os.getuid()}'
     lock = QLockFile(str(Path(os.environ['XDG_RUNTIME_DIR']) / (instance + '.lock')))
     if not lock.tryLock(0):

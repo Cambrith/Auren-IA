@@ -17,6 +17,12 @@ def main():
     backup.parent.mkdir(parents=True, exist_ok=True)
     if desktop.exists() and not backup.exists():
         shutil.copy2(desktop, backup)
+    icons = Path.home() / '.local/share/icons/hicolor'
+    source_icons = ROOT.parent / 'cavren-nextchat/src/cavren/assets/hicolor'
+    for source in source_icons.glob('*/apps/cavren.png'):
+        target = icons / source.relative_to(source_icons).parent / 'lunvri.png'
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
     desktop.write_text(f'''[Desktop Entry]
 Type=Application
 Version=1.0
@@ -24,7 +30,7 @@ Name=Lunvri
 GenericName=Assistente de inteligência artificial
 Comment=Espaço de trabalho Lunvri
 Exec="{ROOT}/scripts/run_lunvri.sh"
-Icon={ROOT}/static/lunvri-logo.png
+Icon=lunvri
 Terminal=false
 Categories=Utility;
 StartupNotify=true

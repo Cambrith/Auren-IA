@@ -59,13 +59,18 @@ html.dark .lunvri-response a {
 	margin: 6px 0;
 }
 @media (prefers-reduced-motion: no-preference) {
-	.lunvri-response [id='response-content-container'] > * {
+	.lunvri-response .fade-in-token {
 		animation: lunvri-text-arrive 180ms ease-out;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.lunvri-response .fade-in-token {
+		animation: none;
 	}
 }
 @keyframes lunvri-text-arrive {
 	from {
-		opacity: 0.65;
+		opacity: 0.45;
 	}
 	to {
 		opacity: 1;
