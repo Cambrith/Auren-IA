@@ -465,9 +465,9 @@
 
 	// Chat Input
 	let prompt = '';
-	let chatFiles = [];
+	let chatFiles: any[] = [];
 	let files: any[] = [];
-	let params = {};
+	let params: Record<string, any> = {};
 	let chatVariables = {};
 	let showChatVariablesModal = false;
 	let loadedChatIdProp = '';
@@ -3425,7 +3425,8 @@
 			content: inputContent,
 			files: _files.length > 0 ? _files : undefined,
 			timestamp: Math.floor(Date.now() / 1000), // Unix epoch
-			models: selectedModels
+			models: selectedModels,
+			cavren_mode_id: params.cavren_mode_id ?? 'ether'
 		};
 
 		// A transcribed Bridge message already exists in the same history.
@@ -3642,6 +3643,19 @@
 		}
 		if (selectedModels.includes('')) {
 			toast.error($i18n.t('Model not selected'));
+			return { status: 'rejected' };
+		}
+		const cavrenModel = $models.find((model) => model.id === selectedModels[0]);
+		const cavrenInfo = (cavrenModel as any)?.cavren;
+		if (
+			cavrenModel?.id.startsWith('cavren:') &&
+			cavrenInfo?.price_kind &&
+			cavrenInfo.price_kind !== 'free' &&
+			params.cavren_billing_confirmed !== true
+		) {
+			toast.warning(
+				'Este modelo precisa de confirmação de custo. Confirme no topo ou escolha Automático.'
+			);
 			return { status: 'rejected' };
 		}
 		const form = getChatVariablesForm(selectedModelIds, chatVariables, $models);
@@ -4109,6 +4123,13 @@
 			{
 				stream: stream,
 				model: model.id,
+				...(model.id.startsWith('cavren:')
+					? {
+							cavren_mode_id: userMessage?.cavren_mode_id ?? params.cavren_mode_id ?? 'ether',
+							cavren_web_search: params.cavren_web_search === true,
+							cavren_billing_confirmed: params.cavren_billing_confirmed === true
+						}
+					: {}),
 				...(messages.length > 0 ? { messages } : {}),
 				params: {
 					...$settings?.params,
@@ -4332,6 +4353,7 @@
 			user: { id: $user?.id, name: $user?.name },
 			content: userPrompt,
 			models: selectedModels,
+			cavren_mode_id: params.cavren_mode_id ?? 'ether',
 			timestamp: Math.floor(Date.now() / 1000) // Unix epoch
 		};
 
@@ -4533,9 +4555,15 @@
 		if (isShared) return;
 		if (!$chatId || $temporaryChatEnabled) return;
 		const loaded = chat?.chat ?? {};
-		if (equal(params, loaded.params ?? {}) && equal(chatFiles, loaded.files ?? [])) return;
+		if (
+			equal(params, loaded.params ?? {}) &&
+			equal(chatFiles, loaded.files ?? []) &&
+			equal(selectedModels, loaded.models ?? [])
+		)
+			return;
 
 		const res = await updateChatById(localStorage.token, $chatId, {
+			models: selectedModels,
 			params,
 			files: chatFiles
 		}).catch((err) => {
@@ -4903,6 +4931,22 @@
 						<Navbar
 							bind:this={navbarElement}
 							readOnly={isShared}
+							bind:selectedModels
+							generating={generating || !!taskIds?.length}
+							cavrenOptions={{
+								mode_id: params.cavren_mode_id ?? 'ether',
+								web_search: params.cavren_web_search === true,
+								billing_confirmed: params.cavren_billing_confirmed === true
+							}}
+							onCavrenChange={(options) => {
+								params = {
+									...params,
+									cavren_mode_id: options.mode_id,
+									cavren_web_search: options.web_search,
+									cavren_billing_confirmed: options.billing_confirmed
+								};
+								saveControls();
+							}}
 							chat={{
 								id: $chatId,
 								archived: chat?.archived ?? false,

@@ -94,6 +94,7 @@
 
 	$: models = selectedModels.map((id) => $_models.find((m) => m.id === id));
 	$: selectedModel = atSelectedModel ?? models[selectedModelIdx];
+	$: cavrenActive = selectedModel?.id?.startsWith('cavren:');
 	$: selectedModelName = resolveLocalizedModelName(selectedModel, $i18n.language);
 	$: selectedModelDescription = resolveLocalizedModelDescription(selectedModel, $i18n.language);
 	$: selectedSuggestionPrompts =
@@ -183,7 +184,9 @@
 						class=" text-2xl @sm:text-2xl line-clamp-1 flex items-center"
 						in:fade={{ duration: 100 }}
 					>
-						{#if selectedModelName}
+						{#if cavrenActive}
+							<span class="text-3xl tracking-tight">Lunvri</span>
+						{:else if selectedModelName}
 							<Tooltip content={selectedModelName} placement="top" className=" flex items-center ">
 								<span class="line-clamp-1">
 									{selectedModelName}
@@ -197,7 +200,11 @@
 
 				<div class="flex mt-1 mb-2">
 					<div in:fade={{ duration: 100, delay: 50 }}>
-						{#if selectedModelDescription}
+						{#if cavrenActive}
+							<p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+								Um espaço para suas ideias, perguntas e projetos.
+							</p>
+						{:else if selectedModelDescription}
 							<Tooltip
 								className=" w-fit"
 								content={DOMPurify.sanitize(

@@ -866,6 +866,14 @@ app.add_middleware(
 
 app.mount('/ws', socket_app)
 
+if os.getenv('LUNVRI_LOCAL_PREVIEW') == '1':
+    from open_webui.utils.lunvri_local import LunvriLocalMiddleware
+
+    app.add_middleware(
+        LunvriLocalMiddleware,
+        origins=os.environ['LUNVRI_LOCAL_ORIGINS'].split(';'),
+    )
+
 
 app.include_router(ollama.router, prefix='/ollama', tags=['ollama'])
 app.include_router(openai.router, prefix='/openai', tags=['openai'])
