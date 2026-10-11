@@ -117,3 +117,5 @@ Os avisos de copyright e o arquivo LICENSE do Open WebUI permanecem no projeto.
 Esta adaptação pessoal de marca se enquadra na exceção de até 50 usuários finais
 em um período móvel de 30 dias descrita na licença. Uma distribuição acima desse
 limite precisa respeitar as condições de branding ou obter a permissão aplicável.
+
+DeepSeek: a API direta permanece desativada. No OpenRouter, apenas variantes `:free` com preços zero são aceitas. No Cloudflare, somente `@cf/deepseek-ai/deepseek-r1-distill-qwen-32b` é permitido quando `.cavren/provider_policy.json` registra `cloudflare_workers_free: true`, conforme o plano informado pelo usuário. Se o plano mudar para Paid, retire essa confirmação antes de usar o modelo. Variantes pagas ou sem confirmação ficam bloqueadas.

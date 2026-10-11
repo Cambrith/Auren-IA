@@ -7,6 +7,7 @@ import os
 import re
 import threading
 import time
+from decimal import Decimal, InvalidOperation
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -86,13 +87,30 @@ def capabilities(provider, raw, model_id):
     }
 
 
+def cloudflare_free_plan():
+    try:
+        return json.loads((STATE / 'provider_policy.json').read_text()).get('cloudflare_workers_free') is True
+    except (OSError, ValueError, AttributeError):
+        return False
+
+
+def deepseek_allowed(provider, model_id, free):
+    if 'deepseek' not in (provider + ':' + model_id).casefold():
+        return True
+    if provider == 'openrouter':
+        return model_id.endswith(':free') and free
+    if provider == 'cloudflare':
+        # Only this documented Free-plan model is allowed; new/paid variants stay blocked.
+        return model_id == '@cf/deepseek-ai/deepseek-r1-distill-qwen-32b' and cloudflare_free_plan()
+    return False
+
+
 def public_model(provider, raw):
-    if any(
-        'deepseek' in str(value).casefold()
-        for value in (provider, raw.get('id'), raw.get('name'), raw.get('displayName'))
-    ):
-        return None
-    model_id = raw.get('id') or raw.get('name') or ''
+    model_id = (
+        (raw.get('name') or raw.get('id') or '')
+        if provider == 'cloudflare'
+        else (raw.get('id') or raw.get('name') or '')
+    )
     model_id = model_id.removeprefix('models/') if provider == 'gemini' else model_id
     if not model_id or raw.get('archived') or raw.get('active') is False:
         return None
@@ -119,6 +137,20 @@ def public_model(provider, raw):
         and str(price.get('prompt')) in ('0', '0.0')
         and str(price.get('completion')) in ('0', '0.0')
     )
+    if provider == 'openrouter' and 'deepseek' in model_id.casefold():
+        try:
+            free = free and all(Decimal(str(value)) == 0 for value in price.values())
+        except (InvalidOperation, ValueError):
+            free = False
+    if not deepseek_allowed(provider, model_id, free):
+        return None
+    if provider == 'cloudflare' and 'deepseek' in model_id.casefold():
+        if any(
+            p.get('property_id') == 'require_workers_paid' and str(p.get('value')).lower() == 'true'
+            for p in raw.get('properties', [])
+        ):
+            return None
+        free = True
     label = raw.get('displayName') or raw.get('display_name') or raw.get('name') or model_id
     route = f'{provider}:{model_id}'
     info = {
@@ -252,9 +284,14 @@ def catalog(refresh=False):
 
 
 def cached_model(id):
-    if 'deepseek' in id.casefold():
-        return None
     try:
-        return next((m for m in json.loads((STATE / 'models.json').read_text())['models'] if m['id'] == id), None)
+        model = next((m for m in json.loads((STATE / 'models.json').read_text())['models'] if m['id'] == id), None)
+        if model:
+            info = model['cavren']
+            if not deepseek_allowed(
+                info.get('provider', ''), info.get('model_id', id), info.get('price_kind') == 'free'
+            ):
+                return None
+        return model
     except (FileNotFoundError, ValueError, KeyError):
         return None

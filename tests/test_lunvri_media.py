@@ -67,6 +67,41 @@ class MediaTests(unittest.TestCase):
         ]:
             self.assertIsNone(public_model(provider, {'id': model_id}))
 
+    def test_deepseek_only_free_proxy_routes_are_allowed(self):
+        raw = {'id': 'deepseek/test:free', 'pricing': {'prompt': '0', 'completion': '0'}}
+        self.assertEqual(public_model('openrouter', raw)['cavren']['price_kind'], 'free')
+        self.assertIsNone(public_model('openrouter', dict(raw, pricing={'prompt': '0.01', 'completion': '0'})))
+        self.assertIsNone(public_model('openrouter', dict(raw, id='deepseek/test')))
+        self.assertIsNone(
+            public_model('openrouter', dict(raw, pricing={'prompt': '0', 'completion': '0', 'request': '1'}))
+        )
+        with patch('integration.lunvri_connections.cloudflare_free_plan', return_value=True):
+            model = public_model(
+                'cloudflare',
+                {
+                    'id': 'catalog-uuid',
+                    'name': '@cf/deepseek-ai/deepseek-r1-distill-qwen-32b',
+                    'task': {'name': 'Text Generation'},
+                },
+            )
+            self.assertEqual(model['cavren']['price_kind'], 'free')
+            self.assertIsNone(
+                public_model(
+                    'cloudflare', {'id': '@cf/deepseek-ai/deepseek-v4-flash-0731', 'task': {'name': 'Text Generation'}}
+                )
+            )
+        with patch('integration.lunvri_connections.cloudflare_free_plan', return_value=False):
+            self.assertIsNone(
+                public_model(
+                    'cloudflare',
+                    {
+                        'id': 'catalog-uuid',
+                        'name': '@cf/deepseek-ai/deepseek-r1-distill-qwen-32b',
+                        'task': {'name': 'Text Generation'},
+                    },
+                )
+            )
+
     def test_specialized_models_are_not_chat_options(self):
         self.assertIsNone(
             public_model('gemini', {'name': 'models/embedding', 'supportedGenerationMethods': ['embedContent']})
