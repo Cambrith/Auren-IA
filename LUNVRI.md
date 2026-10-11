@@ -9,7 +9,7 @@ O fork é `Cambrith/Lunvri-IA`; o código original permanece como remote `upstre
 - Logo somente na barra lateral, animada durante a geração, com deslocamento máximo de 4 px e respeito à preferência de movimento reduzido. Respostas sem avatar ou cabeçalho da IA.
 - Seletor de modo no topo: Éter, Ímpeto, Insight e Arquiteto.
 - Seletor de modelo independente, com busca: Automático, rotas integradas e modelos de conversa/imagem descobertos nas APIs configuradas.
-- Conexões Gemini, Groq, Mistral, OpenRouter, Cloudflare e DeepSeek, usando o cofre existente e o arquivo local para conexões ausentes.
+- Conexões Gemini, Groq, Mistral, OpenRouter e Cloudflare, usando o cofre existente e o arquivo local para conexões ausentes.
 - Anexos de imagens e vídeos conforme a capacidade declarada pelo modelo; documentos extraídos localmente.
 - Geração de imagens nativa de Gemini e OpenRouter, retornada como anexo da resposta.
 - Preservação da escolha de modo e modelo por conversa; cada mensagem registra seu modo.
@@ -84,13 +84,13 @@ Os documentos aceitos incluem PDF com texto, DOCX, XLSX, CSV, TXT, Markdown e ar
 
 Vídeos são enviados como dados locais às rotas que declaram suporte (Gemini e modelos compatíveis no OpenRouter). A pesquisa usa o SearXNG existente. A geração de imagens usa os endpoints nativos dos provedores; as chaves permanecem na ponte. Voz, memória automática, outros plugins e controle do computador não fazem parte desta entrega.
 
-O arquivo de credenciais padrão é `~/Documentos/Chaves de API - Cavren` (o nome histórico do arquivo é preservado). A variável `LUNVRI_CREDENTIALS_FILE` permite indicar outro arquivo. O parser aceita somente os nomes dos seis provedores, no formato `Provedor: chave` ou uma variável conhecida `NOME_API_KEY=chave`. Credenciais existentes no cofre têm prioridade. Cloudflare também precisa do identificador da conta, já presente na configuração do motor nesta máquina. Não inclua esse arquivo no repositório.
+O arquivo de credenciais padrão é `~/Documentos/Chaves de API - Cavren` (o nome histórico do arquivo é preservado). A variável `LUNVRI_CREDENTIALS_FILE` permite indicar outro arquivo. O parser aceita somente os nomes dos cinco provedores, no formato `Provedor: chave` ou uma variável conhecida `NOME_API_KEY=chave`. Credenciais existentes no cofre têm prioridade. Cloudflare também precisa do identificador da conta, já presente na configuração do motor nesta máquina. Não inclua esse arquivo no repositório.
 
 ## Verificação
 
 Os testes automatizados verificam contrato, autorização, origem, modo, modelo, streaming, contexto, cancelamento, leitura de anexos, propriedade de arquivos, capacidades e os formatos nativos de geração de imagens e vídeo. Esses testes usam transporte simulado, sem consumir APIs pagas.
 
-Nesta atualização, 23 testes automatizados passaram. As seis APIs aceitaram a consulta de catálogo; a lista final possui 618 opções de conversa e imagem, incluindo 66 geradores de imagens. Documentos e imagens foram anexados e interpretados por um modelo real na interface; as conversas e os anexos persistiram após recarregar. A animação lateral foi observada durante a geração e a resposta foi conferida sem avatar. O modo Insight também respondeu corretamente 391 ao teste 17 × 23 nesta versão final. Vídeos e geração de imagens têm testes de transporte/contrato; não houve chamada paga para gerar imagem nesta validação.
+Nesta atualização, 24 testes automatizados passaram. As cinco APIs configuradas aceitaram a consulta de catálogo. O catálogo é atualizado com as opções de conversa e imagem disponíveis nos provedores. Documentos e imagens foram anexados e interpretados por um modelo real na interface; as conversas e os anexos persistiram após recarregar. A animação lateral foi observada durante a geração e a resposta foi conferida sem avatar. O modo Insight também respondeu corretamente 391 ao teste 17 × 23 nesta versão final. Vídeos e geração de imagens têm testes de transporte/contrato; não houve chamada paga para gerar imagem nesta validação.
 
 A compilação de produção passou. A checagem de tipos da versão original apresenta 6.040 erros; esta adaptação apresenta 6.022, sem diagnósticos novos na comparação por arquivo e mensagem. A checagem global continua falhando por problemas anteriores do projeto base.
 

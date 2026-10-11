@@ -14,8 +14,8 @@ from cavren.models import Message
 class MediaTests(unittest.TestCase):
     def test_credentials_parser_accepts_known_labels_only(self):
         self.assertEqual(
-            parse_credentials('DeepSeek: test-secret\nGEMINI_API_KEY=other-secret\nUnknown: ignored'),
-            {'DEEPSEEK_API_KEY': 'test-secret', 'GEMINI_API_KEY': 'other-secret'},
+            parse_credentials('Mistral: test-secret\nGEMINI_API_KEY=other-secret\nUnknown: ignored'),
+            {'MISTRAL_API_KEY': 'test-secret', 'GEMINI_API_KEY': 'other-secret'},
         )
 
     def test_capabilities_come_from_provider_metadata(self):
@@ -58,6 +58,15 @@ class MediaTests(unittest.TestCase):
         )
         self.assertEqual(model['cavren']['price_kind'], 'unknown')
 
+    def test_retired_provider_and_proxy_models_are_excluded(self):
+        self.assertEqual(parse_credentials('DeepSeek: removed-secret'), {})
+        for provider, model_id in [
+            ('deepseek', 'test-chat'),
+            ('openrouter', 'deepseek/test-chat'),
+            ('cloudflare', '@cf/deepseek-ai/test-chat'),
+        ]:
+            self.assertIsNone(public_model(provider, {'id': model_id}))
+
     def test_specialized_models_are_not_chat_options(self):
         self.assertIsNone(
             public_model('gemini', {'name': 'models/embedding', 'supportedGenerationMethods': ['embedContent']})
@@ -67,7 +76,7 @@ class MediaTests(unittest.TestCase):
     def test_manual_cost_and_image_support_are_enforced_before_worker(self):
         models = [
             {
-                'id': 'cavren:deepseek:deepseek-chat',
+                'id': 'cavren:mistral:test-chat',
                 'cavren': {'integrated': False, 'price_kind': 'unknown', 'capabilities': {'image_generation': False}},
             }
         ]
@@ -77,7 +86,7 @@ class MediaTests(unittest.TestCase):
                 bridge.prepare_job(body, 'test')
             job = bridge.prepare_job({**body, 'cavren_billing_confirmed': True}, 'test')
             self.assertTrue(job['lunvri_direct'])
-            self.assertEqual(job['mode_options']['manual_route'], 'deepseek:deepseek-chat')
+            self.assertEqual(job['mode_options']['manual_route'], 'mistral:test-chat')
             with self.assertRaisesRegex(ValueError, 'suporte'):
                 bridge.prepare_job({**body, 'cavren_billing_confirmed': True, 'lunvri_image_generation': True}, 'test')
 

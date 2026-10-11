@@ -12,7 +12,7 @@ from pathlib import Path
 
 import httpx
 
-from cavren.config import ProviderConfig, load_settings
+from cavren.config import load_settings
 from cavren.model_registry import MODEL_BY_ROUTE
 from cavren.nextchat_server import CavrenHandler, worker_env
 
@@ -21,7 +21,6 @@ KEY_LABELS = {
     'groq': 'GROQ_API_KEY',
     'mistral': 'MISTRAL_API_KEY',
     'openrouter': 'OPENROUTER_API_KEY',
-    'deepseek': 'DEEPSEEK_API_KEY',
     'cloudflare': 'CLOUDFLARE_API_TOKEN',
     'cloudfare': 'CLOUDFLARE_API_TOKEN',
     'cloudflare account id': 'CLOUDFLARE_ACCOUNT_ID',
@@ -50,7 +49,7 @@ def parse_credentials(text: str) -> dict[str, str]:
 
 
 def credentials_env() -> dict[str, str]:
-    env = worker_env()
+    env = {name: value for name, value in worker_env().items() if not name.startswith('DEEPSEEK_')}
     path = Path(os.environ.get('LUNVRI_CREDENTIALS_FILE', Path.home() / 'Documentos' / 'Chaves de API - Cavren'))
     if path.is_file():
         # Existing working credentials take priority; the file fills missing connections.
@@ -63,10 +62,6 @@ def credentials_env() -> dict[str, str]:
 def connection_settings(env=None):
     env = env or credentials_env()
     settings = load_settings(env)
-    if env.get('DEEPSEEK_API_KEY'):
-        settings.providers['deepseek'] = ProviderConfig(
-            'deepseek', 'deepseek-chat', 'https://api.deepseek.com', 'DEEPSEEK_API_KEY', env['DEEPSEEK_API_KEY']
-        )
     return settings
 
 
@@ -92,6 +87,11 @@ def capabilities(provider, raw, model_id):
 
 
 def public_model(provider, raw):
+    if any(
+        'deepseek' in str(value).casefold()
+        for value in (provider, raw.get('id'), raw.get('name'), raw.get('displayName'))
+    ):
+        return None
     model_id = raw.get('id') or raw.get('name') or ''
     model_id = model_id.removeprefix('models/') if provider == 'gemini' else model_id
     if not model_id or raw.get('archived') or raw.get('active') is False:
@@ -209,6 +209,8 @@ def catalog(refresh=False):
             )
         }
         for item in CavrenHandler._integrated_models():
+            if 'deepseek' in item['route_id'].casefold():
+                continue
             definition = MODEL_BY_ROUTE[item['route_id']]
             caps = {
                 **auto_caps,
@@ -229,10 +231,10 @@ def catalog(refresh=False):
         providers = {
             name: config
             for name, config in settings.providers.items()
-            if config.api_key and (name != 'cloudflare' or config.account_id)
+            if name != 'deepseek' and config.api_key and (name != 'cloudflare' or config.account_id)
         }
         statuses = {}
-        with ThreadPoolExecutor(max_workers=6) as pool:
+        with ThreadPoolExecutor(max_workers=5) as pool:
             futures = {name: pool.submit(discover, name, config) for name, config in providers.items()}
             for name, future in futures.items():
                 models, statuses[name] = future.result()
@@ -250,6 +252,8 @@ def catalog(refresh=False):
 
 
 def cached_model(id):
+    if 'deepseek' in id.casefold():
+        return None
     try:
         return next((m for m in json.loads((STATE / 'models.json').read_text())['models'] if m['id'] == id), None)
     except (FileNotFoundError, ValueError, KeyError):
