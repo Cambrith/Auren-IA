@@ -1,4 +1,5 @@
 <script lang="ts">
+	import AurenActivity from '../AurenActivity.svelte';
 	import { resolveLocalizedFunction } from '$lib/utils/localizedContent';
 	import { functions as localizedFunctions } from '$lib/stores';
 	import { toast } from 'svelte-sonner';
@@ -905,10 +906,21 @@
 								/>
 							{/if}
 
-							{#if !message.done && !message.error && (model?.id ?? message.model)?.startsWith('cavren:') && !hasVisibleStatus}
-								<div class="lunvri-working" role="status" aria-live="polite">
-									{hasResponseContent ? 'Redigindo a resposta…' : 'Pensando…'}
-								</div>
+							{#if !message.done && !message.error && (model?.id ?? message.model)?.startsWith('cavren:')}
+								<AurenActivity
+									description={statusEntries.filter((s) => s.action === 'image_generation').at(-1)
+										?.description ?? ''}
+									phase={statusEntries.some((s) => s.action === 'image_generation' && !s.done)
+										? 'image'
+										: hasResponseContent
+											? 'streaming'
+											: statusEntries.some((s) => s.action === 'web_search' && !s.done) &&
+												  !statusEntries.some((s) => s.action === 'web_search' && s.done)
+												? 'searching'
+												: statusEntries.some((s) => s.action === 'web_search' && s.done)
+													? 'organizing'
+													: 'waiting'}
+								/>
 							{:else if !message.done && !message.error && (hasResponseContent || !hasVisibleStatus)}
 								<div class="text-[0.9375rem] leading-relaxed">
 									<span

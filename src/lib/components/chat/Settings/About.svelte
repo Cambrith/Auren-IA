@@ -57,11 +57,40 @@
 	</h2>
 
 	<div class="flex-1 min-h-0 overflow-y-auto scrollbar-hover pr-1.5">
+		{#if $config?.auren?.local}<section class="auren-settings">
+				<h2>Auren</h2>
+				<p>
+					Assistente pessoal integrado ao Cambrith OS. A interface combina conversas, seleção de
+					modelos, pesquisa local na web e recursos de imagem compatíveis com os provedores
+					configurados.
+				</p>
+				<p>
+					Projeto pessoal mantido no fork Cambrith/Lunvri-IA. A versão indicada abaixo corresponde à
+					base Open WebUI.
+				</p>
+				<p>
+					<a href="https://github.com/Cambrith/Lunvri-IA" target="_blank" rel="noopener noreferrer"
+						>Repositório do projeto</a
+					>
+					·
+					<a
+						href="https://github.com/open-webui/open-webui"
+						target="_blank"
+						rel="noopener noreferrer">Base Open WebUI</a
+					>
+					·
+					<a
+						href="https://github.com/Cambrith/Lunvri-IA/blob/main/LICENSE"
+						target="_blank"
+						rel="noopener noreferrer">Licença e condições de uso</a
+					>
+				</p>
+			</section>{/if}
 		<!-- LICENSE covers this Open WebUI About identifier.
 		Do not alter, remove, obscure, or replace it except as LICENSE permits:
 		https://docs.openwebui.com/license. -->
 		<UserSettingSection
-			title={`${$WEBUI_NAME} ${$i18n.t('settings.personal.about.sections.version.title')}`}
+			title={`${$config?.auren?.local ? 'Open WebUI — base' : $WEBUI_NAME} ${$i18n.t('settings.personal.about.sections.version.title')}`}
 			first
 		>
 			<UserSettingRow description={$i18n.t('settings.personal.about.seeWhatSNew.description')}>

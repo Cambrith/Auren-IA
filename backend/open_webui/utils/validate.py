@@ -26,6 +26,7 @@ _SAFE_DATA_URI_RE = re.compile(rf'^data:image/({_mime_suffixes});base64,', re.IG
 _SAFE_STATIC_PATHS = frozenset(
     {
         '/user.png',
+        '/cambrith-avatar.png',
         '/favicon.png',
         '/static/favicon.png',
     }

@@ -1,4 +1,4 @@
-"""Persistent KDE window for the local Lunvri interface."""
+"""Persistent KDE window for the local Auren interface."""
 
 from pathlib import Path
 import os
@@ -11,6 +11,7 @@ from PySide6.QtNetwork import QLocalServer, QLocalSocket
 from PySide6.QtWebEngineCore import QWebEnginePage, QWebEngineProfile
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QApplication, QFileDialog, QMessageBox
+from auren_window import AurenWindow
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = 'http://127.0.0.1:8175'
@@ -18,7 +19,7 @@ URL = 'http://127.0.0.1:8175'
 
 def main():
     app = QApplication(sys.argv)
-    app.setApplicationName('Lunvri')
+    app.setApplicationName('Auren')
     app.setOrganizationName('Cambrith')
     app.setDesktopFileName('cavren')
     QIcon.setThemeSearchPaths([str(Path.home() / '.local/share/icons'), '/usr/share/icons', *QIcon.themeSearchPaths()])
@@ -33,7 +34,7 @@ def main():
             client.write(b'activate')
             client.waitForBytesWritten(1000)
         return 0
-    profile = QWebEngineProfile('Lunvri', app)
+    profile = QWebEngineProfile('Auren', app)
     profile.setPersistentStoragePath(str(ROOT / '.cavren/desktop-profile'))
     profile.setCachePath(str(ROOT / '.cavren/desktop-cache'))
     profile.setPersistentCookiesPolicy(QWebEngineProfile.PersistentCookiesPolicy.ForcePersistentCookies)
@@ -45,14 +46,15 @@ def main():
                 return False
             return super().acceptNavigationRequest(url, kind, main_frame)
 
-    view = QWebEngineView()
+    view = AurenWindow()
     view.setPage(Page(profile, view))
-    view.setWindowTitle('Lunvri')
-    view.resize(1200, 820)
-    view.showMaximized()
-    view.setHtml(
-        '<html style="background:#141018;color:#eee;font-family:sans-serif"><body><p>Iniciando Lunvri…</p></body></html>'
-    )
+    view.setWindowTitle('Auren')
+    shown = False
+    def show_ready(ok):
+        nonlocal shown
+        if ok and not shown:
+            view.showMaximized(); shown = True
+    view.loadFinished.connect(show_ready)
     server = QLocalServer(app)
     QLocalServer.removeServer(instance)
     server.listen(instance)
@@ -108,7 +110,7 @@ def main():
                     view.setUrl(QUrl(URL))
                     view.loadFinished.connect(
                         lambda ok: print(
-                            'Lunvri: interface carregada.' if ok else 'Lunvri: falha ao carregar.', flush=True
+                            'Auren: interface carregada.' if ok else 'Auren: falha ao carregar.', flush=True
                         )
                     )
                     return
@@ -117,7 +119,7 @@ def main():
         if attempts >= 180 or process.poll() not in (None, 0):
             timer.stop()
             QMessageBox.critical(
-                view, 'Lunvri', 'Não foi possível iniciar a Lunvri. Consulte o serviço lunvri.service.'
+                view, 'Auren', 'Não foi possível iniciar a Auren. Consulte o serviço lunvri.service.'
             )
 
     timer.timeout.connect(ready)

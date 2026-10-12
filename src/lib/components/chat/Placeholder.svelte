@@ -187,7 +187,7 @@
 						in:fade={{ duration: 100 }}
 					>
 						{#if cavrenActive}
-							<span class="text-3xl tracking-tight">Lunvri</span>
+							<span class="text-3xl tracking-tight">Auren</span>
 						{:else if selectedModelName}
 							<Tooltip content={selectedModelName} placement="top" className=" flex items-center ">
 								<span class="line-clamp-1">

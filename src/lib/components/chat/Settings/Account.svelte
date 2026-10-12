@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { formatBirthDate, parseBirthDate } from '$lib/utils/birthDate';
 	import { canUseApiKeys } from '$lib/utils/settings-access';
 	import { toast } from 'svelte-sonner';
 	import { onMount, getContext } from 'svelte';
@@ -45,6 +46,7 @@
 	let _gender = '';
 	let gender = '';
 	let dateOfBirth = '';
+	let birthDateText = '';
 
 	let showAPIKeys = false;
 
@@ -138,6 +140,7 @@
 	const submitHandler = async () => {
 		let variables: Record<string, string>;
 		try {
+			dateOfBirth = parseBirthDate(birthDateText);
 			variables = getVariablesPayload();
 		} catch (error) {
 			toast.error(`${error}`);
@@ -160,6 +163,7 @@
 			toast.error(`${error}`);
 		});
 
+		if (!updatedUser) return false;
 		const variablesRes = await updateUserVariables(localStorage.token, variables).catch((error) => {
 			toast.error(`${error}`);
 			return null;
@@ -215,6 +219,7 @@
 			_gender = ['', 'male', 'female'].includes(gender) ? gender : 'custom';
 
 			dateOfBirth = user?.date_of_birth ?? '';
+			birthDateText = formatBirthDate(dateOfBirth);
 		}
 
 		const userVariables = await getUserVariables(localStorage.token).catch((error) => {
@@ -331,9 +336,13 @@
 			>
 				<input
 					class="{inputClass} dark:scheme-dark"
-					type="date"
+					type="text"
+					inputmode="numeric"
+					placeholder="DD/MM/AAAA"
+					maxlength="10"
+					autocomplete="bday"
 					aria-label={$i18n.t('settings.personal.account.birthDate.label')}
-					bind:value={dateOfBirth}
+					bind:value={birthDateText}
 				/>
 			</UserSettingField>
 		</UserSettingSection>
@@ -379,13 +388,19 @@
 			</div>
 		</section>
 
-		{#if $config?.features.enable_login_form && $config?.features.enable_password_change_form}
+		{#if !$config?.auren?.local && $config?.features.enable_login_form && $config?.features.enable_password_change_form}
 			<UserSettingSection title={$i18n.t('settings.personal.account.sections.password.title')}>
 				<UpdatePassword />
 			</UserSettingSection>
 		{/if}
 
-		<UserSettingSection title={$i18n.t('Multi-factor authentication')}><Mfa /></UserSettingSection>
+		{#if !$config?.auren?.local}
+			<UserSettingSection title={$i18n.t('Multi-factor authentication')}><Mfa /></UserSettingSection
+			>
+		{:else}<p class="text-xs text-gray-500">
+				A sessão desta instalação é local. Senha e autenticação multifator são usadas quando o
+				acesso por contas está habilitado.
+			</p>{/if}
 
 		{#if canUseApiKeys({ user: $user, config: $config })}
 			<UserSettingSection title={$i18n.t('settings.personal.account.sections.apiKeys.title')}>

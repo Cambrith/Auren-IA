@@ -19,8 +19,8 @@ from cavren.core import Cavren
 from cavren.prompt_adapter import OpenAIChatPromptAdapter
 
 MODELS = [
-    {"id": "cavren:auto", "name": "Lunvri"},
-    {"id": "cavren:groq:qwen/qwen3-32b", "name": "Lunvri"},
+    {"id": "cavren:auto", "name": "Auren"},
+    {"id": "cavren:groq:qwen/qwen3-32b", "name": "Auren"},
 ]
 
 
@@ -62,7 +62,7 @@ class BridgeTests(unittest.TestCase):
     def test_catalog_is_authenticated_and_keeps_identity(self):
         status, data = self.request('GET', '/v1/models')
         self.assertEqual(status, 200)
-        self.assertTrue(all(model['name'] == 'Lunvri' for model in json.loads(data)['data']))
+        self.assertTrue(all(model['name'] == 'Auren' for model in json.loads(data)['data']))
 
     def test_mode_and_manual_model_remain_independent(self):
         body = {
@@ -101,8 +101,8 @@ job = json.load(sys.stdin)
 print(json.dumps({"type": "generation.searching"}), flush=True)
 print(json.dumps({"type": "generation.sources", "sources": [{"title": "Fonte de teste", "url": "https://example.org", "snippet": "Trecho de teste"}]}), flush=True)
 print(json.dumps({"type": "generation.files", "files": [{"type": "image", "url": "data:image/png;base64,aW1hZ2U="}]}), flush=True)
-print(json.dumps({"type": "generation.delta", "text": "Olá, Lunvri!"}), flush=True)
-print(json.dumps({"type": "generation.completed", "response": {"text": "Olá, Lunvri!", "provider": "test", "model": "test", "public_mode": job["mode_id"], "fallback_index": 0, "usage": {"input_tokens": 3, "output_tokens": 4, "total_tokens": 7}}}), flush=True)
+print(json.dumps({"type": "generation.delta", "text": "Olá, Auren!"}), flush=True)
+print(json.dumps({"type": "generation.completed", "response": {"text": "Olá, Auren!", "provider": "test", "model": "test", "public_mode": job["mode_id"], "fallback_index": 0, "usage": {"input_tokens": 3, "output_tokens": 4, "total_tokens": 7}}}), flush=True)
 ''')
             with (
                 patch.object(bridge, 'WORKER', worker),
@@ -116,12 +116,12 @@ print(json.dumps({"type": "generation.completed", "response": {"text": "Olá, Lu
                 status, data = self.request('POST', '/v1/chat/completions', body)
                 self.assertEqual(status, 200)
                 payload = json.loads(data)
-                self.assertEqual(payload['choices'][0]['message']['content'], 'Olá, Lunvri!')
+                self.assertEqual(payload['choices'][0]['message']['content'], 'Olá, Auren!')
                 self.assertEqual(payload['cavren']['public_mode'], 'arquiteto')
                 self.assertEqual(payload['usage']['total_tokens'], 7)
                 status, data = self.request('POST', '/v1/chat/completions', {**body, 'stream': True})
                 self.assertEqual(status, 200)
-                self.assertIn('Olá, Lunvri!', data)
+                self.assertIn('Olá, Auren!', data)
                 self.assertIn('data: [DONE]', data)
                 self.assertIn('"finish_reason": "stop"', data)
                 self.assertIn('"type": "source"', data)
@@ -181,7 +181,7 @@ print(json.dumps({"type": "generation.completed", "response": {"text": "Olá, Lu
         self.assertEqual([m.role for m in routed], ['system', 'system', 'user', 'user'])
         payload = OpenAIChatPromptAdapter().adapt(routed, provider='cloudflare')
         self.assertEqual([m['role'] for m in payload], ['system', 'user', 'user'])
-        self.assertEqual(payload[0]['content'], 'Identidade Lunvri\n\nModelo atual')
+        self.assertEqual(payload[0]['content'], 'Identidade Auren\n\nModelo atual')
         self.assertEqual(payload[-1]['content'], 'Pergunta')
 
 

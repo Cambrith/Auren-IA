@@ -204,6 +204,49 @@
 		};
 	});
 
+	onMount(() => {
+		const nativeAction = async (event: Event) => {
+			if (!document.body.classList.contains('auren-desktop')) return;
+			const action = (event as CustomEvent<string>).detail;
+			if (action === 'sidebar') showSidebar.update((value) => !value);
+			else if (action === 'controls') showControls.update((value) => !value);
+			else if (['settings', 'shortcuts', 'about'].includes(action))
+				showSettings.set(action === 'settings' ? 'general' : action);
+			else if (action === 'new-chat') {
+				const button = document.getElementById('sidebar-new-chat-button');
+				if (button) button.click();
+				else await goto('/');
+			} else if (action === 'attach') {
+				const input = document.querySelector<HTMLInputElement>('#auren-chat-file-input');
+				if (input) input.click();
+				else toast.error('Abra uma conversa para anexar um arquivo.');
+			} else if (action === 'export') {
+				if (!$chatId) {
+					toast.error('Abra uma conversa salva para exportar.');
+					return;
+				}
+				try {
+					const { getChatById } = await import('$lib/apis/chats');
+					const chat = await getChatById(localStorage.token, $chatId);
+					const url = URL.createObjectURL(
+						new Blob([JSON.stringify([chat], null, 2)], { type: 'application/json' })
+					);
+					const link = document.createElement('a');
+					link.href = url;
+					link.download = 'Auren-conversa.json';
+					document.body.appendChild(link);
+					link.click();
+					link.remove();
+					setTimeout(() => URL.revokeObjectURL(url), 30000);
+				} catch {
+					toast.error('Não foi possível exportar esta conversa.');
+				}
+			}
+		};
+		window.addEventListener('auren-native-action', nativeAction);
+		return () => window.removeEventListener('auren-native-action', nativeAction);
+	});
+
 	const openSettingsFromUrl = async () => {
 		const requestedSettings = $page.url.searchParams.get('settings');
 		if (!requestedSettings) {

@@ -280,6 +280,14 @@ class UpdateProfileForm(BaseModel):
         return validate_image_url(v)
 
 
+    @field_validator('date_of_birth')
+    @classmethod
+    def check_birth_date(cls, value):
+        if value and value > datetime.date.today():
+            raise ValueError('Informe uma data de nascimento válida.')
+        return value
+
+
 class UserGroupIdsModel(UserModel):
     group_ids: list[str] = []
 

@@ -23,7 +23,7 @@ class LunvriLocalMiddleware:
             if scope["type"] == "websocket":
                 await send({"type": "websocket.close", "code": 1008})
             else:
-                await JSONResponse({"detail": "A prévia Lunvri aceita somente acesso local."}, status_code=403)(
+                await JSONResponse({"detail": "A prévia Auren aceita somente acesso local."}, status_code=403)(
                     scope, receive, send
                 )
             return

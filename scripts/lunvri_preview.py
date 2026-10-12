@@ -38,7 +38,7 @@ def wait_ready(url: str, process, timeout=180):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Prévia local da Lunvri')
+    parser = argparse.ArgumentParser(description='Prévia local da Auren')
     parser.add_argument('--port', type=int, default=8175)
     parser.add_argument('--dev', action='store_true', help='Use o frontend de desenvolvimento.')
     parser.add_argument('--dev-port', type=int, default=5179)
@@ -100,13 +100,13 @@ def main():
             {
                 'DATA_DIR': str(data),
                 'STATIC_DIR': str(RUNTIME / 'static'),
-                'WEBUI_NAME': 'Lunvri',
+                'WEBUI_NAME': 'Auren',
                 'WEBUI_AUTH': 'False',
                 'WEBUI_SECRET_KEY': secret_path.read_text(),
                 'LUNVRI_LOCAL_PREVIEW': '1',
                 'LUNVRI_LOCAL_ORIGINS': ';'.join(origins),
                 'CORS_ALLOW_ORIGIN': ';'.join(origins),
-                'ENABLE_PERSISTENT_CONFIG': 'False',
+                'ENABLE_PERSISTENT_CONFIG': 'True',
                 'ENABLE_OLLAMA_API': 'False',
                 'ENABLE_OPENAI_API': 'True',
                 'OPENAI_API_BASE_URLS': f'http://127.0.0.1:{port}/v1',
@@ -204,7 +204,7 @@ def main():
             processes.append(frontend)
             wait_ready(public_url, frontend)
         (RUNTIME / 'preview.json').write_text(json.dumps({'url': public_url, 'pid': os.getpid()}))
-        print(f'Prévia Lunvri pronta: {public_url}', flush=True)
+        print(f'Prévia Auren pronta: {public_url}', flush=True)
         while all(process.poll() is None for process in processes):
             time.sleep(1)
     finally:

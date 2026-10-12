@@ -8,6 +8,7 @@ from dataclasses import replace
 import json
 from pathlib import Path
 import sys
+import signal
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -15,11 +16,11 @@ from cavren import desktop_worker
 from cavren.models import Message
 from cavren.prompt_adapter import OpenAIChatPromptAdapter
 from cavren.errors import CavrenError
-from integration.lunvri_manual import run as run_manual
+from integration.auren_fallback import run as run_manual
 
 
 def normalize_messages(messages):
-    systems = [m.content.replace("Cavren", "Lunvri") for m in messages if m.role == "system"]
+    systems = [m.content.replace("Cavren", "Auren").replace("Lunvri", "Auren") for m in messages if m.role == "system"]
     rest = [m for m in messages if m.role != "system"]
     return ([Message("system", "\n\n".join(systems))] if systems else []) + rest
 
@@ -64,10 +65,14 @@ def adapt_single_system(self, messages, *, provider=""):
 OpenAIChatPromptAdapter.adapt = adapt_single_system
 
 if __name__ == "__main__":
+    def cancel(signum, frame):
+        raise KeyboardInterrupt
+
+    signal.signal(signal.SIGTERM, cancel)
     # Dispatch manual catalog routes without adding them to automatic fallback.
     raw = sys.stdin.read()
     job = json.loads(raw)
-    if job.get('lunvri_direct'):
+    if job.get('auren_fallback', True):
         try:
             raise SystemExit(run_manual(job, normalize_messages))
         except CavrenError as error:
@@ -77,7 +82,7 @@ if __name__ == "__main__":
                         'type': 'generation.error',
                         'generation_id': job['generation_id'],
                         'code': error.code,
-                        'message': str(error).replace('Cavren', 'Lunvri'),
+                        'message': str(error).replace('Cavren', 'Auren'),
                     }
                 ),
                 flush=True,

@@ -29,11 +29,11 @@ WORKER = Path(__file__).with_name("lunvri_worker.py")
 def prepare_job(body: dict, generation_id: str) -> dict:
     mode = body.get("cavren_mode_id", DEFAULT_MODE_ID)
     if mode not in MODE_BY_ID:
-        raise ValueError("Escolha um modo Lunvri válido.")
+        raise ValueError("Escolha um modo Auren válido.")
     model = body.get("model", "")
     allowed = {item["id"]: item for item in catalog()}
     if model not in allowed:
-        raise ValueError("Escolha um modelo integrado à Lunvri.")
+        raise ValueError("Escolha um modelo integrado à Auren.")
     info = allowed[model].get('cavren', {})
     if info.get('price_kind', 'free') != 'free' and body.get('cavren_billing_confirmed') is not True:
         raise ValueError('Confirme o possível custo deste modelo antes de usá-lo.')
@@ -123,17 +123,37 @@ class BridgeHandler(BaseHTTPRequestHandler):
         if not self.authorized():
             self.error(401, "Ponte local não autorizada.", "auth")
             return
+        if self.path.split('?', 1)[0] == '/v1/auren/state':
+            from integration.auren_settings import public_state
+            try: self.respond(200, public_state(refresh='refresh=true' in self.path))
+            except (OSError, ValueError, CavrenError): self.error(503, 'Não foi possível consultar as conexões locais.')
+            return
         if self.path.split('?', 1)[0] != "/v1/models":
             self.error(404, "Recurso não encontrado.")
             return
         try:
             self.respond(200, {"object": "list", "data": catalog(refresh='refresh=true' in self.path)})
         except (OSError, ValueError, CavrenError):
-            self.error(503, "Não foi possível acessar o cofre ou catálogo da Lunvri.", "credentials")
+            self.error(503, "Não foi possível acessar o cofre ou catálogo da Auren.", "credentials")
 
     def do_POST(self):
         if not self.authorized():
             self.error(401, "Ponte local não autorizada.", "auth")
+            return
+        if self.path in ('/v1/auren/preferences', '/v1/auren/provider'):
+            from integration.auren_settings import save_preferences, save_key
+            try:
+                size = int(self.headers.get('Content-Length', '0'))
+                if not 0 < size <= 8192: raise ValueError('Pedido inválido.')
+                payload = json.loads(self.rfile.read(size))
+                if not isinstance(payload, dict): raise ValueError('Pedido inválido.')
+                if self.path.endswith('preferences'): result = save_preferences(payload)
+                else:
+                    result = save_key(payload.get('provider'), payload.get('key'), free_trial=payload.get('free_trial') is True)
+                    catalog(refresh=True)
+                self.respond(200, result)
+            except (ValueError, TypeError): self.error(400, 'Revise o provedor, o modelo e os parâmetros enviados.')
+            except (OSError, CavrenError): self.error(503, 'O cofre do sistema ou o serviço de modelos está indisponível.')
             return
         if self.path != "/v1/chat/completions":
             self.error(404, "Recurso não encontrado.")
@@ -152,7 +172,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
             generation_id = "chatcmpl-" + str(uuid4())
             job = prepare_job(body, generation_id)
             env = credentials_env()
-            env["CAVREN_MAX_TOKENS"] = str(job.pop("max_tokens"))
+            env["CAVREN_MAX_TOKENS"] = str(job["max_tokens"])
             process = subprocess.Popen(
                 [sys.executable, str(WORKER)],
                 stdin=subprocess.PIPE,
@@ -176,6 +196,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
                 self.close_connection = True
                 self.sse(self.chunk(generation_id, body["model"], {"role": "assistant"}))
             final = None
+            generated_files = []
             terminal = False
             with selectors.DefaultSelector() as selector:
                 selector.register(process.stdout, selectors.EVENT_READ)
@@ -193,6 +214,8 @@ class BridgeHandler(BaseHTTPRequestHandler):
                     kind = event.get("type")
                     if kind == "generation.delta" and streaming:
                         self.sse(self.chunk(generation_id, body["model"], {"content": event["text"]}))
+                    elif kind == "generation.fallback" and streaming:
+                        self.sse({'event': {'type': 'status', 'data': {'action': 'fallback', 'description': event['description'], 'done': True}}})
                     elif kind == "generation.searching" and streaming:
                         self.sse(
                             {
@@ -238,21 +261,24 @@ class BridgeHandler(BaseHTTPRequestHandler):
                         final = event["response"]
                         terminal = True
                         break
-                    elif kind == 'generation.files' and streaming:
-                        self.sse({'event': {'type': 'files', 'data': {'files': event['files']}}})
+                    elif kind == 'generation.files':
+                        generated_files = event['files']
+                        if streaming: self.sse({'event': {'type': 'files', 'data': {'files': event['files']}}})
+                    elif kind == 'generation.image_status' and streaming:
+                        self.sse({'event': {'type': 'status', 'data': {'action': 'image_generation', 'description': event['description'], 'done': event.get('done',False)}}})
                     elif kind == "generation.error":
                         terminal = True
                         if streaming:
                             self.sse(
                                 {
                                     "error": {
-                                        "message": event["message"].replace("Cavren", "Lunvri"),
+                                        "message": event["message"].replace("Cavren", "Auren"),
                                         "code": event["code"],
                                     }
                                 }
                             )
                         else:
-                            self.error(503, event["message"].replace("Cavren", "Lunvri"), event["code"])
+                            self.error(503, event["message"].replace("Cavren", "Auren"), event["code"])
                         break
             if not terminal:
                 if streaming:
@@ -288,6 +314,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
                             ],
                             "usage": usage,
                             "cavren": route,
+                            "files": generated_files,
                         },
                     )
             if streaming:

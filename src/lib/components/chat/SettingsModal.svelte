@@ -1,4 +1,6 @@
 <script lang="ts">
+	import AurenConnections from './Settings/AurenConnections.svelte';
+	import AurenImages from './Settings/AurenImages.svelte';
 	import english from '$lib/i18n/locales/en-US/translation.json';
 	import {
 		buildSettingsSearchIndex,
@@ -789,6 +791,21 @@
 
 	<div class="flex-1 min-w-0 min-h-0 p-4 md:px-5 flex flex-col">
 		<div class="flex-1 min-h-0 overflow-hidden">
+			{#if $config?.auren?.local && ['admin:authentication', 'admin:web', 'admin:documents', 'admin:audio', 'audio', 'admin:code-execution', 'admin:subagents', 'admin:integrations'].includes(selectedTab)}
+				<div class="auren-settings">
+					<p class="notice">
+						{selectedTab === 'admin:authentication'
+							? 'Esta instalação usa uma sessão local protegida pela ponte. Senha de login remoto e MFA só se aplicam quando o serviço é iniciado com autenticação de contas; não são necessários para salvar o perfil.'
+							: selectedTab === 'admin:web'
+								? 'A pesquisa nas conversas da Auren usa o SearXNG local pelo controle do topo. As opções abaixo pertencem ao mecanismo de pesquisa adicional do Open WebUI.'
+								: selectedTab === 'admin:documents'
+									? 'Anexos da Auren são lidos localmente ou enviados ao modelo compatível. A indexação de bases de conhecimento abaixo exige uma conexão de embeddings própria, ainda não configurada.'
+									: selectedTab.includes('audio')
+										? 'Voz depende do navegador ou de uma API de áudio configurada separadamente. A ponte de modelos da Auren oferece conversa e imagens; ela não fornece transcrição ou síntese de voz.'
+										: 'Esta seção contém recursos avançados do Open WebUI. Não há um serviço de ferramentas externas configurado no motor da Auren; configure e valide o serviço correspondente antes de utilizá-lo.'}
+					</p>
+				</div>
+			{/if}
 			{#if selectedTab === 'general'}
 				<General
 					{getModels}
@@ -856,11 +873,13 @@
 			{:else if selectedTab === 'admin:authentication'}
 				<AdminAuthentication />
 			{:else if selectedTab === 'admin:connections'}
-				<AdminConnections
-					on:save={() => {
-						toast.success($i18n.t('Settings saved successfully!'));
-					}}
-				/>
+				{#if $config?.auren?.local}<AurenConnections />{:else}
+					<AdminConnections
+						on:save={() => {
+							toast.success($i18n.t('Settings saved successfully!'));
+						}}
+					/>
+				{/if}
 			{:else if selectedTab === 'admin:models'}
 				<AdminModels bind:tabState />
 			{:else if selectedTab === 'admin:subagents'}
@@ -890,11 +909,13 @@
 					}}
 				/>
 			{:else if selectedTab === 'admin:images'}
-				<AdminImages
-					on:save={() => {
-						toast.success($i18n.t('Settings saved successfully!'));
-					}}
-				/>
+				{#if $config?.auren?.local}<AurenImages />{:else}
+					<AdminImages
+						on:save={() => {
+							toast.success($i18n.t('Settings saved successfully!'));
+						}}
+					/>
+				{/if}
 			{:else if selectedTab === 'admin:db'}
 				<AdminDatabase
 					saveHandler={() => {

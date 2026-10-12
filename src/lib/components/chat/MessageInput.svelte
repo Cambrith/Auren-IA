@@ -1174,13 +1174,17 @@
 					(file.type.startsWith('video/') && !capabilities.video) ||
 					(file.type.startsWith('audio/') && !capabilities.audio)
 				) {
-					toast.error('Escolha um modelo com suporte a este tipo de anexo.');
+					toast.error(
+						'Este modelo não aceita este anexo. Troque para um modelo com suporte a vídeos ou áudio no seletor acima.'
+					);
 					return;
 				}
 			}
 			if (isRasterImageContentType(file['type']) || isHeicImage(file)) {
 				if (visionCapableModels.length === 0) {
-					toast.error($i18n.t('Selected model(s) do not support image inputs'));
+					toast.error(
+						'Este modelo não aceita imagens. Troque para um modelo com Visão no seletor acima.'
+					);
 					return;
 				}
 
@@ -1794,6 +1798,7 @@
 			>
 				<div class="">
 					<input
+						id="auren-chat-file-input"
 						bind:this={filesInputElement}
 						bind:files={inputFiles}
 						type="file"

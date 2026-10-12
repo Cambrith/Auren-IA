@@ -3652,6 +3652,29 @@
 		}
 		const cavrenModel = $models.find((model) => model.id === selectedModels[0]);
 		const cavrenInfo = (cavrenModel as any)?.cavren;
+		if (cavrenModel?.id.startsWith('cavren:')) {
+			const attachments = [
+				...files,
+				...chatFiles,
+				...createMessagesList(history, history.currentId).flatMap((m) => m.files ?? [])
+			];
+			const caps = cavrenInfo?.capabilities ?? {};
+			const unsupported = attachments.some((file) => {
+				const mime = file.content_type ?? file.file?.meta?.content_type ?? '';
+				return (
+					((file.type === 'image' || mime.startsWith('image/')) && !caps.vision) ||
+					(mime.startsWith('video/') && !caps.video) ||
+					(mime.startsWith('audio/') && !caps.audio)
+				);
+			});
+			if (unsupported) {
+				toast.error(
+					'Este modelo não aceita um dos anexos da conversa. Troque para um modelo compatível no seletor acima. Seus anexos foram mantidos.'
+				);
+				return { status: 'rejected' };
+			}
+		}
+
 		if (
 			cavrenModel?.id.startsWith('cavren:') &&
 			cavrenInfo?.price_kind &&

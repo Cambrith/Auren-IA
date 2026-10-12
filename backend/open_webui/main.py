@@ -867,6 +867,8 @@ app.add_middleware(
 app.mount('/ws', socket_app)
 
 if os.getenv('LUNVRI_LOCAL_PREVIEW') == '1':
+    from open_webui.routers import auren
+    app.include_router(auren.router, prefix='/api/v1/auren', tags=['auren'])
     from open_webui.utils.lunvri_local import LunvriLocalMiddleware
 
     app.add_middleware(
@@ -2382,6 +2384,7 @@ async def get_app_config(request: Request):
         **({'onboarding': True} if onboarding else {}),
         'status': True,
         'name': app.state.WEBUI_NAME,
+        'auren': {'local': os.getenv('LUNVRI_LOCAL_PREVIEW') == '1', 'auth_mode': 'local' if not WEBUI_AUTH else 'authenticated'},
         'version': VERSION,
         'default_locale': str(DEFAULT_LOCALE),
         'i18n': config.get('ui.i18n') or {},

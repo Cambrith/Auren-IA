@@ -1,4 +1,4 @@
-"""Replace the personal Cavren shortcut with Lunvri, keeping a recovery copy."""
+"""Replace the personal Cavren shortcut with Auren, keeping a recovery copy."""
 
 from pathlib import Path
 import shutil
@@ -26,9 +26,9 @@ def main():
     desktop.write_text(f'''[Desktop Entry]
 Type=Application
 Version=1.0
-Name=Lunvri
+Name=Auren
 GenericName=Assistente de inteligência artificial
-Comment=Espaço de trabalho Lunvri
+Comment=Espaço de trabalho Auren
 Exec="{ROOT}/scripts/run_lunvri.sh"
 Icon=lunvri
 Terminal=false
@@ -37,7 +37,7 @@ StartupNotify=true
 StartupWMClass=cavren
 ''')
     (units / 'lunvri.service').write_text(f'''[Unit]
-Description=Lunvri - interface local e ponte de IA
+Description=Auren - interface local e ponte de IA
 After=cavren-search.service
 Wants=cavren-search.service
 
@@ -56,7 +56,7 @@ TimeoutStopSec=30
             subprocess.run(
                 [command, str(applications)] if command == 'update-desktop-database' else [command], check=True
             )
-    print('Atalho Lunvri instalado. O original está em .cavren/desktop-backup/.')
+    print('Atalho Auren instalado. O original está em .cavren/desktop-backup/.')
 
 
 if __name__ == '__main__':

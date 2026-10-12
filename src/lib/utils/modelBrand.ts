@@ -1,0 +1,83 @@
+/** Model families carry their own mark; the hosting provider remains a separate label. */
+export function modelBrand(provider = '', modelId = '', name = ''): string {
+	if (!modelId && !name) return provider === 'gemini' ? 'gemini' : provider;
+	const text = `${modelId} ${name}`.toLowerCase();
+	const families: [RegExp, string][] = [
+		[/claude/, 'claude'],
+		[/deepseek/, 'deepseek'],
+		[/qwen|\bqwq\b/, 'qwen'],
+		[/gemini|nano[- ]?banana/, 'gemini'],
+		[/gemma/, 'gemma'],
+		[/llama|meta\/|meta ·/, 'meta'],
+		[/nemotron|nvidia\//, 'nvidia'],
+		[/mistral|ministral|magistral|codestral|devstral/, 'mistral'],
+		[/command[- ]|c4ai|cohere\//, 'cohere'],
+		[/kimi/, 'kimi'],
+		[/moonshot/, 'moonshot'],
+		[/glm|z[-.]?ai\//, 'zai'],
+		[/stable[-_ ]?diffusion|sdxl|stability\//, 'stability'],
+		[/flux\.|black[- ]forest/, 'flux'],
+		[/grok|x-ai\//, 'xai'],
+		[/minimax/, 'minimax'],
+		[/arcee|trinity/, 'arcee'],
+		[/perplexity|sonar/, 'perplexity'],
+		[/bytedance|seedream/, 'bytedance'],
+		[/amazon\/|amazon ·|nova[- ]lite/, 'amazon'],
+		[/openai\/|openai ·|\bgpt[- ]|\bchatgpt|(?:^|:)openai:/, 'openai']
+	];
+	return families.find(([pattern]) => pattern.test(text))?.[1] || provider;
+}
+export const colorModelBrands = new Set([
+	'claude',
+	'gemini',
+	'mistral',
+	'nvidia',
+	'cohere',
+	'cloudflare',
+	'openrouter',
+	'qwen',
+	'deepseek',
+	'meta',
+	'stability',
+	'gemma',
+	'kimi',
+	'huggingface',
+	'google',
+	'xai',
+	'arcee',
+	'minimax',
+	'perplexity',
+	'bytedance',
+	'flux'
+]);
+export const localModelBrands = new Set([
+	'openai',
+	'anthropic',
+	'claude',
+	'gemini',
+	'groq',
+	'mistral',
+	'nvidia',
+	'cohere',
+	'cloudflare',
+	'openrouter',
+	'ollama',
+	'zai',
+	'qwen',
+	'deepseek',
+	'meta',
+	'stability',
+	'gemma',
+	'kimi',
+	'moonshot',
+	'ai21',
+	'huggingface',
+	'google',
+	'xai',
+	'arcee',
+	'minimax',
+	'perplexity',
+	'bytedance',
+	'flux',
+	'aihorde'
+]);

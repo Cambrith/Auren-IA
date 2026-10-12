@@ -1,8 +1,8 @@
-# Lunvri
+# Auren
 
 Interface de IA integrada ao Cambrith OS, baseada no Open WebUI v0.12.0 e conectada ao motor Python da assistente.
 
-A primeira prévia tem identidade Lunvri, modos Éter, Ímpeto, Insight e Arquiteto no topo, seleção independente de modelo, respostas em streaming e pesquisa opcional na web.
+A primeira prévia tem identidade Auren, modos Éter, Ímpeto, Insight e Arquiteto no topo, seleção independente de modelo, respostas em streaming e pesquisa opcional na web.
 
 Leia [LUNVRI.md](LUNVRI.md) para execução, arquitetura, testes e limites da prévia.
 
