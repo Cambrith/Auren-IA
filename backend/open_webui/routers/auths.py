@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+
 import asyncio
 import datetime
 import logging
@@ -249,7 +251,7 @@ async def update_profile(
     if session_user:
         user = await Users.update_user_by_id(
             session_user.id,
-            form_data.model_dump(),
+            {**form_data.model_dump(), 'profile_image_url': session_user.profile_image_url if form_data.profile_image_url == f'/api/v1/users/{session_user.id}/profile/image' else form_data.profile_image_url},
             db=db,
         )
         if user:
@@ -741,7 +743,8 @@ async def signin(
                 request,
                 admin_email,
                 admin_password,
-                'User',
+                'Cambrith' if os.environ.get('LUNVRI_LOCAL_PREVIEW') == '1' else 'User',
+                profile_image_url='/cambrith-avatar.png' if os.environ.get('LUNVRI_LOCAL_PREVIEW') == '1' else '/user.png',
                 db=db,
                 source='system',
             )
@@ -752,6 +755,7 @@ async def signin(
                 db=db,
             )
             user, auth = authenticated if authenticated else (None, None)
+
     else:
         if await signin_rate_limiter.is_limited(request.app.state.redis, form_data.email.lower()):
             raise HTTPException(

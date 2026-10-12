@@ -1,4 +1,5 @@
 <script lang="ts">
+	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
 	import { marked } from 'marked';
 	import Sortable from 'sortablejs';
 	import fileSaver from 'file-saver';
@@ -133,6 +134,10 @@
 			.filter(Boolean);
 
 	const modelAccessLabel = (model) => {
+		if (model?.cavren && !model?.user_id)
+			return model.cavren.provider_name
+				? `${model.cavren.provider_name} · Externo`
+				: 'Seleção automática';
 		if (isPublicModel(model)) {
 			return $i18n.t('Public');
 		}
@@ -160,7 +165,13 @@
 
 		filteredModels = models
 			.filter((m) => !selectedTag || modelTags(m).includes(selectedTag))
-			.filter((m) => searchValue === '' || m.name.toLowerCase().includes(searchValue.toLowerCase()))
+			.filter(
+				(m) =>
+					searchValue === '' ||
+					`${m.name} ${m.cavren?.provider_name ?? ''} ${m.id}`
+						.toLowerCase()
+						.includes(searchValue.toLowerCase())
+			)
 			.filter((m) => {
 				if (viewOption === 'available') return availableModelIds.has(m.id) || isPresetModel(m);
 				if (viewOption === 'unavailable') return !availableModelIds.has(m.id) && !isPresetModel(m);
@@ -171,7 +182,7 @@
 				if (viewOption === 'visible') return !(m?.meta?.hidden ?? false);
 				if (viewOption === 'hidden') return m?.meta?.hidden === true;
 				if (viewOption === 'public') return isPublicModel(m);
-				if (viewOption === 'private') return !isPublicModel(m);
+				if (viewOption === 'private') return !!m.user_id && !isPublicModel(m);
 				if (viewOption === 'selected') return defaultModelIdSet.has(m.id);
 				if (viewOption === 'pinned') return defaultPinnedModelIdSet.has(m.id);
 				return true; // All
@@ -1040,19 +1051,24 @@
 													? ''
 													: 'opacity-50 dark:opacity-50'} bg-transparent rounded-xl"
 											>
-												<img
-													src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model.id}&lang=${$i18n.language}`}
-													alt={$i18n.t('modelfile profile')}
-													class=" rounded-xl size-7 object-cover"
-													loading="lazy"
-													decoding="async"
-													on:error={(e) => {
-														// LICENSE covers this Open WebUI fallback logo.
-														// Do not alter, remove, obscure, or replace it except as LICENSE permits:
-														// https://docs.openwebui.com/license.
-														e.target.src = '/favicon.png';
-													}}
-												/>
+												{#if model?.cavren && (!model?.user_id || !model?.meta?.profile_image_url)}<AurenProviderBadge
+														provider={model.cavren.provider}
+														modelId={model.id}
+														modelName={model.name}
+														name={model.cavren.provider_name ?? 'Seleção automática'}
+													/>{:else}<img
+														src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model.id}&lang=${$i18n.language}`}
+														alt={$i18n.t('modelfile profile')}
+														class=" rounded-xl size-7 object-cover"
+														loading="lazy"
+														decoding="async"
+														on:error={(e) => {
+															// LICENSE covers this Open WebUI fallback logo.
+															// Do not alter, remove, obscure, or replace it except as LICENSE permits:
+															// https://docs.openwebui.com/license.
+															e.target.src = '/favicon.png';
+														}}
+													/>{/if}
 											</div>
 										</div>
 									</div>

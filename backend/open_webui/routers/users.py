@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import io
 import logging
+import os
 import time
 from collections import Counter
 from datetime import datetime, timedelta
@@ -12,7 +13,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
 from fastapi.responses import FileResponse, Response, StreamingResponse
 from open_webui.constants import ERROR_MESSAGES
 from open_webui.events import EVENTS, publish_event
-from open_webui.env import ENABLE_PROFILE_IMAGE_URL_FORWARDING, PROFILE_IMAGE_ALLOWED_MIME_TYPES, STATIC_DIR
+from open_webui.env import ENABLE_PROFILE_IMAGE_URL_FORWARDING, PROFILE_IMAGE_ALLOWED_MIME_TYPES, STATIC_DIR, FRONTEND_BUILD_DIR
 from open_webui.internal.db import get_async_session
 from open_webui.models.auths import Auths
 from open_webui.models.config import Config
@@ -858,6 +859,8 @@ async def get_user_profile_image_by_id(user_id: str, user=Depends(get_verified_u
     user = await Users.get_user_by_id(user_id)
     if user:
         if user.profile_image_url:
+            if os.environ.get('LUNVRI_LOCAL_PREVIEW') == '1' and user.profile_image_url == '/cambrith-avatar.png':
+                return FileResponse(FRONTEND_BUILD_DIR / 'cambrith-avatar.png')
             if user.profile_image_url.startswith('http'):
                 if ENABLE_PROFILE_IMAGE_URL_FORWARDING:
                     return Response(

@@ -946,6 +946,8 @@
 			return null;
 		}
 
+		const lunvri = selectedModelIds.every((id) => id.startsWith('cavren:'));
+		if (lunvri) process = false;
 		const tempItemId = uuidv4();
 		const fileItem: any = {
 			type: 'file',
@@ -958,6 +960,7 @@
 			size: file.size,
 			error: '',
 			itemId: tempItemId,
+			...(lunvri ? { lunvri_native: true } : {}),
 			// Stamp the user's default upload mode so the sent payload carries it;
 			// the per-file toggle in FileItemModal can still override it afterwards.
 			...($settings?.defaultUploadContext === 'full' ? { context: 'full' } : {}),
@@ -1017,6 +1020,28 @@
 			return;
 		}
 
+		if (lunvri && $temporaryChatEnabled) {
+			try {
+				const dataUrl = await new Promise<string>((resolve, reject) => {
+					const reader = new FileReader();
+					reader.onload = () => resolve(String(reader.result));
+					reader.onerror = reject;
+					reader.readAsDataURL(file);
+				});
+				Object.assign(fileItem, {
+					status: 'uploaded',
+					url: dataUrl,
+					content_type: file.type,
+					id: tempItemId
+				});
+				files = files;
+			} catch {
+				files = files.filter((item) => item.itemId !== tempItemId);
+				toast.error('Não foi possível ler o anexo.');
+			}
+			onUpdate({ file: fileItem });
+			return;
+		}
 		if (!$temporaryChatEnabled) {
 			try {
 				// If the file is an audio file, provide the language for STT.
@@ -1141,9 +1166,25 @@
 				return;
 			}
 
+			if (selectedModelIds.every((id) => id.startsWith('cavren:'))) {
+				const capabilities =
+					($models.find((model) => model.id === selectedModelIds[0]) as any)?.cavren
+						?.capabilities ?? {};
+				if (
+					(file.type.startsWith('video/') && !capabilities.video) ||
+					(file.type.startsWith('audio/') && !capabilities.audio)
+				) {
+					toast.error(
+						'Este modelo não aceita este anexo. Troque para um modelo com suporte a vídeos ou áudio no seletor acima.'
+					);
+					return;
+				}
+			}
 			if (isRasterImageContentType(file['type']) || isHeicImage(file)) {
 				if (visionCapableModels.length === 0) {
-					toast.error($i18n.t('Selected model(s) do not support image inputs'));
+					toast.error(
+						'Este modelo não aceita imagens. Troque para um modelo com Visão no seletor acima.'
+					);
 					return;
 				}
 
@@ -1757,6 +1798,7 @@
 			>
 				<div class="">
 					<input
+						id="auren-chat-file-input"
 						bind:this={filesInputElement}
 						bind:files={inputFiles}
 						type="file"
@@ -2638,14 +2680,16 @@
 
 								<div class="self-end flex space-x-1 mr-1 min-w-0 gap-[0.03125rem]">
 									<div class="flex min-w-0 max-w-[10rem] items-center sm:max-w-[13rem]">
-										<ModelSelector
-											bind:this={modelSelector}
-											bind:selectedModels
-											showSetDefault={!history?.currentId}
-											placement="auto"
-											align="end"
-											triggerClassName="items-center gap-1.5 rounded-lg pl-2 pr-1.5 py-1 text-[0.8125rem] font-normal text-gray-600 transition-colors duration-100 hover:bg-gray-50/40 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-800/40 dark:hover:text-gray-200"
-										/>
+										{#if !selectedModels.some((id) => id.startsWith('cavren:'))}
+											<ModelSelector
+												bind:this={modelSelector}
+												bind:selectedModels
+												showSetDefault={!history?.currentId}
+												placement="auto"
+												align="end"
+												triggerClassName="items-center gap-1.5 rounded-lg pl-2 pr-1.5 py-1 text-[0.8125rem] font-normal text-gray-600 transition-colors duration-100 hover:bg-gray-50/40 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-800/40 dark:hover:text-gray-200"
+											/>
+										{/if}
 									</div>
 									<ModelControls selectedModels={selectedModelIds} />
 

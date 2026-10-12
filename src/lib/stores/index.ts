@@ -1,3 +1,4 @@
+import type { AurenModelInfo } from '$lib/apis/auren';
 import { APP_NAME } from '$lib/constants';
 import { type Writable, derived, writable } from 'svelte/store';
 import type { ModelConfig } from '$lib/apis';
@@ -185,6 +186,7 @@ export const playingNotificationSound = writable(false);
 export type Model = OpenAIModel | OllamaModel;
 
 type BaseModel = {
+	cavren?: AurenModelInfo;
 	id: string;
 	name: string;
 	info?: ModelConfig;
@@ -342,6 +344,7 @@ type Document = {
 };
 
 type Config = {
+	auren?: { local: boolean; auth_mode: string };
 	audio?: {
 		realtime?: { enabled: boolean; model: string; voice: string };
 		stt: { engine: string };

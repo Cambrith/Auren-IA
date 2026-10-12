@@ -2510,6 +2510,10 @@ async def process_chat_payload(request, form_data, user, metadata, model):
                             ],
                         ]
 
+    if str(form_data.get('model', '')).startswith('cavren:'):
+        from open_webui.utils.lunvri_attachments import prepare_attachments
+        await prepare_attachments(form_data, model, user)
+
     if regeneration_prompt:
         form_data['messages'].append({'role': 'user', 'content': regeneration_prompt})
 

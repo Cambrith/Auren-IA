@@ -161,24 +161,26 @@
 				</div>
 			</button>
 
-			<button
-				class="select-none flex w-full gap-2 items-center h-[1.6875rem] px-2 text-[0.8125rem] font-normal cursor-pointer hover:bg-gray-50/40 dark:hover:bg-gray-800/40 rounded-xl"
-				on:click={() => runAndClose(privacyHandler)}
-			>
-				{#if isPublicModel(model)}
-					<LockClosed className="size-3.5" />
-				{:else}
-					<GlobeAlt className="size-3.5" />
-				{/if}
-
-				<div class="flex items-center">
+			{#if !model?.cavren || model?.user_id}
+				<button
+					class="select-none flex w-full gap-2 items-center h-[1.6875rem] px-2 text-[0.8125rem] font-normal cursor-pointer hover:bg-gray-50/40 dark:hover:bg-gray-800/40 rounded-xl"
+					on:click={() => runAndClose(privacyHandler)}
+				>
 					{#if isPublicModel(model)}
-						{$i18n.t('Make Private')}
+						<LockClosed className="size-3.5" />
 					{:else}
-						{$i18n.t('Make Public')}
+						<GlobeAlt className="size-3.5" />
 					{/if}
-				</div>
-			</button>
+
+					<div class="flex items-center">
+						{#if isPublicModel(model)}
+							{$i18n.t('Make Private')}
+						{:else}
+							{$i18n.t('Make Public')}
+						{/if}
+					</div>
+				</button>
+			{/if}
 
 			<button
 				class="select-none flex w-full gap-2 items-center h-[1.6875rem] px-2 text-[0.8125rem] font-normal cursor-pointer hover:bg-gray-50/40 dark:hover:bg-gray-800/40 rounded-xl"

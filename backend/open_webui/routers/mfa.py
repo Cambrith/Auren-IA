@@ -48,7 +48,8 @@ class MfaRoute(APIRoute):
                         )
                 response = await handler(request)
             except RequestValidationError:
-                response = JSONResponse({'detail': 'Invalid authentication request.'}, status_code=422)
+                detail = 'Dados do perfil inválidos. Verifique a foto e a data de nascimento.' if request.url.path.endswith('/update/profile') else 'Invalid authentication request.'
+                response = JSONResponse({'detail': detail}, status_code=422)
             except HTTPException as error:
                 response = JSONResponse({'detail': error.detail}, status_code=error.status_code, headers=error.headers)
             except (SQLAlchemyError, ValidationError):

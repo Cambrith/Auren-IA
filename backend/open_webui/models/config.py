@@ -11,6 +11,7 @@ failure (no more fire-and-forget create_task).
 from __future__ import annotations
 
 import logging
+import os
 import time
 from typing import Any, ClassVar
 
@@ -132,6 +133,8 @@ class Config(Base):
 
     @classmethod
     def persistent_enabled_for(cls, key: str) -> bool:
+        if os.getenv('LUNVRI_LOCAL_PREVIEW') == '1' and key in {'openai.api_base_urls', 'openai.api_keys', 'openai.api_configs', 'openai.enable', 'ollama.enable'}:
+            return False
         if not cls.PERSISTENT_ENABLED:
             return False
         if key.startswith('oauth.') and not cls.OAUTH_PERSISTENT_ENABLED:
@@ -191,8 +194,8 @@ class Config(Base):
         async with get_async_db() as db:
             result = await db.execute(select(Config))
             values = {row.key: row.value for row in result.scalars().all()}
-            if not Config.OAUTH_PERSISTENT_ENABLED:
-                values.update({key: value for key, value in Config.DEFAULTS.items() if key.startswith('oauth.')})
+            values = {key: value for key, value in values.items() if Config.persistent_enabled_for(key)}
+            values.update({key: value for key, value in Config.DEFAULTS.items() if not Config.persistent_enabled_for(key)})
             return values
 
     @staticmethod

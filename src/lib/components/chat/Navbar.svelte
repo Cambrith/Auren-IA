@@ -7,6 +7,7 @@
 		banners,
 		chatId,
 		config,
+		models,
 		mobile,
 		settings,
 		showControls,
@@ -36,6 +37,7 @@
 	import ChatCheck from '../icons/ChatCheck.svelte';
 	import Knobs from '../icons/Knobs.svelte';
 	import { isTemporaryChatId } from '$lib/utils/chatId';
+	import LunvriControls from './LunvriControls.svelte';
 
 	const i18n: any = getContext('i18n');
 
@@ -48,6 +50,16 @@
 	export let chat;
 	export let history;
 	export let title = '';
+	export let selectedModels = [''];
+	export let cavrenOptions = {
+		mode_id: 'ether',
+		web_search: false,
+		billing_confirmed: false,
+		image_generation: false
+	};
+	export let onCavrenChange: (options: typeof cavrenOptions) => void = () => {};
+	export let generating = false;
+	$: cavrenActive = $models.some((model) => model.id.startsWith('cavren:'));
 	export let onSaveTempChat: () => {};
 	export let archiveChatHandler: (id: string) => void;
 	export let deleteChatHandler: (id: string) => void;
@@ -79,6 +91,8 @@
 />
 
 <nav
+	class:lunvri-navbar={cavrenActive}
+	style:margin-bottom={cavrenActive ? '0px' : undefined}
 	class="sticky top-0 z-30 w-full {$mobile
 		? 'pt-1.5'
 		: 'pt-0.5'} pb-1 -mb-12 flex flex-col items-center drag-region"
@@ -115,6 +129,14 @@
 				<div
 					class="flex-1 overflow-hidden max-w-full mt-0.5 py-0.5 pl-1 {$showSidebar ? 'ml-1' : ''}"
 				>
+					{#if cavrenActive}
+						<LunvriControls
+							bind:selectedModels
+							options={cavrenOptions}
+							disabled={readOnly || generating}
+							onChange={onCavrenChange}
+						/>
+					{/if}
 					{#if chat?.id}
 						<div class="flex max-w-full min-w-0 items-center gap-2 mr-2">
 							<div
@@ -163,7 +185,7 @@
 								</button>
 							{/if}
 						</div>
-					{:else}
+					{:else if !cavrenActive}
 						<div class="pointer-events-none invisible flex max-w-full min-w-0 items-center gap-2">
 							<div
 								class="min-w-0 truncate py-1 text-left text-[0.9375rem] font-normal text-gray-700 dark:text-gray-300"
