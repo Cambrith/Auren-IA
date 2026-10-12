@@ -14,7 +14,7 @@ Atualizado em 12/10/2026. Trabalho aplicado ao projeto existente, sem substituir
 - Logotipos locais das famílias identificadas; o provedor aparece separadamente e fornece o ícone quando a marca específica não está identificada. SVGs do Lobe Icons e favicon oficial do AI Horde, com origem/licença em `static/brand-icons/`.
 - Conta: foto original aceita, salvamento sem erro falso de autenticação, validação de datas e apresentação DD/MM/AAAA. O banco e a API continuam usando ISO.
 - Conexões mostra os provedores do motor, distingue acesso ao catálogo de permissão/cota de geração, permite configurar chaves no cofre e nunca devolve seus valores na consulta de estado.
-- Texto de Conexões simplificado, sem referência ao documento local, com aviso reformulado sobre chave, saldo e uso pago. A contagem distingue “1 modelo” de “0 modelos” e “2 modelos”.
+- Texto de Conexões simplificado, sem referência ao documento local, com aviso reformulado sobre chave, saldo e uso pago. A contagem distingue “0 modelo” e “1 modelo” de “2 modelos”.
 - OpenAI e Anthropic preparados sem chaves cadastradas e sem ativação a partir de credenciais incidentais do ambiente/documento. A futura configuração explícita habilita o catálogo; gerar exige confirmação de possível custo. Não entram nas alternativas gratuitas automáticas.
 - Imagens: gerador padrão persistido, parâmetros válidos do AI Horde, pedido de teste, resultados exibidos e opção de salvar. Parâmetros Horde não são enviados a Gemini/OpenRouter.
 - Sobre identifica Auren, o fork real, a base Open WebUI 0.12.0, créditos e licença existentes.
