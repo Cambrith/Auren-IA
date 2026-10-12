@@ -10,6 +10,33 @@ from integration import auren_settings as settings
 from integration.lunvri_manual import PreparedChatProvider
 
 class PreparedProviderTests(unittest.TestCase):
+    def test_documents_never_supply_runtime_credentials(self):
+        with tempfile.TemporaryDirectory() as directory:
+            home=Path(directory)
+            documents=home/'Documentos'
+            documents.mkdir()
+            legacy=documents/'Chaves de API - Cavren'
+            current=documents/'Chaves de API - Auren'
+            custom=home/'custom-keys'
+            legacy.write_text('NVIDIA_API_KEY=legacy-test-key')
+            current.write_text('NVIDIA_API_KEY=auren-test-key')
+            custom.write_text('NVIDIA_API_KEY=custom-test-key')
+            with patch.object(connections,'STATE',home),patch.object(connections,'worker_env',return_value={}),patch.object(connections.Path,'home',return_value=home),patch.dict(connections.os.environ,{'LUNVRI_CREDENTIALS_FILE':str(custom)},clear=True),patch('cavren.credentials.SecretServiceBackend') as vault:
+                vault.return_value.get.return_value=''
+                self.assertNotIn('NVIDIA_API_KEY',connections.credentials_env())
+                vault.return_value.get.return_value='vault-test-key'
+                self.assertEqual(connections.credentials_env()['NVIDIA_API_KEY'],'vault-test-key')
+                renamed=current.rename(home/'renamed-keys')
+                self.assertEqual(connections.credentials_env()['NVIDIA_API_KEY'],'vault-test-key')
+                for file in (legacy,renamed,custom): file.unlink()
+                self.assertEqual(connections.credentials_env()['NVIDIA_API_KEY'],'vault-test-key')
+
+    def test_vault_overrides_stale_provider_environment(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.object(connections,'STATE',Path(directory)),patch.object(connections,'worker_env',return_value={'NVIDIA_API_KEY':'stale-test-key'}),patch('cavren.credentials.SecretServiceBackend') as vault:
+                vault.return_value.get.return_value='vault-test-key'
+                self.assertEqual(connections.credentials_env()['NVIDIA_API_KEY'],'vault-test-key')
+
     def test_two_connections_have_no_key_by_default(self):
         config=connections.connection_settings({'UNRELATED':'present'})
         for name in ('openai','anthropic'):

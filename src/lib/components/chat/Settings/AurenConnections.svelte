@@ -68,7 +68,7 @@
 							>{labels[connection.state]}</span
 						>
 					</div>
-					<p>{connection.count} {connection.count === 1 ? 'modelo' : 'modelos'}</p>
+					<p>{connection.count} {connection.count <= 1 ? 'modelo' : 'modelos'}</p>
 					<button
 						disabled={busy}
 						on:click={() => {

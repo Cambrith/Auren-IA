@@ -65,11 +65,11 @@
 					configurados.
 				</p>
 				<p>
-					Projeto pessoal mantido no fork Cambrith/Lunvri-IA. A versão indicada abaixo corresponde à
+					Projeto pessoal mantido no fork Cambrith/Auren-IA. A versão indicada abaixo corresponde à
 					base Open WebUI.
 				</p>
 				<p>
-					<a href="https://github.com/Cambrith/Lunvri-IA" target="_blank" rel="noopener noreferrer"
+					<a href="https://github.com/Cambrith/Auren-IA" target="_blank" rel="noopener noreferrer"
 						>Repositório do projeto</a
 					>
 					·
@@ -80,7 +80,7 @@
 					>
 					·
 					<a
-						href="https://github.com/Cambrith/Lunvri-IA/blob/main/LICENSE"
+						href="https://github.com/Cambrith/Auren-IA/blob/main/LICENSE"
 						target="_blank"
 						rel="noopener noreferrer">Licença e condições de uso</a
 					>

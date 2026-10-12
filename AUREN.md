@@ -1,7 +1,7 @@
 # Auren — prévia da interface baseada no Open WebUI
 
 Adaptação pessoal do Open WebUI **v0.12.0**, commit `15818d88fd7bde1b73de33590f50d15d21e8d7c1`.
-O fork é `Cambrith/Lunvri-IA`; o código original permanece como remote `upstream`.
+O fork é `Cambrith/Auren-IA`; o código original permanece como remote `upstream`.
 
 ## O que esta prévia implementa
 
@@ -9,7 +9,7 @@ O fork é `Cambrith/Lunvri-IA`; o código original permanece como remote `upstre
 - Logo somente na barra lateral, animada durante a geração, com deslocamento máximo de 4 px e respeito à preferência de movimento reduzido. Respostas sem avatar ou cabeçalho da IA.
 - Seletor de modo no topo: Éter, Ímpeto, Insight e Arquiteto.
 - Seletor de modelo independente, com busca: Automático, rotas integradas e modelos de conversa/imagem descobertos nas APIs configuradas.
-- Conexões Gemini, Groq, Mistral, OpenRouter, Cloudflare, NVIDIA NIM, Cohere, Ollama Cloud, Z.ai e AI Horde, usando o cofre existente e o arquivo local para conexões ausentes.
+- Conexões Gemini, Groq, Mistral, OpenRouter, Cloudflare, NVIDIA NIM, Cohere, Ollama Cloud, Z.ai e AI Horde, usando as credenciais salvas no cofre do sistema, sem depender de documentos locais.
 - Anexos de imagens e vídeos conforme a capacidade declarada pelo modelo; documentos extraídos localmente.
 - Geração de imagens nativa de Gemini, OpenRouter e AI Horde (fila assíncrona), retornada como anexo da resposta.
 - Preservação da escolha de modo e modelo por conversa; cada mensagem registra seu modo.
@@ -87,7 +87,7 @@ Os documentos aceitos incluem PDF com texto, DOCX, XLSX, CSV, TXT, Markdown e ar
 
 Vídeos são enviados como dados locais às rotas que declaram suporte (Gemini e modelos compatíveis no OpenRouter). A pesquisa usa o SearXNG existente. A geração de imagens usa os endpoints nativos dos provedores; as chaves permanecem na ponte. Voz, memória automática, outros plugins e controle do computador não fazem parte desta entrega.
 
-O arquivo de credenciais padrão é `~/Documentos/Chaves de API - Cavren` (o nome histórico do arquivo é preservado). A variável `LUNVRI_CREDENTIALS_FILE` permite indicar outro arquivo. O parser aceita somente os nomes dos cinco provedores, no formato `Provedor: chave` ou uma variável conhecida `NOME_API_KEY=chave`. Credenciais existentes no cofre têm prioridade. Cloudflare também precisa do identificador da conta, já presente na configuração do motor nesta máquina. Não inclua esse arquivo no repositório.
+As credenciais cadastradas são carregadas do cofre do sistema (Secret Service/KWallet). Documentos com chaves servem apenas como fonte para importação autorizada; a aplicação não os consulta durante o uso e não utiliza `LUNVRI_CREDENTIALS_FILE`. Renomear, mover ou remover o documento não afeta as conexões já salvas no cofre. OpenAI e Anthropic exigem configuração explícita pela Auren. Cloudflare também precisa do identificador da conta, armazenado no cofre nesta máquina. Não inclua documentos de chaves no repositório.
 
 ## Verificação
 

@@ -77,16 +77,9 @@ def credentials_env() -> dict[str, str]:
     for name in set(KEY_LABELS.values()) - set(KEY_NAMES):
         optional={'OPENAI_API_KEY':'openai','ANTHROPIC_API_KEY':'anthropic'}.get(name)
         if optional and optional_policy.get(optional+'_configured') is not True: continue
-        if not env.get(name):
-            stored = vault.get(name)
-            if stored: env[name] = stored
-    path = Path(os.environ.get('LUNVRI_CREDENTIALS_FILE', Path.home() / 'Documentos' / 'Chaves de API - Cavren'))
-    if path.is_file():
-        # Existing working credentials take priority; the file fills missing connections.
-        for name, value in parse_credentials(path.read_text()).items():
-            if name in ('OPENAI_API_KEY','ANTHROPIC_API_KEY'): continue
-            if not env.get(name):
-                env[name] = value
+        stored = vault.get(name)
+        if stored: env[name] = stored
+    # User documents are import sources only, never a runtime credential store.
     return env
 
 
