@@ -2991,13 +2991,13 @@ async def get_manifest_json():
                 {
                     'src': '/static/logo.png',
                     'type': 'image/png',
-                    'sizes': '500x500',
+                    'sizes': '512x512' if os.environ.get('LUNVRI_LOCAL_PREVIEW') == '1' else '500x500',
                     'purpose': 'any',
                 },
                 {
                     'src': '/static/logo.png',
                     'type': 'image/png',
-                    'sizes': '500x500',
+                    'sizes': '512x512' if os.environ.get('LUNVRI_LOCAL_PREVIEW') == '1' else '500x500',
                     'purpose': 'maskable',
                 },
             ],
