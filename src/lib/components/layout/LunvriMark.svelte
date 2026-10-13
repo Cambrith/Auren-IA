@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { lunvriGenerating } from '$lib/stores/lunvri';
-	export let active: boolean | undefined = undefined;
+	export let active = false;
 </script>
 
-<span class="lunvri-mark" class:active={active ?? $lunvriGenerating} aria-hidden="true">
+<span class="lunvri-mark" class:active aria-hidden="true">
 	{#each [0, 1, 2] as arm}
 		<img src="/lunvri-logo.png" alt="" draggable="false" data-arm={arm} />
 	{/each}

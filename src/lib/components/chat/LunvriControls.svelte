@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { models, config } from '$lib/stores';
 	import { onMount } from 'svelte';
-	import { canGenerateImage, defaultImageModel, compareProviders } from '$lib/utils/imageSelection';
+	import { canGenerateImage, compareProviders } from '$lib/utils/imageSelection';
 	import { aurenRequest, type AurenState } from '$lib/apis/auren';
 	let preferredImage = '';
-	let conversationModel = 'cavren:auto';
+	import { changeTask, changeAurenTask, activeTask, type AurenOptions } from '$lib/utils/aurenTask';
 	onMount(() => {
 		const updatePreferred = (event: Event) =>
 			(preferredImage = (event as CustomEvent<string>).detail);
@@ -12,17 +12,20 @@
 		(async () => {
 			if ($config?.auren?.local) {
 				try {
-					preferredImage =
-						(await aurenRequest<AurenState>('state')).preferences.image_model_id ?? '';
+					const state = await aurenRequest<AurenState>('state');
+					preferredImage = state.preferences.image_model_id ?? '';
+					if (state.tasks?.length) tasks = state.tasks.map((task) => ({ ...task, symbol: '' }));
 				} catch {}
 			}
 		})();
 		return () => window.removeEventListener('auren-image-preferences', updatePreferred);
 	});
+	import AurenChoiceIcon from './AurenChoiceIcon.svelte';
+	import AurenChoiceList from './AurenChoiceList.svelte';
 	import Dropdown from '$lib/components/common/Dropdown.svelte';
 
 	export let selectedModels = ['cavren:auto'];
-	export let options = {
+	export let options: AurenOptions = {
 		mode_id: 'ether',
 		web_search: false,
 		billing_confirmed: false,
@@ -56,21 +59,98 @@
 	$: selected = cavrenModels.find((model) => model.id === selectedModels[0]);
 	$: selectedInfo = (selected as any)?.cavren;
 	let modelSearch = '';
+	let showTask = false;
 	let showMode = false;
+	let tasks: {
+		id: string;
+		name: string;
+		symbol: string;
+		description: string;
+		model_ids?: string[];
+	}[] = [
+		{
+			id: 'chat',
+			name: 'Conversar',
+			symbol: '◌',
+			description: 'Ideias, perguntas, documentos e código.'
+		},
+		{
+			id: 'image',
+			name: 'Gerar imagens',
+			symbol: '▧',
+			description: 'Criar imagens com um gerador compatível.'
+		}
+	];
+	$: task = tasks.find((item) => item.id === activeTask(options)) ?? tasks[0];
 	let showModel = false;
 	let providerFilter = 'Todos';
-	let kindFilter = 'chat';
+	$: kindFilter =
+		activeTask(options) === 'auto' ? 'all' : options.image_generation ? 'image' : 'chat';
+	const imageProfiles = [
+		{
+			id: 'rapid',
+			name: 'Rápido',
+			description: 'Prioriza gerações medidas mais rápidas; pode haver fila.'
+		},
+		{
+			id: 'balanced',
+			name: 'Equilibrado',
+			description: 'Preferências e parâmetros nativos para uso geral.'
+		},
+		{
+			id: 'detailed',
+			name: 'Detalhado',
+			description: 'Parâmetros curados quando disponíveis; sem garantia de qualidade.'
+		}
+	];
+	const languages = [
+		{ id: 'auto', name: 'Detectar idioma', description: 'Usar a detecção do transcritor.' },
+		{ id: 'pt', name: 'Português', description: 'Transcrição em português.' },
+		{ id: 'en', name: 'Inglês', description: 'Transcrição em inglês.' }
+	];
+	const speechProfiles = [
+		{
+			id: 'pt-BR',
+			name: 'Português (Brasil)',
+			description: 'Voz NVIDIA Magpie validada em português.'
+		}
+	];
+	$: profiles =
+		activeTask(options) === 'speech'
+			? speechProfiles
+			: activeTask(options) === 'transcribe'
+				? languages
+				: options.image_generation
+					? imageProfiles
+					: modes;
+	$: activeProfile =
+		activeTask(options) === 'speech'
+			? 'pt-BR'
+			: activeTask(options) === 'transcribe'
+				? (options.transcribe_language ?? 'auto')
+				: options.image_generation
+					? (options.image_profile ?? 'balanced')
+					: options.mode_id;
 	$: providers = [
 		...new Set(cavrenModels.map((model) => (model as any).cavren?.provider).filter(Boolean))
 	].sort((a, b) => compareProviders(providerName(a), providerName(b)));
 	$: visibleModels = cavrenModels
 		.filter(
 			(model) =>
+				model.id !== 'cavren:auto' &&
 				(providerFilter === 'Todos' || (model as any).cavren?.provider === providerFilter) &&
-				(kindFilter === 'all' ||
-					(kindFilter === 'chat'
-						? !(model as any).cavren?.image_only
-						: (model as any).cavren?.capabilities?.image_generation)) &&
+				(!['code', 'documents', 'research', 'transcribe', 'speech'].includes(activeTask(options)) ||
+					task.model_ids?.includes(model.id)) &&
+				(kindFilter === 'all'
+					? (model as any).cavren?.validation?.free_verified
+					: kindFilter === 'chat'
+						? activeTask(options) === 'speech'
+							? (model as any).cavren?.task_operations?.includes('speech')
+							: activeTask(options) === 'transcribe'
+								? (model as any).cavren?.task_operations?.includes('transcribe')
+								: !(model as any).cavren?.image_only &&
+									!(model as any).cavren?.task_operations?.length
+						: canGenerateImage(model)) &&
 				`${(model as any).cavren?.label ?? model.name} ${providerName((model as any).cavren?.provider)} ${model.id}`
 					.toLocaleLowerCase()
 					.includes(modelSearch.toLocaleLowerCase())
@@ -82,36 +162,16 @@
 		);
 	function chooseModel(model: (typeof $models)[number] | undefined) {
 		if (!model || model.cavren?.available === false) return;
-		const image =
-			model.cavren?.image_only === true || (kindFilter === 'image' && canGenerateImage(model));
-		if (image && !options.image_generation && !selectedInfo?.image_only)
-			conversationModel = selectedModels[0];
 		selectedModels = [model.id];
-		update({ billing_confirmed: false, image_generation: image });
+		update({ billing_confirmed: false });
 		showModel = false;
 	}
 	function toggleImages() {
-		if (options.image_generation || selectedInfo?.image_only) {
-			selectedModels = [
-				cavrenModels.some((m) => m.id === conversationModel && !m.cavren?.image_only)
-					? conversationModel
-					: 'cavren:auto'
-			];
-			kindFilter = 'chat';
-			update({ image_generation: false, billing_confirmed: false });
-			return;
-		}
-		const imageModel = defaultImageModel(cavrenModels, preferredImage, selectedModels[0]);
-		conversationModel = selectedModels[0];
-		kindFilter = 'image';
+		const transition = changeTask(options, selectedModels[0], !options.image_generation);
+		selectedModels = [transition.model];
+		onChange(transition.options);
 		modelSearch = '';
 		providerFilter = 'Todos';
-		if (imageModel) {
-			selectedModels = [imageModel.id];
-			update({ image_generation: true, billing_confirmed: false });
-		} else {
-			showModel = true;
-		}
 	}
 	function navigateChoices(event: KeyboardEvent) {
 		if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
@@ -130,16 +190,16 @@
 				: event.key === 'End'
 					? choices.length - 1
 					: (index + (event.key === 'ArrowDown' ? 1 : -1) + choices.length) % choices.length;
-		choices[next].focus();
+		choices[next].focus({ preventScroll: true });
+		const list = choices[next].closest('.auren-choice-list');
+		if (list) {
+			const box = list.getBoundingClientRect(), item = choices[next].getBoundingClientRect();
+			if (item.top < box.top) list.scrollTop -= box.top - item.top;
+			else if (item.bottom > box.bottom) list.scrollTop += item.bottom - box.bottom;
+		}
 	}
-	$: support = [
-		'Documentos',
-		...(selectedInfo?.capabilities?.vision ? ['Imagens'] : []),
-		...(selectedInfo?.capabilities?.video ? ['Vídeos'] : []),
-		...(selectedInfo?.capabilities?.image_generation ? ['Gera imagens'] : [])
-	].join(' · ');
 	$: possibleCost = selectedInfo?.price_kind && selectedInfo.price_kind !== 'free';
-	$: mode = modes.find((mode) => mode.id === options.mode_id) ?? modes[0];
+	$: mode = profiles.find((mode) => mode.id === activeProfile) ?? profiles[0];
 
 	function update(patch: Partial<typeof options>) {
 		onChange({ ...options, ...patch });
@@ -148,31 +208,98 @@
 
 <div class="lunvri-controls no-drag" aria-label="Configurações da Auren">
 	<Dropdown
+		bind:show={showTask}
+		contentClass="lunvri-selector-popover"
+		sideOffset={8}
+		visualViewportAware
+		maxHeight="min(26rem, calc(100dvh - 24px))"
+	>
+		<button
+			type="button"
+			class="selector task-trigger"
+			aria-label="Tarefa da Auren"
+			aria-expanded={showTask}
+			{disabled}
+		>
+			<span class="mode-symbol" aria-hidden="true"><AurenChoiceIcon kind={task.id} /></span>
+			<span class="trigger-copy"><small>Tarefa</small><strong>{task.name}</strong></span><span
+				class="chevron"
+				aria-hidden="true">⌄</span
+			>
+		</button>
+		<div
+			slot="content"
+			class="selector-panel modes-panel"
+			role="menu"
+			tabindex="-1"
+			aria-label="Tarefas da Auren"
+			on:keydown={navigateChoices}
+		>
+			<div class="panel-heading">
+				<strong>O que vamos fazer?</strong><small>Controles próprios para cada tarefa.</small>
+			</div>
+			<AurenChoiceList>
+			{#each tasks as item}<button
+					type="button"
+					class="choice mode-choice"
+					class:chosen={item.id === task.id}
+					role="menuitemradio"
+					aria-checked={item.id === task.id}
+					data-choice
+					on:click={() => {
+						if (item.id !== task.id) {
+							const transition = changeAurenTask(options, selectedModels[0], item.id);
+							selectedModels = [transition.model];
+							onChange(transition.options);
+						}
+						showTask = false;
+					}}
+				>
+					<span class="choice-symbol" aria-hidden="true"><AurenChoiceIcon kind={item.id} /></span
+					><span><strong>{item.name}</strong><small>{item.description}</small></span><span
+						class="check"
+						aria-hidden="true">{item.id === task.id ? '✓' : ''}</span
+					>
+				</button>{/each}
+			</AurenChoiceList>
+		</div>
+	</Dropdown>
+
+	<Dropdown
 		bind:show={showMode}
 		contentClass="lunvri-selector-popover"
 		sideOffset={8}
 		visualViewportAware
-		maxHeight="min(38rem, calc(100dvh - 24px))"
+		maxHeight="min(26rem, calc(100dvh - 24px))"
 	>
 		<button
 			type="button"
 			class="selector mode-trigger"
-			aria-label="Modo da Auren"
+			aria-label={activeTask(options) === 'speech'
+				? 'Perfil de voz'
+				: activeTask(options) === 'transcribe'
+					? 'Idioma da transcrição'
+					: options.image_generation
+						? 'Perfil de imagem da Auren'
+						: 'Modo da Auren'}
 			aria-expanded={showMode}
-			disabled={disabled || options.image_generation}
+			{disabled}
 		>
-			<span class="mode-symbol" aria-hidden="true"
-				>{mode.id === 'ether'
-					? '✧'
-					: mode.id === 'impeto'
-						? 'ϟ'
-						: mode.id === 'insight'
-							? '◎'
-							: '⌘'}</span
-			>
+			<span class="mode-symbol" aria-hidden="true"><AurenChoiceIcon kind={mode.id} /></span>
 			<span class="trigger-copy"
-				><small>{options.image_generation ? 'Modo da conversa salvo' : 'Modo de conversa'}</small
-				><strong>{mode.name}</strong></span
+				><small
+					>{activeTask(options) === 'speech'
+						? 'Voz e idioma'
+						: activeTask(options) === 'transcribe'
+							? 'Idioma'
+							: options.image_generation
+								? 'Perfil de imagem'
+								: 'Modo de conversa'}</small
+				><strong
+					>{activeTask(options) === 'auto' && !options.mode_manual
+						? 'Recomendado'
+						: mode.name}</strong
+				></span
 			>
 			<span class="chevron" aria-hidden="true">⌄</span>
 		</button>
@@ -181,38 +308,57 @@
 			class="selector-panel modes-panel"
 			role="menu"
 			tabindex="-1"
-			aria-label="Modos de conversa"
+			aria-label={options.image_generation
+				? 'Perfis de imagem'
+				: activeTask(options) === 'transcribe'
+					? 'Idiomas da transcrição'
+					: activeTask(options) === 'speech'
+						? 'Perfil de voz'
+						: 'Modos de conversa'}
 			on:keydown={navigateChoices}
 		>
 			<div class="panel-heading">
-				<strong>Como vamos trabalhar?</strong><small>Escolha o ritmo da conversa.</small>
+				<strong>Como vamos trabalhar?</strong><small>{options.image_generation ? 'Escolha o perfil da imagem.' : ['speech', 'transcribe'].includes(activeTask(options)) ? 'Confira a voz ou o idioma.' : 'Escolha o contexto da conversa.'}</small>
 			</div>
-			{#each modes as item}
+			<AurenChoiceList>
+			{#if activeTask(options) === 'auto'}<button
+					type="button"
+					class="choice"
+					data-choice
+					on:click={() => {
+						update({ mode_manual: false });
+						showMode = false;
+					}}>Modo recomendado automaticamente</button
+				>{/if}
+			{#each profiles as item}
 				<button
 					type="button"
 					class="choice mode-choice"
-					class:chosen={item.id === options.mode_id}
+					class:chosen={item.id === activeProfile}
 					role="menuitemradio"
-					aria-checked={item.id === options.mode_id}
+					aria-checked={item.id === activeProfile}
 					data-choice
 					on:click={() => {
-						update({ mode_id: item.id });
+						if (activeTask(options) === 'speech') {
+							showMode = false;
+							return;
+						}
+						update(
+							activeTask(options) === 'transcribe'
+								? { transcribe_language: item.id }
+								: options.image_generation
+									? { image_profile: item.id, image_profile_manual: true }
+									: { mode_id: item.id, mode_manual: true }
+						);
 						showMode = false;
 					}}
 				>
-					<span class="choice-symbol" aria-hidden="true"
-						>{item.id === 'ether'
-							? '✧'
-							: item.id === 'impeto'
-								? 'ϟ'
-								: item.id === 'insight'
-									? '◎'
-									: '⌘'}</span
-					>
+					<span class="choice-symbol" aria-hidden="true"><AurenChoiceIcon kind={item.id} /></span>
 					<span><strong>{item.name}</strong><small>{item.description}</small></span>
-					<span class="check" aria-hidden="true">{item.id === options.mode_id ? '✓' : ''}</span>
+					<span class="check" aria-hidden="true">{item.id === activeProfile ? '✓' : ''}</span>
 				</button>
 			{/each}
+			</AurenChoiceList>
 		</div>
 	</Dropdown>
 	<Dropdown
@@ -220,21 +366,27 @@
 		contentClass="lunvri-selector-popover"
 		sideOffset={8}
 		visualViewportAware
-		maxHeight="min(38rem, calc(100dvh - 24px))"
+		maxHeight="min(26rem, calc(100dvh - 24px))"
 	>
 		<button
 			type="button"
 			class="selector model-trigger"
+			class:automatic={selectedModels[0] === 'cavren:auto'}
 			aria-label="Modelo da Auren"
 			aria-expanded={showModel}
 			{disabled}
 		>
-			<span class="connection-dot" class:cost={possibleCost} aria-hidden="true"></span>
-			<span class="trigger-copy"
-				><small>{providerName(selectedInfo?.provider) ?? 'Escolha automática'}</small><strong
-					>{selectedInfo?.label ?? 'Automático'}</strong
-				></span
-			>
+			{#if selectedModels[0] === 'cavren:auto'}
+				<span class="automatic-label">Automático</span>
+			{:else}
+				<span class="connection-dot" class:cost={possibleCost} aria-hidden="true"></span>
+				<span class="trigger-copy"
+					><small>Manual · {providerName(selectedInfo?.provider)}</small><strong
+						>{selectedInfo?.label ?? selected?.name}</strong
+					></span
+				>
+			{/if}
+
 			<span class="chevron" aria-hidden="true">⌄</span>
 		</button>
 		<div
@@ -260,18 +412,16 @@
 					bind:value={modelSearch}
 				/>
 			</div>
-			<div class="provider-filters" aria-label="Tipo de modelo">
-				{#each [{ id: 'chat', label: 'Conversar' }, { id: 'image', label: 'Gerar imagens' }, { id: 'all', label: 'Todos os tipos' }] as kind}
-					<button
-						type="button"
-						class:chosen={kindFilter === kind.id}
-						aria-pressed={kindFilter === kind.id}
-						on:click={() => {
-							kindFilter = kind.id;
-						}}>{kind.label}</button
-					>
-				{/each}
-			</div>
+			<button
+				type="button"
+				class="choice"
+				class:chosen={selectedModels[0] === 'cavren:auto'}
+				role="menuitemradio"
+				aria-checked={selectedModels[0] === 'cavren:auto'}
+				data-choice
+				on:click={() => chooseModel(cavrenModels.find((m) => m.id === 'cavren:auto'))}
+				>Automático · alternativas gratuitas compatíveis</button
+			>
 			<label class="provider-select"
 				>Provedor<select aria-label="Filtrar por provedor" bind:value={providerFilter}
 					><option value="Todos">Todos os provedores</option>{#each providers as provider}<option
@@ -285,7 +435,7 @@
 					on:click={() => chooseModel(cavrenModels.find((m) => m.id === preferredImage))}
 					>Usar gerador padrão</button
 				>{/if}
-			<div class="model-list">
+			<AurenChoiceList>
 				{#each visibleModels as item, index}
 					{#if index === 0 || (item as any).cavren?.provider !== (visibleModels[index - 1] as any).cavren?.provider}
 						<div class="provider-heading">
@@ -307,7 +457,13 @@
 								>{providerName((item as any).cavren?.provider) ?? 'Seleção inteligente'} · {(
 									item as any
 								).cavren?.price_kind === 'free'
-									? (item as any).cavren?.usage_label || 'Gratuito / cota gratuita'
+									? (item as any).cavren?.validation?.free_verified
+										? `Gratuito com limites · testado em ${new Date((item as any).cavren.validation.date).toLocaleDateString('pt-BR')}`
+										: (item as any).cavren?.validation?.status === 'failed'
+											? 'Não concluiu o teste'
+											: (item as any).cavren?.validation?.status === 'working'
+												? 'Validação incompleta'
+												: 'Gratuidade não testada'
 									: 'Custo a confirmar'}{(item as any).cavren?.capabilities?.vision
 									? ' · Visão'
 									: ''}{(item as any).cavren?.capabilities?.image_generation
@@ -320,62 +476,16 @@
 				{:else}
 					<p class="empty-results">Nenhum modelo encontrado. Tente outro nome ou provedor.</p>
 				{/each}
-			</div>
-			<div class="panel-footer">{visibleModels.length} opções · Modelo atual: {support}</div>
+			</AurenChoiceList>
+			<div class="panel-footer">{visibleModels.length} opções · Automático usa modelos gratuitos verificados.</div>
 		</div>
 	</Dropdown>
-	<button
-		type="button"
-		class:active={options.web_search}
-		class="lunvri-search"
-		aria-label="Pesquisar na web"
-		aria-pressed={options.web_search}
-		title="Pesquisar na web com a Auren"
-		disabled={disabled || options.image_generation}
-		on:click={() => update({ web_search: !options.web_search })}
-	>
-		<svg
-			width="18"
-			height="18"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="1.5"
-			aria-hidden="true"
-			><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z" /></svg
-		>
-	</button>
-	<button
-		type="button"
-		class="lunvri-search"
-		class:active={options.image_generation}
-		aria-label="Gerar imagens"
-		aria-pressed={options.image_generation}
-		title={options.image_generation
-			? 'Voltar à conversa e ao modelo anterior'
-			: 'Gerar imagens com um modelo compatível'}
-		{disabled}
-		on:click={toggleImages}
-	>
-		<svg
-			width="18"
-			height="18"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="1.5"
-			aria-hidden="true"
-			><rect x="3" y="3" width="18" height="18" rx="3" /><circle cx="8" cy="8" r="1.5" /><path
-				d="m3 17 6-6 4 4 3-3 5 5"
-			/></svg
-		>
-	</button>
 </div>
 {#if options.image_generation}
 	<div class="image-context no-drag" role="status">
 		<span
 			><strong>Gerar imagem</strong> · {selectedInfo?.label ?? selected?.name}<small
-				>Descreva a imagem na mensagem. O modo {mode.name} será retomado ao voltar à conversa.</small
+				>Descreva a imagem na mensagem. Suas escolhas de conversa serão retomadas ao voltar.</small
 			></span
 		>
 		<button
@@ -392,6 +502,16 @@
 	</div>
 {/if}
 
+{#if options.image_generation && selectedModels[0] !== 'cavren:auto'}
+	<label class="lunvri-cost no-drag"
+		><input
+			type="checkbox"
+			{disabled}
+			checked={options.image_fallback !== false}
+			on:change={(event) => update({ image_fallback: event.currentTarget.checked })}
+		/>Permitir alternativas gratuitas após falha (a rota efetiva será informada).</label
+	>
+{/if}
 {#if possibleCost}
 	<label class="lunvri-cost no-drag">
 		<input
@@ -405,6 +525,23 @@
 {/if}
 
 <style>
+	.automatic-label {
+		flex: 0 0 auto;
+		white-space: nowrap;
+		text-align: center;
+	}
+	.model-trigger.automatic {
+		position: relative;
+		justify-content: center;
+		min-width: 136px;
+	}
+	.model-trigger.automatic .chevron {
+		position: absolute;
+		right: 12px;
+	}
+	.task-trigger {
+		min-width: 150px;
+	}
 	.image-context {
 		display: flex;
 		align-items: center;
@@ -456,7 +593,7 @@
 		color: #f4faff;
 	}
 	.provider-heading {
-		padding: 16px 12px 6px;
+		padding: 8px 9px 4px;
 		color: #59e0f3;
 		font-size: 11px;
 		font-weight: 650;
@@ -483,6 +620,7 @@
 		border: 1px solid #2a3b50;
 		border-radius: 14px;
 		padding: 9px 12px;
+		min-height: 54px;
 		color: #f4faff;
 		text-align: left;
 		min-width: 0;
@@ -515,9 +653,11 @@
 		color: #a9bdd0;
 		line-height: 15px;
 	}
-	.trigger-copy strong {
+	.trigger-copy strong,
+	.automatic-label {
 		font-size: 13px;
 		font-weight: 600;
+		line-height: 18px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -549,7 +689,7 @@
 		border: 1px solid #2a3b50;
 		border-radius: 18px;
 		box-shadow: 0 18px 60px #0009;
-		padding: 8px;
+		padding: 6px;
 		display: flex;
 		flex-direction: column;
 		overflow: hidden !important;
@@ -561,7 +701,8 @@
 		flex-direction: column;
 		min-height: 0;
 		max-height: inherit;
-		width: 360px;
+		width: 330px;
+		flex: 1 1 auto;
 		max-width: calc(100vw - 42px);
 	}
 	.models-panel {
@@ -570,26 +711,30 @@
 		max-height: inherit;
 	}
 	.panel-heading {
-		padding: 12px 12px 14px;
+		padding: 8px 9px 10px;
 		display: flex;
 		flex-direction: column;
 		gap: 3px;
 	}
 	.panel-heading strong {
-		font-size: 15px;
+		font-size: 13px;
 		font-weight: 600;
 	}
 	.panel-heading small {
-		font-size: 12px;
+		font-size: 11px;
 		color: #a9bdd0;
 	}
 	.choice {
+		font-size: 13px;
+		line-height: 18px;
 		display: flex;
 		align-items: center;
 		text-align: left;
-		gap: 12px;
-		border-radius: 11px;
-		padding: 12px;
+		gap: 9px;
+		border-radius: 10px;
+		padding: 7px 9px;
+		min-height: 42px;
+		flex-shrink: 0;
 		width: 100%;
 		border: 1px solid transparent;
 	}
@@ -615,7 +760,11 @@
 		color: #a9bdd0;
 		font-size: 11px;
 		margin-top: 3px;
-		line-height: 1.5;
+		line-height: 1.35;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
 	}
 	.choice:disabled {
 		opacity: 0.4;
@@ -630,7 +779,7 @@
 		align-items: center;
 		gap: 8px;
 		margin: 0 8px 10px;
-		padding: 10px 12px;
+		padding: 7px 9px;
 		background: #080d17;
 		border: 1px solid #2a3b50;
 		border-radius: 11px;
@@ -663,14 +812,7 @@
 		border-color: #50667e;
 		background: #1a2b3d;
 	}
-	.model-list {
-		flex: 1 1 auto;
-		min-height: 0;
-		max-height: min(350px, 48dvh);
-		overflow-x: hidden;
-		overflow: auto;
-		overscroll-behavior: contain;
-	}
+
 	.panel-heading,
 	.model-search,
 	.provider-filters,

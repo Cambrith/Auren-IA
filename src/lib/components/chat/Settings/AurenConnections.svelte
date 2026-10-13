@@ -14,8 +14,9 @@
 		unconfigured: 'Não configurado',
 		catalog_available: 'Catálogo acessível',
 		configured: 'Configurado; geração a verificar',
-		auth_error: 'Credencial recusada',
-		unavailable: 'Serviço indisponível'
+		vault_unavailable: 'Chave salva; aguardando acesso ao cofre',
+		auth_error: 'Chave salva; provedor recusou a consulta',
+		unavailable: 'Chave salva; serviço temporariamente indisponível'
 	};
 	async function load(refresh = false) {
 		busy = true;

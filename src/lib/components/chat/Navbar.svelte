@@ -51,7 +51,8 @@
 	export let history;
 	export let title = '';
 	export let selectedModels = [''];
-	export let cavrenOptions = {
+	import type { AurenOptions } from '$lib/utils/aurenTask';
+	export let cavrenOptions: AurenOptions = {
 		mode_id: 'ether',
 		web_search: false,
 		billing_confirmed: false,

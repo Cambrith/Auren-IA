@@ -7,6 +7,7 @@ export type ImageModel = {
 		available?: boolean;
 		image_only?: boolean;
 		price_kind?: string;
+		image_workers?: number;
 		capabilities?: { image_generation?: boolean };
 	};
 };
@@ -24,8 +25,6 @@ export function defaultImageModel(models: ImageModel[], preferred: string, curre
 	return (
 		free.find((m) => m.id === preferred) ??
 		free.find((m) => m.id === 'cavren:aihorde:stable_diffusion') ??
-		[...free].sort((a, b) =>
-			compareProviders(a.cavren?.label ?? a.name ?? a.id, b.cavren?.label ?? b.name ?? b.id)
-		)[0]
+		[...free].sort((a, b) => (b.cavren?.image_workers ?? 0) - (a.cavren?.image_workers ?? 0))[0]
 	);
 }

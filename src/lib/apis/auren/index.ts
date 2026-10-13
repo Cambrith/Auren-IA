@@ -4,6 +4,11 @@ export type AurenModelInfo = {
 	provider_name?: string;
 	available?: boolean;
 	image_only?: boolean;
+	task_operations?: string[];
+	validation?: { status: string; free_verified: boolean; mean_seconds?: number; date?: string };
+	image_operations?: string[];
+	image_validation?: 'advertised' | 'tested';
+	image_workers?: number;
 	price_kind: string;
 	usage_label?: string;
 	context_window?: number;
@@ -16,7 +21,17 @@ export type AurenPreferences = {
 	image_height: number;
 	image_steps: number;
 };
+export type AurenTask = {
+	id: string;
+	name: string;
+	description: string;
+	verified: boolean;
+	output: string;
+	tested_at?: string;
+	model_ids?: string[];
+};
 export type AurenState = {
+	tasks?: AurenTask[];
 	connections: { id: string; name: string; state: string; count: number; image_count: number }[];
 	models: AurenModel[];
 	preferences: AurenPreferences;

@@ -93,6 +93,7 @@
 			query?: string;
 		};
 		done: boolean;
+		aurenCancelled?: boolean;
 		error?: boolean | { content: string };
 		sources?: string[];
 		code_executions?: {
@@ -710,7 +711,22 @@
 						{#if model?.info?.meta?.capabilities?.status_updates ?? true}
 							<StatusHistory statusHistory={message?.statusHistory} />
 						{/if}
+						{#if message.aurenCancelled && message.model?.startsWith('cavren:')}
+							<p class="my-2 text-sm text-gray-500 dark:text-gray-400" role="status">Geração interrompida.</p>
+						{/if}
 
+						{#each (message.files ?? []).filter((file) => file.type === 'audio') as file}
+							<div class="my-3 flex flex-col gap-2 max-w-full">
+								<audio
+									controls
+									preload="metadata"
+									src={file.url}
+									class="max-w-full"
+									aria-label="Áudio gerado pela Auren"
+								></audio>
+								<a href={file.url} download="Auren-voz.wav" class="text-sm">Baixar áudio</a>
+							</div>
+						{/each}
 						{#if message?.files && message.files?.filter( (f) => ['image', 'file'].includes(f.type) ).length > 0}
 							<div
 								class="my-1 w-full flex overflow-x-auto gap-2 flex-wrap"

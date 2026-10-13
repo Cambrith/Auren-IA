@@ -205,8 +205,9 @@
 		contentEl.style.bottom = 'auto';
 		contentEl.style.left = `${Math.max(viewport.left + pad, Math.min(preferredLeft, maxLeft))}px`;
 		contentEl.style.right = 'auto';
-		resolvedMaxHeight =
-			contentHeight > availableHeight ? `min(${maxHeight}, ${availableHeight}px)` : maxHeight;
+        // Keep the viewport clamp even after a flex child shrinks. Removing it
+        // when the now-clamped content fits causes alternating heights.
+        resolvedMaxHeight = `min(${maxHeight}, ${availableHeight}px)`;
 		contentEl.style.maxHeight = resolvedMaxHeight;
 	}
 

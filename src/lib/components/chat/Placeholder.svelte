@@ -36,6 +36,11 @@
 
 	const i18n: any = getContext('i18n');
 
+	export let aurenOptions: { web_search: boolean; image_generation: boolean; task_id?: string } = {
+		web_search: false,
+		image_generation: false
+	};
+	export let onAurenPlugin: (plugin: string) => void = () => {};
 	export let createMessagePair: Function;
 	export let stopResponse: Function;
 
@@ -251,6 +256,8 @@
 			<div class="text-base font-normal @md:max-w-3xl w-full py-3 {atSelectedModel ? 'mt-2' : ''}">
 				{#if !($selectedFolder && folderReadOnly)}
 					<MessageInput
+						{aurenOptions}
+						{onAurenPlugin}
 						{callActive}
 						bind:this={messageInput}
 						{history}

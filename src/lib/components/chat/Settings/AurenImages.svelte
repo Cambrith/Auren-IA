@@ -83,7 +83,10 @@
 	<header>
 		<div>
 			<h2>Geração de imagens</h2>
-			<p>Geradores confirmados no catálogo, separados dos modelos que apenas analisam imagens.</p>
+			<p>
+				Geradores anunciados no catálogo. Disponibilidade, cota e compatibilidade ainda dependem do
+				provedor.
+			</p>
 		</div>
 	</header>
 	{#if error}<p role="alert">{error}</p>{/if}

@@ -172,7 +172,7 @@
 	);
 
 	export let history;
-	export let taskIds = null;
+	export let taskIds: string[] | null = null;
 	export let askUser: AskUserPrompt = {
 		show: false,
 		questions: [],
@@ -209,6 +209,11 @@
 	export let selectedSkillIds: string[] = [];
 	export let selectedFilterIds: string[] = [];
 
+	export let aurenOptions: { web_search: boolean; image_generation: boolean; task_id?: string } = {
+		web_search: false,
+		image_generation: false
+	};
+	export let onAurenPlugin: (plugin: string) => void = () => {};
 	export let imageGenerationEnabled = false;
 	export let webSearchEnabled = false;
 	export let codeInterpreterEnabled = false;
@@ -2313,6 +2318,9 @@
 							<div class=" flex justify-between mt-0.5 mb-2 mx-0.5 max-w-full" dir="ltr">
 								<div class="ml-1 self-end flex items-center">
 									<InputMenu
+										{aurenOptions}
+										{onAurenPlugin}
+										aurenDisabled={generating || !!taskIds?.length}
 										bind:files
 										selectedModels={selectedModelIds}
 										fileUploadCapableModels={getFilesystemUploadTerminal(
@@ -2390,9 +2398,11 @@
 										<IntegrationsMenu
 											selectedModels={selectedModelIds}
 											{toggleFilters}
-											{showWebSearchButton}
-											{showImageGenerationButton}
-											{showCodeInterpreterButton}
+											showWebSearchButton={!$config?.auren?.local && showWebSearchButton}
+											showImageGenerationButton={!$config?.auren?.local &&
+												showImageGenerationButton}
+											showCodeInterpreterButton={!$config?.auren?.local &&
+												showCodeInterpreterButton}
 											bind:selectedToolIds
 											bind:selectedSkillIds
 											bind:selectedFilterIds
