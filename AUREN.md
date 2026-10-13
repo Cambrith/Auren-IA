@@ -6,7 +6,7 @@ O fork é `Cambrith/Auren-IA`; o código original permanece como remote `upstrea
 ## O que esta prévia implementa
 
 - Identidade Auren, português e paleta original da Cavren: fundo `#080D17`, superfícies `#0D1727`/`#121E2D`, azul `#0162F8` e ciano `#21D4FB`.
-- Logo somente na barra lateral, animada durante a geração, com deslocamento máximo de 4 px e respeito à preferência de movimento reduzido. Respostas sem avatar ou cabeçalho da IA.
+- Logo estática na barra lateral. Indicador de atividade animado somente junto à mensagem durante a geração, com deslocamento máximo de 4 px e respeito à preferência de movimento reduzido. Respostas sem avatar ou cabeçalho da IA.
 - Seletor de modo no topo: Éter, Ímpeto, Insight e Arquiteto.
 - Seletor de modelo independente, com busca: Automático, rotas integradas e modelos de conversa/imagem descobertos nas APIs configuradas.
 - Conexões Gemini, Groq, Mistral, OpenRouter, Cloudflare, NVIDIA NIM, Cohere, Ollama Cloud, Z.ai e AI Horde, usando as credenciais salvas no cofre do sistema, sem depender de documentos locais.
