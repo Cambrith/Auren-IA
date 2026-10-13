@@ -109,6 +109,14 @@
 	});
 
 	setContext('i18n', i18n);
+	onMount(() => {
+		let dispose = () => {};
+		let mounted = true;
+		import('$lib/utils/aurenStartup').then(({ installAurenResumeGuard }) => {
+			if (mounted) dispose = installAurenResumeGuard(() => $config?.auren?.local === true);
+		});
+		return () => { mounted = false; dispose(); };
+	});
 	/** @type {import('$lib/components/auth/MfaManagement.svelte').MfaManagementFlow | null} */
 	let mfaManagement = null;
 	setContext(
@@ -122,6 +130,10 @@
 	const bc = new BroadcastChannel('active-tab-channel');
 
 	let loaded = false;
+	const dismissSplash = async () => {
+		const { revealAuren } = await import('$lib/utils/aurenStartup');
+		await revealAuren();
+	};
 	let tokenTimer = null;
 	let isAuthRedirectInProgress = false;
 
@@ -1389,7 +1401,7 @@
 
 			await loadingProgress.set(100);
 
-			document.getElementById('splash-screen')?.remove();
+			void dismissSplash();
 
 			const audio = new Audio(`/audio/greeting.mp3`);
 			const playAudio = () => {
@@ -1401,8 +1413,10 @@
 
 			loaded = true;
 		} else {
-			document.getElementById('splash-screen')?.remove();
 			loaded = true;
+			// Local chat reveals itself after model, sidebar and conversation restore.
+			if (!$config?.auren?.local || ($config?.features?.auth !== false && !['user', 'admin'].includes($user?.role)))
+				void dismissSplash();
 		}
 
 		// Auto-show SyncStatsModal when opened with ?sync=true (from community)

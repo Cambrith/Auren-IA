@@ -1,6 +1,7 @@
 """Native Auren toolbar and window controls, with real Qt/Wayland window states."""
 import os
 import shutil
+import time
 
 from PySide6.QtCore import QEvent, QProcess, QRect, Qt, QTimer, QSettings
 from PySide6.QtGui import QColor, QIcon, QKeySequence, QPainter, QPen, QPixmap, QShortcut
@@ -75,6 +76,7 @@ class AurenWindow(QWidget):
         self.setWindowFlags(Qt.Window | Qt.FramelessWindowHint | Qt.WindowMinimizeButtonHint
                             | Qt.WindowMaximizeButtonHint | Qt.WindowCloseButtonHint)
         self.setWindowTitle('Auren')
+        self.loading_started = int(time.time() * 1000)
         self.setMinimumSize(420, 360)
         # Keep a centered normal geometry underneath the maximized state. This
         # makes the single maximize/restore control shrink symmetrically, like
@@ -100,6 +102,8 @@ class AurenWindow(QWidget):
         self.normal_geometry_timer.timeout.connect(self.apply_restore_geometry)
         self.kwin_geometry_process = QProcess(self)
         self.web = QWebEngineView(self)
+        # The content receives initial focus, while menus remain keyboard reachable.
+        self.setFocusProxy(self.web)
         self.loadFinished = self.web.loadFinished
         self.preferences = QSettings('Cambrith', 'Auren')
         try:
@@ -120,12 +124,11 @@ class AurenWindow(QWidget):
         self.header.setFixedHeight(40)
         self.header.setAccessibleName('Barra superior da Auren')
         row = QHBoxLayout(self.header)
-        row.setContentsMargins(7, 3, 5, 3)
-        row.setSpacing(2)
+        row.setContentsMargins(8, 3, 5, 3)
+        row.setSpacing(4)
         self.back = self.button('back', 'Voltar', self.web.back)
         self.forward = self.button('forward', 'Avançar', self.web.forward)
-        self.sidebar = self.button('sidebar', 'Alternar barra lateral', lambda: self.native_action('sidebar'))
-        for button in (self.back, self.forward, self.sidebar):
+        for button in (self.back, self.forward):
             row.addWidget(button)
         self.menu_buttons = []
         self.menus = {}
@@ -253,12 +256,15 @@ class AurenWindow(QWidget):
         return self.web.page()
 
     def setPage(self, page):
+        page.setBackgroundColor(QColor('#111214'))
         self.web.setPage(page)
         script = QWebEngineScript()
         script.setName('auren-native-layout')
-        script.setInjectionPoint(QWebEngineScript.DocumentReady)
+        script.setInjectionPoint(QWebEngineScript.DocumentCreation)
         script.setWorldId(QWebEngineScript.MainWorld)
-        script.setSourceCode("document.body.classList.add('auren-desktop');")
+        script.setSourceCode("window.__aurenDesktop = true;"
+                             f"window.__aurenLoadStarted = {self.loading_started};"
+                             "document.addEventListener('DOMContentLoaded', () => document.body.classList.add('auren-desktop'), {once:true});")
         page.scripts().insert(script)
         page.loadFinished.connect(lambda ok: self.sync_fullscreen_css() if ok else None)
         self.update_edit_actions()
@@ -306,6 +312,13 @@ class AurenWindow(QWidget):
         self.restore_timer.stop()
         self.normal_geometry_timer.stop()
         self.showMaximized()
+
+    def activate_restored(self):
+        self.page().runJavaScript("window.dispatchEvent(new Event('auren-resume'));")
+        if self.isMinimized():
+            self.setWindowState(self.windowState() & ~Qt.WindowMinimized)
+        self.raise_()
+        self.activateWindow()
 
     def restore_window(self):
         self.restore_timer.stop()

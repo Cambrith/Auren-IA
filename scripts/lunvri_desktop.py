@@ -7,11 +7,12 @@ import sys
 
 from PySide6.QtCore import QLockFile, QUrl, QTimer
 from PySide6.QtGui import QDesktopServices, QIcon
-from PySide6.QtNetwork import QLocalServer, QLocalSocket
+from PySide6.QtNetwork import QLocalServer, QLocalSocket, QNetworkAccessManager, QNetworkRequest
 from PySide6.QtWebEngineCore import QWebEnginePage, QWebEngineProfile
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QApplication, QFileDialog, QMessageBox
 from auren_window import AurenWindow
+from auren_identity import DESKTOP_ID, ensure_icons, update_launcher
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = 'http://127.0.0.1:8175'
@@ -21,10 +22,15 @@ def main():
     app = QApplication(sys.argv)
     app.setApplicationName('Auren')
     app.setOrganizationName('Cambrith')
-    app.setDesktopFileName('cavren')
+    app.setDesktopFileName(DESKTOP_ID)
+    # Recover deleted local icon files without relying on the theme cache.
+    icon_path, repaired = ensure_icons()
+    launcher = Path.home() / '.local/share/applications' / (DESKTOP_ID + '.desktop')
+    if launcher.exists(): update_launcher(launcher, icon_path)
     QIcon.setThemeSearchPaths([str(Path.home() / '.local/share/icons'), '/usr/share/icons', *QIcon.themeSearchPaths()])
     QIcon.setFallbackThemeName('hicolor')
-    app.setWindowIcon(QIcon.fromTheme('lunvri', QIcon(str(ROOT / 'static/lunvri-icon.png'))))
+    # A direct file keeps the window icon usable even with a stale theme cache.
+    app.setWindowIcon(QIcon(str(icon_path)))
     instance = f'lunvri-desktop-{os.getuid()}'
     lock = QLockFile(str(Path(os.environ['XDG_RUNTIME_DIR']) / (instance + '.lock')))
     if not lock.tryLock(0):
@@ -49,12 +55,16 @@ def main():
     view = AurenWindow()
     view.setPage(Page(profile, view))
     view.setWindowTitle('Auren')
-    shown = False
-    def show_ready(ok):
-        nonlocal shown
-        if ok and not shown:
-            view.showMaximized(); shown = True
-    view.loadFinished.connect(show_ready)
+    # The window is visible during service startup and frontend hydration.
+    import base64
+    icon = base64.b64encode((Path(__file__).resolve().parents[1] / 'static/lunvri-logo.png').read_bytes()).decode()
+    view.setHtml(f"""<html><body style="margin:0;background:#111214;display:grid;place-items:center;height:100vh">
+    <script>document.documentElement.style.setProperty('--auren-pulse-delay', -((Date.now()-window.__aurenLoadStarted)%2600)+'ms');</script>
+    <style>@keyframes pulse{{0%,100%{{opacity:.58;transform:scale(.985)}}50%{{opacity:.92;transform:scale(1.015)}}}}
+    @media(prefers-reduced-motion:reduce){{img{{animation:none!important}}}}</style>
+    <img alt="Carregando Auren" src="data:image/png;base64,{icon}" style="width:104px;filter:grayscale(1) brightness(.74);animation:pulse 2.6s ease-in-out infinite;animation-delay:var(--auren-pulse-delay,0ms);will-change:transform,opacity"/></body></html>""")
+    view.showMaximized()
+    view.web.setFocus()
     server = QLocalServer(app)
     QLocalServer.removeServer(instance)
     server.listen(instance)
@@ -64,10 +74,7 @@ def main():
         if client:
             client.close()
             client.deleteLater()
-        if view.isMinimized():
-            view.showMaximized()
-        view.raise_()
-        view.activateWindow()
+        view.activate_restored()
         try:
             result = subprocess.run(
                 ['kdotool', 'search', '--class', 'cavren'], capture_output=True, text=True, timeout=2
@@ -94,36 +101,42 @@ def main():
 
     profile.downloadRequested.connect(download)
     process = subprocess.Popen(['systemctl', '--user', 'start', 'lunvri.service'])
-    attempts = 0
+    import time
+    deadline = time.monotonic() + 180
     timer = QTimer(view)
+    network = QNetworkAccessManager(view)
+    pending = None
 
     def ready():
-        nonlocal attempts
-        import urllib.request
-        import urllib.error
-
-        attempts += 1
-        try:
-            with urllib.request.urlopen(URL + '/api/config', timeout=0.5) as response:
-                if response.status == 200:
-                    timer.stop()
-                    view.setUrl(QUrl(URL))
-                    view.loadFinished.connect(
-                        lambda ok: print(
-                            'Auren: interface carregada.' if ok else 'Auren: falha ao carregar.', flush=True
-                        )
-                    )
-                    return
-        except (urllib.error.URLError, TimeoutError):
-            pass
-        if attempts >= 180 or process.poll() not in (None, 0):
+        nonlocal pending
+        if time.monotonic() >= deadline or process.poll() not in (None, 0):
             timer.stop()
+            if pending is not None: pending.abort()
             QMessageBox.critical(
                 view, 'Auren', 'Não foi possível iniciar a Auren. Consulte o serviço lunvri.service.'
             )
+            return
+        if pending is not None: return
+        request = QNetworkRequest(QUrl(URL + '/api/config'))
+        request.setTransferTimeout(1000)
+        reply = network.get(request)
+        pending = reply
+
+        def checked():
+            nonlocal pending
+            status = reply.attribute(QNetworkRequest.HttpStatusCodeAttribute)
+            pending = None
+            reply.deleteLater()
+            if status == 200 and timer.isActive():
+                timer.stop()
+                view.setUrl(QUrl(URL))
+                view.loadFinished.connect(
+                    lambda ok: print('Auren: interface carregada.' if ok else 'Auren: falha ao carregar.', flush=True)
+                )
+        reply.finished.connect(checked)
 
     timer.timeout.connect(ready)
-    timer.start(1000)
+    timer.start(250)
     status = app.exec()
     view.page().deleteLater()
     return status

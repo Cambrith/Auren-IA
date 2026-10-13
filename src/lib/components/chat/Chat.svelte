@@ -154,6 +154,14 @@
 		null;
 
 	let loading = true;
+	let aurenChatRestored = false;
+	let aurenDraftRestored = false;
+	$: if (!loading && aurenChatRestored && aurenDraftRestored && $config?.auren?.local && typeof document !== 'undefined') {
+		void tick().then(async () => {
+			const { revealAuren } = await import('$lib/utils/aurenStartup');
+			await revealAuren();
+		});
+	}
 	$: chatContainerId = embedded ? 'note-chat-container' : 'chat-container';
 	$: messageInputDropzoneId = embedded ? 'note-chat-input-dropzone' : 'chat-pane';
 
@@ -226,6 +234,9 @@
 	let contextUsage = null;
 
 	const normalizeSelectedModels = (modelIds: string[] = []) => {
+		if ($config?.auren?.local && $models.some((m) => m.id === 'cavren:auto')) {
+			return singleAurenModel(modelIds, $models.map((m) => m.id));
+		}
 		const selected = resolveDefaultModelIds(
 			$models,
 			modelIds,
@@ -925,6 +936,7 @@
 			}
 
 			messageInput?.focus({ preventScroll: true });
+			aurenChatRestored = true;
 		} else if (!embedded) {
 			await goto('/');
 		} else {
@@ -1504,6 +1516,19 @@
 				const data = event?.data?.data ?? null;
 
 				queueMicrotask(() => bridge?.update());
+				if (data?.auren_request_id && message.auren_request_id &&
+					data.auren_request_id !== message.auren_request_id) return;
+				if (
+					message.aurenCancelled &&
+					[
+						'status',
+						'files',
+						'chat:message:files',
+						'chat:completion',
+						'response:completion'
+					].includes(type)
+				)
+					return;
 				if (type === 'status') {
 					if (message?.statusHistory) {
 						message.statusHistory.push(data);
@@ -1534,6 +1559,7 @@
 					}
 					autoScrollToBottom();
 				} else if (type === 'chat:tasks:cancel') {
+					if (message.model?.startsWith('cavren:')) message.aurenCancelled = true;
 					for (const interaction of browserInteractions) {
 						if (interaction.messageId === event.message_id) {
 							resolveBrowserInteraction(interaction, { status: 'cancelled', answers: {} });
@@ -1854,7 +1880,8 @@
 		const pageSubscribe = page.subscribe(async (p) => {
 			if (p.url.pathname === '/' || p.url.pathname.startsWith('/folders/')) {
 				await tick();
-				initNewChat();
+				await initNewChat();
+				aurenChatRestored = true;
 			}
 
 			stopAudio();
@@ -1910,6 +1937,7 @@
 			}
 
 			messageInput?.focus({ preventScroll: true });
+			aurenDraftRestored = true;
 		};
 		init();
 
@@ -2793,6 +2821,7 @@
 				}
 
 				oldSelectedModelIds = structuredClone(selectedModels);
+				if ($config?.auren?.local) selectedModels = normalizeSelectedModels(selectedModels);
 
 				history =
 					(chatContent?.history ?? undefined) !== undefined
@@ -2809,6 +2838,10 @@
 				chatTitle.set(chatContent.title);
 
 				params = structuredClone(chatContent?.params ?? {});
+				if ($config?.auren?.local && !params.auren_task) {
+					params.auren_task = restoreAurenTask(params, ($models.find((m) => m.id === selectedModels[0]) as any)?.cavren?.image_only === true);
+					params.lunvri_image_generation = params.auren_task === 'image';
+				}
 				delete params.note_id;
 				chatFiles = structuredClone(chatContent?.files ?? []);
 
@@ -4007,7 +4040,15 @@
 			continueResponse?: boolean;
 		} = {}
 	) => {
+		const aurenSnapshot = { ...aurenOptions };
 		const responseMessage = _history.messages[responseMessageId];
+		const aurenRequestId = model.id.startsWith('cavren:') ? uuidv4() : undefined;
+		if (aurenRequestId) {
+			responseMessage.aurenCancelled = false;
+			delete responseMessage.error;
+			responseMessage.statusHistory = [];
+			responseMessage.auren_request_id = aurenRequestId;
+		}
 		const userMessage = _history.messages[responseMessage.parentId];
 
 		const chatMessageFiles = _messages
@@ -4050,7 +4091,7 @@
 		}
 
 		const stream =
-			params.lunvri_image_generation === true ||
+			aurenSnapshot.image_generation ||
 			(model?.info?.params?.stream_response ??
 				params?.stream_response ??
 				$settings?.params?.stream_response ??
@@ -4156,10 +4197,19 @@
 				model: model.id,
 				...(model.id.startsWith('cavren:')
 					? {
-							cavren_mode_id: userMessage?.cavren_mode_id ?? params.cavren_mode_id ?? 'ether',
-							cavren_web_search: params.cavren_web_search === true,
-							cavren_billing_confirmed: params.cavren_billing_confirmed === true,
-							lunvri_image_generation: params.lunvri_image_generation === true
+							auren_request_id: aurenRequestId,
+							auren_continue_response: continueResponse,
+							cavren_mode_id: aurenSnapshot.mode_id,
+							cavren_web_search: aurenSnapshot.web_search,
+							cavren_billing_confirmed: aurenSnapshot.billing_confirmed,
+							lunvri_image_generation: aurenSnapshot.image_generation,
+							auren_task:
+								aurenSnapshot.task_id ?? (aurenSnapshot.image_generation ? 'image' : 'chat'),
+							auren_mode_manual: aurenSnapshot.mode_manual,
+							auren_transcribe_language: aurenSnapshot.transcribe_language,
+							auren_image_profile: aurenSnapshot.image_profile,
+							auren_image_profile_manual: aurenSnapshot.image_profile_manual,
+							auren_image_fallback: aurenSnapshot.image_fallback !== false
 						}
 					: {}),
 				...(messages.length > 0 ? { messages } : {}),
@@ -4325,6 +4375,7 @@
 		const responseMessage = messageId ? history.messages[messageId] : null;
 		if (responseMessage && (responseMessage.user_id ?? chat?.user_id ?? $user?.id) !== $user?.id)
 			return;
+		if (responseMessage) responseMessage.aurenCancelled = true;
 		cancelBrowserInteractions();
 		if (bridge?.connected && responseMessage) responseMessage.bridgeStopping = true;
 		const hasTaskIds = (taskIds?.length ?? 0) > 0;
@@ -4582,6 +4633,67 @@
 			}
 		}
 	};
+
+	// Conversation params are the single persisted source for both controls and Plugins.
+	import { changeTask, restoreAurenTask, singleAurenModel, type AurenOptions } from '$lib/utils/aurenTask';
+	$: aurenOptions = {
+		task_id: params.auren_task ?? (params.lunvri_image_generation ? 'image' : 'chat'),
+		mode_manual: params.auren_mode_manual ?? Boolean(params.cavren_mode_id),
+		conversation_mode: params.auren_conversation_mode,
+		task_models: params.auren_task_models,
+		task_modes: params.auren_task_modes,
+		task_mode_manual: params.auren_task_mode_manual,
+		transcribe_language: params.auren_transcribe_language ?? 'auto',
+		mode_id: params.cavren_mode_id ?? 'ether',
+		web_search: params.cavren_web_search === true,
+		billing_confirmed: params.cavren_billing_confirmed === true,
+		image_generation: params.auren_task
+			? params.auren_task === 'image'
+			: params.lunvri_image_generation === true,
+		image_profile: params.auren_image_profile ?? 'balanced',
+		image_profile_manual: params.auren_image_profile_manual ?? Boolean(params.auren_image_profile && params.auren_image_profile !== 'balanced'),
+		image_fallback: params.auren_image_fallback !== false,
+		conversation_model: params.auren_conversation_model,
+		image_model: params.auren_image_model
+	};
+	function setAurenOptions(options: AurenOptions) {
+		params = {
+			...params,
+			cavren_mode_id: options.mode_id,
+			cavren_web_search: options.web_search,
+			cavren_billing_confirmed: options.billing_confirmed,
+			lunvri_image_generation: options.image_generation,
+			auren_task: options.task_id ?? (options.image_generation ? 'image' : 'chat'),
+			auren_mode_manual: options.mode_manual,
+			auren_conversation_mode: options.conversation_mode,
+			auren_task_models: options.task_models,
+			auren_task_modes: options.task_modes,
+			auren_task_mode_manual: options.task_mode_manual,
+			auren_transcribe_language: options.transcribe_language,
+			auren_image_fallback: options.image_fallback !== false,
+			auren_image_profile: options.image_profile ?? 'balanced',
+			auren_image_profile_manual: options.image_profile_manual,
+			auren_conversation_model: options.image_generation
+				? options.conversation_model
+				: selectedModels[0],
+			auren_image_model: options.image_generation ? selectedModels[0] : options.image_model
+		};
+		saveControls();
+	}
+	function setAurenPlugin(plugin: string) {
+		if (generating || taskIds?.length) return;
+		if (plugin === 'web') {
+			setAurenOptions({ ...aurenOptions, web_search: !aurenOptions.web_search });
+		} else {
+			const transition = changeTask(
+				aurenOptions,
+				selectedModels[0],
+				!aurenOptions.image_generation
+			);
+			selectedModels = [transition.model];
+			setAurenOptions(transition.options);
+		}
+	}
 
 	const saveControls = async () => {
 		if (isShared) return;
@@ -4965,22 +5077,8 @@
 							readOnly={isShared}
 							bind:selectedModels
 							generating={generating || !!taskIds?.length}
-							cavrenOptions={{
-								mode_id: params.cavren_mode_id ?? 'ether',
-								web_search: params.cavren_web_search === true,
-								billing_confirmed: params.cavren_billing_confirmed === true,
-								image_generation: params.lunvri_image_generation === true
-							}}
-							onCavrenChange={(options) => {
-								params = {
-									...params,
-									cavren_mode_id: options.mode_id,
-									cavren_web_search: options.web_search,
-									cavren_billing_confirmed: options.billing_confirmed,
-									lunvri_image_generation: options.image_generation
-								};
-								saveControls();
-							}}
+							cavrenOptions={aurenOptions}
+							onCavrenChange={setAurenOptions}
 							chat={{
 								id: $chatId,
 								archived: chat?.archived ?? false,
@@ -5111,6 +5209,8 @@
 									class=" pb-2 {dragged ? 'z-0' : 'z-10'}"
 								>
 									<MessageInput
+										{aurenOptions}
+										onAurenPlugin={setAurenPlugin}
 										{typingUsers}
 										on:typing={(event) => emitTyping(event.detail)}
 										callActive={!!(bridge?.connected || bridge?.connecting)}
@@ -5206,6 +5306,8 @@
 								{/if}
 								<div id={embedded ? messageInputDropzoneId : undefined} class="pb-2 z-10">
 									<MessageInput
+										{aurenOptions}
+										onAurenPlugin={setAurenPlugin}
 										{typingUsers}
 										on:typing={(event) => emitTyping(event.detail)}
 										callActive={!!(bridge?.connected || bridge?.connecting)}
@@ -5270,6 +5372,8 @@
 						{:else}
 							<div class="flex items-center h-full">
 								<Placeholder
+									{aurenOptions}
+									onAurenPlugin={setAurenPlugin}
 									callActive={!!(bridge?.connected || bridge?.connecting)}
 									bind:selectedModelIdx
 									{history}

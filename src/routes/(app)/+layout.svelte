@@ -484,6 +484,11 @@
 		await tick();
 
 		loaded = true;
+		await tick();
+		if ($config?.auren?.local && !($page.url.pathname === '/' || $page.url.pathname.startsWith('/c/') || $page.url.pathname.startsWith('/folders/'))) {
+			const { revealAuren } = await import('$lib/utils/aurenStartup');
+			void revealAuren();
+		}
 	});
 
 	// `$page.url` must be referenced here: `$:` only tracks variables used in

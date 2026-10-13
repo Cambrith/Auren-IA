@@ -40,6 +40,10 @@
 		<script>
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 			(() => {
+				document.documentElement.classList.add('auren-starting');
+				if (window.__aurenDesktop) document.documentElement.classList.add('auren-desktop');
+				const elapsed = window.__aurenLoadStarted ? Date.now() - window.__aurenLoadStarted : 0;
+				document.documentElement.style.setProperty('--auren-pulse-delay', `${-(elapsed % 2600)}ms`);
 				const metaThemeColorTag = document.querySelector('meta[name="theme-color"]');
 				const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -68,17 +72,10 @@
 					metaThemeColorTag.setAttribute('content', '#171717');
 				}
 
-				// LICENSE covers these Open WebUI splash logo assets.
-				// Do not alter, remove, obscure, or replace them except as LICENSE permits:
-				// https://docs.openwebui.com/license.
-				const preloadHref = document.documentElement.classList.contains('dark')
-					? '/static/splash-dark.png'
-					: '/static/splash.png';
 				const preload = document.createElement('link');
 				preload.rel = 'preload';
 				preload.as = 'image';
-				preload.href = preloadHref;
-				preload.setAttribute('fetchpriority', 'high');
+				preload.href = '/lunvri-logo.png';
 				document.head.appendChild(preload);
 
 				window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
@@ -94,27 +91,6 @@
 						}
 					}
 				});
-				const isDarkMode = document.documentElement.classList.contains('dark');
-
-				const logo = document.createElement('img');
-				logo.id = 'logo';
-				logo.style =
-					'position: absolute; width: auto; height: 6rem; top: 44%; left: 50%; transform: translateX(-50%); display:block;';
-				logo.loading = 'eager';
-				logo.fetchPriority = 'high';
-				// LICENSE covers this Open WebUI splash logo.
-				// Do not alter, remove, obscure, or replace it except as LICENSE permits:
-				// https://docs.openwebui.com/license.
-				logo.src = isDarkMode ? '/static/splash-dark.png' : '/static/splash.png';
-
-				document.addEventListener('DOMContentLoaded', function () {
-					const splash = document.getElementById('splash-screen');
-					if (document.documentElement.classList.contains('her')) {
-						return;
-					}
-
-					if (splash) splash.prepend(logo);
-				});
 			})();
 		</script>
 
@@ -126,72 +102,8 @@
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 
-		<div
-			id="splash-screen"
-			style="display: none; position: fixed; z-index: 100; top: 0; left: 0; width: 100%; height: 100%"
-		>
-			<style type="text/css" nonce="">
-				html {
-					overflow-y: scroll !important;
-				}
-			</style>
-
-			<div
-				style="
-					position: absolute;
-					top: 33%;
-					left: 50%;
-
-					width: 24rem;
-					transform: translateX(-50%);
-
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-				"
-			>
-				<!-- LICENSE covers this Open WebUI splash logo.
-				Do not alter, remove, obscure, or replace it except as LICENSE permits:
-				https://docs.openwebui.com/license. -->
-				<img
-					id="logo-her"
-					style="width: auto; height: 13rem"
-					src="/static/splash.png"
-					loading="eager"
-					fetchpriority="high"
-					class="animate-pulse-fast"
-				/>
-
-				<div style="position: relative; width: 24rem; margin-top: 0.5rem">
-					<div
-						id="progress-background"
-						style="
-							position: absolute;
-							width: 100%;
-							height: 0.75rem;
-
-							border-radius: 9999px;
-							background-color: #fafafa9a;
-						"
-					></div>
-
-					<div
-						id="progress-bar"
-						style="
-							position: absolute;
-							width: 0%;
-							height: 0.75rem;
-							border-radius: 9999px;
-							background-color: #fff;
-						"
-						class="bg-white"
-					></div>
-				</div>
-			</div>
-
-			<!-- <span style="position: absolute; bottom: 32px; left: 50%; margin: -36px 0 0 -36px">
-				Footer content
-			</span> -->
+		<div id="splash-screen" role="status" aria-label="Carregando Auren">
+			<img src="/lunvri-logo.png" alt="Auren" fetchpriority="high" />
 		</div>
 	</body>
 
@@ -202,64 +114,54 @@
 		}
 
 		#splash-screen {
-			background: #fff;
+			position: fixed;
+			inset: 0;
+			z-index: 9999;
+			display: grid;
+			place-items: center;
+			background: #111214;
+			opacity: 1;
+			transition: opacity 360ms ease;
+			pointer-events: none;
 		}
-
-		html.dark #splash-screen {
-			background: #000;
+		#splash-screen img {
+			width: 104px;
+			height: 104px;
+			object-fit: contain;
+			filter: grayscale(1) brightness(0.74);
+			animation: auren-loading 2.6s ease-in-out infinite;
+			animation-delay: var(--auren-pulse-delay, 0ms);
+			transform-origin: center;
+			will-change: transform, opacity;
 		}
-
-		html.her #splash-screen {
-			background: #983724;
+		#splash-screen.leaving {
+			opacity: 0;
 		}
-
-		#logo-her {
-			display: none;
-		}
-
-		#progress-background {
-			display: none;
-		}
-
-		#progress-bar {
-			display: none;
-		}
-
-		html.her #logo {
-			display: none;
-		}
-
-		html.her #logo-her {
-			display: block;
-			filter: invert(1);
-		}
-
-		html.her #progress-background {
-			display: block;
-		}
-
-		html.her #progress-bar {
-			display: block;
-		}
-
-		@media (max-width: 24rem) {
-			html.her #progress-background {
-				display: none;
+		@keyframes auren-loading {
+			0%,
+			100% {
+				opacity: 0.58;
+				transform: scale(0.985);
 			}
-
-			html.her #progress-bar {
-				display: none;
-			}
-		}
-
-		@keyframes pulse {
 			50% {
-				opacity: 0.65;
+				opacity: 0.92;
+				transform: scale(1.015);
 			}
 		}
-
-		.animate-pulse-fast {
-			animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+		/* Restore saved geometry before exposing the application. */
+		html.auren-starting *, html.auren-starting *::before, html.auren-starting *::after,
+		html.auren-resuming #sidebar, html.auren-resuming .lunvri-controls, html.auren-resuming .selector {
+			transition: none !important;
+		}
+		html.auren-starting #splash-screen { transition: opacity 360ms ease !important; }
+		#splash-screen.leaving img { animation-play-state: paused; }
+		@media (prefers-reduced-motion: reduce) {
+			#splash-screen img {
+				animation: none;
+			}
+			html.auren-starting #splash-screen, #splash-screen {
+				transition: none !important;
+			}
 		}
 	</style>
 </html>
