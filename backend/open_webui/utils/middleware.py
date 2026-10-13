@@ -2511,6 +2511,13 @@ async def process_chat_payload(request, form_data, user, metadata, model):
                         ]
 
     if str(form_data.get('model', '')).startswith('cavren:'):
+        from open_webui.utils.auren_events import begin
+        await begin(metadata, form_data.get('auren_request_id'))
+        if metadata.get('auren_request_id') and is_saved_chat_id(metadata.get('chat_id')) and metadata.get('message_id'):
+            await Chats.upsert_message_to_chat_by_id_and_message_id(
+                metadata['chat_id'], metadata['message_id'],
+                {'auren_request_id':metadata['auren_request_id'], 'aurenCancelled':False, 'error':None, 'statusHistory':[]}, touch=False,
+            )
         from open_webui.utils.lunvri_attachments import prepare_attachments
         await prepare_attachments(form_data, model, user)
 

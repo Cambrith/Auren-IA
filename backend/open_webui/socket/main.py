@@ -1374,7 +1374,7 @@ async def get_event_emitter(request_info, update_db=True):
                     payload = {
                         key: value
                         for key, value in data.items()
-                        if key in {'done', 'error', 'usage', 'finish_reason', 'content', 'selected_model_id', 'sources'}
+                        if key in {'done', 'error', 'usage', 'finish_reason', 'content', 'selected_model_id', 'sources', 'auren_request_id'}
                     }
                     if output is not None:
                         payload['output'] = output
@@ -1483,7 +1483,14 @@ async def get_event_emitter(request_info, update_db=True):
                     )
 
     if 'user_id' in request_info and 'chat_id' in request_info and 'message_id' in request_info:
-        return __event_emitter__
+        from open_webui.utils.auren_events import scoped
+        async def persist_auren_cancel():
+            if update_db and is_saved_chat_id(request_info['chat_id']):
+                await Chats.upsert_message_to_chat_by_id_and_message_id(
+                    request_info['chat_id'], request_info['message_id'],
+                    {'aurenCancelled':True,'done':True}, touch=False,
+                )
+        return scoped(__event_emitter__, request_info, persist_auren_cancel)
     else:
         return None
 

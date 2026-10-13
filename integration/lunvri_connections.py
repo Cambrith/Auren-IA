@@ -40,6 +40,8 @@ STATE = Path(os.environ.get('LUNVRI_RUNTIME_DIR', Path(__file__).resolve().paren
 LOCK = threading.RLock()
 _catalog = None
 _updated = 0.0
+_refreshing = False
+_attempted = 0.0
 
 
 def parse_credentials(text: str) -> dict[str, str]:
@@ -66,12 +68,13 @@ def parse_credentials(text: str) -> dict[str, str]:
 
 
 def credentials_env() -> dict[str, str]:
+    from integration.auren_credentials import AurenVault, remember_credentials
+    vault = AurenVault()
     env = {name: value for name, value in worker_env().items() if not name.startswith('DEEPSEEK_')}
     # These two providers remain dormant until explicitly configured in Auren.
     for key in ('OPENAI_API_KEY','ANTHROPIC_API_KEY'):
         env.pop(key,None)
-    from cavren.credentials import SecretServiceBackend, KEY_NAMES
-    vault = SecretServiceBackend()
+    from cavren.credentials import KEY_NAMES
     try: optional_policy=json.loads((STATE/'provider_policy.json').read_text())
     except (OSError,ValueError): optional_policy={}
     for name in set(KEY_LABELS.values()) - set(KEY_NAMES):
@@ -80,6 +83,7 @@ def credentials_env() -> dict[str, str]:
         stored = vault.get(name)
         if stored: env[name] = stored
     # User documents are import sources only, never a runtime credential store.
+    remember_credentials(env)
     return env
 
 
@@ -232,6 +236,7 @@ def public_model(provider, raw):
         label = model_id
     route = f'{provider}:{model_id}'
     info = {
+        'image_workers': raw.get('count') if provider == 'aihorde' else None,
         'route_id': route,
         'provider': provider,
         'model_id': model_id,
@@ -248,10 +253,18 @@ def public_model(provider, raw):
         'capabilities': capabilities(provider, raw, model_id),
         'image_only': bool(outputs and 'image' in outputs and 'text' not in outputs),
     }
+    from integration.auren_images import operations
+    info['image_operations'] = list(operations(info))
+    info['image_validation'] = 'advertised'
     return model_entry('cavren:' + route, info)
 
 
 def model_entry(id, info):
+    from integration.auren_validation import model_evidence, verified
+    kind = 'speech' if info.get('task_operations')==['speech'] else 'transcribe' if info.get('task_operations')==['transcribe'] else 'image' if info.get('capabilities', {}).get('image_generation') else 'text'
+    record = model_evidence(id, kind)
+    info['validation'] = {'status': record.get('status', 'not_tested'), 'free_verified': verified(id, kind),
+                          'mean_seconds': record.get('mean_seconds'), 'date': record.get('verified_at')}
     return {
         'id': id,
         'object': 'model',
@@ -319,11 +332,38 @@ def discover(provider, config):
         return [], {'connected': False, 'status': 'unavailable'}
 
 
-def catalog(refresh=False):
+def validated_catalog(models):
+    from integration.auren_validation import model_evidence, verified
+    from integration.auren_tasks import task_evidence
+    for task_name, record in task_evidence().items():
+        id=record.get('model')
+        if not (task_name.startswith('transcribe_') or task_name=='speech') or not id or not verified(id,'speech' if task_name=='speech' else 'transcribe') or any(m['id']==id for m in models):continue
+        provider,name=id.removeprefix('cavren:').split(':',1)
+        models.append(model_entry(id,{'route_id':id.removeprefix('cavren:'),'provider':provider,'model_id':name,'label':display_name(name),
+                     'provider_name':PROVIDER_NAMES[provider],'price_kind':'free','available':True,'integrated':False,
+                     'task_operations':['speech' if task_name=='speech' else 'transcribe'],'capabilities':{'audio':True,'file_upload':True,'image_generation':False}}))
+    for model in models:
+        info=model['cavren']; kind='speech' if info.get('task_operations')==['speech'] else 'transcribe' if info.get('task_operations')==['transcribe'] else 'image' if info.get('capabilities',{}).get('image_generation') else 'text'
+        record=model_evidence(model['id'],kind)
+        info['validation']={'status':record.get('status','not_tested'),'free_verified':verified(model['id'],kind),
+                            'mean_seconds':record.get('mean_seconds'),'date':record.get('verified_at')}
+        if info['validation']['free_verified'] and record.get('safety') in ('community_kudos','configured_trial','configured_free_plan','documented_free_model'):
+            info['price_kind']='free'
+    auto=next((m for m in models if m['id']=='cavren:auto'),None)
+    if auto and any('transcribe' in m['cavren'].get('task_operations',[]) for m in models):
+        auto['cavren']['capabilities']['audio']=True
+        auto['info']['meta']['capabilities']['audio']=True
+    return models
+
+
+def _refresh_catalog():
     global _catalog, _updated
     with LOCK:
-        if _catalog is not None and not refresh and time.time() - _updated < 300:
-            return _catalog
+        previous = {m['id']: m for m in (_catalog or [])}
+        try:
+            old_statuses = json.loads((STATE / 'models.json').read_text()).get('providers', {})
+        except (OSError, ValueError, AttributeError):
+            old_statuses = {}
         settings = connection_settings()
         auto_caps = capabilities('', {}, '') | {'vision': True}
         entries = {
@@ -371,9 +411,20 @@ def catalog(refresh=False):
             futures = {name: pool.submit(discover, name, config) for name, config in providers.items()}
             for name, future in futures.items():
                 models, statuses[name] = future.result()
+                # A timeout, lost network or rejected catalogue does not remove
+                # saved models. Generation still validates credentials and cost.
+                if not statuses[name].get('connected'):
+                    models = [m for m in previous.values() if m['cavren'].get('provider') == name]
                 for model in models:
                     if model['id'] not in entries or model['cavren'].get('image_only'):
                         entries[model['id']] = model
+        # Wallet readiness is separate from catalogue availability. Preserve
+        # existing metadata when login has not made credentials readable yet.
+        for name in old_statuses.keys() - providers.keys():
+            statuses[name] = {**old_statuses[name], 'connected': None, 'status': 'vault_unavailable'}
+            for model in previous.values():
+                if model['cavren'].get('provider') == name:
+                    entries.setdefault(model['id'], model)
         for cap in ('vision', 'video', 'audio', 'pdf'):
             auto_caps[cap] = any(m['cavren'].get('price_kind') == 'free' and m['cavren']['capabilities'].get(cap) for m in entries.values() if m['id'] != 'cavren:auto')
         _catalog = [
@@ -382,19 +433,65 @@ def catalog(refresh=False):
         ]
         _updated = time.time()
         STATE.mkdir(mode=0o700, parents=True, exist_ok=True)
-        (STATE / 'models.json').write_text(json.dumps({'models': _catalog, 'providers': statuses, 'updated': _updated}))
-        return _catalog
+        from integration.auren_settings import atomic_json
+        atomic_json(STATE / 'models.json', {'models': _catalog, 'providers': statuses, 'updated': _updated})
+        return validated_catalog(_catalog)
+
+
+def _catalog_background():
+    global _refreshing
+    try:
+        _refresh_catalog()
+    except (OSError, ValueError, TypeError):
+        # The last complete snapshot remains usable; no secret or raw error log.
+        pass
+    finally:
+        with LOCK:
+            _refreshing = False
+
+
+def catalog(refresh=False):
+    """Serve the local snapshot first; external discovery never blocks opening."""
+    global _catalog, _updated, _refreshing, _attempted
+    # The background worker holds LOCK while publishing. Fast reads deliberately
+    # use the immutable list reference without waiting for provider requests.
+    if _catalog is None:
+        with LOCK:
+            if _catalog is None:
+                try:
+                    data = json.loads((STATE / 'models.json').read_text())
+                    saved = data['models']
+                    if not isinstance(saved, list) or not saved: raise ValueError()
+                    _catalog = saved
+                    _updated = float(data.get('updated', 0))
+                except (OSError, ValueError, KeyError, TypeError):
+                    _catalog = [model_entry('cavren:auto', {'label': 'Automático', 'available': True,
+                                'price_kind': 'free', 'integrated': True, 'capabilities': capabilities('', {}, '')})]
+    if refresh:
+        return _refresh_catalog()
+    now = time.time()
+    if now - _updated >= 300 and now - _attempted >= 15 and not _refreshing:
+        # Do not wait on a refresh already holding LOCK.
+        if LOCK.acquire(blocking=False):
+            try:
+                if not _refreshing:
+                    _refreshing = True
+                    _attempted = now
+                    threading.Thread(target=_catalog_background, name='auren-catalog', daemon=True).start()
+            finally:
+                LOCK.release()
+    return validated_catalog(list(_catalog))
 
 
 def cached_model(id):
     try:
-        model = next((m for m in json.loads((STATE / 'models.json').read_text())['models'] if m['id'] == id), None)
+        model = next((m for m in validated_catalog(json.loads((STATE / 'models.json').read_text())['models']) if m['id'] == id), None)
         if model:
             info = model['cavren']
             if not deepseek_allowed(
                 info.get('provider', ''), info.get('model_id', id), info.get('price_kind') == 'free'
             ):
                 return None
-        return model
+        return validated_catalog([model])[0] if model else None
     except (FileNotFoundError, ValueError, KeyError):
         return None

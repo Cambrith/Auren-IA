@@ -53,14 +53,27 @@ def requirements(messages):
 
 
 def candidates(job, models, settings, blocked):
+    from integration.lunvri_connections import validated_catalog
+    models = validated_catalog(models)
     required = requirements(job['messages'])
     manual = job['mode_options'].get('manual_route')
-    mode_routes = {r.route_id: i for i, r in enumerate(routes_for(job['mode_id']))}
+    image = bool(job.get('lunvri_image_generation'))
+    task = job.get('auren_task', 'image' if image else 'chat')
+    native = image or task in ('transcribe','speech')
+    from integration.auren_images import validate, rank
+    mode_routes = {} if native else {r.route_id: i for i, r in enumerate(routes_for(job['mode_id']))}
     def priority(model):
         info = model['cavren']
         route = info.get('route_id', '')
         if manual == route:
             return (-1, 0, route)
+        if not native and route == job.get('auren_recommended_route'):
+            return (0, -1, route)
+        if image:
+            return (0, rank(info, job))
+        if native:
+            from integration.auren_validation import measured_seconds
+            return (0, (0 if route==job.get('auren_recommended_route') else 1, measured_seconds(model['id'],task) or 9999))
         if route in mode_routes:
             return (0, mode_routes[route], route)
         # Curated reasoning/code families supplement the existing mode profile.
@@ -75,6 +88,17 @@ def candidates(job, models, settings, blocked):
         route, provider = info.get('route_id'), info.get('provider')
         if not route or not info.get('available', True):
             continue
+        if task in ('code','documents','research','transcribe','speech'):
+            from integration.auren_tasks import models_for
+            if model['id'] not in models_for(task):
+                continue
+        operations = info.get('task_operations', [])
+        if operations and task not in operations or task == 'transcribe' and 'transcribe' not in operations:
+            continue
+        if job.get('auren_verified_only') or job.get('auren_evidence_policy') and route != manual:
+            from integration.auren_validation import verified
+            if not verified(model['id'], 'speech' if task=='speech' else 'transcribe' if task=='transcribe' else 'image' if image else 'text'):
+                continue
         config = settings.providers.get(provider)
         if not config or not config.api_key or (provider == 'cloudflare' and not config.account_id):
             continue
@@ -87,15 +111,19 @@ def candidates(job, models, settings, blocked):
         caps = info['capabilities']
         if not all(caps.get(cap) for cap in required):
             continue
-        image = bool(job.get('lunvri_image_generation'))
         if image and not caps.get('image_generation') or not image and info.get('image_only'):
             continue
-        if job['mode_id'] in ('insight', 'arquiteto') and route != manual and priority(model)[0] == 2:
+        if image:
+            try:
+                validate(job, info)
+            except CavrenError:
+                continue
+        if not native and job['mode_id'] in ('insight', 'arquiteto') and route != manual and priority(model)[0] == 2:
             continue
         # Never discard attachments or truncate the supplied conversation to fit a fallback.
         # Image/video bytes are not text tokens; native providers enforce their media limit.
         chars = sum(len(m['content']) if isinstance(m['content'], str) else sum(len(p.get('text','')) for p in m['content']) for m in job['messages'])
-        if chars // 3 + 6000 + min(int(job.get('max_tokens', 4096)), int(info.get('output_limit',4096))) > int(info.get('context_window') or 32000):
+        if not native and chars // 3 + 6000 + min(int(job.get('max_tokens', 4096)), int(info.get('output_limit',4096))) > int(info.get('context_window') or 32000):
             continue
         result.append(model)
     # Diversify supplemental providers to avoid exhausting many models of one account.
@@ -106,7 +134,10 @@ def candidates(job, models, settings, blocked):
         provider = model['cavren']['provider']
         (rest if provider in seen else first).append(model)
         seen.add(provider)
-    return (primary + first + rest)[:10]
+    choices = (primary + first + rest)[:10]
+    if manual and job.get('auren_image_fallback', True) is False and image:
+        choices = [m for m in choices if m['cavren']['route_id'] == manual]
+    return choices
 
 
 def run(job, normalize_messages, *, route_runner=run_route, output=emit):
@@ -115,12 +146,18 @@ def run(job, normalize_messages, *, route_runner=run_route, output=emit):
     choices = candidates(job, models, settings, cooldowns())
     if not choices:
         raise CavrenError('routes', 'Nenhum modelo gratuito compatível está disponível agora. Troque o modelo ou aguarde a renovação da cota.')
+    if job.get('auren_requested_task') == 'auto':
+        from integration.auren_tasks import DEFINITIONS
+        context=('perfil '+{'rapid':'Rápido','balanced':'Equilibrado','detailed':'Detalhado'}.get(job.get('auren_image_profile'),'Equilibrado')) if job['auren_task']=='image' else ('modo '+{'ether':'Éter','impeto':'Ímpeto','insight':'Insight','arquiteto':'Arquiteto'}[job['mode_id']]) if job['auren_task'] not in ('speech','transcribe') else 'português' if job['auren_task']=='speech' else 'idioma '+job.get('auren_transcribe_language','auto')
+        output({'type':'generation.task_selected','generation_id':job['generation_id'],
+                'description':'Tarefa detectada: '+DEFINITIONS[job['auren_task']]['name']+' · '+context+' · '+choices[0]['cavren']['label']})
     started = time.monotonic()
+    deadline = job.get('auren_deadline', started + 480)
     sequence = 0
     search_context = None
     last_error = None
     for index, model in enumerate(choices):
-        if time.monotonic() - started > 480:
+        if time.monotonic() >= deadline:
             break
         info = model['cavren']
         # Another process can discover an exhausted credential while this request is running.
@@ -128,12 +165,16 @@ def run(job, normalize_messages, *, route_runner=run_route, output=emit):
         if blocked.get(info['route_id'],0) > time.time() or blocked.get(info['provider'] + ':*',0) > time.time():
             continue
         if index:
-            output({'type': 'generation.fallback', 'description': 'Tentando ' + info['label'] + ' · ' + info.get('provider_name',info['provider'])})
-        attempt = dict(job, mode_options=dict(job['mode_options'], manual_route=info['route_id']),
-                       auren_context=search_context)
+            output({'type': 'generation.fallback', 'generation_id':job['generation_id'], 'attempt_id':f"{job['generation_id']}:{index}", 'provider':info['provider'], 'effective_model':info['model_id'], 'description': 'Tentando ' + info['label'] + ' · ' + info.get('provider_name',info['provider'])})
+        attempt = dict(job, mode_options=dict(job['mode_options'], manual_route=info['route_id'],
+                                           billing_confirmed=info['route_id']==job['mode_options'].get('manual_route') and job['mode_options'].get('billing_confirmed',False)),
+                       auren_context=search_context, auren_deadline=deadline,
+                       auren_attempt_id=f"{job['generation_id']}:{index}")
         visible = False
         def forward(event):
             nonlocal visible, sequence
+            if event.get('generation_id', job['generation_id']) != job['generation_id']:
+                return
             if event['type'] == 'generation.delta' and event.get('text', '').strip():
                 visible = True
             if event['type'] == 'generation.error':
@@ -141,8 +182,15 @@ def run(job, normalize_messages, *, route_runner=run_route, output=emit):
             if event['type'] == 'generation.completed':
                 event['response']['public_mode'] = job['mode_id']
                 event['response']['fallback_index'] = index
+                event['response']['auren_task'] = job.get('auren_task')
+                event['response']['auren_requested_task'] = job.get('auren_requested_task')
             sequence += 1
-            output(dict(event, sequence=sequence))
+            if event.get('generation_id', job['generation_id']) != job['generation_id']:
+                return
+            output(dict(event, sequence=sequence, generation_id=job['generation_id'],
+                        attempt_id=attempt['auren_attempt_id'], provider=info['provider'],
+                        requested_model=job['mode_options'].get('manual_route') or 'automatic',
+                        effective_model=info['model_id']))
         try:
             route_runner(attempt, normalize_messages, output=forward)
             return 0

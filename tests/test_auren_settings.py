@@ -6,6 +6,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 from integration import auren_settings as settings
+from integration import auren_credentials
 from integration.lunvri_connections import model_entry
 
 IMAGE = {'id':'cavren:aihorde:test','name':'Test Image','cavren':{'provider':'aihorde','capabilities':{'image_generation':True}}}
@@ -22,8 +23,9 @@ class SettingsTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory()
         self.root=Path(self.temp.name)
         self.path=patch.object(settings,'STATE',self.root);self.path.start()
+        self.vault_path=patch.object(auren_credentials,'STATE',self.root);self.vault_path.start()
         self.models=patch.object(settings,'catalog',return_value=[IMAGE]);self.models.start()
-    def tearDown(self): self.models.stop();self.path.stop();self.temp.cleanup()
+    def tearDown(self): self.models.stop();self.vault_path.stop();self.path.stop();self.temp.cleanup()
     def test_preferences_roundtrip_and_permissions(self):
         value=settings.save_preferences({'image_model_id':IMAGE['id'],'image_width':768})
         self.assertEqual(value,settings.preferences());self.assertEqual(value['image_steps'],20)
@@ -50,7 +52,10 @@ class SettingsTests(unittest.TestCase):
         vault=Vault()
         settings.save_key('cohere','replacement',vault,free_trial=True)
         self.assertEqual(vault.value,'replacement')
-        self.assertTrue(json.loads((self.root/'provider_policy.json').read_text())['cohere_trial'])
+        policy=json.loads((self.root/'provider_policy.json').read_text())
+        self.assertTrue(policy['cohere_trial'])
+        self.assertIn('cohere',policy['validation_not_before'])
+        self.assertNotIn('replacement',json.dumps(policy))
         settings.save_key('cohere','replacement',vault)
         self.assertFalse(json.loads((self.root/'provider_policy.json').read_text())['cohere_trial'])
     def test_invalid_provider_and_key_do_not_change_vault(self):

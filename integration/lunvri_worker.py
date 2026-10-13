@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import sys
 import signal
+import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -72,6 +73,12 @@ if __name__ == "__main__":
     # Dispatch manual catalog routes without adding them to automatic fallback.
     raw = sys.stdin.read()
     job = json.loads(raw)
+    if job.get('lunvri_image_generation'):
+        job['auren_deadline'] = time.monotonic() + 480
+        def expired(signum, frame):
+            raise CavrenError('deadline', 'O prazo global de geração foi atingido.')
+        signal.signal(signal.SIGALRM, expired)
+        signal.setitimer(signal.ITIMER_REAL, 475)
     if job.get('auren_fallback', True):
         try:
             raise SystemExit(run_manual(job, normalize_messages))

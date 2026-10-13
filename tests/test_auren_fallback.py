@@ -51,6 +51,27 @@ class FallbackTests(unittest.TestCase):
             self.assertEqual(output[-1]['response']['fallback_index'],1)
             self.assertIn('generation.fallback',[e['type'] for e in output])
             (self.state/'route_cooldowns.json').unlink()
+    def test_images_have_backups_in_every_conversation_mode(self):
+        images = [model('gemini:plain-image-a', image=True), model('gemini:plain-image-b', image=True)]
+        for mode in ('ether', 'impeto', 'insight', 'arquiteto'):
+            job = dict(self.job, mode_id=mode, lunvri_image_generation=True,
+                       mode_options={'manual_route': 'gemini:plain-image-a'})
+            choices = fallback.candidates(job, images, self.settings, {})
+            self.assertEqual([m['cavren']['model_id'] for m in choices], ['plain-image-a', 'plain-image-b'])
+
+    def test_deadline_is_shared_and_stale_events_are_ignored(self):
+        calls = []; events = []
+        def runner(job, normalize, *, output):
+            calls.append(job['auren_deadline'])
+            output({'type': 'generation.delta', 'text': 'antigo', 'generation_id': 'old'})
+            if len(calls) == 1:
+                raise CavrenError('network', 'falha', retryable=True)
+            output({'type': 'generation.completed', 'response': {'text': 'ok'}})
+        with patch.object(fallback, 'connection_settings', return_value=self.settings):
+            fallback.run(self.job, lambda x: x, route_runner=runner, output=events.append)
+        self.assertEqual(calls[0], calls[1])
+        self.assertFalse(any(e.get('text') == 'antigo' for e in events))
+
     def test_partial_answer_never_switches(self):
         calls=[];output=[]
         def runner(job,normalize,*,output):
@@ -91,6 +112,6 @@ class HordeTests(unittest.TestCase):
             def delete(self,*args,**kwargs): self.cancelled=True
         c=Client();files,text=generate_images(c,cfg,[],'imagem de teste')
         self.assertEqual(len(files),1);self.assertFalse(c.cancelled)
-        with patch('integration.lunvri_manual.time.monotonic',side_effect=[0,500]),self.assertRaises(CavrenError):
+        with patch('integration.lunvri_manual.time.monotonic',side_effect=[0,0,0,500]),self.assertRaises(CavrenError):
             generate_images(c,cfg,[],'imagem de teste')
         self.assertTrue(c.cancelled)

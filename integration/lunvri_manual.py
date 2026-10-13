@@ -61,7 +61,20 @@ def image_files(provider, payload):
     return files, '\n'.join(text) or 'Imagem gerada.'
 
 
-def generate_images(client, config, messages, prompt, *, progress=None):
+def generate_images(client, config, messages, prompt, *, progress=None, job=None):
+    job = job or {}
+    global_deadline = job.get('auren_deadline', time.monotonic() + 480)
+    def remaining(limit):
+        budget = global_deadline - time.monotonic()
+        if budget <= 0:
+            raise CavrenError('timeout', 'O prazo global de geração foi atingido.', retryable=True)
+        return min(limit, budget)
+    def report(description, **data):
+        if progress:
+            progress({'type': 'generation.image_status', 'description': config.model + ' · ' + config.name + ' · ' + description,
+                      'generation_id': job.get('generation_id'), 'attempt_id': job.get('auren_attempt_id'),
+                      'provider': config.name, 'effective_model': config.model, **data})
+    report('Preparando geração.', state='preparing')
     if config.name == 'gemini':
         contents, systems = GeminiPromptAdapter().adapt(messages)
         body = {'contents': contents, 'generationConfig': {'responseModalities': ['TEXT', 'IMAGE']}}
@@ -79,15 +92,22 @@ def generate_images(client, config, messages, prompt, *, progress=None):
             if part.get('type') == 'image_url'
         ]
         if references:
-            body['input_references'] = references[-8:]
+            body['input_references'] = references
         url = 'https://openrouter.ai/api/v1/images'
         headers = {'Authorization': 'Bearer ' + config.api_key}
     elif config.name == 'aihorde':
         headers = {'apikey': config.api_key, 'Client-Agent': 'Auren:1.0:local'}
         from integration.auren_settings import preferences
-        params = preferences()
+        params = job.get('auren_image_preferences') or preferences()
+        image_params = {'n': 1, 'width': params.get('image_width',512), 'height': params.get('image_height',512), 'steps': params.get('image_steps',20)}
+        # Only the established SD route has curated profile presets. Other models retain configured defaults.
+        if config.model == 'stable_diffusion':
+            profile = job.get('auren_image_profile', 'balanced')
+            if profile == 'rapid': image_params['steps'] = min(image_params['steps'], 12)
+            if profile == 'detailed': image_params['steps'] = 30
+        image_params.update(job.get('auren_image_parameters', {}))
         response = client.post(config.base_url + '/generate/async', headers=headers,
-                               json={'prompt': prompt, 'models': [config.model], 'params': {'n': 1, 'width': params.get('image_width',512), 'height': params.get('image_height',512), 'steps': params.get('image_steps',20)}, 'r2': False, 'shared': False}, timeout=30)
+                               json={'prompt': prompt, 'models': [config.model], 'params': image_params, 'r2': False, 'shared': False}, timeout=remaining(30))
         if response.status_code != 202:
             raise http_error(response.status_code, provider=config.name)
         request_id = response.json()['id']
@@ -96,30 +116,45 @@ def generate_images(client, config, messages, prompt, *, progress=None):
             request_id = str(UUID(request_id))
         except (ValueError, TypeError):
             raise CavrenError('invalid_response', 'A fila de imagens retornou um identificador inválido.')
-        if progress: progress({'type':'generation.image_status','description':'Pedido aceito; aguardando a fila de imagens.'})
         finished = False
-        last_queue = None
+        last_status = None
         try:
-            deadline = time.monotonic() + 240
+            report('Pedido aceito; aguardando a fila.', state='queued', remote_id=request_id)
+            deadline = min(global_deadline - 5, time.monotonic() + 240)
             while time.monotonic() < deadline:
-                check = client.get(config.base_url + '/generate/check/' + request_id, headers=headers, timeout=20)
+                check = client.get(config.base_url + '/generate/check/' + request_id, headers=headers, timeout=remaining(20))
                 if check.status_code != 200:
                     raise http_error(check.status_code, provider=config.name)
                 status = check.json()
-                queue = status.get('queue_position', 'a confirmar')
-                if progress and not status.get('done') and queue != last_queue:
-                    progress({'type':'generation.image_status','description':f'Na fila de imagens · posição {queue}'})
-                    last_queue = queue
+                fields = {k: status.get(k) for k in ('queue_position', 'wait_time', 'eligible_workers')}
+                phase = 'processing' if status.get('processing', 0) else 'queued'
+                snapshot = (phase, *fields.values())
+                if not status.get('done') and snapshot != last_status:
+                    def value(key, suffix=''):
+                        raw = fields[key]
+                        return str(raw) + suffix if type(raw) in (int, float) and raw >= 0 else 'indisponível'
+                    report(('Processando' if phase == 'processing' else 'Na fila') +
+                           ' · posição ' + value('queue_position') +
+                           ' · espera estimada ' + value('wait_time', ' s') +
+                           ' · trabalhadores elegíveis ' + value('eligible_workers'),
+                           state=phase, remote_id=request_id, **fields)
+                    last_status = snapshot
                 if status.get('faulted'):
                     raise CavrenError('unavailable', 'A fila de geração de imagens falhou.', retryable=True)
                 if status.get('done'):
-                    result = client.get(config.base_url + '/generate/status/' + request_id, headers=headers, timeout=20)
+                    result = client.get(config.base_url + '/generate/status/' + request_id, headers=headers, timeout=remaining(20))
                     if result.status_code != 200:
                         raise http_error(result.status_code, provider=config.name)
                     finished = True
-                    if progress: progress({'type':'generation.image_status','description':'Geração de imagem concluída.','done':True})
-                    return image_files('aihorde', {'data': [{'b64_json': image['img'], 'media_type': 'image/webp'} for image in result.json().get('generations', []) if image.get('img') and not image.get('censored')]})
-                time.sleep(3)
+                    generations=result.json().get('generations', [])
+                    usable=[image for image in generations if image.get('img') and not image.get('censored')]
+                    if not usable:
+                        if any(image.get('censored') for image in generations):
+                            raise CavrenError('image_censored','O provedor concluiu o pedido, mas reteve a imagem pelo filtro de conteúdo. Nenhuma imagem foi entregue.')
+                        raise CavrenError('invalid_response','O provedor declarou conclusão, mas não retornou uma imagem utilizável.',retryable=True)
+                    report('Geração concluída.', state='completed', remote_id=request_id, done=True)
+                    return image_files('aihorde', {'data': [{'b64_json': image['img'], 'media_type': 'image/webp'} for image in usable]})
+                time.sleep(max(0, min(3, deadline - time.monotonic())))
             raise CavrenError('timeout', 'A fila de imagens excedeu o tempo de espera.', retryable=True)
         finally:
             if not finished:
@@ -129,14 +164,22 @@ def generate_images(client, config, messages, prompt, *, progress=None):
                     pass
     else:
         raise CavrenError('image', 'Este provedor não tem geração de imagens integrada.')
-    response = client.post(url, headers=headers, json=body, timeout=300)
+    response = client.post(url, headers=headers, json=body, timeout=remaining(300))
     if response.status_code != 200:
         raise http_error(response.status_code, provider=config.name)
-    return image_files(config.name, response.json())
+    result = image_files(config.name, response.json())
+    report('Geração concluída.', state='completed', done=True)
+    return result
 
 
 def run(job, normalize_messages, *, output=emit):
     emit = output
+    if job.get('auren_task') == 'speech':
+        from integration.auren_speech import run as speak
+        return speak(job, normalize_messages, output=output)
+    if job.get('auren_task') == 'transcribe':
+        from integration.auren_transcribe import run as transcribe
+        return transcribe(job, normalize_messages, output=output)
     id = job['generation_id']
     model = cached_model('cavren:' + job['mode_options']['manual_route'])
     if not model:
@@ -153,31 +196,55 @@ def run(job, normalize_messages, *, output=emit):
         retries=0,
         max_tokens=min(int(job.get('max_tokens') or settings.max_tokens), int(info.get('output_limit') or 4096)),
     )
+    if job.get('lunvri_image_generation'):
+        from integration.auren_images import validate
+        validate(job, info)
     messages = [Message(m['role'], m['content']) for m in job['messages']]
     from cavren.modes import routes_for
-    route = next((r for r in routes_for(job['mode_id']) if r.route_id == info['route_id']), None)
+    route = None if job.get('lunvri_image_generation') else next((r for r in routes_for(job['mode_id']) if r.route_id == info['route_id']), None)
     if route:
         effort = route.effort if route.effort in route.model.reasoning_levels else 'default'
         settings = replace(settings, reasoning_effort=effort)
-    context = job.get('auren_context') or build_generation_context(job, messages, max_output_tokens=settings.max_tokens, settings=settings, budget=ContextBudget(int(info.get('context_window') or 32000) - settings.max_tokens - 4096))
+    context = None if job.get('lunvri_image_generation') else job.get('auren_context') or build_generation_context(job, messages, max_output_tokens=settings.max_tokens, settings=settings, budget=ContextBudget(int(info.get('context_window') or 32000) - settings.max_tokens - 4096))
     sequence = 0
     with httpx.Client(trust_env=False) as client:
-        if job['mode_options'].get('web_search') and not job.get('auren_context'):
+        if not job.get('lunvri_image_generation') and (job['mode_options'].get('web_search') or job.get('auren_task')=='research') and not job.get('auren_context'):
             sequence += 1
             emit(GenerationEvent(GenerationKind.SEARCHING, id, sequence=sequence).to_dict())
             import os
 
-            result = WebSearchService(client, os.environ.get('CAVREN_SEARXNG_URL', DEFAULT_SEARCH_URL)).search(
-                job['prompt']
-            )
-            context = with_web_results(context, result.sources, query=result.query)
+            service = WebSearchService(client, os.environ.get('CAVREN_SEARXNG_URL', DEFAULT_SEARCH_URL))
+            queries = [job['prompt']]
+            from integration.auren_research import model_plan, accepts
+            domains = ()
+            if job.get('auren_task') == 'research':
+                emit({'type':'generation.task_status','description':'Planejando consultas de pesquisa', 'generation_id':id})
+                queries, domains, agent_planned = model_plan(client, config, job['prompt'], job.get('auren_deadline',time.monotonic()+480))
+                emit({'type':'generation.task_status','description':'Consultas escolhidas pelo modelo' if agent_planned else 'Consultas do plano inicial', 'generation_id':id})
+            sources = []
+            seen = set()
+            for index, query in enumerate(queries):
+                if time.monotonic() >= job.get('auren_deadline', float('inf')):
+                    raise CavrenError('timeout', 'O prazo da pesquisa foi atingido.')
+                emit({'type':'generation.task_status','description':f'Pesquisando etapa {index+1}/{len(queries)}', 'generation_id':id})
+                try:
+                    result = service.search(query)
+                except CavrenError as error:
+                    if error.code not in ('search_empty','search_irrelevant'):raise
+                    emit({'type':'generation.task_status','description':f'Consulta {index+1}: sem fontes utilizáveis', 'generation_id':id})
+                    continue
+                for source in result.sources:
+                    if accepts(source, domains) and source['url'] not in seen and len(sources) < 12:
+                        sources.append(source); seen.add(source['url'])
+            if not sources:raise CavrenError('search_empty','Não foram encontradas fontes utilizáveis para este pedido. Nenhuma resposta pesquisada foi produzida.')
+            context = with_web_results(context, tuple(sources), query=job['prompt'])
             sequence += 1
-            emit(GenerationEvent(GenerationKind.SOURCES, id, sequence=sequence, sources=result.sources).to_dict())
+            emit(GenerationEvent(GenerationKind.SOURCES, id, sequence=sequence, sources=tuple(sources)).to_dict())
         job['auren_context'] = context
         if job.get('lunvri_image_generation'):
             if not info['capabilities']['image_generation']:
                 raise CavrenError('image', 'O modelo selecionado não gera imagens.')
-            files, text = generate_images(client, config, normalize_messages(context.messages), job['prompt'], progress=emit)
+            files, text = generate_images(client, config, normalize_messages(messages), job['prompt'], progress=emit, job=job)
             emit({'type': 'generation.files', 'files': files})
             sequence += 1
             emit(GenerationEvent(GenerationKind.DELTA, id, sequence=sequence, text=text).to_dict())
