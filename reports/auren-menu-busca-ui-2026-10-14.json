@@ -1,0 +1,24 @@
+{
+  "task_icons": true,
+  "profile_icons": {
+    "Conversar": 4,
+    "Gerar imagens": 3,
+    "Analisar documentos": 4,
+    "Gerar código": 4,
+    "Pesquisa aprofundada": 4,
+    "Gerar voz": 1,
+    "Transcrever áudio": 3
+  },
+  "selected_model_icon": true,
+  "direct_web_search": true,
+  "no_plugins_or_image_shortcut": true,
+  "matching_menu_style": true,
+  "matching_label_typography": true,
+  "distinct_search_and_attach_icons": true,
+  "web_toggle_on": true,
+  "web_toggle_off": true,
+  "image_generation_preserved": true,
+  "web_disabled_in_images": true,
+  "narrow_menu": true,
+  "no_generation_or_chat_writes": true
+}

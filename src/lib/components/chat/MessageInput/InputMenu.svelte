@@ -27,6 +27,7 @@
 	import Knowledge from './InputMenu/Knowledge.svelte';
 	import AttachWebpageModal from './AttachWebpageModal.svelte';
 	import GlobeAlt from '$lib/components/icons/GlobeAlt.svelte';
+	import WebSearch from '$lib/components/icons/WebSearch.svelte';
 
 	const i18n: any = getContext('i18n');
 
@@ -153,7 +154,7 @@
 					{#if $config?.auren?.local}
 						<button
 							type="button"
-							class="flex gap-2 w-full items-center h-[1.6875rem] px-2 text-[0.8125rem] font-normal cursor-pointer hover:bg-gray-50/40 dark:hover:bg-gray-800/40 rounded-xl text-left disabled:opacity-50 disabled:cursor-not-allowed"
+							class="flex gap-2 w-full items-center h-[1.6875rem] px-2 text-[0.8125rem] font-normal select-none cursor-pointer hover:bg-gray-50/40 dark:hover:bg-gray-800/40 rounded-xl text-left disabled:opacity-50 disabled:cursor-not-allowed"
 							disabled={aurenDisabled || aurenOptions.image_generation || ['transcribe', 'speech', 'research'].includes(aurenOptions.task_id ?? '')}
 							aria-pressed={webPluginActive}
 							data-auren-web-search
@@ -162,8 +163,8 @@
 								show = false;
 							}}
 						>
-							<GlobeAlt className="size-3.5 shrink-0" />
-							<span class="flex-1">Pesquisar na web</span>
+							<WebSearch className="size-3.5 shrink-0" />
+							<div class="line-clamp-1 flex-1">Pesquisar na web</div>
 							{#if webPluginActive}<span aria-hidden="true" class="text-cyan-400">✓</span>{/if}
 						</button>
 					{/if}

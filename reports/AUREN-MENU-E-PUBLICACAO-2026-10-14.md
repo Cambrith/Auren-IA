@@ -41,3 +41,13 @@ O conjunto inclui as alterações locais pendentes da Auren: roteamento por tare
 O cofre, as chaves dos provedores, bancos de conversas, runtimes, caches locais e arquivos temporários de execução não integram o conjunto versionado. O cotejo dos arquivos com as credenciais configuradas não encontrou correspondências. Uma captura HTML de página oficial continha nove chaves de configuração públicas do próprio site; essas sequências foram ocultadas na cópia para publicação, preservando o original no diretório local ignorado `.cavren/publication-originals/2026-10-14/`.
 
 Os checkouts separados `cavren` e `cavren-nextchat` não foram alterados ou publicados por esta entrega. O destino é o repositório da Auren; suas alterações anteriores no motor permanecem nos respectivos checkouts.
+
+## Refinamento do texto e do ícone de busca
+
+O rótulo de Pesquisar na web passou a usar o mesmo elemento e a classe `line-clamp-1` dos demais textos do menu. Mantém a fonte configurada da interface e seus parâmetros de tamanho, peso, altura da linha e espaçamento. A verificação agora compara os textos renderizados, incluindo a família da fonte, em vez de verificar somente o estilo dos botões.
+
+Foi criado `src/lib/components/icons/WebSearch.svelte`: uma lupa com globo interno em SVG, com `currentColor` e o traço fino padrão da biblioteca local. Anexar Página Web conserva seu ícone de globo. Os dois ícones foram comparados na interface e são distintos.
+
+A compilação dos componentes e o build de produção passaram. A verificação nativa confirmou tipografia igual, ícones distintos, ativação/desativação da busca, ausência de Plugins e atalho de imagem, preservação da geração por tarefa e janela estreita sem transbordamento. Não houve geração nem gravação de conversa. A versão recompilada foi acessada no serviço local ativo.
+
+Evidência: `auren-menu-busca-ui-2026-10-14.json`. Capturas: `auren-menu-busca-mais-2026-10-14.png` e `auren-menu-busca-mais-estreito-2026-10-14.png`. As capturas anteriores foram preservadas. Nesta verificação, o script nativo foi executado com o prefixo de saída `auren-menu-` substituído por `auren-menu-busca-`.

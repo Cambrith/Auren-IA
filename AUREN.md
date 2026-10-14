@@ -7,6 +7,11 @@ espaçamento e interação dos outros itens. A indicação de ativação e as re
 de tarefa foram preservadas. O submenu Plugins e seu atalho Gerar imagens foram
 removidos; geração continua pelo seletor de tarefa.
 
+A busca usa um ícone vetorial próprio de lupa com globo, distinguindo-a de
+Anexar Página Web. O rótulo usa a mesma estrutura `line-clamp-1` dos demais itens;
+a verificação compara também fonte, tamanho, peso, altura da linha e espaçamento
+dos textos efetivamente renderizados.
+
 Perfis de código, documentos, pesquisa e transcrição têm ícones próprios para
 seus objetivos. A seleção manual de modelo mostra o ícone local da família ou
 provedor, mantendo o indicador de custo. Os campos preservam as dimensões e os
