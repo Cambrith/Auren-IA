@@ -1,0 +1,58 @@
+{
+  "started_at": "2026-10-14T17:13:23.329033+00:00",
+  "records": {
+    "groq:whisper-large-v3": {
+      "samples": [
+        {
+          "date": "2026-10-14T17:13:23.330043+00:00",
+          "operation": "audio/transcriptions",
+          "real_call": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "token_coverage": 0.75,
+          "response_sha256": "dc9b2da979b7b358e52784870d0a91411b931f15d5ab912d369dbf786afc8c58",
+          "seconds": 1.981
+        },
+        {
+          "date": "2026-10-14T17:13:25.311434+00:00",
+          "operation": "audio/transcriptions",
+          "real_call": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "token_coverage": 0.75,
+          "response_sha256": "dc9b2da979b7b358e52784870d0a91411b931f15d5ab912d369dbf786afc8c58",
+          "seconds": 0.505
+        }
+      ]
+    },
+    "groq:whisper-large-v3-turbo": {
+      "samples": [
+        {
+          "date": "2026-10-14T17:13:25.817394+00:00",
+          "operation": "audio/transcriptions",
+          "real_call": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "token_coverage": 0.75,
+          "response_sha256": "76ff68bb918883d98b58fdb2c5d630caf5835a8507085ff5e5b7593099409609",
+          "seconds": 0.535
+        },
+        {
+          "date": "2026-10-14T17:13:26.352973+00:00",
+          "operation": "audio/transcriptions",
+          "real_call": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "token_coverage": 0.75,
+          "response_sha256": "76ff68bb918883d98b58fdb2c5d630caf5835a8507085ff5e5b7593099409609",
+          "seconds": 0.581
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-10-14T17:13:26.934682+00:00"
+}

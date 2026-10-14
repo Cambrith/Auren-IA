@@ -9,7 +9,15 @@
 	import Document from '$lib/components/icons/DocumentArrowUp.svelte';
 	import Mic from '$lib/components/icons/Mic.svelte';
 	import Cube from '$lib/components/icons/Cube.svelte';
+	import Eye from '$lib/components/icons/Eye.svelte';
+	import LightBulb from '$lib/components/icons/LightBulb.svelte';
+	import Wrench from '$lib/components/icons/Wrench.svelte';
+	import DocumentChart from '$lib/components/icons/DocumentChartBar.svelte';
+	import DocumentDuplicate from '$lib/components/icons/DocumentDuplicate.svelte';
+	import Search from '$lib/components/icons/Search.svelte';
+	import ChatBubbleOval from '$lib/components/icons/ChatBubbleOval.svelte';
 	export let kind = 'chat';
+	export let task = '';
 	const icons = {
 		transcribe: Mic,
 		speech: Mic,
@@ -27,10 +35,19 @@
 		documents: Document,
 		auto: Sparkles
 	};
-	$: icon = icons[kind as keyof typeof icons] ?? ChatBubble;
+	// Profiles share IDs with conversation modes but describe different work.
+	const profileIcons = {
+		auto: { auto: Adjustments },
+		code: { ether: Wrench, impeto: Bolt, insight: LightBulb, arquiteto: Cube },
+		documents: { ether: Document, impeto: Eye, insight: DocumentChart, arquiteto: DocumentDuplicate },
+		research: { ether: ChatBubbleOval, impeto: Search, insight: GlobeAlt, arquiteto: DocumentChart },
+		transcribe: { auto: Mic, pt: ChatBubble, en: GlobeAlt }
+	};
+	$: scoped = profileIcons[task as keyof typeof profileIcons] as Record<string, typeof Mic> | undefined;
+	$: icon = scoped?.[kind] ?? icons[kind as keyof typeof icons] ?? ChatBubble;
 </script>
 
-{#if kind === 'speech'}
+{#if kind === 'speech' || task === 'speech'}
 	<svg
 		viewBox="0 0 24 24"
 		fill="none"

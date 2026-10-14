@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-10-14T21:40:07Z",
+  "records": [
+    {
+      "provider": "cohere",
+      "model": "command-a-vision-07-2025",
+      "operation": "vision/image-understanding",
+      "transport": "compatibility_v1",
+      "real_call": true,
+      "output_token_cap": 48,
+      "fixture_sha256": "a4930caead9c4a55a0458c1f25d92352f02752255e9157a349be415d01295a13",
+      "prompt": "Leia o identificador impresso na imagem, conte os círculos vermelhos e os quadrados azuis. Responda somente no formato identificador|quantidade_de_circulos|quantidade_de_quadrados.",
+      "cost_class": "unknown_actual_cost",
+      "http_status": 200,
+      "result": "valid",
+      "semantic_pass": true,
+      "response_excerpt": "PIXEL-739|2|1",
+      "response_sha256": "f5288aac037102d02b45c368d47124d539795650d9244de47668e85eebb756c0",
+      "usage_tokens": {},
+      "seconds": 0.986
+    },
+    {
+      "provider": "cohere",
+      "model": "command-a-plus-05-2026",
+      "operation": "vision/image-understanding",
+      "transport": "native_v2",
+      "real_call": true,
+      "output_token_cap": 48,
+      "fixture_sha256": "a4930caead9c4a55a0458c1f25d92352f02752255e9157a349be415d01295a13",
+      "prompt": "Leia o identificador impresso na imagem, conte os círculos vermelhos e os quadrados azuis. Responda somente no formato identificador|quantidade_de_circulos|quantidade_de_quadrados.",
+      "cost_class": "unknown_actual_cost",
+      "http_status": 200,
+      "result": "semantic_check_failed",
+      "semantic_pass": false,
+      "response_excerpt": "",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage_tokens": {
+        "input_tokens": 300,
+        "output_tokens": 48
+      },
+      "seconds": 0.68
+    }
+  ]
+}

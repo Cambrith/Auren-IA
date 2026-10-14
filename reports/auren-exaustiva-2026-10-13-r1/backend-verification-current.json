@@ -1,0 +1,25 @@
+{
+  "isolated_temporary_database": true,
+  "results": [
+    {
+      "module": "test_lunvri_attachments",
+      "returncode": 0
+    },
+    {
+      "module": "test_lunvri_local",
+      "returncode": 0
+    },
+    {
+      "module": "test_auren_api",
+      "returncode": 0
+    },
+    {
+      "module": "test_auren_events",
+      "returncode": 0
+    },
+    {
+      "module": "test_auren_profile_config",
+      "returncode": 0
+    }
+  ]
+}

@@ -4,6 +4,7 @@
 	export let name = '';
 	export let modelId = '';
 	export let modelName = '';
+	export let compact = false;
 	let failed = false;
 	$: requestedBrand = modelBrand(provider, modelId, modelName);
 	$: brand = localModelBrands.has(requestedBrand) ? requestedBrand : provider;
@@ -13,7 +14,7 @@
 	$: if (source) failed = false;
 </script>
 
-<span class="provider-badge" title={name} aria-label={name}>
+<span class="provider-badge" class:compact title={name} aria-label={name}>
 	{#if source && !failed}
 		<img
 			src={source}
@@ -62,5 +63,12 @@
 	}
 	img.mono {
 		filter: brightness(0) invert(1);
+	}
+	.provider-badge.compact {
+		width: 20px;
+		height: 20px;
+		border: none;
+		background: transparent;
+		border-radius: 4px;
 	}
 </style>

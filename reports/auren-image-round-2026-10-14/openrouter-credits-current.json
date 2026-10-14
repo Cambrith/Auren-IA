@@ -1,0 +1,8 @@
+{
+  "provider": "openrouter",
+  "endpoint": "GET /api/v1/credits",
+  "checked_at": "2026-10-14T21:06:55.776637+00:00",
+  "http_status": 200,
+  "positive_remaining_balance": false,
+  "numeric_values_exported": false
+}

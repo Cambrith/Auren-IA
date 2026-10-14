@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-14T09:14:53.259807-03:00",
+  "source": "https://openrouter.ai/docs/guides/routing/model-variants/overview",
+  "added_rows": 16896,
+  "single_suffixes": [
+    "nitro",
+    "floor",
+    "exacto",
+    "online"
+  ],
+  "online_deprecated": true,
+  "catalog_variants": [
+    "free",
+    "batch",
+    "thinking",
+    "extended"
+  ],
+  "catalog_variants_generated_only_when_catalogued": true,
+  "combination_grammar": "At most one catalog variant; any routing suffixes. Last sorting suffix determines sort. Nitro/priority and floor/flex eligibility may combine. Repeated or reordered names are accepted request strings, not independent model weights.",
+  "combinations_certified": false,
+  "combination_pending": "Distinct routing behavior combinations and native operations require independent bounded probes or verified prerequisites; no silent assumption that a single suffix validates compositions.",
+  "numeric_account_values_exported": false
+}

@@ -1,0 +1,17 @@
+# Gemini e Groq: avaliações publicadas e adequação na Auren
+
+Consulta: 14/10/2026. Universo congelado: 77 IDs (63 Gemini, 14 Groq), incluindo aliases e três IDs documentados pela Groq fora do catálogo retornado à conta. Cada ID está em `auren-gemini-groq-2026-10-14-r2/benchmark-sources-current.json`, com fonte primária, estado da consulta e indicação de avaliação encontrada ou não confirmada. Foram consultadas 44 fontes públicas distintas, sem inferência. Encontrar uma seção de avaliação não equivale a verificar cada número: as decisões abaixo usam os números revisados, contratos e testes reais; as demais seções continuam explicitamente sem revisão numérica.
+
+| Candidato | Avaliação publicada revisada | Implicação para o produto |
+|---|---|---|
+| [Qwen 3.8 27B](https://huggingface.co/Qwen/Qwen3.8-27B) | GPQA Diamond 89,2%; LiveCodeBench v6 90,3%, publicados pelo fabricante | Forte candidato geral e de código. Éter usa Groq com esforço `high`, solicitado pelo usuário e confirmado no worker. Ímpeto usa `none` para rapidez. |
+| [Gemini 3.8 Flash](https://deepmind.google/models/model-cards/gemini-3-8-flash/) | DeepSWE v1.1 73,7%; Terminal-Bench 2.1 89,4%; GDP.PDF 35% all pass | Candidato de qualidade; benchmark não supera a indisponibilidade observada nesta conta. Não é promovido por retornar sucesso apenas em outra modalidade. |
+| [Gemini 3.5 Flash-Lite](https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/) | SWE-Bench Pro público 54,2%; Terminal-Bench 2.1 54,0% com Terminus-2; CharXiv sem ferramentas 74,5%; MRCR v2, média 128k, 72,2% | Alternativa operacional multimodal; não substitui o modelo de maior profundidade apenas por ser recente. Contexto anunciado de 1M não é contexto validado integralmente pelas sondagens. |
+| [GPT-OSS 120B/20B na Groq](https://console.groq.com/docs/models) | IDs de produção e contratos documentados; os escores não foram usados como ranking universal nesta implantação | Fallbacks de texto conforme a categoria realmente aprovada. Não usar o formato de raciocínio de Qwen nestes modelos. |
+| [Nano Banana 2.1](https://deepmind.google/models/model-cards/nano-banana-2-1/) | Preferência humana lado a lado, Elo 1050 ± 14 na configuração com thinking publicada pelo fabricante | Promissor para imagens, mas não há geração bem-sucedida nesta conta na rodada atual. Não habilitar consumo automático pago. |
+| [Whisper na Groq](https://console.groq.com/docs/speech-to-text) | Distinção oficial entre v3 e Turbo; qualidade/velocidade dependem do áudio e idioma | Testar por transcrição real; Turbo não suporta a operação de tradução. Benchmark de reconhecimento não é avaliação de chat. |
+| [TTS na Groq](https://console.groq.com/docs/text-to-speech) | Operações em inglês e árabe documentadas | Não escolher estas vozes para pt-BR pelo fato de a chamada retornar um arquivo de áudio. |
+
+Os números são do fabricante, com harnesses e configurações distintos; não foram reproduzidos localmente. Não se atribuiu score de versão estável a um alias `latest`, nem score de texto a embeddings, vídeo, música, voz ou moderação. Ausência de benchmark público comparável é registrada como não confirmada. O comportamento na Auren e o acesso da conta são avaliados separadamente em `auren-gemini-groq-2026-10-14-r2/results.json` e nos testes do adaptador/worker.
+
+Kimi K3 e GLM 5.3 continuam candidatos de profundidade do trabalho anterior, com os números e limites descritos em `AUREN-SELECAO-MODELOS-2026-10-14.md`; esta rodada não reabre a auditoria geral dos outros provedores.

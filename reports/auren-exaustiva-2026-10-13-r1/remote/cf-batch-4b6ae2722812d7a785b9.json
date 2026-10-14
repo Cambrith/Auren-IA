@@ -1,0 +1,7 @@
+{
+  "remote_id": "a882b80e-f865-4687-92c7-f689419873ff",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/google/gemma-4-26b-a4b-it::batch",
+  "at": "2026-10-14T07:40:24.503203-03:00",
+  "result": "valid"
+}

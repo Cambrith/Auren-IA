@@ -9,6 +9,20 @@ from cavren.errors import CavrenError
 
 PROFILES = ('rapid', 'balanced', 'detailed')
 PROVIDERS = ('aihorde', 'gemini', 'openrouter')
+PROFILE_ROUTES = {
+    'rapid': ('stable_diffusion', 'Deliberate', 'AbsoluteReality', 'Abyss OrangeMix'),
+    'balanced': ('stable_diffusion', 'Deliberate', 'AbsoluteReality', 'Abyss OrangeMix'),
+    'detailed': ('Deliberate', 'stable_diffusion', 'AbsoluteReality', 'Abyss OrangeMix'),
+}
+
+
+def profile_parameters(preferences, profile, explicit=None):
+    params = {'n': 1, 'width': preferences.get('image_width', 512),
+              'height': preferences.get('image_height', 512), 'steps': preferences.get('image_steps', 20)}
+    if profile == 'rapid': params['steps'] = min(params['steps'], 12)
+    if profile == 'detailed': params['steps'] = max(params['steps'], 30)
+    params.update(explicit or {})
+    return params
 
 
 def operations(info):
@@ -74,7 +88,9 @@ def rank(info, job):
     workers = info.get('image_workers')
     workers = workers if isinstance(workers, (int, float)) else 0
     preferred = info.get('route_id') == job.get('auren_image_preferred_route')
-    curated = info.get('route_id') == 'aihorde:stable_diffusion'
+    order = PROFILE_ROUTES.get(job.get('auren_image_profile'), PROFILE_ROUTES['balanced'])
+    name = info.get('route_id', '').removeprefix('aihorde:')
+    position = order.index(name) if name in order else len(order)
     if job.get('auren_image_profile') == 'rapid':
         from integration.auren_validation import measured_seconds, evidence
         model_id='cavren:' + info.get('route_id', '')
@@ -86,7 +102,7 @@ def rank(info, job):
         seconds = measured_seconds('cavren:' + info.get('route_id', ''), 'image')
         if fresh and len(samples)==2 and all(sample.get('ok') and isinstance(sample.get('seconds'),(int,float)) for sample in samples):
             seconds=sum(sample['seconds'] for sample in samples)/2
-        return (1 if recent_failure else 0, 0 if seconds is not None else 1, seconds if seconds is not None else float('inf'), -workers, 0 if preferred else 1)
+        return (1 if recent_failure else 0, 0 if seconds is not None else 1, seconds if seconds is not None else float('inf'), -workers, position, 0 if preferred else 1)
     if job.get('auren_image_profile') == 'detailed':
-        return (0 if curated else 1, 0 if preferred else 1, -workers)
-    return (0 if preferred else 1, 0 if curated else 1, -workers)
+        return (position, 0 if preferred else 1, -workers)
+    return (0 if preferred else 1, position, -workers)

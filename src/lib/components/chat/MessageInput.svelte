@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { routesAurenAttachments } from '$lib/utils/aurenAttachments';
 	import { resolveLocalizedFunction } from '$lib/utils/localizedContent';
 	import { functions as localizedFunctions } from '$lib/stores';
 	import DOMPurify from 'dompurify';
@@ -1171,22 +1172,9 @@
 				return;
 			}
 
-			if (selectedModelIds.every((id) => id.startsWith('cavren:'))) {
-				const capabilities =
-					($models.find((model) => model.id === selectedModelIds[0]) as any)?.cavren
-						?.capabilities ?? {};
-				if (
-					(file.type.startsWith('video/') && !capabilities.video) ||
-					(file.type.startsWith('audio/') && !capabilities.audio)
-				) {
-					toast.error(
-						'Este modelo não aceita este anexo. Troque para um modelo com suporte a vídeos ou áudio no seletor acima.'
-					);
-					return;
-				}
-			}
+
 			if (isRasterImageContentType(file['type']) || isHeicImage(file)) {
-				if (visionCapableModels.length === 0) {
+				if (visionCapableModels.length === 0 && !routesAurenAttachments(selectedModelIds)) {
 					toast.error(
 						'Este modelo não aceita imagens. Troque para um modelo com Visão no seletor acima.'
 					);
@@ -2038,7 +2026,7 @@
 														alt=""
 														imageClassName=" size-10 rounded-xl object-cover"
 													/>
-													{#if selectedModelIds.length !== visionCapableModels.length}
+													{#if selectedModelIds.length !== visionCapableModels.length && !routesAurenAttachments(selectedModelIds)}
 														<Tooltip
 															className=" absolute top-1 left-1"
 															content={$i18n.t('{{ models }}', {

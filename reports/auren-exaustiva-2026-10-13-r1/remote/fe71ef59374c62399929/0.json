@@ -1,0 +1,8 @@
+{
+  "provider": "aihorde",
+  "row": "aihorde:stable_diffusion_inpainting::image_mask",
+  "sample": 0,
+  "remote_id": "905a7d0e-b4e4-47ef-9fa2-efd61480e541",
+  "accepted_at": "2026-10-13T20:33:05.437828-03:00",
+  "status": "accepted"
+}

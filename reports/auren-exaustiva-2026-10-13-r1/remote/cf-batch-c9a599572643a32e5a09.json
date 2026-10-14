@@ -1,0 +1,7 @@
+{
+  "remote_id": "7fb35e31-3ed7-4a6b-83b1-ec1e32b45426",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/openai/gpt-oss-120b::batch",
+  "at": "2026-10-14T09:07:11.292732-03:00",
+  "result": "valid"
+}

@@ -1,5 +1,91 @@
 # Auren — prévia da interface baseada no Open WebUI
 
+## Menu + e ícones dos seletores — 14/10/2026
+
+“Pesquisar na web” é um item direto do menu +, com a mesma altura, tipografia,
+espaçamento e interação dos outros itens. A indicação de ativação e as restrições
+de tarefa foram preservadas. O submenu Plugins e seu atalho Gerar imagens foram
+removidos; geração continua pelo seletor de tarefa.
+
+Perfis de código, documentos, pesquisa e transcrição têm ícones próprios para
+seus objetivos. A seleção manual de modelo mostra o ícone local da família ou
+provedor, mantendo o indicador de custo. Os campos preservam as dimensões e os
+rótulos acessíveis. A verificação nativa sem gravações de conversa está em
+`tests/check_auren_menu_ui.py`.
+
+## Anexos automáticos e perfis de geração — 14/10/2026
+
+Anexos são preparados antes da escolha da rota. Um modelo manual incompatível
+aciona uma rota compatível apenas para aquela requisição, preservando a escolha
+da conversa. Imagens têm alternativas comprovadas por modo; PDF, áudio e vídeo
+nativos usam Gemini 3.5 Flash Lite na configuração validada. Falta de uma rota
+disponível é informada sem remover o anexo. DOCX/PPTX/ODT, planilhas e arquivos
+de texto/código usam extração local dentro dos limites documentados.
+
+Centelha aplica até 12 passos e ordena por evidência de velocidade; Aurora mantém
+os parâmetros salvos; Prisma prioriza Deliberate com pelo menos 30 passos. Os
+fallbacks preservam os parâmetros e a política automática de geração AI Horde.
+Referências/edição continuam exigindo um contrato específico compatível.
+
+Contratos, ordens, limitações e evidências reais/simuladas estão em
+`reports/AUREN-ANEXOS-E-PERFIS-2026-10-14.md`.
+
+## Seletor de imagens sem pagamento — 14/10/2026
+
+O seletor da conversa oferece apenas a rota nativa comunitária AI Horde, com
+preço gratuito em dinheiro. Kudos, fila e disponibilidade dos trabalhadores
+continuam sendo requisitos do provedor. Gemini, OpenRouter e os demais geradores
+permanecem no catálogo e nas configurações para uso futuro; suas credenciais,
+preferências e adaptadores não foram removidos. Uma seleção paga antiga é trocada
+por Automático ao entrar na tarefa de imagem, sem apagar o catálogo.
+
+O menu tem uma única busca por nome, provedor ou ID, com termos combinados e
+normalização de acentos. A lista usa grupos por provedor, ordem alfabética,
+ícones locais, indicação do modelo padrão e foco de teclado. O filtro separado
+por provedor e o botão duplicado do gerador padrão foram retirados. Abaixo dos
+seletores ficam o controle amarelo de alternativas para o modelo manual e
+“Voltar à conversa”, sem o bloco descritivo anterior.
+
+A verificação nativa em perfil isolado está em
+`tests/check_auren_image_selector_ui.py`: lista sem pagos, configurações completas,
+busca, navegação, alternativas, retorno à conversa e janela estreita. Não solicita
+gerações nem salva preferências. Evidências em
+`reports/auren-imagens-seletor-ui-2026-10-14.json` e nas capturas correspondentes.
+
+## Seleção por tarefa e rodada Gemini/Groq — 14/10/2026
+
+Éter prioriza Qwen 3.8 27B na Groq com esforço `high`; Ímpeto usa `none`.
+Kimi K3 mantém a prioridade efetiva de profundidade nos perfis de qualidade.
+Gemini 3.8 Flash é condicional à validação e disponibilidade; as chamadas atuais
+receberam indisponibilidade/limite. Gemini 3.5 Flash-Lite passou no adaptador para
+conversa, código, documentos e pesquisa com fontes, e no worker com PDF nativo.
+Ele substitui a antiga alternativa 3.6 para entrada multimodal compatível.
+
+O Automático mantém as regras locais e usa classificação JSON limitada com Qwen
+para pedidos de ação não reconhecidos. Falha retorna à regra local, sem ferramentas,
+liberação de cobrança ou envio de bytes de anexos ao classificador. A transcrição
+com idioma explícito prioriza Cohere; detecção automática usa Mistral. Whisper v3
+e Turbo da Groq foram integrados e verificados como alternativas de transcrição.
+Os 23 perfis, a escolha manual, os controles de custo e as tarefas existentes
+foram preservados. A primeira linha do progresso de imagem mostra tempo, fila e
+estimativa do provedor quando disponíveis; a segunda mantém a atividade animada.
+
+A rodada delimitada reúne 77 IDs e 492 operações: 71 IDs e 284 operações tiveram
+chamadas reais. Todas as linhas têm resultado ou impedimento. Não foram todos
+testados. A auditoria exaustiva geral continua pausada. Nenhum novo gerador de
+imagens foi aprovado: os testes práticos desta rodada tiveram baixa aderência,
+retenção pelo provedor ou prazo inconclusivo. O histórico de transporte continua
+separado da qualidade atual, sem habilitar consumo automático pago.
+
+Resultados, lacunas, benchmarks e seleção:
+
+- [Rodada Gemini/Groq](reports/auren-gemini-groq-2026-10-14-r2/REPORT.md)
+- [Fontes e benchmarks](reports/AUREN-BENCHMARKS-GEMINI-GROQ-2026-10-14.md)
+- [Ordem atual dos perfis](reports/auren-scoped-selection-2026-10-14.json)
+- [Testes práticos de imagem](reports/auren-image-practical-2026-10-14/results.json)
+
+As seções abaixo registram a implementação e as verificações anteriores.
+
 Adaptação pessoal do Open WebUI **v0.12.0**, commit `15818d88fd7bde1b73de33590f50d15d21e8d7c1`.
 O fork é `Cambrith/Auren-IA`; o código original permanece como remote `upstream`.
 

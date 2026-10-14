@@ -1,0 +1,7 @@
+{
+  "remote_id": "c379e160-56a7-4d2d-bf98-f9e466d1a386",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/baai/bge-m3::batch",
+  "at": "2026-10-13T18:54:27.237137-03:00",
+  "result": "valid"
+}

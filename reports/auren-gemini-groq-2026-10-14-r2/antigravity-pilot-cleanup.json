@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-14T09:03:55.402548-03:00",
+  "owned_environment_cleanup": [
+    {
+      "row": "gemini:antigravity-preview-09-2026::agent_text",
+      "retrieval_http": 200,
+      "delete_http": 200
+    }
+  ]
+}

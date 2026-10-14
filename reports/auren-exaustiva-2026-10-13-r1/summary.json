@@ -1,0 +1,120 @@
+{
+  "snapshot_at": "2026-10-13T14:53:41.339877-03:00",
+  "reported_at": "2026-10-14T07:35:08.190744-03:00",
+  "routes": 1590,
+  "operations": 6348,
+  "by_status": {
+    "inconclusive": 651,
+    "failed": 4669,
+    "valid": 448,
+    "not_tested": 559,
+    "partial_validity": 18,
+    "in_progress": 3
+  },
+  "by_provider": {
+    "aihorde": {
+      "inconclusive": 487,
+      "failed": 4,
+      "valid": 4
+    },
+    "cloudflare": {
+      "failed": 115,
+      "valid": 71,
+      "not_tested": 30,
+      "inconclusive": 33,
+      "partial_validity": 6,
+      "in_progress": 1
+    },
+    "cohere": {
+      "valid": 48,
+      "failed": 51,
+      "inconclusive": 23
+    },
+    "gemini": {
+      "failed": 298,
+      "not_tested": 13,
+      "valid": 91,
+      "partial_validity": 5,
+      "inconclusive": 13
+    },
+    "groq": {
+      "not_tested": 4,
+      "failed": 4,
+      "inconclusive": 6,
+      "partial_validity": 3,
+      "valid": 16
+    },
+    "mistral": {
+      "failed": 147,
+      "valid": 57,
+      "not_tested": 8,
+      "inconclusive": 2,
+      "partial_validity": 3
+    },
+    "nvidia": {
+      "failed": 271,
+      "inconclusive": 21,
+      "valid": 43,
+      "partial_validity": 1,
+      "not_tested": 67,
+      "in_progress": 1
+    },
+    "ollama": {
+      "failed": 40,
+      "valid": 14
+    },
+    "openrouter": {
+      "valid": 102,
+      "failed": 3620,
+      "inconclusive": 64,
+      "in_progress": 1,
+      "not_tested": 437
+    },
+    "zai": {
+      "failed": 80,
+      "valid": 2,
+      "inconclusive": 2
+    },
+    "deepseek": {
+      "failed": 39
+    }
+  },
+  "real_attempts": 7343,
+  "auxiliary_real_calls": 62,
+  "rows_with_real_call": 5797,
+  "positive_reported_usd": 0.1015879489715,
+  "positive_cost_responses": 155,
+  "zero_cost_responses": 15,
+  "unknown_cost_attempts": 7176,
+  "cost_classes": {
+    "unknown": 5655,
+    "not_called": 551,
+    "positive_reported": 130,
+    "zero_reported_partial": 12
+  },
+  "budget": {
+    "max_output_tokens": 512,
+    "timeout_seconds": 30,
+    "image_deadline_seconds": 60,
+    "max_positive_reported_usd": 0.5,
+    "max_estimated_request_usd": 0.06,
+    "unknown_cost_call_limit_per_provider": 2500,
+    "provider_concurrency": 1,
+    "note": "Reported-cost cap is not a invoice-total guarantee; unknown costs tracked separately. Unknown high-cost generative modalities blocked until bounded.",
+    "image_total_usd": 20,
+    "image_per_call_usd": 0.5,
+    "image_authorization": "Explicit user reply in current chat: USD 20 total and USD .50 per request.",
+    "pacing_revision": "Conservative per-provider minimum delay: Cohere/NVIDIA/OpenRouter zero-priced 3.1s, Groq 2.1s, others1.1s; Retry-After takes precedence. Initial attempt history retained.",
+    "video_total_usd": 40,
+    "video_per_call_usd": 2,
+    "media_pricing_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "video_authorization": "Explicit user reply in current chat: USD 40 total and USD 2 per request.",
+    "unknown_consumption_guard_definition": "Counts accepted generation and transport-outcome-unknown calls; HTTP >=400 denials remain unknown in ledger but excluded from this accepted-generation count. No zero cost is inferred."
+  },
+  "all_tested": false,
+  "rows_with_native_real_call": 5785,
+  "scope_exhaustive_certified": false,
+  "discovery_limit": "Frozen union is reconciled. General provider documentation may expose additional specialized transports; discovery certification remains pending.",
+  "historical_rows": 870,
+  "historical_routes": 853
+}

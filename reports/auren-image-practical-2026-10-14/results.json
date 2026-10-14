@@ -1,0 +1,1098 @@
+{
+  "started_at": "2026-10-14T17:03:58.566843+00:00",
+  "records": {
+    "Deliberate": {
+      "at": "2026-10-14T17:03:58.567006+00:00",
+      "provider": "aihorde",
+      "model": "Deliberate",
+      "events": [
+        {
+          "state": "preparing",
+          "remote_id": null,
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997438.6051679,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "f332a70b-f6bf-4a05-98e5-5621cea9205b",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997438.6051679,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "f332a70b-f6bf-4a05-98e5-5621cea9205b",
+          "queue_position": 406,
+          "wait_time": 735,
+          "eligible_workers": 8,
+          "started_at": 1791997438.6051679,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "f332a70b-f6bf-4a05-98e5-5621cea9205b",
+          "queue_position": 0,
+          "wait_time": 8,
+          "eligible_workers": 8,
+          "started_at": 1791997438.6051679,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "f332a70b-f6bf-4a05-98e5-5621cea9205b",
+          "queue_position": 0,
+          "wait_time": 4,
+          "eligible_workers": 8,
+          "started_at": 1791997438.6051679,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "f332a70b-f6bf-4a05-98e5-5621cea9205b",
+          "queue_position": 0,
+          "wait_time": 0,
+          "eligible_workers": 8,
+          "started_at": 1791997438.6051679,
+          "done": null
+        },
+        {
+          "state": "completed",
+          "remote_id": "f332a70b-f6bf-4a05-98e5-5621cea9205b",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997438.6051679,
+          "done": true
+        }
+      ],
+      "real_call": true,
+      "reported_cost_usd": null,
+      "success": true,
+      "container": {
+        "format": "WEBP",
+        "width": 512,
+        "height": 512,
+        "sha256": "fe635c725c392149c7674eed4852db13662548153fa0823ccfe481a413811459",
+        "bytes": 18702
+      },
+      "file": "reports/auren-image-practical-2026-10-14/Deliberate.png",
+      "semantic_review": "Visual inspection: blue/white landscape or texture, not the requested sphere. Transport output only.",
+      "seconds": 23.035,
+      "semantic_success": false
+    },
+    "stable_diffusion": {
+      "at": "2026-10-14T17:04:21.602088+00:00",
+      "provider": "aihorde",
+      "model": "stable_diffusion",
+      "events": [
+        {
+          "state": "preparing",
+          "remote_id": null,
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997461.608727,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "becbe783-ead2-4f51-8073-afc0314991a7",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997461.608727,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "becbe783-ead2-4f51-8073-afc0314991a7",
+          "queue_position": 0,
+          "wait_time": 0,
+          "eligible_workers": 12,
+          "started_at": 1791997461.608727,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "becbe783-ead2-4f51-8073-afc0314991a7",
+          "queue_position": 405,
+          "wait_time": 756,
+          "eligible_workers": 12,
+          "started_at": 1791997461.608727,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "becbe783-ead2-4f51-8073-afc0314991a7",
+          "queue_position": 0,
+          "wait_time": 0,
+          "eligible_workers": 12,
+          "started_at": 1791997461.608727,
+          "done": null
+        },
+        {
+          "state": "completed",
+          "remote_id": "becbe783-ead2-4f51-8073-afc0314991a7",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997461.608727,
+          "done": true
+        }
+      ],
+      "real_call": true,
+      "reported_cost_usd": null,
+      "success": true,
+      "container": {
+        "format": "WEBP",
+        "width": 512,
+        "height": 512,
+        "sha256": "ca4e469240025394e43c6d04387c638b21e43f2998ae91a739287d64f755a517",
+        "bytes": 4470
+      },
+      "file": "reports/auren-image-practical-2026-10-14/stable_diffusion.png",
+      "semantic_review": "Visual inspection: blue/white landscape or texture, not the requested sphere. Transport output only.",
+      "seconds": 21.435,
+      "semantic_success": false
+    },
+    "Deliberate::english": {
+      "at": "2026-10-14T17:05:49.835481+00:00",
+      "provider": "aihorde",
+      "model": "Deliberate",
+      "events": [
+        {
+          "state": "preparing",
+          "remote_id": null,
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 392,
+          "wait_time": 843,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 386,
+          "wait_time": 835,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 381,
+          "wait_time": 828,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 374,
+          "wait_time": 819,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 375,
+          "wait_time": 820,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 0,
+          "wait_time": 12,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 0,
+          "wait_time": 9,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 0,
+          "wait_time": 5,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 0,
+          "wait_time": 2,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": 0,
+          "wait_time": 0,
+          "eligible_workers": 8,
+          "started_at": 1791997549.8731313,
+          "done": null
+        },
+        {
+          "state": "completed",
+          "remote_id": "abe75c79-a7fa-4f1c-80f4-047b54ac4e84",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997549.8731313,
+          "done": true
+        }
+      ],
+      "real_call": true,
+      "reported_cost_usd": null,
+      "controlled_change": "Explicit English description; same dimensions and step count.",
+      "success": true,
+      "container": {
+        "format": "WEBP",
+        "width": 512,
+        "height": 512,
+        "sha256": "4b1fc1b853429b6c67279c33c69d80161a381ac9db1fa339947e2e0d91b8a936",
+        "bytes": 8664
+      },
+      "file": "reports/auren-image-practical-2026-10-14/Deliberate-english.png",
+      "semantic_review": "Visual inspection: blue concentric disks or rays; no single three-dimensional sphere on a plain white background.",
+      "seconds": 43.725,
+      "semantic_success": false
+    },
+    "stable_diffusion::english": {
+      "at": "2026-10-14T17:06:33.560826+00:00",
+      "provider": "aihorde",
+      "model": "stable_diffusion",
+      "events": [
+        {
+          "state": "preparing",
+          "remote_id": null,
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 0,
+          "wait_time": 0,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 374,
+          "wait_time": 815,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 376,
+          "wait_time": 813,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 373,
+          "wait_time": 812,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 369,
+          "wait_time": 807,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 366,
+          "wait_time": 801,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 362,
+          "wait_time": 797,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 361,
+          "wait_time": 793,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 357,
+          "wait_time": 781,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 357,
+          "wait_time": 776,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 355,
+          "wait_time": 773,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 353,
+          "wait_time": 769,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 349,
+          "wait_time": 762,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 348,
+          "wait_time": 758,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 342,
+          "wait_time": 755,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 336,
+          "wait_time": 747,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 333,
+          "wait_time": 740,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 330,
+          "wait_time": 735,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 325,
+          "wait_time": 726,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": 0,
+          "wait_time": 2,
+          "eligible_workers": 12,
+          "started_at": 1791997593.566783,
+          "done": null
+        },
+        {
+          "state": "completed",
+          "remote_id": "c1ddd7fc-b958-411c-9605-33edafc91a7c",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997593.566783,
+          "done": true
+        }
+      ],
+      "real_call": true,
+      "reported_cost_usd": null,
+      "controlled_change": "Explicit English description; same dimensions and step count.",
+      "success": true,
+      "container": {
+        "format": "WEBP",
+        "width": 512,
+        "height": 512,
+        "sha256": "b7067cb3e6f840b7c0a3062b4bbcf1e9d49e1be6bf582762b88a4d2b921915eb",
+        "bytes": 16668
+      },
+      "file": "reports/auren-image-practical-2026-10-14/stable_diffusion-english.png",
+      "semantic_review": "Visual inspection: blue concentric disks or rays; no single three-dimensional sphere on a plain white background.",
+      "seconds": 77.566,
+      "semantic_success": false
+    },
+    "AbsoluteReality::0": {
+      "at": "2026-10-14T17:09:21.995427+00:00",
+      "provider": "aihorde",
+      "model": "AbsoluteReality",
+      "operation": "text_to_image",
+      "real_call": true,
+      "reported_cost_usd": null,
+      "events": [
+        {
+          "state": "preparing",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 0,
+          "wait_time": 0,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 353,
+          "wait_time": 780,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 351,
+          "wait_time": 775,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 350,
+          "wait_time": 774,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 345,
+          "wait_time": 767,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 343,
+          "wait_time": 766,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 341,
+          "wait_time": 762,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 337,
+          "wait_time": 755,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "queue_position": 0,
+          "wait_time": 4,
+          "eligible_workers": 4,
+          "started_at": 1791997762.0339122,
+          "done": null
+        }
+      ],
+      "semantic_review": "Pending visual inspection.",
+      "success": false,
+      "code": "image_censored",
+      "semantic_success": false,
+      "seconds": 36.036
+    },
+    "AbsoluteReality::1": {
+      "at": "2026-10-14T17:09:58.032193+00:00",
+      "provider": "aihorde",
+      "model": "AbsoluteReality",
+      "operation": "text_to_image",
+      "real_call": true,
+      "reported_cost_usd": null,
+      "events": [
+        {
+          "state": "preparing",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997798.0398908,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997798.0398908,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 344,
+          "wait_time": 766,
+          "eligible_workers": 4,
+          "started_at": 1791997798.0398908,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 343,
+          "wait_time": 765,
+          "eligible_workers": 4,
+          "started_at": 1791997798.0398908,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 343,
+          "wait_time": 763,
+          "eligible_workers": 4,
+          "started_at": 1791997798.0398908,
+          "done": null
+        },
+        {
+          "state": "processing",
+          "queue_position": 0,
+          "wait_time": 4,
+          "eligible_workers": 4,
+          "started_at": 1791997798.0398908,
+          "done": null
+        }
+      ],
+      "semantic_review": "Pending visual inspection.",
+      "success": false,
+      "code": "image_censored",
+      "semantic_success": false,
+      "seconds": 22.637
+    },
+    "Abyss OrangeMix::0": {
+      "at": "2026-10-14T17:11:34.095839+00:00",
+      "provider": "aihorde",
+      "model": "Abyss OrangeMix",
+      "operation": "text_to_image",
+      "real_call": true,
+      "reported_cost_usd": null,
+      "events": [
+        {
+          "state": "preparing",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 0,
+          "wait_time": 0,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 371,
+          "wait_time": 844,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 370,
+          "wait_time": 843,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 365,
+          "wait_time": 833,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 363,
+          "wait_time": 831,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 361,
+          "wait_time": 827,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 359,
+          "wait_time": 820,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 353,
+          "wait_time": 809,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 349,
+          "wait_time": 804,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 346,
+          "wait_time": 803,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 343,
+          "wait_time": 794,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 340,
+          "wait_time": 784,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 336,
+          "wait_time": 776,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 332,
+          "wait_time": 749,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 330,
+          "wait_time": 744,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 327,
+          "wait_time": 736,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 326,
+          "wait_time": 732,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 325,
+          "wait_time": 729,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 324,
+          "wait_time": 727,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 324,
+          "wait_time": 716,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 323,
+          "wait_time": 711,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 320,
+          "wait_time": 698,
+          "eligible_workers": 3,
+          "started_at": 1791997894.1336937,
+          "done": null
+        }
+      ],
+      "semantic_review": "Pending visual inspection.",
+      "success": false,
+      "code": "timeout",
+      "semantic_success": false,
+      "seconds": 98.07
+    },
+    "Abyss OrangeMix::1": {
+      "at": "2026-10-14T17:13:12.166829+00:00",
+      "provider": "aihorde",
+      "model": "Abyss OrangeMix",
+      "operation": "text_to_image",
+      "real_call": true,
+      "reported_cost_usd": null,
+      "events": [
+        {
+          "state": "preparing",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": null,
+          "wait_time": null,
+          "eligible_workers": null,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 0,
+          "wait_time": 0,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 374,
+          "wait_time": 859,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 371,
+          "wait_time": 853,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 370,
+          "wait_time": 852,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 355,
+          "wait_time": 813,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 354,
+          "wait_time": 810,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 353,
+          "wait_time": 809,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 350,
+          "wait_time": 802,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 347,
+          "wait_time": 800,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 351,
+          "wait_time": 793,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 347,
+          "wait_time": 788,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 344,
+          "wait_time": 776,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 341,
+          "wait_time": 766,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 337,
+          "wait_time": 756,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 335,
+          "wait_time": 745,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 331,
+          "wait_time": 736,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 297,
+          "wait_time": 639,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 293,
+          "wait_time": 626,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 289,
+          "wait_time": 621,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        },
+        {
+          "state": "queued",
+          "queue_position": 285,
+          "wait_time": 617,
+          "eligible_workers": 3,
+          "started_at": 1791997992.1736436,
+          "done": null
+        }
+      ],
+      "semantic_review": "Pending visual inspection.",
+      "success": false,
+      "code": "timeout",
+      "semantic_success": false,
+      "seconds": 95.417
+    }
+  },
+  "cost_note": "AI Horde community route; no inference of unlimited quota.",
+  "finished_at": "2026-10-14T17:14:47.584659+00:00"
+}

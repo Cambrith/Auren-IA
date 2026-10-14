@@ -123,6 +123,8 @@ def display_name(value):
 
 
 def capabilities(provider, raw, model_id):
+    from integration.auren_media import TESTED_INPUTS
+    tested = TESTED_INPUTS.get(provider + ':' + model_id, set())
     arch = raw.get('architecture') or {}
     inputs = arch.get('input_modalities') or raw.get('input_modalities') or []
     outputs = arch.get('output_modalities') or raw.get('output_modalities') or []
@@ -134,7 +136,7 @@ def capabilities(provider, raw, model_id):
         caps = {**caps,'vision':(caps.get('image_input') or {}).get('supported') is True}
     image_out = 'image' in outputs or gemini and ('image' in model_id or 'nano-banana' in model_id)
     return {
-        'vision': 'image' in inputs or caps.get('vision') is True or gemini or (provider == 'nvidia' and model_id == 'meta/llama-3.2-11b-vision-instruct') or (provider == 'cohere' and model_id == 'command-a-vision-07-2025'),
+        'vision': 'vision' in tested or 'image' in inputs or caps.get('vision') is True or gemini or (provider == 'nvidia' and model_id == 'meta/llama-3.2-11b-vision-instruct') or (provider == 'cohere' and model_id == 'command-a-vision-07-2025'),
         'video': 'video' in inputs or (gemini and not image_out),
         'audio': 'audio' in inputs or (gemini and not image_out),
         'pdf': 'file' in inputs or (gemini and not image_out),
@@ -334,6 +336,7 @@ def discover(provider, config):
 
 def validated_catalog(models):
     from integration.auren_validation import model_evidence, verified
+    from integration.auren_media import TESTED_INPUTS
     from integration.auren_tasks import task_evidence
     for task_name, record in task_evidence().items():
         id=record.get('model')
@@ -343,13 +346,23 @@ def validated_catalog(models):
                      'provider_name':PROVIDER_NAMES[provider],'price_kind':'free','available':True,'integrated':False,
                      'task_operations':['speech' if task_name=='speech' else 'transcribe'],'capabilities':{'audio':True,'file_upload':True,'image_generation':False}}))
     for model in models:
+        info = model['cavren']
+        for cap in TESTED_INPUTS.get(info.get('route_id'), ()):
+            info.setdefault('capabilities', {})[cap] = True
+        model.setdefault('info', {}).setdefault('meta', {})['capabilities'] = info.get('capabilities', {})
         info=model['cavren']; kind='speech' if info.get('task_operations')==['speech'] else 'transcribe' if info.get('task_operations')==['transcribe'] else 'image' if info.get('capabilities',{}).get('image_generation') else 'text'
         record=model_evidence(model['id'],kind)
         info['validation']={'status':record.get('status','not_tested'),'free_verified':verified(model['id'],kind),
                             'mean_seconds':record.get('mean_seconds'),'date':record.get('verified_at')}
-        if info['validation']['free_verified'] and record.get('safety') in ('community_kudos','configured_trial','configured_free_plan','documented_free_model'):
+        if info['validation']['free_verified'] and record.get('safety') in ('community_kudos','configured_trial','configured_free_plan','documented_free_model','zero_price_cap'):
             info['price_kind']='free'
     auto=next((m for m in models if m['id']=='cavren:auto'),None)
+    if auto:
+        caps = auto['cavren'].setdefault('capabilities', {})
+        for cap in ('vision', 'pdf', 'audio', 'video'):
+            caps[cap] = any(cap in TESTED_INPUTS.get(m['cavren'].get('route_id'), ())
+                            and m['cavren'].get('price_kind') == 'free' and verified(m['id'], 'text') for m in models if m['id'] != 'cavren:auto')
+        auto.setdefault('info', {}).setdefault('meta', {})['capabilities'] = caps
     if auto and any('transcribe' in m['cavren'].get('task_operations',[]) for m in models):
         auto['cavren']['capabilities']['audio']=True
         auto['info']['meta']['capabilities']['audio']=True

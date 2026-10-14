@@ -1,0 +1,7 @@
+{
+  "remote_id": "64f72e0c-9290-4b3e-9dab-8c01115d93cc",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/meta/llama-4-scout-17b-16e-instruct::batch",
+  "at": "2026-10-14T07:40:30.197419-03:00",
+  "result": "valid"
+}

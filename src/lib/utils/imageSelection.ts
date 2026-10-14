@@ -15,6 +15,19 @@ export const canGenerateImage = (model?: ImageModel) =>
 	model?.id !== 'cavren:auto' &&
 	model?.cavren?.available !== false &&
 	model?.cavren?.capabilities?.image_generation === true;
+// The composer offers only the native community route without paid credits.
+// Keep the full catalog and future paid-provider setup in Settings.
+export const canSelectImageWithoutPayment = (model?: ImageModel) =>
+	canGenerateImage(model) &&
+	model?.cavren?.provider === 'aihorde' &&
+	model?.cavren?.price_kind === 'free';
+
+export function matchesModelSearch(text: string, query: string) {
+	const normalize = (value: string) =>
+		value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR');
+	const haystack = normalize(text);
+	return normalize(query).trim().split(/\s+/).every((term) => haystack.includes(term));
+}
 export const compareProviders = (a: string, b: string) =>
 	a.localeCompare(b, 'pt-BR', { sensitivity: 'base', numeric: true });
 export function defaultImageModel(models: ImageModel[], preferred: string, current: string) {

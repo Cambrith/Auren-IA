@@ -24,3 +24,35 @@ class EvidencePolicy(unittest.TestCase):
             (root/'validation_results.json').write_text(json.dumps({'records':{'text:'+record['id']:record}}))
             (root/'provider_policy.json').write_text(json.dumps({'cohere_trial':True,'validation_not_before':{'cohere':revision}}))
             self.assertFalse(validation.verified(record['id'],'text'))
+
+class ConfirmedFreePlans(unittest.TestCase):
+    def test_gemini_groq_and_ollama_require_current_confirmation(self):
+        for provider in ('gemini','groq','ollama'):
+            with tempfile.TemporaryDirectory() as directory,patch.object(validation,'STATE',Path(directory)):
+                root=Path(directory);date=datetime.now(timezone.utc).isoformat();id='cavren:'+provider+':tested'
+                row={'id':id,'kind':'text','status':'working','cost':'free_with_limits','safety':'configured_free_plan','verified_at':date,'samples':[{'ok':True,'semantic_check':True}]}
+                (root/'validation_results.json').write_text(json.dumps({'records':{'text:'+id:row}}))
+                policy=root/'provider_policy.json';policy.write_text('{}')
+                self.assertFalse(validation.verified(id,'text'))
+                policy.write_text(json.dumps({provider+'_free_plan':True}))
+                self.assertTrue(validation.verified(id,'text'))
+
+class CategoryEvidence(unittest.TestCase):
+    def test_category_store_discards_response_and_secret_fields(self):
+        with tempfile.TemporaryDirectory() as directory,patch.object(validation,'STATE',Path(directory)):
+            validation.save_category('cavren:groq:test','code',{'ok':True,'date':datetime.now(timezone.utc).isoformat(),'code':'ok','seconds':1,'api_key':'synthetic-secret','response':'private-response','prompt':'private-prompt'})
+            text=(Path(directory)/'validation_categories.json').read_text()
+            self.assertNotIn('synthetic-secret',text);self.assertNotIn('private-response',text);self.assertNotIn('private-prompt',text)
+            self.assertEqual((Path(directory)/'validation_categories.json').stat().st_mode&0o777,0o600)
+            with self.assertRaises(ValueError):validation.save_category('id','video',{})
+
+    def test_category_probe_cannot_outlive_credential_revision(self):
+        from integration import auren_tasks as tasks
+        with tempfile.TemporaryDirectory() as directory,patch.object(tasks,'STATE',Path(directory)),patch.object(tasks,'task_evidence',return_value={}),patch.object(tasks,'verified',return_value=True):
+            root=Path(directory)
+            row={'id':'cavren:groq:test','task':'code','ok':True,'date':'2026-10-12T12:00:00+00:00'}
+            (root/'validation_categories.json').write_text(json.dumps({'records':{'code:'+row['id']:row}}))
+            (root/'provider_policy.json').write_text('{}')
+            self.assertEqual(tasks.models_for('code'),[row['id']])
+            (root/'provider_policy.json').write_text(json.dumps({'validation_not_before':{'groq':'2026-10-13T12:00:00+00:00'}}))
+            self.assertEqual(tasks.models_for('code'),[])

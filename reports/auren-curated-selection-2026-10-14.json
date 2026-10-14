@@ -1,0 +1,342 @@
+{
+  "at": "2026-10-14T16:18:19.797791+00:00",
+  "exhaustive_audit_paused": true,
+  "scope": "Shortlist using published benchmark evidence and task-specific successful application probes; no universal rank or automatic paid activation.",
+  "chat_preferences": {
+    "ether": [
+      "gemini:gemini-3.8-flash",
+      "nvidia:moonshotai/kimi-k3",
+      "groq:qwen/qwen3.8-27b",
+      "groq:openai/gpt-oss-120b",
+      "cohere:command-a-plus-05-2026",
+      "cloudflare:@cf/qwen/qwen3.8-27b"
+    ],
+    "impeto": [
+      "groq:qwen/qwen3.8-27b",
+      "groq:openai/gpt-oss-20b",
+      "gemini:gemini-3.8-flash",
+      "groq:openai/gpt-oss-120b",
+      "cloudflare:@cf/qwen/qwen3.8-27b"
+    ],
+    "insight": [
+      "gemini:gemini-3.8-flash",
+      "nvidia:moonshotai/kimi-k3",
+      "groq:openai/gpt-oss-120b",
+      "nvidia:z-ai/glm-5.3",
+      "cohere:command-a-plus-05-2026",
+      "groq:qwen/qwen3.8-27b",
+      "cloudflare:@cf/qwen/qwen3.8-27b"
+    ],
+    "arquiteto": [
+      "gemini:gemini-3.8-flash",
+      "nvidia:moonshotai/kimi-k3",
+      "nvidia:z-ai/glm-5.3",
+      "groq:qwen/qwen3.8-27b",
+      "groq:openai/gpt-oss-120b",
+      "cloudflare:@cf/qwen/qwen3.8-27b"
+    ]
+  },
+  "task_preferences": {
+    "code": {
+      "ether": [
+        "gemini:gemini-3.8-flash",
+        "groq:qwen/qwen3.8-27b",
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "nvidia:z-ai/glm-5.3",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "impeto": [
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-20b",
+        "gemini:gemini-3.8-flash",
+        "groq:openai/gpt-oss-120b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "insight": [
+        "gemini:gemini-3.8-flash",
+        "nvidia:moonshotai/kimi-k3",
+        "nvidia:z-ai/glm-5.3",
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-120b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "arquiteto": [
+        "gemini:gemini-3.8-flash",
+        "nvidia:moonshotai/kimi-k3",
+        "nvidia:z-ai/glm-5.3",
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-120b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ]
+    },
+    "documents": {
+      "ether": [
+        "gemini:gemini-3.8-flash",
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "impeto": [
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-20b",
+        "gemini:gemini-3.8-flash",
+        "groq:openai/gpt-oss-120b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "insight": [
+        "gemini:gemini-3.8-flash",
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "arquiteto": [
+        "gemini:gemini-3.8-flash",
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ]
+    },
+    "research": {
+      "ether": [
+        "gemini:gemini-3.8-flash",
+        "nvidia:moonshotai/kimi-k3",
+        "cohere:command-a-plus-05-2026",
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "impeto": [
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-20b",
+        "gemini:gemini-3.8-flash",
+        "cohere:command-a-plus-05-2026",
+        "groq:openai/gpt-oss-120b"
+      ],
+      "insight": [
+        "gemini:gemini-3.8-flash",
+        "nvidia:moonshotai/kimi-k3",
+        "cohere:command-a-plus-05-2026",
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "arquiteto": [
+        "gemini:gemini-3.8-flash",
+        "nvidia:moonshotai/kimi-k3",
+        "cohere:command-a-plus-05-2026",
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ]
+    }
+  },
+  "effective_profiles": [
+    {
+      "task": "chat",
+      "id": "ether",
+      "name": "Éter",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "chat",
+      "id": "impeto",
+      "name": "Ímpeto",
+      "effective_primary": "cavren:groq:qwen/qwen3.8-27b"
+    },
+    {
+      "task": "chat",
+      "id": "insight",
+      "name": "Insight",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "chat",
+      "id": "arquiteto",
+      "name": "Arquiteto",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "image",
+      "id": "rapid",
+      "name": "Centelha",
+      "effective_primary": "cavren:aihorde:Deliberate"
+    },
+    {
+      "task": "image",
+      "id": "balanced",
+      "name": "Aurora",
+      "effective_primary": "cavren:aihorde:stable_diffusion"
+    },
+    {
+      "task": "image",
+      "id": "detailed",
+      "name": "Prisma",
+      "effective_primary": "cavren:aihorde:stable_diffusion"
+    },
+    {
+      "task": "code",
+      "id": "ether",
+      "name": "Oficina",
+      "effective_primary": "cavren:groq:qwen/qwen3.8-27b"
+    },
+    {
+      "task": "code",
+      "id": "impeto",
+      "name": "Faísca",
+      "effective_primary": "cavren:groq:qwen/qwen3.8-27b"
+    },
+    {
+      "task": "code",
+      "id": "insight",
+      "name": "Nexo",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "code",
+      "id": "arquiteto",
+      "name": "Forja",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "documents",
+      "id": "ether",
+      "name": "Prisma",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "documents",
+      "id": "impeto",
+      "name": "Lente",
+      "effective_primary": "cavren:groq:qwen/qwen3.8-27b"
+    },
+    {
+      "task": "documents",
+      "id": "insight",
+      "name": "Atlas",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "documents",
+      "id": "arquiteto",
+      "name": "Cartógrafo",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "research",
+      "id": "ether",
+      "name": "Trama",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "research",
+      "id": "impeto",
+      "name": "Radar",
+      "effective_primary": "cavren:groq:qwen/qwen3.8-27b"
+    },
+    {
+      "task": "research",
+      "id": "insight",
+      "name": "Horizonte",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "research",
+      "id": "arquiteto",
+      "name": "Observatório",
+      "effective_primary": "cavren:nvidia:moonshotai/kimi-k3"
+    },
+    {
+      "task": "speech",
+      "id": "pt-BR",
+      "name": "Vox",
+      "effective_primary": "cavren:nvidia:magpie-tts-multilingual"
+    },
+    {
+      "task": "transcribe",
+      "id": "auto",
+      "name": "Escuta",
+      "effective_primary": "cavren:mistral:voxtral-mini-latest"
+    },
+    {
+      "task": "transcribe",
+      "id": "pt",
+      "name": "Lusofonia",
+      "effective_primary": "cavren:cohere:cohere-transcribe-03-2026"
+    },
+    {
+      "task": "transcribe",
+      "id": "en",
+      "name": "Echo",
+      "effective_primary": "cavren:cohere:cohere-transcribe-03-2026"
+    }
+  ],
+  "profile_count": 23,
+  "benchmark_sources": [
+    {
+      "model": "gemini-3.8-flash",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+      "publisher_metrics": {
+        "DeepSWE v1.1": 73.7,
+        "Terminal-Bench 2.1": 89.4,
+        "GDP.PDF all pass rate": 35.0
+      },
+      "deployment_status": "Current focused streaming call unavailable; automatic eligibility is withheld."
+    },
+    {
+      "model": "moonshotai/kimi-k3",
+      "source": "https://huggingface.co/moonshotai/Kimi-K3",
+      "publisher_metrics": {
+        "GPQA Diamond": 93.5,
+        "DeepSWE v1.1": 67.5
+      },
+      "conditions": "Publisher max effort and Kimi Code harness; not reproduced by Auren."
+    },
+    {
+      "model": "z-ai/glm-5.3",
+      "source": "https://huggingface.co/zai-org/GLM-5.3",
+      "publisher_metrics": {
+        "Terminal-Bench 2.1": 88.2,
+        "DeepSWE v1.1": 66.9
+      },
+      "conditions": "Distinct publisher harnesses and multi-hour agent budgets; no same-harness universal comparison."
+    },
+    {
+      "model": "qwen/qwen3.8-27b",
+      "source": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "publisher_metrics": {
+        "GPQA Diamond": 89.2,
+        "LiveCodeBench v6": 90.3
+      },
+      "conditions": "Publisher configuration is separate from served Groq effort settings."
+    },
+    {
+      "model": "openai/gpt-oss-120b, openai/gpt-oss-20b",
+      "source": "https://console.groq.com/docs/models",
+      "role": "Production Groq routes with independently observed short streaming completions; backups, not a claim of top benchmark rank."
+    }
+  ],
+  "checks": {
+    "unit_tests_passed": 78,
+    "post_final_routing_subset_passed": 19,
+    "subset_counts_are_not_additive": true,
+    "live_initial_adapter_report": "auren-curated-2026-10-14.json",
+    "live_worker_report": "auren-curated-flow-2026-10-14.json",
+    "research_final_recheck": "auren-curated-research-recheck-2026-10-14.json",
+    "kimi_document_check": "auren-curated-kimi-documents-2026-10-14.json",
+    "service_restarted": true,
+    "service_active": true,
+    "http_health_status": 200,
+    "http_page_status": 200,
+    "git_diff_check_passed": true,
+    "frontend_changed": false,
+    "production_dependencies_added": false
+  },
+  "cost": "Focused requests without returned invoice cost are unknown; no purchase, card, billing change or paid automatic routing."
+}

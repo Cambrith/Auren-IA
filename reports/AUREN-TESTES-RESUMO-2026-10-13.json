@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-13",
+  "catalog_routes": 853,
+  "operation_rows": 870,
+  "baseline_by_provider": {
+    "cloudflare": [
+      33,
+      33,
+      17
+    ],
+    "cohere": [
+      17,
+      17,
+      16
+    ],
+    "gemini": [
+      37,
+      37,
+      6
+    ],
+    "groq": [
+      4,
+      4,
+      3
+    ],
+    "mistral": [
+      27,
+      27,
+      10
+    ],
+    "nvidia": [
+      61,
+      61,
+      13
+    ],
+    "ollama": [
+      16,
+      16,
+      6
+    ],
+    "openrouter": [
+      440,
+      18,
+      10
+    ],
+    "zai": [
+      1,
+      1,
+      0
+    ]
+  },
+  "active_tasks": {
+    "chat": 81,
+    "code": 73,
+    "documents": 69,
+    "research": 15,
+    "image": 4,
+    "speech": 1,
+    "transcribe": 2
+  },
+  "effective_chat_orders": {
+    "ether": [
+      "cavren:gemini:gemini-3.6-flash",
+      "cavren:cohere:command-a-plus-05-2026",
+      "cavren:groq:openai/gpt-oss-120b",
+      "cavren:nvidia:nvidia/nemotron-3-super-120b-a12b",
+      "cavren:cloudflare:@cf/qwen/qwen3.8-27b",
+      "cavren:ollama:gemma4:31b",
+      "cavren:openrouter:nvidia/nemotron-3-super-120b-a12b:free",
+      "cavren:cohere:command-a-03-2025",
+      "cavren:mistral:ministral-14b-2512",
+      "cavren:gemini:gemini-3.5-flash"
+    ],
+    "impeto": [
+      "cavren:groq:openai/gpt-oss-20b",
+      "cavren:gemini:gemini-3.1-flash-lite",
+      "cavren:cloudflare:@cf/mistralai/mistral-small-3.1-24b-instruct",
+      "cavren:mistral:ministral-8b-2512",
+      "cavren:nvidia:openai/gpt-oss-20b",
+      "cavren:ollama:gpt-oss:20b",
+      "cavren:openrouter:liquid/lfm-2.5-2.6b:free",
+      "cavren:cohere:command-a-03-2025"
+    ],
+    "insight": [
+      "cavren:nvidia:moonshotai/kimi-k3",
+      "cavren:cloudflare:@cf/qwen/qwen3.8-27b",
+      "cavren:nvidia:nvidia/nemotron-3-ultra-550b-a55b",
+      "cavren:groq:openai/gpt-oss-120b",
+      "cavren:cohere:command-a-reasoning-08-2025",
+      "cavren:gemini:gemini-3.6-flash",
+      "cavren:ollama:nemotron-3-super",
+      "cavren:openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "cavren:cohere:command-a-plus-05-2026",
+      "cavren:cloudflare:@cf/openai/gpt-oss-120b"
+    ],
+    "arquiteto": [
+      "cavren:nvidia:z-ai/glm-5.3",
+      "cavren:nvidia:moonshotai/kimi-k3",
+      "cavren:cloudflare:@cf/qwen/qwen3.8-27b",
+      "cavren:groq:openai/gpt-oss-120b",
+      "cavren:gemini:gemini-3.6-flash",
+      "cavren:nvidia:nvidia/nemotron-3-ultra-550b-a55b",
+      "cavren:mistral:codestral-2508",
+      "cavren:openrouter:cohere/north-mini-code:free",
+      "cavren:cohere:command-a-plus-05-2026",
+      "cavren:ollama:gpt-oss:120b"
+    ]
+  },
+  "zero_price_calls": 437,
+  "zero_price_pass": 7,
+  "zero_price_image_skips": 52,
+  "source_routes": 852,
+  "unique_sources": 332,
+  "evaluation_leads": 128
+}

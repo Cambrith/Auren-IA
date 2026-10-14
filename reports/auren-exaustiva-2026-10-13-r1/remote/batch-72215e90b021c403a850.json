@@ -1,0 +1,15 @@
+{
+  "remote_id": "batch-1791926603-NQmW6sm2910SO3m5knSK",
+  "provider": "openrouter",
+  "row": "openrouter:google/gemini-2.5-flash-lite:batch::batch",
+  "updated_at": "2026-10-13T18:55:56.157282-03:00",
+  "states": [
+    {
+      "at": "2026-10-13T18:55:56.157245-03:00",
+      "state": "completed"
+    }
+  ],
+  "result": "valid",
+  "cancel_http_status": null,
+  "input_file_id": null
+}

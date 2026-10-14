@@ -47,3 +47,9 @@
 # Misc
 *.env text eol=lf
 *.lock text eol=lf
+
+# Native probe evidence: keep CSV exports and downloaded source whitespace;
+# PDF fixtures are binary, including their fixed-width cross-reference tables.
+reports/**/*.csv -whitespace
+reports/**/*.pdf binary
+reports/auren-exaustiva-2026-10-13-r1/gemini-pricing.txt -whitespace

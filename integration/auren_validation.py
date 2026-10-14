@@ -46,6 +46,7 @@ def verified(model_id, kind):
         safety=record.get('safety')
         if safety=='configured_trial' and policy.get(provider+'_trial') is not True:return False
         if safety=='configured_free_plan':
+            if provider in ('gemini','groq','ollama') and policy.get(provider+'_free_plan') is not True:return False
             if provider=='cloudflare' and policy.get('cloudflare_workers_free') is not True:return False
             if provider=='mistral':
                 from cavren.nextchat_server import preferences
@@ -62,3 +63,19 @@ def measured_seconds(model_id, kind):
     if not verified(model_id,kind):return None
     value=model_evidence(model_id,kind).get('mean_seconds')
     return value if isinstance(value,(int,float)) else None
+
+
+def save_category(model_id, task, row):
+    """Merge an actual category probe atomically across independent testers."""
+    if task not in ('code','documents','research'):raise ValueError('Categoria de validação inválida.')
+    import fcntl
+    STATE.mkdir(parents=True,exist_ok=True,mode=0o700)
+    with (STATE/'validation_categories.lock').open('a') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX)
+        path=STATE/'validation_categories.json'
+        try:data=json.loads(path.read_text())
+        except (OSError,ValueError):data={'records':{}}
+        # Whitelist: never store provider responses, prompts, headers or credentials.
+        fields=('ok','date','code','seconds','safety','check')
+        data.setdefault('records',{})[task+':'+model_id]={'id':model_id,'task':task,**{k:row[k] for k in fields if k in row}}
+        temporary=path.with_suffix('.tmp');temporary.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n');temporary.chmod(0o600);temporary.replace(path)

@@ -129,6 +129,35 @@ print(json.dumps({"type": "generation.completed", "response": {"text": "Olá, Au
                 self.assertIn('data:image/png;base64,aW1hZ2U=', data)
         self.assertFalse(self.server.active)
 
+    def test_image_files_wait_for_completion_and_discard_failed_result(self):
+        with tempfile.TemporaryDirectory() as directory:
+            worker = Path(directory) / 'image_worker.py'
+            for succeeds in (True, False):
+                worker.write_text('''import json, sys
+job = json.load(sys.stdin)
+print(json.dumps({"type":"generation.files","files":[{"type":"image","url":"synthetic-image-result"}]}), flush=True)
+print(json.dumps({"type":"generation.delta","text":"intermediate-generator-text"}), flush=True)
+print(json.dumps({"type":"generation.image_status","description":"completion-marker","state":"processing"}), flush=True)
+''' + ('''print(json.dumps({"type":"generation.completed","response":{"text":"intermediate-generator-text","provider":"test","model":"test-model","public_mode":"ether","auren_task":"image"}}), flush=True)
+''' if succeeds else '''print(json.dumps({"type":"generation.error","message":"synthetic failure","code":"test_error"}), flush=True)
+'''))
+                with (
+                    patch.object(bridge, 'WORKER', worker),
+                    patch.object(bridge, 'credentials_env', return_value=os.environ.copy()),
+                    patch.object(bridge, 'prepare_job', return_value={'mode_id':'ether','max_tokens':128,'lunvri_image_generation':True}),
+                ):
+                    status, data = self.request('POST', '/v1/chat/completions', {
+                        'model':'cavren:auto','stream':True,'messages':[{'role':'user','content':'synthetic image'}]
+                    })
+                self.assertEqual(status, 200)
+                self.assertNotIn('intermediate-generator-text', data)
+                self.assertEqual(data.count('synthetic-image-result'), 1 if succeeds else 0)
+                if succeeds:
+                    self.assertLess(data.index('completion-marker'), data.index('synthetic-image-result'))
+                    self.assertIn('"hidden": true', data)
+                else:
+                    self.assertIn('test_error', data)
+
     def test_disconnect_terminates_the_generation_process(self):
         with tempfile.TemporaryDirectory() as directory:
             worker = Path(directory) / 'waiting.py'

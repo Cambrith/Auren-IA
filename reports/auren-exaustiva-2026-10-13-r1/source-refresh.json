@@ -1,0 +1,2662 @@
+{
+  "checked_at": "2026-10-13T15:23:25.794972-03:00",
+  "method": "HTTP/source freshness only. No score inherited or automatically certified.",
+  "sources": {
+    "https://console.groq.com/docs/models": {
+      "source": "https://console.groq.com/docs/models",
+      "http_status": 200,
+      "final_url": "https://console.groq.com/docs/models",
+      "body_sha256": "db56adbdb469ab8b102c3fd4511e3bf10f855f9a3de76c4d953cc1c496135766",
+      "bytes": 370175,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/": {
+      "source": "https://deepmind.google/models/model-cards/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/",
+      "body_sha256": "96c60bd54e42c1477070402fdd941b8743cd96d6b9702901145e6167433185c4",
+      "bytes": 140241,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-2-5-computer-use-preview-10-2025/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-computer-use-preview-10-2025/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-2-5-computer-use-preview-10-2025/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-2-5-flash-image/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash-image/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-2-5-flash-image/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-2-5-flash-lite/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash-lite/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-2-5-flash-lite/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-2-5-flash/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-2-5-flash/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-2-5-pro/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-pro/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-2-5-pro/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-1-flash-image-preview/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-image-preview/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-image-preview/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/",
+      "body_sha256": "35a7966af712b7d83ee3cf0d5fb4ecb0a4516eec9476b3fdbe20f30ee3709f33",
+      "bytes": 154424,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-1-flash-image/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-image/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-image/",
+      "body_sha256": "290564d9b839a3245782b7707952cdc13d30669b2b75bf6a4a062bcb24ab8fb4",
+      "bytes": 153605,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-preview/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-preview/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-preview/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/",
+      "body_sha256": "bc32f71bdae5f7453a7387d64bf80946bfc9ac634e4ed2e371d40d720660dfba",
+      "bytes": 152796,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-1-pro-preview-customtools/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-pro-preview-customtools/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-1-pro-preview-customtools/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-5-flash/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-5-flash/",
+      "body_sha256": "14e5468bbd5ed0ad2b68f6299945cab94229dbcc8ecc66c173809972429f6a16",
+      "bytes": 152582,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-1-pro-preview/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-pro-preview/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-1-pro-preview/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+      "body_sha256": "1e2efab06a92e4282877b455f72d6694acf8a419b784618fe45478411299d52d",
+      "bytes": 152218,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-7-flash/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+      "body_sha256": "278866b3789a05e11ff2831cd3734a743ecf5a7bd4e2059ca4ef4c368c5e9a13",
+      "bytes": 157926,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-8-flash/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+      "body_sha256": "cad73c6d80212a619e29f2d71ee5aabe045c589a5fe1122f987d069ec189ebea",
+      "bytes": 154208,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-6-flash/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-6-flash/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-6-flash/",
+      "body_sha256": "28900a45940271c8a0c3566e7a6dedcebc92d3e786dd466285b06d3fe2abc5a7",
+      "bytes": 153308,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-pro-image-preview/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-pro-image-preview/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-pro-image-preview/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-flash-preview/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-flash-preview/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-3-flash-preview/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-nano-banana-2-1/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-nano-banana-2-1/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-nano-banana-2-1/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-4-argon/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+      "http_status": 200,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+      "body_sha256": "fe5d46d6870125fd6743ae61669f69788e617acefcd3e16f86233d151b71c552",
+      "bytes": 166590,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-3-pro-image/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-3-pro-image/",
+      "http_status": 200,
+      "final_url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Image-Model-Card.pdf",
+      "body_sha256": "41109d8b6467be8aeb42df84132894a321d64145a4152ac2153211e2d018dea1",
+      "bytes": 284660,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-omni-1-1-flash/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-omni-1-1-flash/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-omni-1-1-flash/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://docs.mistral.ai/getting-started/models/models_overview": {
+      "source": "https://docs.mistral.ai/getting-started/models/models_overview",
+      "http_status": 200,
+      "final_url": "https://docs.mistral.ai/models",
+      "body_sha256": "ffd246e305159300ba0318d300fe8c5b23debebf2ecb3ea1b96b35759d72ba71",
+      "bytes": 1335992,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-omni-flash-preview/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-omni-flash-preview/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-omni-flash-preview/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://deepmind.google/models/model-cards/gemini-robotics-er-2-preview/": {
+      "source": "https://deepmind.google/models/model-cards/gemini-robotics-er-2-preview/",
+      "http_status": 404,
+      "final_url": "https://deepmind.google/models/model-cards/gemini-robotics-er-2-preview/",
+      "body_sha256": "a7001baee280c839ac549c4ac8d118ff09052ccad933f948a6b25c315e3765b6",
+      "bytes": 116772,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seed-1.6-flash": {
+      "source": "https://huggingface.co/ByteDance-Seed/seed-1.6-flash",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seed-1.6-flash",
+      "body_sha256": "154bbe0b62d2f04953fbab659b44a5f0d8b8445aac850ffc942c49e2a662f949",
+      "bytes": 52304,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seed-1.6": {
+      "source": "https://huggingface.co/ByteDance-Seed/seed-1.6",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seed-1.6",
+      "body_sha256": "5ea8968aabb716f06575b6ec23f6a94697f190dcc151acf78e4bc1cbe23b52a2",
+      "bytes": 52292,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seed-2-1-turbo": {
+      "source": "https://huggingface.co/ByteDance-Seed/seed-2-1-turbo",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seed-2-1-turbo",
+      "body_sha256": "b2ac70dff81877f25542cb1d3eeea26622eed4465731884f78e10d2d63ca4df3",
+      "bytes": 52304,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seed-2.0-code": {
+      "source": "https://huggingface.co/ByteDance-Seed/seed-2.0-code",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seed-2.0-code",
+      "body_sha256": "a29e3eb8250c630e875924d340bd3737dc7851e5c2b40c86e214aa456a5f0eb5",
+      "bytes": 52302,
+      "benchmark_numeric_review": false
+    },
+    "https://github.com/Haidra-Org/AI-Horde-image-model-reference": {
+      "source": "https://github.com/Haidra-Org/AI-Horde-image-model-reference",
+      "http_status": 200,
+      "final_url": "https://github.com/Haidra-Org/AI-Horde-image-model-reference",
+      "body_sha256": "10af90af2ab32ae8a6f90da295aad42898861d49f7a6e2ff4dc0706a829c8cc5",
+      "bytes": 313858,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seed-2.0-lite": {
+      "source": "https://huggingface.co/ByteDance-Seed/seed-2.0-lite",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seed-2.0-lite",
+      "body_sha256": "a41d4eef66df9c46219d6c5af331e4a537d6ead807e93f86d8300c1bc08c5317",
+      "bytes": 52302,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seed-2.0-mini": {
+      "source": "https://huggingface.co/ByteDance-Seed/seed-2.0-mini",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seed-2.0-mini",
+      "body_sha256": "32b696c559eee92b40847a7d83142b8d63c7e7d218c6753f72bbd37d8671b121",
+      "bytes": 52302,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seedream-4.5": {
+      "source": "https://huggingface.co/ByteDance-Seed/seedream-4.5",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seedream-4.5",
+      "body_sha256": "0af617c90cb3f9973408ae520d42d8559ed3cad5fbc99c45a7279cf8f662edff",
+      "bytes": 52300,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seedream-5-0-flash": {
+      "source": "https://huggingface.co/ByteDance-Seed/seedream-5-0-flash",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seedream-5-0-flash",
+      "body_sha256": "175e3dd729f5eb7df214be05d68031b838397b92fc7463b32cb6b1d9804c8e1a",
+      "bytes": 52312,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seedream-5-0-lite": {
+      "source": "https://huggingface.co/ByteDance-Seed/seedream-5-0-lite",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seedream-5-0-lite",
+      "body_sha256": "09d3e7a76dda71419908f5e9db45b1793e6f5f2be8d302269adbf6d2a2117bbe",
+      "bytes": 52310,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ByteDance-Seed/seedream-5-0-pro": {
+      "source": "https://huggingface.co/ByteDance-Seed/seedream-5-0-pro",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/ByteDance-Seed/seedream-5-0-pro",
+      "body_sha256": "5cea5d496e36ddde8abead4d94940eff3f87006e3d485087b719f5e5de6c180d",
+      "bytes": 52308,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/c4ai-aya-expanse-32b": {
+      "source": "https://huggingface.co/CohereLabs/c4ai-aya-expanse-32b",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/c4ai-aya-expanse-32b",
+      "body_sha256": "11e8aa46cb12f1eab861b1225a33183e861958640cdea4a0bcdb4e9f489ba26e",
+      "bytes": 52308,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/c4ai-aya-vision-32b": {
+      "source": "https://huggingface.co/CohereLabs/c4ai-aya-vision-32b",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/c4ai-aya-vision-32b",
+      "body_sha256": "a45022723869dfcef2ac09ca37bfe7715e46329a132211ba46031914376f5438",
+      "bytes": 52306,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-a": {
+      "source": "https://huggingface.co/CohereLabs/command-a",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/command-a",
+      "body_sha256": "e85d5f0d999638319e6e54ca864c7d573f6003828b93b74f5d2295db1ffd3490",
+      "bytes": 52286,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-a-03-2025": {
+      "source": "https://huggingface.co/CohereLabs/command-a-03-2025",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/command-a-03-2025",
+      "body_sha256": "5e0fd419983b783d9377200aa498d1814f87e8bf629dedd7e467e265a0bb7b17",
+      "bytes": 52302,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026": {
+      "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+      "body_sha256": "69ac7dec1e4260ba70cee84835446b62c59ae44361e6a64172719b6b238be43b",
+      "bytes": 306076,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-a-plus": {
+      "source": "https://huggingface.co/CohereLabs/command-a-plus",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/command-a-plus",
+      "body_sha256": "f2e406333390ec2ad8b6a1f09fb24c6bab08ee8d9d3e8c9c802741d47e2c2856",
+      "bytes": 52296,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-a-plus-05-2026-bf16": {
+      "source": "https://huggingface.co/CohereLabs/command-a-plus-05-2026-bf16",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/command-a-plus-05-2026-bf16",
+      "body_sha256": "f3e4fbf59cebee5b4045397778b7d8fe3fdbcf06ac910200689a1896640cff53",
+      "bytes": 317491,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-a-translate-08-2025": {
+      "source": "https://huggingface.co/CohereLabs/command-a-translate-08-2025",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/command-a-translate-08-2025",
+      "body_sha256": "acc3735d4d18a504ab1997db74e5abb7e270cad89c5b65cb86370825ca2a383f",
+      "bytes": 401240,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-a-reasoning-08-2025": {
+      "source": "https://huggingface.co/CohereLabs/command-a-reasoning-08-2025",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/command-a-reasoning-08-2025",
+      "body_sha256": "ae200007d870b7cda16cccffb50d1ff477946dcae80170900364bc0faa63c214",
+      "bytes": 327671,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-a-vision-07-2025": {
+      "source": "https://huggingface.co/CohereLabs/command-a-vision-07-2025",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/command-a-vision-07-2025",
+      "body_sha256": "3172a3885d3250955cfaeac59fcbdf9df31380f3a457f8b6984e4f3c3609578d",
+      "bytes": 234884,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-r-plus-08-2024": {
+      "source": "https://huggingface.co/CohereLabs/command-r-plus-08-2024",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/command-r-plus-08-2024",
+      "body_sha256": "b0bdd2b319e30fd292f24596f5528d0d27530836532bdf94deefa4bf1778e770",
+      "bytes": 52312,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-r-08-2024": {
+      "source": "https://huggingface.co/CohereLabs/command-r-08-2024",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/command-r-08-2024",
+      "body_sha256": "5941a721357bfafc1e2aa911baf18a44c467ce227666fa63ee607b82009bb14f",
+      "bytes": 52302,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-r7b-12-2024": {
+      "source": "https://huggingface.co/CohereLabs/command-r7b-12-2024",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/command-r7b-12-2024",
+      "body_sha256": "659eea921973e03057398e41eadd36ab37c26c14de87cba2dcb1650133abaa4e",
+      "bytes": 52306,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/command-r7b-arabic-02-2025": {
+      "source": "https://huggingface.co/CohereLabs/command-r7b-arabic-02-2025",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/command-r7b-arabic-02-2025",
+      "body_sha256": "cf99eed1164f6dcb47887f5804b2ead59fd2705232d5dbf52115da3b4ffe0c3a",
+      "bytes": 52320,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/north-mini-code": {
+      "source": "https://huggingface.co/CohereLabs/north-mini-code",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/north-mini-code",
+      "body_sha256": "1fdb139ebd2dc63d19b7b8dc867db08367ebd96afe1d2888c67742e81aa75abd",
+      "bytes": 52298,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/north-mini-code-1-0": {
+      "source": "https://huggingface.co/CohereLabs/north-mini-code-1-0",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/north-mini-code-1-0",
+      "body_sha256": "7f355366d6a17e1bc30fe9e5b2087e40030dd79e94a35d23a43545f2c569e02a",
+      "bytes": 52306,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/north-small-translate-09-2026": {
+      "source": "https://huggingface.co/CohereLabs/north-small-translate-09-2026",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/CohereLabs/north-small-translate-09-2026",
+      "body_sha256": "5f4d6dba870c90bd36aaf6d9e220e17ec1fdb3af4848200af247a94db4db6380",
+      "bytes": 52326,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/tiny-aya-earth": {
+      "source": "https://huggingface.co/CohereLabs/tiny-aya-earth",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/tiny-aya-earth",
+      "body_sha256": "fe4a993de7b07c8910e5364bccd1808155deb71e300023d44a3e44f2b6b65513",
+      "bytes": 293672,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/tiny-aya-fire": {
+      "source": "https://huggingface.co/CohereLabs/tiny-aya-fire",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/tiny-aya-fire",
+      "body_sha256": "7206c71457c1e51c46a8d52d13ecb2690d223a8ead8a829b959fd3910a52605a",
+      "bytes": 292857,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/InceptionAI/mercury-2": {
+      "source": "https://huggingface.co/InceptionAI/mercury-2",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/InceptionAI/mercury-2",
+      "body_sha256": "eb1c5d1da77418974efa3c5249f3b3628e7a67037417af42202b7f2494d2a55a",
+      "bytes": 52288,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/tiny-aya-water": {
+      "source": "https://huggingface.co/CohereLabs/tiny-aya-water",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/tiny-aya-water",
+      "body_sha256": "9a5c2db239b266cfbce64abfd6825be641483c1d5ebee1619695835313b9a3ce",
+      "bytes": 291579,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/CohereLabs/tiny-aya-global": {
+      "source": "https://huggingface.co/CohereLabs/tiny-aya-global",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/CohereLabs/tiny-aya-global",
+      "body_sha256": "f7f64d2bf4f43fb7b5f8b28203b52c9b8648b1440599be7628a0bb2f5a864bdb",
+      "bytes": 307901,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/InceptionAI/mercury-2.5": {
+      "source": "https://huggingface.co/InceptionAI/mercury-2.5",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/InceptionAI/mercury-2.5",
+      "body_sha256": "2d6934f134478b0514d27b6f970e4d428ec394acde131582097147e59eeaa892",
+      "bytes": 52292,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/LiquidAI/lfm-2.5-2.6b": {
+      "source": "https://huggingface.co/LiquidAI/lfm-2.5-2.6b",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/LiquidAI/lfm-2.5-2.6b",
+      "body_sha256": "b21a9c7b126c67b6f5408918916fabbbf25de436e04dca41a5db3c4a192a6958",
+      "bytes": 52288,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/MiniMaxAI/minimax-01": {
+      "source": "https://huggingface.co/MiniMaxAI/minimax-01",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/MiniMaxAI/minimax-01",
+      "body_sha256": "25dd629940cc32383d167831555d590a5d32e17cbc33e035bf5e89f6d9e6816f",
+      "bytes": 52286,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/MiniMaxAI/minimax-m2-her": {
+      "source": "https://huggingface.co/MiniMaxAI/minimax-m2-her",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/MiniMaxAI/minimax-m2-her",
+      "body_sha256": "4547b83e21e321c4c13f0016e9331bc766b2beb032e434ae9936416e8a4d08e9",
+      "bytes": 52294,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/MiniMaxAI/minimax-m1": {
+      "source": "https://huggingface.co/MiniMaxAI/minimax-m1",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/MiniMaxAI/MiniMax-M1-40k",
+      "body_sha256": "88f95684665c15865385bb2d98d7b48845fbfbafd74e2445e7fdf174dc7ce0d9",
+      "bytes": 237210,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/MiniMaxAI/minimax-m2": {
+      "source": "https://huggingface.co/MiniMaxAI/minimax-m2",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/MiniMaxAI/MiniMax-M2",
+      "body_sha256": "a4dcbf92bc52fc5248ae9a639a46187886c981694f23a9c6f1d8cff93fb001d7",
+      "bytes": 362901,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/MiniMaxAI/minimax-m2.1": {
+      "source": "https://huggingface.co/MiniMaxAI/minimax-m2.1",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.1",
+      "body_sha256": "256850220d76e2fdb11c15c2ca247b44c9d3d70b0c91a2dafd616eda1fa129b0",
+      "bytes": 372887,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/MiniMaxAI/minimax-m2.5": {
+      "source": "https://huggingface.co/MiniMaxAI/minimax-m2.5",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.5",
+      "body_sha256": "1a64b2dab2efc0bfdfb5587f01b56b06485839fe8aeecfc1caae89ab60df5a74",
+      "bytes": 386833,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/MiniMaxAI/minimax-m3": {
+      "source": "https://huggingface.co/MiniMaxAI/minimax-m3",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+      "body_sha256": "f405780125c6bfd3fb58d80250a7701518577c3fd486e827c4eef2fcbeca39d5",
+      "bytes": 381752,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/MiniMaxAI/minimax-m2.7": {
+      "source": "https://huggingface.co/MiniMaxAI/minimax-m2.7",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.7",
+      "body_sha256": "4a77d2a5d04316ae6d3ae3150522c7899f69110d83f63b6e286aca33e47cb07b",
+      "bytes": 379832,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/NousResearch/hermes-3-llama-3.1-405b": {
+      "source": "https://huggingface.co/NousResearch/hermes-3-llama-3.1-405b",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B",
+      "body_sha256": "03c484848d73716e6d7e279d6aca93ee6f81900a3de7a7b8d8df2dcd19760a43",
+      "bytes": 284483,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/PerceptronAI/perceptron-mk1": {
+      "source": "https://huggingface.co/PerceptronAI/perceptron-mk1",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/PerceptronAI/perceptron-mk1",
+      "body_sha256": "43f553a54c216ec156a86f490426aba65ea6d11f22d0a5e94769354ea2811ceb",
+      "bytes": 52300,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/NousResearch/hermes-4-405b": {
+      "source": "https://huggingface.co/NousResearch/hermes-4-405b",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/NousResearch/Hermes-4-405B",
+      "body_sha256": "0360cad56c7b199a4755284d3d54c9c9aef2f601759ba9ffc222be60f6e059c6",
+      "bytes": 267826,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/NousResearch/hermes-3-llama-3.1-70b": {
+      "source": "https://huggingface.co/NousResearch/hermes-3-llama-3.1-70b",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-70B",
+      "body_sha256": "60589b86946be254ca9a24468c5610f033342ac58133e033fbb6e8697b980ca4",
+      "bytes": 308244,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/PerceptronAI/perceptron-mk1.5": {
+      "source": "https://huggingface.co/PerceptronAI/perceptron-mk1.5",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/PerceptronAI/perceptron-mk1.5",
+      "body_sha256": "47f87da5d9fea87229ba7dd62a2abfa65d19b526f2f90a1652f6746007746258",
+      "bytes": 52304,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen-2.5-72b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen-2.5-72b-instruct",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen-2.5-72b-instruct",
+      "body_sha256": "2e7562140ccf2f9b8376d55ad3ea4825b2b2e6cb56b439abb2c8f14f50f172f7",
+      "bytes": 52298,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen-2.5-7b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen-2.5-7b-instruct",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen-2.5-7b-instruct",
+      "body_sha256": "1e47f9b0b7927afb6e5edd2d33dd0b72c27a0a6230657a407766266b061d40ca",
+      "bytes": 52296,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen-2.5-coder-32b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen-2.5-coder-32b-instruct",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen-2.5-coder-32b-instruct",
+      "body_sha256": "2639c453d583e3f5bdb061df9db3c957a4a7d73763214e0de6354332fe707594",
+      "bytes": 52310,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/Qwen3-30B-A3B": {
+      "source": "https://huggingface.co/Qwen/Qwen3-30B-A3B",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-30B-A3B",
+      "body_sha256": "1af8dad0b84f05fc0f9fe08fd2a7be97e0512688fb0e1abca240854fa8049561",
+      "bytes": 309660,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen-image-3": {
+      "source": "https://huggingface.co/Qwen/qwen-image-3",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen-image-3",
+      "body_sha256": "8f811a9ffbddc482733e069f0f44ab3523a2b3d58069919ec80327016f54a5cf",
+      "bytes": 52280,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen-plus": {
+      "source": "https://huggingface.co/Qwen/qwen-plus",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen-plus",
+      "body_sha256": "0f28006de690537d273d7d1ea1f178b421950efab6b25230a858b339ea4d96be",
+      "bytes": 52274,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen-image-3-pro": {
+      "source": "https://huggingface.co/Qwen/qwen-image-3-pro",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen-image-3-pro",
+      "body_sha256": "11ebabc2fd97b6b038d78e91b0a0464e7b60d33ebbbc432c7750648047cde8d3",
+      "bytes": 52288,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen2.5-coder-32b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen2.5-coder-32b-instruct",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
+      "body_sha256": "5d3a6d784d8413d792d388058d1723e55ba79952e5062011986a42e86c7aa623",
+      "bytes": 282260,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-14b": {
+      "source": "https://huggingface.co/Qwen/qwen3-14b",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-14B",
+      "body_sha256": "32e8a79cf76b03a7adfa8bf46d34bbdb595bb4564fd2bed6a134730cc293dba0",
+      "bytes": 314035,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen2.5-vl-72b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen2.5-vl-72b-instruct",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen2.5-VL-72B-Instruct",
+      "body_sha256": "9c435bba1a7e8c5f000862f410ca76dcbd7b1ee07aaa6315f9cee9278dc17804",
+      "bytes": 485188,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-235b-a22b-2507": {
+      "source": "https://huggingface.co/Qwen/qwen3-235b-a22b-2507",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen3-235b-a22b-2507",
+      "body_sha256": "31a1bf088a106d076fca5357d04af17d518cfbc589da07ce910c633812c74442",
+      "bytes": 52296,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-235b-a22b-thinking-2507": {
+      "source": "https://huggingface.co/Qwen/qwen3-235b-a22b-thinking-2507",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "body_sha256": "f3c42e57c0df9f7aa339f181bbc43cc9a0855a323db4de4f47777fad50a6cbec",
+      "bytes": 351801,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-30b-a3b": {
+      "source": "https://huggingface.co/Qwen/qwen3-30b-a3b",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-30B-A3B",
+      "body_sha256": "855f76cf90814721dbc853d1ecbd0a08017de8a05a32a7fb440f76a04a936c64",
+      "bytes": 309660,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-coder": {
+      "source": "https://huggingface.co/Qwen/qwen3-coder",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen3-coder",
+      "body_sha256": "d408363eb1b1cce255795a79cb9d5ebd04a98340eeff524d370da23ae363c994",
+      "bytes": 52278,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-30b-a3b-instruct-2507": {
+      "source": "https://huggingface.co/Qwen/qwen3-30b-a3b-instruct-2507",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "body_sha256": "0dd79376747eaee9f0cc0f10e2c32a0930e6f7e9c0955733914a5a08fa8618dc",
+      "bytes": 316435,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-32b": {
+      "source": "https://huggingface.co/Qwen/qwen3-32b",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-32B",
+      "body_sha256": "b0ee93f81c6e9ac88fb67629a9876f642fdf7696fc49e32dc9ef77de4a502b90",
+      "bytes": 347538,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-coder-flash": {
+      "source": "https://huggingface.co/Qwen/qwen3-coder-flash",
+      "http_status": 401,
+      "final_url": "https://huggingface.co/Qwen/qwen3-coder-flash",
+      "body_sha256": "d544f468ea488132096d91676d2fe1364ee8c9c33d62fcb0a87b068b330add4c",
+      "bytes": 52290,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-coder-30b-a3b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen3-coder-30b-a3b-instruct",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "body_sha256": "0a3d8a7b57e8b1e6d816a86d70ccb64bcf2513524ef563a85f32a7f8004a1660",
+      "bytes": 311060,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-coder-next": {
+      "source": "https://huggingface.co/Qwen/qwen3-coder-next",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-Coder-Next",
+      "body_sha256": "3290d6b6aa0671173a75f1fb0442ba186f050ee99db148dc4ea5fe25976e030f",
+      "bytes": 332564,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-next-80b-a3b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen3-next-80b-a3b-instruct",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct",
+      "body_sha256": "7561b064b52d2930c9af410a97c0782af55e6541708457c9a8d4a8f2c998683e",
+      "bytes": 378675,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-next-80b-a3b-thinking": {
+      "source": "https://huggingface.co/Qwen/qwen3-next-80b-a3b-thinking",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Thinking",
+      "body_sha256": "80ca714bb7764723224251d6d7a6f076c63a71684cbeef938acf9132519b8c36",
+      "bytes": 327958,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-vl-235b-a22b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen3-vl-235b-a22b-instruct",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-VL-235B-A22B-Instruct",
+      "body_sha256": "b916c829d49ef817eb7bdfc49c43e7596367edfbad5bb00a5568c3ac67361f69",
+      "bytes": 368750,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-vl-30b-a3b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen3-vl-30b-a3b-instruct",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "body_sha256": "b206a3008f09a55089728d6b6f3d7fd7768c0fc5bf44baf20223b74af537b63b",
+      "bytes": 325756,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-vl-30b-a3b-thinking": {
+      "source": "https://huggingface.co/Qwen/qwen3-vl-30b-a3b-thinking",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Thinking",
+      "body_sha256": "01dbaf452e9646915488195f1a4830ad0af46728ab8854a9da430fba90df44d3",
+      "bytes": 290783,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3-vl-8b-instruct": {
+      "source": "https://huggingface.co/Qwen/qwen3-vl-8b-instruct",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+      "body_sha256": "6488c44e51cf5b6111f208420a4058e209895bc0c91c91c55e991ed7d8db3f11",
+      "bytes": 461281,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.5-27b": {
+      "source": "https://huggingface.co/Qwen/qwen3.5-27b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/Qwen3.5-27B",
+      "body_sha256": "d053f0234cd38b7cc238d0a02360cb74cccfb8a8bb380e2cfb49011b37c27257",
+      "bytes": 52442,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.5-122b-a10b": {
+      "source": "https://huggingface.co/Qwen/qwen3.5-122b-a10b",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B",
+      "body_sha256": "ebba5d9e3c68e2337b7e4e8be6119f765649650e5c23124ee29701e44150bee6",
+      "bytes": 513966,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.5-35b-a3b": {
+      "source": "https://huggingface.co/Qwen/qwen3.5-35b-a3b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B",
+      "body_sha256": "8463f34dc9bd535c1b66911355532fb8d612db15ae8e05b23b85e41316679ebc",
+      "bytes": 52450,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.5-397b-a17b": {
+      "source": "https://huggingface.co/Qwen/qwen3.5-397b-a17b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.5-397b-a17b",
+      "body_sha256": "932ed6e2f8852e0b4fde85e469c848b7dbec8c5e3d40910b9d09e5751742c95a",
+      "bytes": 52454,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.5-9b": {
+      "source": "https://huggingface.co/Qwen/qwen3.5-9b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.5-9b",
+      "body_sha256": "66e89d43c39e04acc217e25445fd80b11e300f552faf807169e29605b950b724",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.5-flash-02-23": {
+      "source": "https://huggingface.co/Qwen/qwen3.5-flash-02-23",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.5-flash-02-23",
+      "body_sha256": "3ac75d7d91e2eaf977011c962b276f5694b707b96e8d85a998ae7c7abc0b5af5",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.5-plus-02-15": {
+      "source": "https://huggingface.co/Qwen/qwen3.5-plus-02-15",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.5-plus-02-15",
+      "body_sha256": "aebd81f9ad0f3e49702caccb69c23f5db975e26250baba386b6c2cc6b84bada0",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.5-plus-20260420": {
+      "source": "https://huggingface.co/Qwen/qwen3.5-plus-20260420",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.5-plus-20260420",
+      "body_sha256": "c54a483dcd78516788fdb7e3ae9c32d60d2d415cd48660377083486a4247a4bf",
+      "bytes": 52462,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.6-27b": {
+      "source": "https://huggingface.co/Qwen/qwen3.6-27b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.6-27b",
+      "body_sha256": "e7632e4852bda728be84bcc7b7006b447b452f36b2c7099b59440c75b99ce694",
+      "bytes": 52442,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.6-35b-a3b": {
+      "source": "https://huggingface.co/Qwen/qwen3.6-35b-a3b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.6-35b-a3b",
+      "body_sha256": "e7062bdfa98d64395901f0ef7b5b4a0a5f46b33ef39dc4049949eb008ef376ae",
+      "bytes": 52450,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.6-flash": {
+      "source": "https://huggingface.co/Qwen/qwen3.6-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.6-flash",
+      "body_sha256": "f9eace11d5b4461ee6bb81b62e0e488276e70f4437b76fce931477304782d490",
+      "bytes": 52446,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.6-plus": {
+      "source": "https://huggingface.co/Qwen/qwen3.6-plus",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.6-plus",
+      "body_sha256": "1f4074574ddd7727eb31f1ec4becd1e49bb973f64f1e7f64cdd1abb9ee568ca0",
+      "bytes": 52444,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.7-flash": {
+      "source": "https://huggingface.co/Qwen/qwen3.7-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.7-flash",
+      "body_sha256": "8377fbf57465a3f27f33d1ff3590a6e187ab2197961f17b73e0eb7ef7f73802e",
+      "bytes": 52446,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.7-max": {
+      "source": "https://huggingface.co/Qwen/qwen3.7-max",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.7-max",
+      "body_sha256": "38ca01f48e024fd8b8ce7bdcca193b0013910d108006097d47c6e1ce1594cc3e",
+      "bytes": 52442,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.7-plus": {
+      "source": "https://huggingface.co/Qwen/qwen3.7-plus",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.7-plus",
+      "body_sha256": "45fc94f2d160f9f31a11653abf9d4edd350dbaa21cd028dadfb82674fcdb318d",
+      "bytes": 52444,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.8-2.4t-a95b": {
+      "source": "https://huggingface.co/Qwen/qwen3.8-2.4t-a95b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.8-2.4t-a95b",
+      "body_sha256": "8eb23e09ed15e0f3c624c81b34ebe8153932e14770ffb6c5d635998d29e6e283",
+      "bytes": 52454,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.8-27b": {
+      "source": "https://huggingface.co/Qwen/qwen3.8-27b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.8-27b",
+      "body_sha256": "1a0fb47f5d12f79a60b889ff2a3ba2dc12a72bcc2b3fa7c19285e45447c643ca",
+      "bytes": 52442,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.8-flash": {
+      "source": "https://huggingface.co/Qwen/qwen3.8-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.8-flash",
+      "body_sha256": "6a36543320e97370be667662f2a24cae67aece8bfb3f4817ba8801d22a6496c5",
+      "bytes": 52446,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.8-max-0902": {
+      "source": "https://huggingface.co/Qwen/qwen3.8-max-0902",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.8-max-0902",
+      "body_sha256": "277088f3e382af1c03e2afd6ea39e47959650894813fd18c588abf7efdc6d7d4",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.8-max-prime": {
+      "source": "https://huggingface.co/Qwen/qwen3.8-max-prime",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.8-max-prime",
+      "body_sha256": "e89c808a254cd05f312866c3446e1023e15191ff731f269fe60ad80f464dded6",
+      "bytes": 52454,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwen3.8-omni-flash": {
+      "source": "https://huggingface.co/Qwen/qwen3.8-omni-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwen3.8-omni-flash",
+      "body_sha256": "a0e5dd11f8f6406520f2c910bd4950074580cfbdec8f90a943a3f4ab96198d9b",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/Qwen/qwq-32b": {
+      "source": "https://huggingface.co/Qwen/qwq-32b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/Qwen/qwq-32b",
+      "body_sha256": "3c5d30bc68588bda24e8aad6a7d974d286c6432381ec004cc4f7f6819ed44270",
+      "bytes": 52434,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/XiaomiMiMo/mimo-v2.5": {
+      "source": "https://huggingface.co/XiaomiMiMo/mimo-v2.5",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/XiaomiMiMo/mimo-v2.5",
+      "body_sha256": "824053ec6d31eea3194502a0e60086003234bbd85f6bd8cabb0ebb02e5abf3f0",
+      "bytes": 52450,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/XiaomiMiMo/mimo-v2.5-pro": {
+      "source": "https://huggingface.co/XiaomiMiMo/mimo-v2.5-pro",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/XiaomiMiMo/mimo-v2.5-pro",
+      "body_sha256": "43d11937345b79705cc8f43a881c42d88d1e311b31037aba5122ec27fa86d35a",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/XiaomiMiMo/mimo-v2.6-flash": {
+      "source": "https://huggingface.co/XiaomiMiMo/mimo-v2.6-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/XiaomiMiMo/mimo-v2.6-flash",
+      "body_sha256": "95354e97be40b6750705df3aa9935ea260fa009a3e64167da91cd0587df1fbc0",
+      "bytes": 52462,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/XiaomiMiMo/mimo-v2.6-pro": {
+      "source": "https://huggingface.co/XiaomiMiMo/mimo-v2.6-pro",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/XiaomiMiMo/mimo-v2.6-pro",
+      "body_sha256": "a7f4404f3ac2687d87f9fdffa5a5675ed0224c81ea90611eeb8c26036c7fb537",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/XiaomiMiMo/mimo-v2.6-pro-ultraspeed": {
+      "source": "https://huggingface.co/XiaomiMiMo/mimo-v2.6-pro-ultraspeed",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/XiaomiMiMo/mimo-v2.6-pro-ultraspeed",
+      "body_sha256": "72ce161b572bb1dee251e4d6f74d21029c27ca0d6138856a161f738484899681",
+      "bytes": 52480,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/arcee-ai/trinity-large-thinking": {
+      "source": "https://huggingface.co/arcee-ai/trinity-large-thinking",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/arcee-ai/trinity-large-thinking",
+      "body_sha256": "d9d2f0ee4622f062527195d6a58be34cd3b43cad217bf73bc6c7fd1b757af225",
+      "bytes": 52472,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/black-forest-labs/flux-3-image": {
+      "source": "https://huggingface.co/black-forest-labs/flux-3-image",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/black-forest-labs/flux-3-image",
+      "body_sha256": "7f5a672be021d038e088859a12b90dd8cd78232e7b1c421882d4ea34aa3a9094",
+      "bytes": 52470,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/black-forest-labs/flux.2-flex": {
+      "source": "https://huggingface.co/black-forest-labs/flux.2-flex",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/black-forest-labs/flux.2-flex",
+      "body_sha256": "5d5fd935455996e4dec0d70f6fb9f72b9e7295fd4e10e6801a81f083a287a3cf",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/black-forest-labs/flux.2-klein-4b": {
+      "source": "https://huggingface.co/black-forest-labs/flux.2-klein-4b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/black-forest-labs/flux.2-klein-4b",
+      "body_sha256": "b243536594bc418ab7daf25a13bdf2fa828a51ef6f0b0a4474764fc60c007ea5",
+      "bytes": 52476,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/black-forest-labs/flux.2-max": {
+      "source": "https://huggingface.co/black-forest-labs/flux.2-max",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/black-forest-labs/flux.2-max",
+      "body_sha256": "1822380f0cab30e28cfacc60e4abe0fc9b5d031fe7204bf9048440ffa7ba8705",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/black-forest-labs/flux.2-pro": {
+      "source": "https://huggingface.co/black-forest-labs/flux.2-pro",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/black-forest-labs/flux.2-pro",
+      "body_sha256": "97d1eba646d48e6f64d9b6cded96cee055d2bfc519f1f5c67fc93772030c107e",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/cognitivecomputations/dolphin-mistral-24b-venice-edition": {
+      "source": "https://huggingface.co/cognitivecomputations/dolphin-mistral-24b-venice-edition",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/cognitivecomputations/dolphin-mistral-24b-venice-edition",
+      "body_sha256": "525c669feed14cf2ae5122a7d4be2b6007f23d96ebed6fdbaa8719d9edad19d1",
+      "bytes": 52522,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/deepseek-ai/deepseek-r1-distill-qwen-32b": {
+      "source": "https://huggingface.co/deepseek-ai/deepseek-r1-distill-qwen-32b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/deepseek-ai/deepseek-r1-distill-qwen-32b",
+      "body_sha256": "d6a06a3e57580c8dd8f4aff9a6b8306c5bacd6bd4b79040e080f90a1b28cceef",
+      "bytes": 52490,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/codegemma-1.1-7b": {
+      "source": "https://huggingface.co/google/codegemma-1.1-7b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/codegemma-1.1-7b",
+      "body_sha256": "646358f8dad68be98f751c6a8172068c675a379d29fc31afe90464d955f2de8e",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/codegemma-7b": {
+      "source": "https://huggingface.co/google/codegemma-7b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/codegemma-7b",
+      "body_sha256": "a9649a9d506cd4526d0648bdb160e72c01ff23e6626a4ff6ebed482d79b369f0",
+      "bytes": 52448,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/diffusiongemma-26b-a4b-it": {
+      "source": "https://huggingface.co/google/diffusiongemma-26b-a4b-it",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/diffusiongemma-26b-a4b-it",
+      "body_sha256": "333c42a5fe0bbe509ab8800382b37835f177dfb3dd25f8566e6ef2a0f688a5a8",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-2.5-flash": {
+      "source": "https://huggingface.co/google/gemini-2.5-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-2.5-flash",
+      "body_sha256": "bd19dafdbf52807c974ffe5e1af0b709df7895d640fc69dda722fc064f18161b",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-2.5-flash-image": {
+      "source": "https://huggingface.co/google/gemini-2.5-flash-image",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-2.5-flash-image",
+      "body_sha256": "56ab8bf5eddd879a22190e37948590e88a40f1b150dd03447126ba3bf19e9dc8",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-2.5-flash-lite": {
+      "source": "https://huggingface.co/google/gemini-2.5-flash-lite",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-2.5-flash-lite",
+      "body_sha256": "0a77f29e3776b07c5de381a5002176e15a5a738a28988f67eb83ee7d237f11a5",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-2.5-flash-lite:batch": {
+      "source": "https://huggingface.co/google/gemini-2.5-flash-lite:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-2.5-flash-lite:batch",
+      "body_sha256": "a56357bd683fe0295fcb6e4fa55cde93afaf05c722a99d6111900a8499b6280b",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-2.5-flash:batch": {
+      "source": "https://huggingface.co/google/gemini-2.5-flash:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-2.5-flash:batch",
+      "body_sha256": "e6d0850e85694f577a4abf9ec213fc830b63a86e1487b025c28d0c194be1d71e",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-2.5-pro": {
+      "source": "https://huggingface.co/google/gemini-2.5-pro",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-2.5-pro",
+      "body_sha256": "1122c868055c55c70dfe5cf6dc675b7abb848f28875b905fd7d264830544b1cc",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-2.5-pro-preview": {
+      "source": "https://huggingface.co/google/gemini-2.5-pro-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-2.5-pro-preview",
+      "body_sha256": "c49efb4eac606bff8fa5801340d5e430622b2c653c2cdf380faace7a8d0eee1c",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-2.5-pro:batch": {
+      "source": "https://huggingface.co/google/gemini-2.5-pro:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-2.5-pro:batch",
+      "body_sha256": "38dd98dbe2318449638201a085b2694a3be8993b20ebb5f51d25127e3188f0ec",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3-flash-preview": {
+      "source": "https://huggingface.co/google/gemini-3-flash-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3-flash-preview",
+      "body_sha256": "df61678aa964f90e3bc35c7b11b593ff3096333f7bf705c47c3e06ea2390571a",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3-flash-preview:batch": {
+      "source": "https://huggingface.co/google/gemini-3-flash-preview:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3-flash-preview:batch",
+      "body_sha256": "9d43f055b5a7e4d07ae1fa3a3fb2007b5afab9ba761f1529d794d2b9a90633ec",
+      "bytes": 52480,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3-pro-image": {
+      "source": "https://huggingface.co/google/gemini-3-pro-image",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3-pro-image",
+      "body_sha256": "5201547fbe639358a12dbd33c730bcd6c183e581570f6684dd409462c344986e",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3-pro-image-preview": {
+      "source": "https://huggingface.co/google/gemini-3-pro-image-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3-pro-image-preview",
+      "body_sha256": "2717fb0776d5654086e227633a37250d0d5b7367060a6254448435d967be2760",
+      "bytes": 52476,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-flash-image": {
+      "source": "https://huggingface.co/google/gemini-3.1-flash-image",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-flash-image",
+      "body_sha256": "3a2ad4fe9e51c1b841ab99a200e0a26cb5c518b80e3813340dc0da500f2ccead",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-flash-image-preview": {
+      "source": "https://huggingface.co/google/gemini-3.1-flash-image-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-flash-image-preview",
+      "body_sha256": "f67b19fc3b170eb5f10c9196d1ac392459a012cafc05d16d5787d1899af606cb",
+      "bytes": 52484,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-flash-lite": {
+      "source": "https://huggingface.co/google/gemini-3.1-flash-lite",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-flash-lite",
+      "body_sha256": "e66c0156dddd242a1d2f1c402a552afd6406abf8bc87d363c6f61e29c8686331",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-flash-lite-image": {
+      "source": "https://huggingface.co/google/gemini-3.1-flash-lite-image",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-flash-lite-image",
+      "body_sha256": "7dcd0d7be8555266f99367754f7753b60870be8ad66bc05b14ab7d533b981d53",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-flash-lite-preview": {
+      "source": "https://huggingface.co/google/gemini-3.1-flash-lite-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-flash-lite-preview",
+      "body_sha256": "309c7a0def6962a31677868d1b8b1dae4ca8bef79e296367141a964256c6b79e",
+      "bytes": 52482,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-flash-lite:batch": {
+      "source": "https://huggingface.co/google/gemini-3.1-flash-lite:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-flash-lite:batch",
+      "body_sha256": "16779e2c3ffccdd598d1045e6819c4476c811c20a67e1293b70df763b6a14539",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-pro-preview": {
+      "source": "https://huggingface.co/google/gemini-3.1-pro-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-pro-preview",
+      "body_sha256": "06c939a6a3703288e982ad480df0f0d3ce25e7809e71b66066b78d03c3e04343",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-pro-preview-customtools": {
+      "source": "https://huggingface.co/google/gemini-3.1-pro-preview-customtools",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-pro-preview-customtools",
+      "body_sha256": "ddc7ad69ae5b935f78fcc4d81c158c579bdb1ddc3c7c0def68427d54529c08bb",
+      "bytes": 52492,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.1-pro-preview:batch": {
+      "source": "https://huggingface.co/google/gemini-3.1-pro-preview:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.1-pro-preview:batch",
+      "body_sha256": "8089071076e79efacb8c97fc3f6cbe384e331540ed71742ed924889d20709b47",
+      "bytes": 52480,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.5-flash": {
+      "source": "https://huggingface.co/google/gemini-3.5-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.5-flash",
+      "body_sha256": "eda3f59f705531c92c9e1cfbb31fdc13d0dbe98ca909988a70176ac6d050faf0",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.5-flash-lite": {
+      "source": "https://huggingface.co/google/gemini-3.5-flash-lite",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.5-flash-lite",
+      "body_sha256": "070027ebad2ab228dd2f73a13f6866dcc0748724656af953cdda9d2d216abe6b",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.5-flash-lite:batch": {
+      "source": "https://huggingface.co/google/gemini-3.5-flash-lite:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.5-flash-lite:batch",
+      "body_sha256": "b31e14330aa15619b82bd540dfa2dfba6bf8f2d712f90d7d3221ac85564e93a1",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.5-flash:batch": {
+      "source": "https://huggingface.co/google/gemini-3.5-flash:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.5-flash:batch",
+      "body_sha256": "eaf1f72c80bc9b39f845b78b7e1772820ae705b89cbac926f60384731522b2ee",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.6-flash": {
+      "source": "https://huggingface.co/google/gemini-3.6-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.6-flash",
+      "body_sha256": "ed07830f9b2721dd65876dacf924d5d230f703907e3b398c38ba60dc75268ce5",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.6-flash:batch": {
+      "source": "https://huggingface.co/google/gemini-3.6-flash:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.6-flash:batch",
+      "body_sha256": "dd392e46c603f9ce78f3ab6fe1292b5b1b7b10a9bd1d7c7c0769c5687d28310a",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.7-flash": {
+      "source": "https://huggingface.co/google/gemini-3.7-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.7-flash",
+      "body_sha256": "e83b37c37795882106b21e4d809b6e30f884de36d884b9adca7f32a67e713551",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.7-flash:batch": {
+      "source": "https://huggingface.co/google/gemini-3.7-flash:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.7-flash:batch",
+      "body_sha256": "c41015fb2af9a2e2bfcdddd9d1fc2018d6f66a440c0c02910a1b8141dcf53aae",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.8-flash": {
+      "source": "https://huggingface.co/google/gemini-3.8-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.8-flash",
+      "body_sha256": "9252e84e89c6647ee853ef68276b22eb854af28886b765a92aff331a30db9a1e",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-3.8-flash:batch": {
+      "source": "https://huggingface.co/google/gemini-3.8-flash:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-3.8-flash:batch",
+      "body_sha256": "ad40b32fbc4ce46c5da1b4849624551284ba5f0e62bdcd4e8fa33b0c7c86e37f",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-4-argon": {
+      "source": "https://huggingface.co/google/gemini-4-argon",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-4-argon",
+      "body_sha256": "81b057289e739d002017a45a1def5bd1994f442dc9e7702a90a2b0bc7bdcd04c",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemini-nano-banana-2.1": {
+      "source": "https://huggingface.co/google/gemini-nano-banana-2.1",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemini-nano-banana-2.1",
+      "body_sha256": "c2cb47db99b548e6e944dac39fab5189fd2883c0c10b391e0bd22d3b3e348fab",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-2-27b-it": {
+      "source": "https://huggingface.co/google/gemma-2-27b-it",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-2-27b-it",
+      "body_sha256": "88e4effed6cf20819188c129ea3d0d2c95b77284b695f2eb0e4ff87a693225af",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-2b": {
+      "source": "https://huggingface.co/google/gemma-2b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-2b",
+      "body_sha256": "949f10e43fbabc9f9fb1032f18902cd20340d4d66f4c43ae62c821a21e5ac72a",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-2b-it-lora": {
+      "source": "https://huggingface.co/google/gemma-2b-it-lora",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-2b-it-lora",
+      "body_sha256": "4e047d1c6f3953b2540bcdf5aa95d1b11e04c3d8f57485764b29f59b72633924",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-3-12b-it": {
+      "source": "https://huggingface.co/google/gemma-3-12b-it",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-3-12b-it",
+      "body_sha256": "5c414bc2bf112a85b7acf0b38d80cdae23b69f588d8a9ca0b57581ecaa089285",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-3-27b-it": {
+      "source": "https://huggingface.co/google/gemma-3-27b-it",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-3-27b-it",
+      "body_sha256": "f5225e3293027d1a9b95558264a272c9eddcf478571f23f694b557815d922b84",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-3-4b-it": {
+      "source": "https://huggingface.co/google/gemma-3-4b-it",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-3-4b-it",
+      "body_sha256": "97e3815347f58559c442be926855cca215c2310bbf4ba415550c55d0fe2361bd",
+      "bytes": 52450,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-4-26B-A4B-it": {
+      "source": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "body_sha256": "5aee6ccbb578ca8f99e1f9e3bdfcb7c9351860860ab2b9c7b2ee851283f62470",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-4-31B-it": {
+      "source": "https://huggingface.co/google/gemma-4-31B-it",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-4-31B-it",
+      "body_sha256": "5c9a139b9606bb82c6da6215f4f8cf2603bdf97b108fbb58b23c08ea8bc282ee",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/gemma-7b-it-lora": {
+      "source": "https://huggingface.co/google/gemma-7b-it-lora",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/gemma-7b-it-lora",
+      "body_sha256": "d1173559b992351de32b14de1acf0e14beaba8249804f14fe5bcc046eab09659",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/lyria-3-clip-preview": {
+      "source": "https://huggingface.co/google/lyria-3-clip-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/lyria-3-clip-preview",
+      "body_sha256": "8a41797ab615bdc6419e61e5925d5dd3da57ea510da782bdcf357f1cf97c5359",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/lyria-3-pro-preview": {
+      "source": "https://huggingface.co/google/lyria-3-pro-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/lyria-3-pro-preview",
+      "body_sha256": "dc10467eb8903ba5f14a4e69dfce1f85f1fe891c41ed3bc2c2db2976aa827dda",
+      "bytes": 52462,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/google/recurrentgemma-2b": {
+      "source": "https://huggingface.co/google/recurrentgemma-2b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/google/recurrentgemma-2b",
+      "body_sha256": "239bf857d383c678f109d3d13f54d3e2c0a9ecb3edc5f012d48bf1a51a22e21f",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ibm-granite/granite-4.0-h-micro": {
+      "source": "https://huggingface.co/ibm-granite/granite-4.0-h-micro",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/ibm-granite/granite-4.0-h-micro",
+      "body_sha256": "b47746f8c711a746fd8cc9a81e58d64aaeb95452665b613ccae4ebc74ddfac1f",
+      "bytes": 52472,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/ibm-granite/granite-4.2-8b": {
+      "source": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "body_sha256": "4d557c4ba8135b5fe4beebd8622210386e684c0270ef951679f3007a09b498e4",
+      "bytes": 52462,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/inclusionAI/ling-3.0-flash": {
+      "source": "https://huggingface.co/inclusionAI/ling-3.0-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/inclusionAI/ling-3.0-flash",
+      "body_sha256": "745ac26a29ed5b95696c387642862dc364822bb88c7fc2a2872bc88d87e999fb",
+      "bytes": 52462,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/inclusionAI/ling-3.0-flash-fin": {
+      "source": "https://huggingface.co/inclusionAI/ling-3.0-flash-fin",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/inclusionAI/ling-3.0-flash-fin",
+      "body_sha256": "9390f248ef4c4b59c28d99b52ae981278351a999a4943bf3f2f8665d8177f242",
+      "bytes": 52470,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/inclusionAI/ling-3.0-flash-sante": {
+      "source": "https://huggingface.co/inclusionAI/ling-3.0-flash-sante",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/inclusionAI/ling-3.0-flash-sante",
+      "body_sha256": "b91f8b783d33dc0e3721c5fc5cda443829cc8b794e69816ebc07e718c1d722ad",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/inclusionAI/ling-3.0-flash-vl": {
+      "source": "https://huggingface.co/inclusionAI/ling-3.0-flash-vl",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/inclusionAI/ling-3.0-flash-vl",
+      "body_sha256": "cfc68c45ebffde8472497e71d91540b1c098d0d9e648239b5c71382676ac5542",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/inclusionAI/ling-3.1-flash": {
+      "source": "https://huggingface.co/inclusionAI/ling-3.1-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/inclusionAI/ling-3.1-flash",
+      "body_sha256": "424cbfcab0d895922e305368fce46ebe7fbe31da29343df22fee0a57b89d7343",
+      "bytes": 52462,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/inclusionAI/ming-image-0.1-design": {
+      "source": "https://huggingface.co/inclusionAI/ming-image-0.1-design",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/inclusionAI/ming-image-0.1-design",
+      "body_sha256": "4f41d40aa6a3596c756e5e553c0733d166d9ea3d94f5bd9b5c8c97e7df0baa8b",
+      "bytes": 52476,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct": {
+      "source": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+      "body_sha256": "30d7a154c518eeea565e5a4e5652b1e7d0aad1b1f5d4536863a22f58cd68a916",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/inclusionAI/ming-image-0.1-design-layer": {
+      "source": "https://huggingface.co/inclusionAI/ming-image-0.1-design-layer",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/inclusionAI/ming-image-0.1-design-layer",
+      "body_sha256": "17e0c24a07d485f40ae1185b0862454c4ffa53bea94ad85a353ba3dced49fab5",
+      "bytes": 52488,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct": {
+      "source": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+      "body_sha256": "2603191e149dc1c919907af05b28fecc9ae07bec94c3857c13402962fad06d80",
+      "bytes": 52476,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct": {
+      "source": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "body_sha256": "fb26f47da4b1bdace46acc745618a79265009bd9726c950b3dfde0cb1baec7fe",
+      "bytes": 52492,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/codellama-70b": {
+      "source": "https://huggingface.co/meta-llama/codellama-70b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/codellama-70b",
+      "body_sha256": "60493652d3c4a0a4b53c2c34cac0806ade9b55d4b389b977e4046ef02dbbf744",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-2-7b-chat-hf-lora": {
+      "source": "https://huggingface.co/meta-llama/llama-2-7b-chat-hf-lora",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-2-7b-chat-hf-lora",
+      "body_sha256": "83a8c8e42576e2c4d04a0738475957e55df8fdf83e2adb290d20dbb826ae3d77",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-3.1-70b-instruct": {
+      "source": "https://huggingface.co/meta-llama/llama-3.1-70b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-3.1-70b-instruct",
+      "body_sha256": "4c36267ce7760e72d4fc94f19eefb09185210d0628f4f951548fdc2b78d468ce",
+      "bytes": 52476,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-3.1-8b-instruct": {
+      "source": "https://huggingface.co/meta-llama/llama-3.1-8b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-3.1-8b-instruct",
+      "body_sha256": "50e33bb73ce4ec72dd40f8af48fd89245f4fc7c50155ebae59b7b9972c66cd90",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-3.2-11b-vision-instruct": {
+      "source": "https://huggingface.co/meta-llama/llama-3.2-11b-vision-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-3.2-11b-vision-instruct",
+      "body_sha256": "882ea90762b903bb9e87daf24842840f060e0eee69912f5aa215d26356a212ec",
+      "bytes": 52490,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-3.2-1b-instruct": {
+      "source": "https://huggingface.co/meta-llama/llama-3.2-1b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-3.2-1b-instruct",
+      "body_sha256": "6a312f627f22c2bd6f4c2fe5cca405186e73ac8ee3f3c4dc6b22a95e10b8db79",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-3.2-3b-instruct": {
+      "source": "https://huggingface.co/meta-llama/llama-3.2-3b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-3.2-3b-instruct",
+      "body_sha256": "152fcfa3a816a474602d88af196f37c70ce5d078709cc9122f292bac237fffd1",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-3.3-70b-instruct": {
+      "source": "https://huggingface.co/meta-llama/llama-3.3-70b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-3.3-70b-instruct",
+      "body_sha256": "b2e97342054c9bafa760b055db7507b0027338ca74b849a6cb05b4dd4a3a3644",
+      "bytes": 52476,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-4-maverick": {
+      "source": "https://huggingface.co/meta-llama/llama-4-maverick",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-4-maverick",
+      "body_sha256": "f32b3502492c6b8ca4d25f0dac78894d04847e47860a5646a3afa3cf6f27fc32",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-3.2-90b-vision-instruct": {
+      "source": "https://huggingface.co/meta-llama/llama-3.2-90b-vision-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-3.2-90b-vision-instruct",
+      "body_sha256": "3bdad2e0fe1b96671af8c40920cae0449d0513bcfc865602874276ec16905ba5",
+      "bytes": 52490,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama-4-scout": {
+      "source": "https://huggingface.co/meta-llama/llama-4-scout",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama-4-scout",
+      "body_sha256": "42b0ff79a3e504bc6b1fb149e2dbf6a97c5c616862cd8c0a80416fc0bc4fe0a3",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/llama2-70b": {
+      "source": "https://huggingface.co/meta-llama/llama2-70b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/llama2-70b",
+      "body_sha256": "29da4238c26bfb9bdee4897dbe9d4d7c4015172488b80414d42d99f459acbcb5",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/muse-glimmer-30b": {
+      "source": "https://huggingface.co/meta-llama/muse-glimmer-30b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/muse-glimmer-30b",
+      "body_sha256": "13ff43f51ccbb3e524a60b8a121049c3323db5a04d7dce77e886c48394d83c58",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/muse-image": {
+      "source": "https://huggingface.co/meta-llama/muse-image",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/muse-image",
+      "body_sha256": "9240ee4d4a8bea499b9a86264d0e413947b9f619a218aa35d03badeb6faa645d",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/muse-spark-1.1": {
+      "source": "https://huggingface.co/meta-llama/muse-spark-1.1",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/muse-spark-1.1",
+      "body_sha256": "640fb524669add99e7986a3085a393a94f9196adba698c71ae7d008eb33f460a",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/muse-spark-1.2": {
+      "source": "https://huggingface.co/meta-llama/muse-spark-1.2",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/muse-spark-1.2",
+      "body_sha256": "a544eb34f3065a24c8442bd1a1b16527e8a0f15d5fb88c4209fd21ef8bc6104f",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/muse-spark-1.2-contributor": {
+      "source": "https://huggingface.co/meta-llama/muse-spark-1.2-contributor",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/muse-spark-1.2-contributor",
+      "body_sha256": "29171dfb6dfb16dbae15d9e3dd318977046d0c4c7bd012103f904882060c4a7a",
+      "bytes": 52484,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/muse-spark-1.3": {
+      "source": "https://huggingface.co/meta-llama/muse-spark-1.3",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/muse-spark-1.3",
+      "body_sha256": "56b431d8c41fe674f97f90aa8f51b7d9d04ac375000dd90faf78732f43afbce7",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/muse-spark-1.3-contributor": {
+      "source": "https://huggingface.co/meta-llama/muse-spark-1.3-contributor",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/muse-spark-1.3-contributor",
+      "body_sha256": "9bfd959bcd03da95329b50e4f88d14c853bfd371a6a7ca567fe91381aaeb83ff",
+      "bytes": 52484,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/meta-llama/muse-wonder": {
+      "source": "https://huggingface.co/meta-llama/muse-wonder",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/meta-llama/muse-wonder",
+      "body_sha256": "304878a2239119c1333c41785dd519ca032a8f29add87468b6117b220d2596e2",
+      "bytes": 52454,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/kosmos-2": {
+      "source": "https://huggingface.co/microsoft/kosmos-2",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/kosmos-2",
+      "body_sha256": "233744c86b42afc361aa3f8b8ccb2b9aa3e3c78cba036f86fed957f208dc7f60",
+      "bytes": 52446,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/mai-image-2.5": {
+      "source": "https://huggingface.co/microsoft/mai-image-2.5",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/mai-image-2.5",
+      "body_sha256": "c699fea35883841d5dfed810ac7dba8d8ed31f28abed6ef18aa5c0ab0c08c7f4",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/mai-image-2.5-pro": {
+      "source": "https://huggingface.co/microsoft/mai-image-2.5-pro",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/mai-image-2.5-pro",
+      "body_sha256": "b6612aea547aa59f397e30ab176f3c7d758e0a90a021e509691f1582a0abf28b",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/mai-image-2.6": {
+      "source": "https://huggingface.co/microsoft/mai-image-2.6",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/mai-image-2.6",
+      "body_sha256": "e1082d64829fd3a7dc926fc1a0a0de853eae8db15957dce4a4162736cdd5d4d3",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/mai-image-2.6-flash": {
+      "source": "https://huggingface.co/microsoft/mai-image-2.6-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/mai-image-2.6-flash",
+      "body_sha256": "987dea0ccc0c27b28f3be0ff9306bb01c2e149904eb062e0ae4027df1e1076d8",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/phi-3-vision-128k-instruct": {
+      "source": "https://huggingface.co/microsoft/phi-3-vision-128k-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/phi-3-vision-128k-instruct",
+      "body_sha256": "f0226b7bb3e46c054998a0eadae50982304989dbe4ad60cb45960813fda6f4d6",
+      "bytes": 52482,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/phi-3.5-moe-instruct": {
+      "source": "https://huggingface.co/microsoft/phi-3.5-moe-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/phi-3.5-moe-instruct",
+      "body_sha256": "2d19597d189f8e78e38394e74c0c78d5628469e0a8d14eface1911bfa1f6c4e9",
+      "bytes": 52470,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/phi-4": {
+      "source": "https://huggingface.co/microsoft/phi-4",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/phi-4",
+      "body_sha256": "cb8439f0675677dbab660ff6c01b8f4a45112fb87795ae1368419e0545dd9874",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/microsoft/wizardlm-2-8x22b": {
+      "source": "https://huggingface.co/microsoft/wizardlm-2-8x22b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/microsoft/wizardlm-2-8x22b",
+      "body_sha256": "1508caf478324c92db657a109ecfb5410224aaa8f89c6d3f47883b876ea7b6b6",
+      "bytes": 52462,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512-BF16": {
+      "source": "https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512-BF16",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512-BF16",
+      "body_sha256": "9326b762adb442082e036499ec5687d1a4182c19deb3d7ac135b252208fcf0b6",
+      "bytes": 52498,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512": {
+      "source": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512",
+      "body_sha256": "26d39e38ee7cd3107b9b51e83e3147cb557303fa69c013655ba56324db2409fc",
+      "bytes": 52486,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512": {
+      "source": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512",
+      "body_sha256": "17618102b8555da4cdc6c3c276b49d26ae85949d4469f4d0184dddc85670aa1b",
+      "bytes": 52486,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503": {
+      "source": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "body_sha256": "3957a2b6bda418bff204a126ff6442afa2f7efc0f182d0fd0bd0fdbc26da553e",
+      "bytes": 52500,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/codestral-22b-instruct-v0.1": {
+      "source": "https://huggingface.co/mistralai/codestral-22b-instruct-v0.1",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/codestral-22b-instruct-v0.1",
+      "body_sha256": "8fbb1ad2ee1040d6b77430178a348690b91af2b1f18b6bdd88ae62e4d548db81",
+      "bytes": 52484,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/codestral-2508": {
+      "source": "https://huggingface.co/mistralai/codestral-2508",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/codestral-2508",
+      "body_sha256": "138bac10010ea3314b142ac08961cc85942a1e8dc222aff86f9af41b25f06c23",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/codestral-2508:batch": {
+      "source": "https://huggingface.co/mistralai/codestral-2508:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/codestral-2508:batch",
+      "body_sha256": "4d3a482492de09ecbb68df3ab7c46744d43f7056206a0b12ad4c1c516dc0bfb6",
+      "bytes": 52470,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/devstral-2512": {
+      "source": "https://huggingface.co/mistralai/devstral-2512",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/devstral-2512",
+      "body_sha256": "710b9ac30574d9f01d9ffc31f6d21cafe9eab5a3005f1fe7b5bd9564f0f0334c",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/labs-leanstral-1-5": {
+      "source": "https://huggingface.co/mistralai/labs-leanstral-1-5",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/labs-leanstral-1-5",
+      "body_sha256": "68fbb0dc178250858e4a1e10a59d6b0c6ad34b0c3f4815fcfbba3f8b0b7aae1e",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/labs-leanstral-1-5-1": {
+      "source": "https://huggingface.co/mistralai/labs-leanstral-1-5-1",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/labs-leanstral-1-5-1",
+      "body_sha256": "1ad388b1534788bdd23fc195779533452c0a66ac2907c9b7ed0ee49f9ce47778",
+      "bytes": 52470,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/ministral-8b-2512:batch": {
+      "source": "https://huggingface.co/mistralai/ministral-8b-2512:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/ministral-8b-2512:batch",
+      "body_sha256": "0cd13c1f494920d32d007badda3bf919073536e67eb75b8bdf6a33ed013f7822",
+      "bytes": 52476,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-7b-instruct-v0.3": {
+      "source": "https://huggingface.co/mistralai/mistral-7b-instruct-v0.3",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-7b-instruct-v0.3",
+      "body_sha256": "27d3c307f063f093e05015e11cdd06f207d60e8a61240aa3f36ae35990c3c296",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-large": {
+      "source": "https://huggingface.co/mistralai/mistral-large",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-large",
+      "body_sha256": "ddba2d1c6a9f7cf8e386673b95bf4c256176de6956b588eda860de1a2d927ca9",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-large-2-instruct": {
+      "source": "https://huggingface.co/mistralai/mistral-large-2-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-large-2-instruct",
+      "body_sha256": "d61fc41244e5b6c64a16a4a26b9ab642ddd0125eed175215ec71c1b7e1e044bb",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-large-2407": {
+      "source": "https://huggingface.co/mistralai/mistral-large-2407",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-large-2407",
+      "body_sha256": "7cf81338ebc638eb7952691bb70b8baa8dfe8c8769f68fce20dec25fef525dc4",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-large-2512": {
+      "source": "https://huggingface.co/mistralai/mistral-large-2512",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-large-2512",
+      "body_sha256": "17102a0f24516bdcdf7f4a43f2bed303f9fbd18c2f86e388eaac06190c804abf",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-medium": {
+      "source": "https://huggingface.co/mistralai/mistral-medium",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-medium",
+      "body_sha256": "e612d1c4ea6a0fdadaedd9af4746510aa91974076d47a20d287306f0b8c75abf",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-large-4-0": {
+      "source": "https://huggingface.co/mistralai/mistral-large-4-0",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-large-4-0",
+      "body_sha256": "9d5b43bb8d1b6ad086cdcaab93a896429def5e3be8eaf9358b1594a72696f8bc",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-large-2512:batch": {
+      "source": "https://huggingface.co/mistralai/mistral-large-2512:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-large-2512:batch",
+      "body_sha256": "6f2d1f06a33f6610e72a4fbe6de32c52ea9744db928bfe50840e41a57928ed38",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-medium-2604": {
+      "source": "https://huggingface.co/mistralai/mistral-medium-2604",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-medium-2604",
+      "body_sha256": "cca2e1a08576c7e550dfc95aa2b1b4e4ecaa5940f67a67f03c54b552b86a4df9",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-medium-3": {
+      "source": "https://huggingface.co/mistralai/mistral-medium-3",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-medium-3",
+      "body_sha256": "2de30be570bb68ac4a6ae82cab14e59ba0f3b6addec060ce5cf22b440b8222a4",
+      "bytes": 52462,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-medium-3-5": {
+      "source": "https://huggingface.co/mistralai/mistral-medium-3-5",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-medium-3-5",
+      "body_sha256": "8e7eb22075b0c95e7b3c7f1090695e68aaa541ace8b0c14dba506bf1587c1786",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-medium-3-5:batch": {
+      "source": "https://huggingface.co/mistralai/mistral-medium-3-5:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-medium-3-5:batch",
+      "body_sha256": "37f7033d1dff4a2dcdd0e34bf42e686cd86f65cec9188c7b743a9fdae15bb68f",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-medium-3.1": {
+      "source": "https://huggingface.co/mistralai/mistral-medium-3.1",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-medium-3.1",
+      "body_sha256": "cda7b8f48605ab3738b5fffb7df6ad17681d78adbf2fc18a6d347500d35e4aaf",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-medium-3.1:batch": {
+      "source": "https://huggingface.co/mistralai/mistral-medium-3.1:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-medium-3.1:batch",
+      "body_sha256": "47ae2c25338f14e940e56309df92d33f2ece800bcab46bdec4a8ab604b7728f9",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-medium-3.5": {
+      "source": "https://huggingface.co/mistralai/mistral-medium-3.5",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-medium-3.5",
+      "body_sha256": "0958009709049e03c78cafc9fcca37fc81f309d42f7ffe411827b744a906bab4",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-nemo": {
+      "source": "https://huggingface.co/mistralai/mistral-nemo",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-nemo",
+      "body_sha256": "806d503535ef3d36c9c4f791d78d33a03de6fc3c5a31ba8d143771d01ecf99df",
+      "bytes": 52454,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-saba": {
+      "source": "https://huggingface.co/mistralai/mistral-saba",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-saba",
+      "body_sha256": "8532060a7cc81bbf2863fdb57fab240ed0e2d4927703694407625946a4e5d543",
+      "bytes": 52454,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-small-24b-instruct-2501": {
+      "source": "https://huggingface.co/mistralai/mistral-small-24b-instruct-2501",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-small-24b-instruct-2501",
+      "body_sha256": "d067bac03691f1d1fc60908602baf9be662f0ddefbbc7e8043fbb4bff4fa6062",
+      "bytes": 52492,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-small-2603": {
+      "source": "https://huggingface.co/mistralai/mistral-small-2603",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-small-2603",
+      "body_sha256": "117653831fe7797f2d76cacce6d2d2b37ac8012172bdaf9f2030c7db70f371a8",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-small-2603:batch": {
+      "source": "https://huggingface.co/mistralai/mistral-small-2603:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-small-2603:batch",
+      "body_sha256": "49d2e2b041f48970e0bd150fffe3135035b91173a6c30bab8967a24d08d6d38f",
+      "bytes": 52478,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-small-3.2-24b-instruct": {
+      "source": "https://huggingface.co/mistralai/mistral-small-3.2-24b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-small-3.2-24b-instruct",
+      "body_sha256": "cdf17a078da5ac986e0d66a8a02b4406bef2a8c091e091ccd7898b8b16ac478e",
+      "bytes": 52490,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-vibe-cli-fast": {
+      "source": "https://huggingface.co/mistralai/mistral-vibe-cli-fast",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-vibe-cli-fast",
+      "body_sha256": "19800cc1c5705a2fa9bfcb369f03a1862bd0f8050079d2dbf146bab59b6ab680",
+      "bytes": 52472,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mistral-vibe-cli-with-tools": {
+      "source": "https://huggingface.co/mistralai/mistral-vibe-cli-with-tools",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mistral-vibe-cli-with-tools",
+      "body_sha256": "21481782966957b6145001e2c68f61cb5fc48b104eea800a0bd715a71e429b61",
+      "bytes": 52484,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mixtral-8x22b-instruct": {
+      "source": "https://huggingface.co/mistralai/mixtral-8x22b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mixtral-8x22b-instruct",
+      "body_sha256": "a6dc097d0646c3dccfa5932adf19a953f07828e0d1285cce3bb62dce4291bfa0",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/mixtral-8x22b-v0.1": {
+      "source": "https://huggingface.co/mistralai/mixtral-8x22b-v0.1",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/mixtral-8x22b-v0.1",
+      "body_sha256": "3f93a48b5cb025c00d45588bf158f75df98faa819d37b39595393dea939f36ea",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/voxtral-small-24b-2507": {
+      "source": "https://huggingface.co/mistralai/voxtral-small-24b-2507",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/voxtral-small-24b-2507",
+      "body_sha256": "571832a7c60bcbef0d20234998c76c88a19ec47713b4c9df54e1fc1c6e8a0f40",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/mistralai/voxtral-small-2507": {
+      "source": "https://huggingface.co/mistralai/voxtral-small-2507",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/mistralai/voxtral-small-2507",
+      "body_sha256": "cb3cf5c5b7aded7b0303b566e79d142cd3c807abe83a6aec5b14fd48f3ab5cbe",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/models": {
+      "source": "https://huggingface.co/models",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/models",
+      "body_sha256": "11ad4c31e9fc8ce9d5fd7fbae7bad7c4eeef93b2906db4fb2ec50f6b53940336",
+      "bytes": 52426,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/moonshotai/kimi-k2": {
+      "source": "https://huggingface.co/moonshotai/kimi-k2",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/moonshotai/kimi-k2",
+      "body_sha256": "8fdc046a8d4cd92a36f798c6df67971fbdda757a26b6ec686fdc2504a424a51e",
+      "bytes": 52446,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/moonshotai/kimi-k2-thinking": {
+      "source": "https://huggingface.co/moonshotai/kimi-k2-thinking",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/moonshotai/kimi-k2-thinking",
+      "body_sha256": "1015638586ee857981f4fd8aa4ba6f7bf48a83303bca63cbad71b83605911162",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/moonshotai/kimi-k2-0905": {
+      "source": "https://huggingface.co/moonshotai/kimi-k2-0905",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/moonshotai/kimi-k2-0905",
+      "body_sha256": "a6c421c298c8d3485674d55d55adfdde38fdab0a0c9954c1d356b11e50764bfd",
+      "bytes": 52456,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/moonshotai/kimi-k2.5": {
+      "source": "https://huggingface.co/moonshotai/kimi-k2.5",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/moonshotai/kimi-k2.5",
+      "body_sha256": "fb989cd91351deed109df3112919403c90465d5c78c08b43c317378fae406601",
+      "bytes": 52450,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/moonshotai/kimi-k2.6": {
+      "source": "https://huggingface.co/moonshotai/kimi-k2.6",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/moonshotai/kimi-k2.6",
+      "body_sha256": "91226cc20bc119d3d421d038d9b5604f7328d019f06fc5c68750e1617f0d6b22",
+      "bytes": 52450,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/moonshotai/kimi-k3": {
+      "source": "https://huggingface.co/moonshotai/kimi-k3",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/moonshotai/kimi-k3",
+      "body_sha256": "b7a52d45ba195a1e9e1e4699916c5a51efe435c8fc0656e5f4b8cb10510b21d0",
+      "bytes": 52446,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/moonshotai/kimi-k2.7-code": {
+      "source": "https://huggingface.co/moonshotai/kimi-k2.7-code",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/moonshotai/kimi-k2.7-code",
+      "body_sha256": "d0ad2160527c1ab89f01e7566843075b7066ec7c31c5a173a641f2471fdb8618",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/moonshotai/kimi-k3:batch": {
+      "source": "https://huggingface.co/moonshotai/kimi-k3:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/moonshotai/kimi-k3:batch",
+      "body_sha256": "66ad4bfe6acb38b504e0518c8a594913093dd9a0e5126a015f29b59eb282dc15",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16": {
+      "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "body_sha256": "84c134ca9a1ff3174457d409118b883903354fa81e9d704035ad7c9f22449064",
+      "bytes": 52500,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16": {
+      "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+      "body_sha256": "2db3ea6db50b9d020302b3285ab9768b366de2d562a23d2ee966bc8b43eb00f1",
+      "bytes": 52500,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/cosmos-reason2-8b": {
+      "source": "https://huggingface.co/nvidia/cosmos-reason2-8b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/cosmos-reason2-8b",
+      "body_sha256": "c600a30cbb866302dbb1f89e2ff846a491b2959303c364d8630188e174832f31",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/llama-3.1-nemotron-51b-instruct": {
+      "source": "https://huggingface.co/nvidia/llama-3.1-nemotron-51b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/llama-3.1-nemotron-51b-instruct",
+      "body_sha256": "d0a57785248b3c1f8ace6f579c92ef90763ce557cabde8558dd9b5e924723835",
+      "bytes": 52486,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/ising-calibration-1.5-31b": {
+      "source": "https://huggingface.co/nvidia/ising-calibration-1.5-31b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/ising-calibration-1.5-31b",
+      "body_sha256": "d55b82014ea1ee0c2ce519d9f318022dab371872524af55d4601b270096d1f4f",
+      "bytes": 52474,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/llama-3.1-nemotron-70b-instruct": {
+      "source": "https://huggingface.co/nvidia/llama-3.1-nemotron-70b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/llama-3.1-nemotron-70b-instruct",
+      "body_sha256": "8360d070c0e520624d79809a53cf4386b42b01979fa6de97edb755630c1343d2",
+      "bytes": 52486,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/llama-3.1-nemotron-ultra-253b-v1": {
+      "source": "https://huggingface.co/nvidia/llama-3.1-nemotron-ultra-253b-v1",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/llama-3.1-nemotron-ultra-253b-v1",
+      "body_sha256": "4c50ecbedbf3fa98e4e8e0dd5a8ddba528dd5b45c220cce6d8b8b7e4984fa2d7",
+      "bytes": 52488,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/llama3-chatqa-1.5-70b": {
+      "source": "https://huggingface.co/nvidia/llama3-chatqa-1.5-70b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/llama3-chatqa-1.5-70b",
+      "body_sha256": "f153b6872cbbf7dade8b3d70a0000ba5987cb5cdd83af9e757aeaa28ee8a632d",
+      "bytes": 52466,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/mistral-nemo-minitron-8b-8k-instruct": {
+      "source": "https://huggingface.co/nvidia/mistral-nemo-minitron-8b-8k-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/mistral-nemo-minitron-8b-8k-instruct",
+      "body_sha256": "606e7d6dbed5d8c0ba1bbbb1dd41fb5af3e859203427ce5f8d4b5db99dcf866d",
+      "bytes": 52496,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/nemotron-3-120b-a12b": {
+      "source": "https://huggingface.co/nvidia/nemotron-3-120b-a12b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/nemotron-3-120b-a12b",
+      "body_sha256": "100a88f3faf09c88f12ddea301c00a83bc1de2b1c265e0049684e1a00f09db9a",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/nemotron-3-nano-30b-a3b": {
+      "source": "https://huggingface.co/nvidia/nemotron-3-nano-30b-a3b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/nemotron-3-nano-30b-a3b",
+      "body_sha256": "27f26c3fb9fcd42a4e7de35a3e969ea4e2066261fa055ec71ab2949d758024f2",
+      "bytes": 52470,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning": {
+      "source": "https://huggingface.co/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "body_sha256": "db530dcfde5998070523305c3273530f569ab7f623408242419884f76ab995cc",
+      "bytes": 52500,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/nemotron-3.5-lightning": {
+      "source": "https://huggingface.co/nvidia/nemotron-3.5-lightning",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/nemotron-3.5-lightning",
+      "body_sha256": "fe4d5e923812337a4222c524d924e6d21b6bf3bb5185156d1ffe7650fa3cd456",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/nemotron-3.5-lightning-30b-a3b": {
+      "source": "https://huggingface.co/nvidia/nemotron-3.5-lightning-30b-a3b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/nemotron-3.5-lightning-30b-a3b",
+      "body_sha256": "8690012287babe2396e2ee088fa2f7da1b575e1b75e965526b12b55f48af5c81",
+      "bytes": 52484,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/nemotron-4-340b-instruct": {
+      "source": "https://huggingface.co/nvidia/nemotron-4-340b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/nemotron-4-340b-instruct",
+      "body_sha256": "e78bd214f40d810c05318b2671a3c628411c408e3333350eaeeadf12c34d6c76",
+      "bytes": 52472,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/nemotron-nano-3-30b-a3b": {
+      "source": "https://huggingface.co/nvidia/nemotron-nano-3-30b-a3b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/nemotron-nano-3-30b-a3b",
+      "body_sha256": "fa9583214dce4df53f2b00b60f2382424caf44973eba81d3ac3413339fb7da82",
+      "bytes": 52470,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/neva-22b": {
+      "source": "https://huggingface.co/nvidia/neva-22b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/neva-22b",
+      "body_sha256": "2f36f02031b3503020c4b054aa4ec5d9533a252b640be612af7f171435f95a74",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/nvclip": {
+      "source": "https://huggingface.co/nvidia/nvclip",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/nvclip",
+      "body_sha256": "010d28323fcd9108d6750f85283a9b17efe6541e7586be0ada273e77f70fd301",
+      "bytes": 52436,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/riva-translate-4b-instruct": {
+      "source": "https://huggingface.co/nvidia/riva-translate-4b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/riva-translate-4b-instruct",
+      "body_sha256": "638c97302dbfb2a12bae9441d63afb2096722a2622c81c3679747d843aa49e66",
+      "bytes": 52476,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/riva-translate-4b-instruct-v2": {
+      "source": "https://huggingface.co/nvidia/riva-translate-4b-instruct-v2",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/riva-translate-4b-instruct-v2",
+      "body_sha256": "f2d7596737826020ca5accdd77e4211e1f11c6bd06fedfae0e05750e7c9b3ff6",
+      "bytes": 52482,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/switchyard": {
+      "source": "https://huggingface.co/nvidia/switchyard",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/switchyard",
+      "body_sha256": "8c9d263639ae52953d62e3ec67f2d0f5f1ad76a6e99b7b56715d7371fdaf07c4",
+      "bytes": 52444,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/nvidia/vila": {
+      "source": "https://huggingface.co/nvidia/vila",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/nvidia/vila",
+      "body_sha256": "7455218adab625869638cb4f857455e239a0555621557dd8d496129d95b77922",
+      "bytes": 52432,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/openai/gpt-oss-120b": {
+      "source": "https://huggingface.co/openai/gpt-oss-120b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/openai/gpt-oss-120b",
+      "body_sha256": "2c4c75a2d795ff406de44c2a5aad8f0bdf32975180752a8bcb1d4411af1f7e42",
+      "bytes": 52448,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/openai/gpt-oss-120b:batch": {
+      "source": "https://huggingface.co/openai/gpt-oss-120b:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/openai/gpt-oss-120b:batch",
+      "body_sha256": "2dd3ad9985e7e2e7727af08a668c14b7308bc3715a57782347056d400c365464",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/openai/gpt-oss-20b": {
+      "source": "https://huggingface.co/openai/gpt-oss-20b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/openai/gpt-oss-20b",
+      "body_sha256": "79888bc1f06fef97f4a72b180cf4f47b7b7a732c56a5b2036aa9c3696392028c",
+      "bytes": 52446,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/openai/gpt-oss-20b:batch": {
+      "source": "https://huggingface.co/openai/gpt-oss-20b:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/openai/gpt-oss-20b:batch",
+      "body_sha256": "9c161266b2912c65ac0e6cf4abbcfa6df7b63eecab4bd73e933a3e3cce581a9a",
+      "bytes": 52458,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/stepfun-ai/step-3.5-flash": {
+      "source": "https://huggingface.co/stepfun-ai/step-3.5-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/stepfun-ai/step-3.5-flash",
+      "body_sha256": "e185ecf72f45da814d2ac61793ce2f02eccaaa220f2bcd9e2c590011614c2834",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/stepfun-ai/step-3.7-flash": {
+      "source": "https://huggingface.co/stepfun-ai/step-3.7-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/stepfun-ai/step-3.7-flash",
+      "body_sha256": "2df663c779d245b15d86be324ed45424110edb9bd0fecdc7fd434404bf1402a8",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/stepfun-ai/step-5-preview": {
+      "source": "https://huggingface.co/stepfun-ai/step-5-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/stepfun-ai/step-5-preview",
+      "body_sha256": "e89dbd3731aeade31201545cc77af40238550d596ee76156df35c9d193b964eb",
+      "bytes": 52460,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/tencent/hunyuan-a13b-instruct": {
+      "source": "https://huggingface.co/tencent/hunyuan-a13b-instruct",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/tencent/hunyuan-a13b-instruct",
+      "body_sha256": "1ac7d1de3c21896f1211ae9a3e27bcc4d1dcee5da8b83b89f37247d017a7cab6",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/tencent/hy-image-v3.5-preview": {
+      "source": "https://huggingface.co/tencent/hy-image-v3.5-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/tencent/hy-image-v3.5-preview",
+      "body_sha256": "365811a8594c2009d102c359facd792801e873daf69f37dc004cd9e4c6265561",
+      "bytes": 52468,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/tencent/hy-mt2-1.8b": {
+      "source": "https://huggingface.co/tencent/hy-mt2-1.8b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/tencent/hy-mt2-1.8b",
+      "body_sha256": "802deaa90f38ea4fba93875fda3974bc7863db6ba29f0d1fc81a1441813a396d",
+      "bytes": 52448,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/tencent/hy-mt2-30b-a3b": {
+      "source": "https://huggingface.co/tencent/hy-mt2-30b-a3b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/tencent/hy-mt2-30b-a3b",
+      "body_sha256": "049ffc74be08b6fac5475e11b5f64b2e92cf88aa38bbbca82551a210da525731",
+      "bytes": 52454,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/tencent/hy-mt2-7b": {
+      "source": "https://huggingface.co/tencent/hy-mt2-7b",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/tencent/hy-mt2-7b",
+      "body_sha256": "785b28059219aa032b3f3da3efb40a4b6af4fa13530be6ac2870a3f68d456757",
+      "bytes": 52444,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/tencent/hy3": {
+      "source": "https://huggingface.co/tencent/hy3",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/tencent/hy3",
+      "body_sha256": "9aa1c69af3161469d2e5e13c17a508c99705ab04c4096ed8559d6e2c4b9830b5",
+      "bytes": 52432,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/tencent/hy3-preview": {
+      "source": "https://huggingface.co/tencent/hy3-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/tencent/hy3-preview",
+      "body_sha256": "26df75ef73b8838f50cf8be20f24f35c4dc54dba1f86ee5c319da202c39453a2",
+      "bytes": 52448,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/tencent/hy4-preview": {
+      "source": "https://huggingface.co/tencent/hy4-preview",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/tencent/hy4-preview",
+      "body_sha256": "7671583daf4d2afc2defe3eb50be9f2d625e4dd97174f8737333365a814f8347",
+      "bytes": 52448,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-4.5": {
+      "source": "https://huggingface.co/zai-org/glm-4.5",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-4.5",
+      "body_sha256": "52aae97e4e81cc883ba0d243ca9d3b977d4c730fae461c7cec6b40ba8875e86d",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-4.5-air": {
+      "source": "https://huggingface.co/zai-org/glm-4.5-air",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-4.5-air",
+      "body_sha256": "9d6ce2e179de8b84d74c324e8dbfede6396b3368029dae27066257ee6f9e1ff3",
+      "bytes": 52448,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-4.5-flash": {
+      "source": "https://huggingface.co/zai-org/glm-4.5-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-4.5-flash",
+      "body_sha256": "1fa5384b5a3f353b5eda8500d146c34a3c370e3cc6650f2f58572979adcc71b6",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-4.6": {
+      "source": "https://huggingface.co/zai-org/glm-4.6",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-4.6",
+      "body_sha256": "528cde1aec7443e23b4122f578b14f195b2b55d47fa7c452b358e9e8862a5ad8",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-4.5v": {
+      "source": "https://huggingface.co/zai-org/glm-4.5v",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-4.5v",
+      "body_sha256": "1637d116f41ea96be86aefd9904610c4c83d6e959d7d6ac0280d256e200c1d2e",
+      "bytes": 52442,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-4.6v": {
+      "source": "https://huggingface.co/zai-org/glm-4.6v",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-4.6v",
+      "body_sha256": "57d8109eed3f483d8e5dda443c365664b6485b17a549373e00c563cb639bcff3",
+      "bytes": 52442,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-4.7": {
+      "source": "https://huggingface.co/zai-org/glm-4.7",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-4.7",
+      "body_sha256": "041da1e5825c1359470e8a18240ab766463cda49343c882c8787f97e04124ed8",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-4.7-flash": {
+      "source": "https://huggingface.co/zai-org/glm-4.7-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-4.7-flash",
+      "body_sha256": "0dd290281254ce43189b9eaf8d9c0c1d3fdb00f8faec657e6b28211f756de89b",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5": {
+      "source": "https://huggingface.co/zai-org/glm-5",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5",
+      "body_sha256": "147f411e2760a54520841ac2778acfda0cfa515ccae6c53cf2c4515502e15972",
+      "bytes": 52436,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5.1": {
+      "source": "https://huggingface.co/zai-org/glm-5.1",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5.1",
+      "body_sha256": "ce2bd03a44b05040f0873e743ed8c3fbb24098f2cdaaae54517efa4321e66c69",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5-turbo": {
+      "source": "https://huggingface.co/zai-org/glm-5-turbo",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5-turbo",
+      "body_sha256": "2be7ff798f02875292a0133648831f2ea6b173d265357cce3ddd5623f73ce7ae",
+      "bytes": 52448,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5.2": {
+      "source": "https://huggingface.co/zai-org/glm-5.2",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5.2",
+      "body_sha256": "17f6387755267069797667dcb4df81fbb7ca3e671bd18858e98a991417b90398",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5.3-flash": {
+      "source": "https://huggingface.co/zai-org/glm-5.3-flash",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5.3-flash",
+      "body_sha256": "75b030fa8be0559d2a7f0283cc8806aa0c0109ea9cf30f001ee653f822e2c716",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5.3": {
+      "source": "https://huggingface.co/zai-org/glm-5.3",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5.3",
+      "body_sha256": "0fee343d1c0d82b9631f57550f03a4bbb0646a82db46dbd9af8636b5b69145a4",
+      "bytes": 52440,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5.3-flash:batch": {
+      "source": "https://huggingface.co/zai-org/glm-5.3-flash:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5.3-flash:batch",
+      "body_sha256": "306d89490f5a9090c267fcc97fd806ab5dbd21c37b3d97c125e74216d751242a",
+      "bytes": 52464,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5.3-flashx": {
+      "source": "https://huggingface.co/zai-org/glm-5.3-flashx",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5.3-flashx",
+      "body_sha256": "c8d60cf197412f2f0c3b3a0924f9780a2b3efa34b9c7e2bac7efcbcdbcc056e9",
+      "bytes": 52454,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5.3-prime": {
+      "source": "https://huggingface.co/zai-org/glm-5.3-prime",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5.3-prime",
+      "body_sha256": "bdc51523f0f0d2707fbb0da31e99b11db1d894957a4102761c5478148f5f1a42",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5.3:batch": {
+      "source": "https://huggingface.co/zai-org/glm-5.3:batch",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5.3:batch",
+      "body_sha256": "da30a70975a92cb005dac569de73bc8f8b3863ef3aaeb0273915c763d3560e20",
+      "bytes": 52452,
+      "benchmark_numeric_review": false
+    },
+    "https://openai.com/research/": {
+      "source": "https://openai.com/research/",
+      "http_status": 403,
+      "final_url": "https://openai.com/research/",
+      "body_sha256": "3b7c83de6e34057a654076d16af70d529a907e14fa35d467d92f8f07a149e2ef",
+      "bytes": 9739,
+      "benchmark_numeric_review": false
+    },
+    "https://huggingface.co/zai-org/glm-5v-turbo": {
+      "source": "https://huggingface.co/zai-org/glm-5v-turbo",
+      "http_status": 429,
+      "final_url": "https://huggingface.co/zai-org/glm-5v-turbo",
+      "body_sha256": "587718b90113171adc81518c176e584c810fa5fc2c39d0767b8f37163a753018",
+      "bytes": 52450,
+      "benchmark_numeric_review": false
+    },
+    "https://ollama.com/search": {
+      "source": "https://ollama.com/search",
+      "http_status": 200,
+      "final_url": "https://ollama.com/search",
+      "body_sha256": "f3b5a00cabf44f486c6f6e2f80a53fe99d1843b5863d5885323deeb3cd899eaa",
+      "bytes": 59756,
+      "benchmark_numeric_review": false
+    },
+    "https://openrouter.ai/models": {
+      "source": "https://openrouter.ai/models",
+      "http_status": 200,
+      "final_url": "https://openrouter.ai/models",
+      "body_sha256": "8da8633266da934f0dfb01aedcc16d61e7c3ba1f484e2f88aacfea0e0a0db3a3",
+      "bytes": 806664,
+      "benchmark_numeric_review": false
+    },
+    "https://www.anthropic.com/system-cards": {
+      "source": "https://www.anthropic.com/system-cards",
+      "http_status": 200,
+      "final_url": "https://www.anthropic.com/system-cards",
+      "body_sha256": "15996de5f70946bcb0fe255c22ac53930581bce839675437fb57b1dba66d6cc6",
+      "bytes": 117854,
+      "benchmark_numeric_review": false
+    }
+  }
+}

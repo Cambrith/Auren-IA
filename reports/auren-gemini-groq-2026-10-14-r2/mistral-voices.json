@@ -1,0 +1,95 @@
+{
+  "http_status": 200,
+  "voices": [
+    {
+      "id": "530e2e20-58e2-45d8-b0a5-4594f4915944",
+      "name": "Paul - Sad",
+      "slug": "en_paul_sad",
+      "languages": [
+        "en_us"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "c69964a6-ab8b-4f8a-9465-ec0925096ec8",
+      "name": "Paul - Neutral",
+      "slug": "en_paul_neutral",
+      "languages": [
+        "en_us"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "1024d823-a11e-43ee-bf3d-d440dccc0577",
+      "name": "Paul - Happy",
+      "slug": "en_paul_happy",
+      "languages": [
+        "en_us"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "1f017bcb-02e5-460d-989b-db065c0c6122",
+      "name": "Paul - Frustrated",
+      "slug": "en_paul_frustrated",
+      "languages": [
+        "en_us"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "5940190b-f58a-4c3e-8264-a40d63fd6883",
+      "name": "Paul - Excited",
+      "slug": "en_paul_excited",
+      "languages": [
+        "en_us"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "98559b22-62b5-4a64-a7cd-fc78ca41faa8",
+      "name": "Paul - Confident",
+      "slug": "en_paul_confident",
+      "languages": [
+        "en_us"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "01d985cd-5e0c-4457-bfd8-80ba31a5bc03",
+      "name": "Paul - Cheerful",
+      "slug": "en_paul_cheerful",
+      "languages": [
+        "en_us"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "cb891218-482c-4392-9878-91e8d999d57a",
+      "name": "Paul - Angry",
+      "slug": "en_paul_angry",
+      "languages": [
+        "en_us"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "e3596645-b1af-469e-b857-f18ddedc7652",
+      "name": "Oliver - Neutral",
+      "slug": "gb_oliver_neutral",
+      "languages": [
+        "en_gb"
+      ],
+      "type": "preset"
+    },
+    {
+      "id": "a3e41ea8-020b-44c0-8d8b-f6cc03524e31",
+      "name": "Jane - Sarcasm",
+      "slug": "gb_jane_sarcasm",
+      "languages": [
+        "en_gb"
+      ],
+      "type": "preset"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "provider": "cloudflare",
+  "model": "@cf/qwen/qwen3.8-27b",
+  "operation": "vision/image-understanding",
+  "attempt": "correction_after_harness_parse_error",
+  "real_call": true,
+  "max_output_tokens": 128,
+  "retries": 0,
+  "fixture_sha256": "a4930caead9c4a55a0458c1f25d92352f02752255e9157a349be415d01295a13",
+  "estimated_price_usd_per_million": {
+    "input": 0.45,
+    "output": 3.2
+  },
+  "http_status": 200,
+  "response_shape_keys": [
+    "choices",
+    "created",
+    "id",
+    "model",
+    "object",
+    "usage"
+  ],
+  "result": "semantic_check_failed",
+  "semantic_pass": false,
+  "response_excerpt": "",
+  "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "usage_tokens": {
+    "prompt_tokens": 215,
+    "completion_tokens": 128,
+    "total_tokens": 343
+  },
+  "estimated_cost_usd": 0.00050635,
+  "cost_class": "positive_estimate",
+  "seconds": 3.219
+}

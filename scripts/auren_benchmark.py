@@ -32,7 +32,7 @@ def safe_policy(info, policy, live_free):
     if provider in ('cohere','nvidia') and policy.get(provider+'_trial') is True: return 'configured_trial'
     if provider == 'cloudflare' and policy.get('cloudflare_workers_free') is True: return 'configured_free_plan'
     if provider == 'openrouter' and name in live_free: return 'live_zero_price'
-    if provider == 'mistral' and policy.get('mistral_free_plan') is True: return 'configured_free_plan'
+    if provider in ('mistral','gemini','groq','ollama') and policy.get(provider+'_free_plan') is True: return 'configured_free_plan'
     if provider == 'zai' and name == 'glm-4.5-flash': return 'documented_free_model'
     return None
 
@@ -48,8 +48,12 @@ def main():
     parser.add_argument('--calibrate-only', action='store_true', help='Measure selected profiles without repeating the whole catalog')
     parser.add_argument('--retest', action='store_true', help='Append new samples instead of reusing earlier measurements')
     parser.add_argument('--provider', help='Measure only this configured provider')
+    parser.add_argument('--zero-price-probe',action='store_true',help='OpenRouter only: require server-side zero pricing before generation')
     parser.add_argument('--cancel-long-queue', action='store_true', help='Cancel after repeated provider estimates exceed twice the measurement budget; this is not a model failure')
     args=parser.parse_args()
+    if args.zero_price_probe and args.provider!='openrouter':parser.error('Teto zero disponível apenas para OpenRouter.')
+    def route_safety(info,policy,live_free):
+        return 'zero_price_cap' if args.zero_price_probe and info.get('provider')=='openrouter' else safe_policy(info,policy,live_free)
     global RESULTS
     if args.kind=='text': RESULTS=STATE/'validation_text_results.json'
     models=json.loads((STATE/'models.json').read_text())['models']
@@ -78,7 +82,7 @@ def main():
             record_key=kind+':'+m['id']
             records.setdefault(record_key, {'id':m['id'],'provider':info['provider'],'model':info['model_id'],'kind':kind,
                               'status':'not_tested','cost':'not_verified','reason':'Ainda não testado','samples':[]})
-            safety=safe_policy(info,policy,live_free)
+            safety=route_safety(info,policy,live_free)
             if not safety:
                 records[record_key].update(reason='Sem confirmação de rota sem cobrança; não chamado para respeitar a restrição de gastos.')
     save(data)
@@ -109,7 +113,7 @@ def main():
     def expired(sig,frame): raise CavrenError('benchmark_timeout','Medição atingiu o prazo; pedido pendente cancelado quando o provedor permite.')
     signal.signal(signal.SIGALRM,expired)
     for position,m in enumerate(eligible):
-        info=m['cavren'];profile=m.get('benchmark_profile','balanced');key=('profile:'+profile if m.get('benchmark_profile') else args.kind)+':'+m['id'];record=records[key];safety=safe_policy(info,policy,live_free)
+        info=m['cavren'];profile=m.get('benchmark_profile','balanced');key=('profile:'+profile if m.get('benchmark_profile') else args.kind)+':'+m['id'];record=records[key];safety=route_safety(info,policy,live_free)
         if not safety or args.provider and info['provider']!=args.provider: continue
         cfg=settings.providers.get(info['provider'])
         if not cfg or not cfg.api_key:

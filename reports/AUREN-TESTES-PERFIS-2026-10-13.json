@@ -1,0 +1,402 @@
+{
+  "records": {
+    "documents:ether": {
+      "task": "documents",
+      "profile": "Prisma",
+      "profile_id": "ether",
+      "id": "cavren:gemini:gemini-3.6-flash",
+      "date": "2026-10-13T17:21:22.179181+00:00",
+      "safety": "validated_free_route",
+      "ok": false,
+      "code": "unavailable",
+      "seconds": 0.33,
+      "fallback_samples": [
+        {
+          "id": "cavren:cohere:command-a-plus-05-2026",
+          "date": "2026-10-13T17:28:09.890934+00:00",
+          "safety": "validated_free_route",
+          "ok": true,
+          "code": "ok",
+          "seconds": 1.682
+        }
+      ]
+    },
+    "documents:impeto": {
+      "task": "documents",
+      "profile": "Lente",
+      "profile_id": "impeto",
+      "id": "cavren:groq:openai/gpt-oss-20b",
+      "date": "2026-10-13T17:21:25.515745+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 0.79,
+      "fallback_samples": []
+    },
+    "code:ether": {
+      "task": "code",
+      "profile": "Oficina",
+      "profile_id": "ether",
+      "id": "cavren:gemini:gemini-3.6-flash",
+      "date": "2026-10-13T17:21:22.182606+00:00",
+      "safety": "validated_free_route",
+      "ok": false,
+      "code": "unavailable",
+      "seconds": 9.609,
+      "fallback_samples": [
+        {
+          "id": "cavren:cohere:command-a-plus-05-2026",
+          "date": "2026-10-13T17:28:09.889250+00:00",
+          "safety": "validated_free_route",
+          "ok": true,
+          "code": "ok",
+          "seconds": 2.005
+        }
+      ]
+    },
+    "chat:ether": {
+      "task": "chat",
+      "profile": "Éter",
+      "profile_id": "ether",
+      "id": "cavren:gemini:gemini-3.6-flash",
+      "date": "2026-10-13T17:21:22.204592+00:00",
+      "safety": "validated_free_route",
+      "ok": false,
+      "code": "unavailable",
+      "seconds": 11.204,
+      "fallback_samples": [
+        {
+          "id": "cavren:cohere:command-a-plus-05-2026",
+          "date": "2026-10-13T17:28:11.598562+00:00",
+          "safety": "validated_free_route",
+          "ok": true,
+          "code": "ok",
+          "seconds": 0.688
+        }
+      ]
+    },
+    "code:impeto": {
+      "task": "code",
+      "profile": "Faísca",
+      "profile_id": "impeto",
+      "id": "cavren:groq:openai/gpt-oss-20b",
+      "date": "2026-10-13T17:21:34.798484+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 0.402,
+      "fallback_samples": []
+    },
+    "chat:impeto": {
+      "task": "chat",
+      "profile": "Ímpeto",
+      "profile_id": "impeto",
+      "id": "cavren:groq:openai/gpt-oss-20b",
+      "date": "2026-10-13T17:21:36.432137+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 0.344,
+      "fallback_samples": []
+    },
+    "documents:insight": {
+      "task": "documents",
+      "profile": "Atlas",
+      "profile_id": "insight",
+      "id": "cavren:cloudflare:@cf/qwen/qwen3.8-27b",
+      "date": "2026-10-13T17:21:29.312635+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 16.264,
+      "fallback_samples": []
+    },
+    "code:insight": {
+      "task": "code",
+      "profile": "Nexo",
+      "profile_id": "insight",
+      "id": "cavren:nvidia:moonshotai/kimi-k3",
+      "date": "2026-10-13T17:21:38.206955+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 23.505,
+      "fallback_samples": []
+    },
+    "chat:insight": {
+      "task": "chat",
+      "profile": "Insight",
+      "profile_id": "insight",
+      "id": "cavren:nvidia:moonshotai/kimi-k3",
+      "date": "2026-10-13T17:21:39.802498+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 22.398,
+      "fallback_samples": []
+    },
+    "chat:arquiteto": {
+      "task": "chat",
+      "profile": "Arquiteto",
+      "profile_id": "arquiteto",
+      "id": "cavren:nvidia:z-ai/glm-5.3",
+      "date": "2026-10-13T17:22:05.225537+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 4.071,
+      "fallback_samples": []
+    },
+    "research:ether": {
+      "task": "research",
+      "profile": "Trama",
+      "profile_id": "ether",
+      "id": "cavren:cohere:command-a-plus-05-2026",
+      "date": "2026-10-13T17:22:12.299902+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 4.776,
+      "fallback_samples": []
+    },
+    "code:arquiteto": {
+      "task": "code",
+      "profile": "Forja",
+      "profile_id": "arquiteto",
+      "id": "cavren:nvidia:z-ai/glm-5.3",
+      "date": "2026-10-13T17:22:04.718830+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 14.615,
+      "fallback_samples": []
+    },
+    "research:impeto": {
+      "task": "research",
+      "profile": "Radar",
+      "profile_id": "impeto",
+      "id": "cavren:groq:openai/gpt-oss-20b",
+      "date": "2026-10-13T17:22:20.078359+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 0.952,
+      "fallback_samples": []
+    },
+    "documents:arquiteto": {
+      "task": "documents",
+      "profile": "Cartógrafo",
+      "profile_id": "arquiteto",
+      "id": "cavren:nvidia:z-ai/glm-5.3",
+      "date": "2026-10-13T17:21:48.583033+00:00",
+      "safety": "validated_free_route",
+      "ok": false,
+      "code": "timeout",
+      "seconds": 40.293,
+      "fallback_samples": [
+        {
+          "id": "cavren:cloudflare:@cf/qwen/qwen3.8-27b",
+          "date": "2026-10-13T17:28:11.901933+00:00",
+          "safety": "validated_free_route",
+          "ok": true,
+          "code": "ok",
+          "seconds": 3.738
+        }
+      ]
+    },
+    "research:insight": {
+      "task": "research",
+      "profile": "Horizonte",
+      "profile_id": "insight",
+      "id": "cavren:nvidia:moonshotai/kimi-k3",
+      "date": "2026-10-13T17:22:24.033029+00:00",
+      "safety": "validated_free_route",
+      "ok": false,
+      "code": "timeout",
+      "seconds": 40.301,
+      "fallback_samples": [
+        {
+          "id": "cavren:cohere:command-a-reasoning-08-2025",
+          "date": "2026-10-13T17:28:12.290250+00:00",
+          "safety": "validated_free_route",
+          "ok": true,
+          "code": "ok",
+          "seconds": 5.483
+        }
+      ]
+    },
+    "research:arquiteto": {
+      "task": "research",
+      "profile": "Observatório",
+      "profile_id": "arquiteto",
+      "id": "cavren:nvidia:moonshotai/kimi-k3",
+      "date": "2026-10-13T17:23:07.359183+00:00",
+      "safety": "validated_free_route",
+      "ok": false,
+      "code": "timeout",
+      "seconds": 40.268,
+      "fallback_samples": [
+        {
+          "id": "cavren:mistral:codestral-2508",
+          "date": "2026-10-13T17:28:15.642424+00:00",
+          "safety": "validated_free_route",
+          "ok": false,
+          "code": "semantic_check_failed",
+          "seconds": 5.313
+        },
+        {
+          "id": "cavren:openrouter:cohere/north-mini-code:free",
+          "date": "2026-10-13T17:28:23.955788+00:00",
+          "safety": "validated_free_route",
+          "ok": true,
+          "code": "ok",
+          "seconds": 12.892
+        }
+      ]
+    },
+    "image:rapid": {
+      "task": "image",
+      "profile": "Centelha",
+      "profile_id": "rapid",
+      "id": "cavren:aihorde:Deliberate",
+      "date": "2026-10-13T17:23:50.628225+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 23.055,
+      "provider_wait_estimates": [
+        21,
+        17,
+        14,
+        10,
+        7,
+        3
+      ],
+      "fallback_samples": []
+    },
+    "image:balanced": {
+      "task": "image",
+      "profile": "Aurora",
+      "profile_id": "balanced",
+      "id": "cavren:aihorde:stable_diffusion",
+      "date": "2026-10-13T17:24:13.683679+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 11.094,
+      "provider_wait_estimates": [
+        4,
+        1
+      ],
+      "fallback_samples": []
+    },
+    "image:detailed": {
+      "task": "image",
+      "profile": "Prisma",
+      "profile_id": "detailed",
+      "id": "cavren:aihorde:stable_diffusion",
+      "date": "2026-10-13T17:24:24.778598+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "seconds": 17.063,
+      "provider_wait_estimates": [
+        0,
+        1042,
+        4,
+        1
+      ],
+      "fallback_samples": []
+    },
+    "speech:pt-BR:cavren:nvidia:magpie-tts-multilingual": {
+      "task": "speech",
+      "profile": "Vox",
+      "profile_id": "pt-BR",
+      "id": "cavren:nvidia:magpie-tts-multilingual",
+      "date": "2026-10-13T17:24:41.845249+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "check": "valid audio",
+      "seconds": 1.381,
+      "fallback_samples": []
+    },
+    "transcribe:auto:cavren:cohere:cohere-transcribe-03-2026": {
+      "task": "transcribe",
+      "profile": "Escuta",
+      "profile_id": "auto",
+      "id": "cavren:cohere:cohere-transcribe-03-2026",
+      "date": "2026-10-13T17:24:46.227656+00:00",
+      "safety": "validated_free_route",
+      "ok": false,
+      "code": "request",
+      "seconds": 0.365,
+      "fallback_samples": []
+    },
+    "transcribe:auto:cavren:mistral:voxtral-mini-latest": {
+      "task": "transcribe",
+      "profile": "Escuta",
+      "profile_id": "auto",
+      "id": "cavren:mistral:voxtral-mini-latest",
+      "date": "2026-10-13T17:24:49.593700+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "check": "English transcript marker",
+      "seconds": 0.917,
+      "fallback_samples": []
+    },
+    "transcribe:pt:cavren:cohere:cohere-transcribe-03-2026": {
+      "task": "transcribe",
+      "profile": "Lusofonia",
+      "profile_id": "pt",
+      "id": "cavren:cohere:cohere-transcribe-03-2026",
+      "date": "2026-10-13T17:24:53.512248+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "check": "Portuguese parameter transport only, English sample; Portuguese accuracy not tested",
+      "seconds": 0.859,
+      "fallback_samples": []
+    },
+    "transcribe:pt:cavren:mistral:voxtral-mini-latest": {
+      "task": "transcribe",
+      "profile": "Lusofonia",
+      "profile_id": "pt",
+      "id": "cavren:mistral:voxtral-mini-latest",
+      "date": "2026-10-13T17:24:57.372266+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "check": "Portuguese parameter transport only, English sample; Portuguese accuracy not tested",
+      "seconds": 2.443,
+      "fallback_samples": []
+    },
+    "transcribe:en:cavren:cohere:cohere-transcribe-03-2026": {
+      "task": "transcribe",
+      "profile": "Echo",
+      "profile_id": "en",
+      "id": "cavren:cohere:cohere-transcribe-03-2026",
+      "date": "2026-10-13T17:25:02.816894+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "check": "English transcript marker",
+      "seconds": 0.768,
+      "fallback_samples": []
+    },
+    "transcribe:en:cavren:mistral:voxtral-mini-latest": {
+      "task": "transcribe",
+      "profile": "Echo",
+      "profile_id": "en",
+      "id": "cavren:mistral:voxtral-mini-latest",
+      "date": "2026-10-13T17:25:06.585348+00:00",
+      "safety": "validated_free_route",
+      "ok": true,
+      "code": "ok",
+      "check": "English transcript marker",
+      "seconds": 0.967,
+      "fallback_samples": []
+    }
+  }
+}

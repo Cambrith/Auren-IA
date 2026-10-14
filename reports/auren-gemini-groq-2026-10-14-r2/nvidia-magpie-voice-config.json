@@ -1,0 +1,19 @@
+{
+  "real_call": true,
+  "success": false,
+  "cost_class": "unknown",
+  "transport": "grpc",
+  "seconds": 1.428,
+  "result": "native_voice_configuration",
+  "configs": [
+    {
+      "name": "magpie_tts_ensemble-Magpie-Multilingual",
+      "parameters": {
+        "language_code": "en-US,es-US,fr-FR,de-DE,zh-CN,vi-VN,it-IT,hi-IN,ja-JP,ko-KR,ar-AR,pt-BR",
+        "voice_name": "Magpie-Multilingual",
+        "subvoices": "EN-US.Mia:0,EN-US.Mia.Neutral:1,EN-US.Mia.Calm:2,EN-US.Mia.Angry:3,EN-US.Mia.Sad:5,EN-US.Jason:6,EN-US.Jason.Neutral:7,EN-US.Jason.Calm:8,EN-US.Jason.Angry:9,EN-US.Jason.Happy:10,EN-US.Aria:11,EN-US.Aria.Neutral:12,EN-US.Aria.Calm:13,EN-US.Aria.Angry:14,EN-US.Aria.Sad:16,EN-US.Leo:18,EN-US.Leo.Neutral:19,EN-US.Leo.Calm:20,EN-US.Leo.Angry:21,EN-US.Leo.Sad:22,EN-US.Sofia:49,EN-US.Sofia.Neutral:50,EN-US.Sofia.Calm:51,EN-US.Sofia.Angry:52,EN-US.Sofia.Fearful:54,EN-US.Ray:55,EN-US.Ray.Neutral:56,EN-US.Ray.Calm:57,EN-US.Ray.Angry:58,EN-US.Ray.Fearful:60,ZH-CN.HouZhen:24,ZH-CN.Siwei:25,FR-FR.Louise:26,FR-FR.Pascal:27,FR-FR.Pascal.Neutral:28,FR-FR.Pascal.Calm:29,FR-FR.Pascal.Happy:31,FR-FR.Pascal.Sad:33,ES-US.Isabela:34,ES-US.Isabela.Neutral:36,ES-US.Isabela.Calm:37,ES-US.Isabela.Sad:38,ES-US.Isabela.Angry:39,ES-US.Isabela.Happy:40,ES-US.Diego:35,ES-US.Diego.Neutral:43,ES-US.Diego.Calm:44,ES-US.Diego.Angry:45,ES-US.Diego.Happy:46,ES-US.Diego.PleasantSurprised:47,VI-VN.Long.Neutral:61,VI-VN.Long.Calm:63,VI-VN.Long.Sad:67,VI-VN.Jason:6,VI-VN.Louise:26,VI-VN.Pascal:27,VI-VN.Isabela:34,VI-VN.Siwei:25,IT-IT.Isabela:34,IT-IT.Pascal:27,DE-DE.Pascal:27,DE-DE.Mia:0,DE-DE.Diego:35,DE-DE.Jason:6,DE-DE.Ray:55,DE-DE.Leo:18,HI-IN.Siwei:25,HI-IN.Leo:18,HI-IN.Sofia:49,HI-IN.Pascal:27,JA-JP.HouZhen:24,JA-JP.Louise:26,JA-JP.Isabela:34,JA-JP.Ray:55,AR-AR.Sofia:49,AR-AR.Ray:55,AR-AR.Jason:6,PT-BR.Diego:35,PT-BR.Louise:26,PT-BR.Isabela:34,KO-KR.Louise:26,KO-KR.Aria:11,KO-KR.Pascal:27,KO-KR.Diego:35,KO-KR.Ray:55,KO-KR.HouZhen:24",
+        "sample_rate": "22050"
+      }
+    }
+  ]
+}

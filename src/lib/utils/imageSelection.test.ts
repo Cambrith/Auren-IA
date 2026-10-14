@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
 	canGenerateImage,
+	canSelectImageWithoutPayment,
+	matchesModelSearch,
 	defaultImageModel,
 	compareProviders,
 	type ImageModel
@@ -12,6 +14,24 @@ const model = (
 	image_generation = true
 ): ImageModel => ({ id, cavren: { price_kind, available, capabilities: { image_generation } } });
 describe('image route selection', () => {
+	it('offers community images without changing the full catalog', () => {
+		const horde = { ...model('horde'), cavren: { ...model('horde').cavren, provider: 'aihorde' } };
+		expect(canSelectImageWithoutPayment(horde)).toBe(true);
+		for (const provider of ['gemini', 'openrouter', 'cloudflare']) {
+			const candidate = { ...horde, cavren: { ...horde.cavren, provider } };
+			expect(canSelectImageWithoutPayment(candidate)).toBe(false);
+			expect(canGenerateImage(candidate)).toBe(true);
+		}
+		for (const price_kind of ['paid', 'unknown']) {
+			expect(canSelectImageWithoutPayment({ ...horde, cavren: { ...horde.cavren, price_kind } })).toBe(false);
+		}
+		expect(canSelectImageWithoutPayment({ ...horde, cavren: { ...horde.cavren, available: false } })).toBe(false);
+	});
+	it('searches multiple terms regardless of accents, case and surrounding spaces', () => {
+		expect(matchesModelSearch('Visão AI Horde Deliberate 3.0', '  horde VISAO 3.0 ')).toBe(true);
+		expect(matchesModelSearch('Deliberate AI Horde', 'horde gemini')).toBe(false);
+		expect(matchesModelSearch('Deliberate AI Horde', '  ')).toBe(true);
+	});
 	it('never routes automatic chat as an image generator', () =>
 		expect(canGenerateImage(model('cavren:auto'))).toBe(false));
 	it('keeps an explicitly selected capable model', () =>

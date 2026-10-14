@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-10-13T15:21:49.805938-03:00",
+  "method": "Primary version-specific cards re-read in this round. No aggregate ranking; no propagation to aliases/quantizations/other provider deployments. Published harness scores not reproduced locally.",
+  "models": [
+    {
+      "model": "gemini-3.6-flash",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-6-flash/",
+      "metrics": {
+        "DeepSWE v1.1": 49.0,
+        "Terminal-Bench 2.1": 78.0,
+        "GDM-MRCR v2 128k average": 91.8
+      },
+      "conditions": "July 2026 publisher evaluation. Terminal uses Terminus-2. MRCR 8-needle average at 128k, distinct from 1M pointwise."
+    },
+    {
+      "model": "moonshotai/kimi-k3",
+      "source": "https://huggingface.co/moonshotai/Kimi-K3",
+      "metrics": {
+        "GPQA Diamond": 93.5,
+        "AA-LCR": 74.7,
+        "DeepSWE v1.1": 67.5
+      },
+      "conditions": "Max effort, temperature 1.0. GPQA top-p .95; agentic top-p 1.0. DeepSWE uses Kimi Code harness. AA-LCR cited by publisher from Artificial Analysis as of 2026-07-23."
+    },
+    {
+      "model": "z-ai/glm-5.3",
+      "source": "https://huggingface.co/zai-org/GLM-5.3",
+      "metrics": {
+        "Terminal-Bench 2.1": 88.2,
+        "Terminal-Bench 3.0": 28.3,
+        "DeepSWE v1.1": 66.9
+      },
+      "conditions": "TB2.1 Claude Code 2.1.207, temperature1 top-p1 output65536 6h. TB3.0 max effort 400k context,128k output,avg@3,10h,600 agent turns. DeepSWE mini-swe-agent temp.95 top-p1 400k 6h."
+    },
+    {
+      "model": "qwen/qwen3.8-27b",
+      "source": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "metrics": {
+        "DeepSWE v1.1": 42.2,
+        "GPQA Diamond": 89.2,
+        "LiveCodeBench v6": 90.3
+      },
+      "conditions": "Scores from Qwen3.8-27B column, not Qwen3.8-Max. DeepSWE Claude Code, temp1 top-p.95,256k context. Other benchmark conditions remain as specified in card."
+    },
+    {
+      "model": "glm-image",
+      "source": "https://docs.z.ai/guides/image/glm-image",
+      "metrics": {
+        "CVTG-2K Word Accuracy": 0.9116,
+        "CVTG-2K NED": 0.9557,
+        "LongText-Bench English": 0.9524,
+        "LongText-Bench Chinese": 0.9788
+      },
+      "conditions": "Publisher reports multi-region text accuracy and long-text rendering across eight scenarios. Sampling settings, seeds and full harness revision not confirmed on this page. No score propagation to CogView or served aliases."
+    }
+  ]
+}

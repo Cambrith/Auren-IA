@@ -1,0 +1,9 @@
+{
+  "remote_id": "v1_ChdHTGpQYXZiZ0dQRHJ6N0lQOTh5dnNBcxIXR0xqUGF2YmdHUERyejdJUDk4eXZzQXM",
+  "environment_id": "48a6793d9fa0225100ff535bb6cd4158",
+  "row": "gemini:antigravity-preview-09-2026::agent_text::underlying=gemini-4-argon",
+  "at": "2026-10-14T14:13:03.998166-03:00",
+  "status": "incomplete",
+  "result": "valid_native_agent_text",
+  "environment_delete_http_status": 200
+}

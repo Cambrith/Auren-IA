@@ -1,0 +1,992 @@
+{
+  "checked_at": "2026-10-14T17:14:57.411670+00:00",
+  "method": "Every frozen model ID has a primary-source lookup or explicit missing benchmark. Numerical comparisons are reviewed separately; section detection is not a score. No inference calls.",
+  "routes": [
+    {
+      "provider": "gemini",
+      "model": "antigravity-preview-05-2026",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "antigravity-preview-09-2026",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "antigravity-preview-latest",
+      "source": "https://ai.google.dev/gemini-api/docs/models",
+      "scope": "unresolved_alias",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e097552c0b93ba7953df19b060bff70ac349ee70a6732cde423cafbd8e5eabfd"
+    },
+    {
+      "provider": "gemini",
+      "model": "deep-research-max-preview-04-2026",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "deep-research-preview-04-2026",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "deep-research-pro-preview-12-2025",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-computer-use-preview-10-2025",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-computer-use-preview-10-2025/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-lite",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash-lite/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-pro/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3-flash-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-flash/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "f7611749d017f7023ae1db4b97b1b8fe35002c42f06693372614cd5616fe91f7"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "GPQA",
+        "LiveCodeBench",
+        "MMLU",
+        "wer"
+      ],
+      "sha256": "02e4ac4cf8bb17d25edc11fbea86f82308751d029301af378ec2333f9fb59190"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-preview/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-pro-preview/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-pro-preview-customtools",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-pro-preview-customtools/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-5-audio/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e94c45c8a1da89502b804ceda1c1f42232d5bc92ba291ed9bd5adc04485eff63"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "SWE-Bench",
+        "Terminal-bench",
+        "wer"
+      ],
+      "sha256": "0e116325d7772b4ff0d3debdea1df8463351a1a001abe7529092a100a4d0a11b"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.6-flash",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-6-flash/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "DeepSWE",
+        "SWE-Bench",
+        "Terminal-bench",
+        "wer"
+      ],
+      "sha256": "cc9992199d5ff88a78ec6831ca91f4ee8bc4f768e28b610a2dcd4b657b3e9e60"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.7-flash",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "DeepSWE",
+        "HLE",
+        "Terminal-bench",
+        "wer"
+      ],
+      "sha256": "b4ea1af14f930f1ebeb28e460c183a9d343031575628b20ae24126d6dab30abb"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "DeepSWE",
+        "HLE",
+        "Terminal-bench",
+        "wer"
+      ],
+      "sha256": "6200d775238cc5f6760d7d18d4c48be3ed33819ab93a7d1a13b8111912cb7f86"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-4-argon",
+      "source": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "DeepSWE",
+        "Terminal-Bench",
+        "Terminal-bench",
+        "wer"
+      ],
+      "sha256": "b3ebb7db51449590ccf0ac33fe5723ffae8d2fa34a4d10bd282a1fbbb4b715a3"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-flash-latest",
+      "source": "https://ai.google.dev/gemini-api/docs/models",
+      "scope": "unresolved_alias",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e097552c0b93ba7953df19b060bff70ac349ee70a6732cde423cafbd8e5eabfd"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "source": "https://ai.google.dev/gemini-api/docs/models",
+      "scope": "unresolved_alias",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e097552c0b93ba7953df19b060bff70ac349ee70a6732cde423cafbd8e5eabfd"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-omni-1.1-flash",
+      "source": "https://deepmind.google/models/model-cards/gemini-omni-1-1-flash/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-omni-flash-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-omni-flash-preview/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-pro-latest",
+      "source": "https://ai.google.dev/gemini-api/docs/models",
+      "scope": "unresolved_alias",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e097552c0b93ba7953df19b060bff70ac349ee70a6732cde423cafbd8e5eabfd"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-robotics-er-2-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-robotics-er-2/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "4941a2e0ac97b2d2ff729e9009a6d07ef0681bf57b6db2b035975a16a03c53cf"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemma-4-26b-a4b-it",
+      "source": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "GPQA",
+        "HLE",
+        "LiveCodeBench",
+        "MMLU",
+        "wer"
+      ],
+      "sha256": "4f463225c4fe49ec120115b0f9bb6713ff1556293a909903ffdae3df7bf974da"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemma-4-31b-it",
+      "source": "https://huggingface.co/google/gemma-4-31B-it",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "GPQA",
+        "HLE",
+        "LiveCodeBench",
+        "MMLU",
+        "wer"
+      ],
+      "sha256": "e209f5c435b1e66055bd6d7c29185103ae8d2027a03a96b359335154f206b82b"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-image",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash-image/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-image-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-image-preview/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-image",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-image/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "baa34a862c7ab09307874535d5046841e7e7d40c8c4e3c3fe4a5b07593677224"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite-image",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "aa1360f16a908964a3106c23cf6271743eccc0c939d0ef5ee4bfe1fa90b69e56"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-nano-banana-2.1",
+      "source": "https://deepmind.google/models/model-cards/gemini-nano-banana-2-1/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3-pro-image-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-pro-image-preview/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3-pro-image",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-pro-image/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "71c5844575d97f332ceb4463a7c0d9d9ab0f75d9ce8891b9648d83497f140e01"
+    },
+    {
+      "provider": "gemini",
+      "model": "nano-banana-pro-preview",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "groq",
+      "model": "allam-2-7b",
+      "source": "https://console.groq.com/docs/models",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a40e8f41492a605f5360c9205f2ab51b9cc95ed4128da4712dcd07674e48d573"
+    },
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "source": "https://huggingface.co/openai/gpt-oss-120b",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "92b0408cf5dce04e4c5e4e5f2be0361da710d3650baefd7d7519badd1c687919"
+    },
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "source": "https://huggingface.co/openai/gpt-oss-20b",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "03c2fcf292549176757b85c911e7dcf527aef3e4241d64b6caec94af3ecf3ac2"
+    },
+    {
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "source": "https://huggingface.co/Qwen/qwen3.8-27b",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "DeepSWE",
+        "GPQA",
+        "HLE",
+        "IFBench",
+        "LiveCodeBench",
+        "SWE-bench",
+        "SWEBench",
+        "Terminal Bench",
+        "wer"
+      ],
+      "sha256": "57e4bdb258ee1a7d2635c5174ebd4e56abe392505cdb5f8bbb356b0dc4293641"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-preview-tts",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash-preview-tts/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro-preview-tts",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-pro-preview-tts/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-transcribe",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-5-audio/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e94c45c8a1da89502b804ceda1c1f42232d5bc92ba291ed9bd5adc04485eff63"
+    },
+    {
+      "provider": "gemini",
+      "model": "lyria-3-clip-preview",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "lyria-3-pro-preview",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "lyria-3.5",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-tts-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-tts-preview/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-8-audio/",
+      "scope": "audio_family_reference_not_exact_deployment",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "678deb95808115807f0f66623e675a3876f07dc9ee0ca9a09794d5755505f8f6"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-lite-tts",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-8-audio/",
+      "scope": "audio_family_reference_not_exact_deployment",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "678deb95808115807f0f66623e675a3876f07dc9ee0ca9a09794d5755505f8f6"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-embedding-001",
+      "source": "https://deepmind.google/models/model-cards/gemini-embedding/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-embedding-2-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-embedding/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-embedding-2",
+      "source": "https://deepmind.google/models/model-cards/gemini-embedding/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "aqa",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "veo-3.1-generate-preview",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "veo-3.1-fast-generate-preview",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "veo-3.1-lite-generate-preview",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-transcribe-live",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-5-audio/",
+      "scope": "audio_family_reference_not_exact_deployment",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e94c45c8a1da89502b804ceda1c1f42232d5bc92ba291ed9bd5adc04485eff63"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-latest",
+      "source": "https://ai.google.dev/gemini-api/docs/models",
+      "scope": "unresolved_alias",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e097552c0b93ba7953df19b060bff70ac349ee70a6732cde423cafbd8e5eabfd"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-preview-09-2025",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash-native-audio-preview-09-2025/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "source": "https://deepmind.google/models/model-cards/gemini-2-5-flash-native-audio-preview-12-2025/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-live-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-1-flash-live-preview/",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 404,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-live",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-8-audio/",
+      "scope": "audio_family_reference_not_exact_deployment",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "678deb95808115807f0f66623e675a3876f07dc9ee0ca9a09794d5755505f8f6"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-live-extended-thinking",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-8-audio/",
+      "scope": "audio_family_reference_not_exact_deployment",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "678deb95808115807f0f66623e675a3876f07dc9ee0ca9a09794d5755505f8f6"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-robotics-er-2-streaming-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-robotics-er-2/",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "4941a2e0ac97b2d2ff729e9009a6d07ef0681bf57b6db2b035975a16a03c53cf"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-live-translate-preview",
+      "source": "https://deepmind.google/models/model-cards/gemini-3-5-audio/",
+      "scope": "audio_family_reference_not_exact_deployment",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "e94c45c8a1da89502b804ceda1c1f42232d5bc92ba291ed9bd5adc04485eff63"
+    },
+    {
+      "provider": "gemini",
+      "model": "lyria-realtime-exp",
+      "source": "https://deepmind.google/models/model-cards/",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a97135542bece5108c0c4659ecf67d6cac4f5bed40d84d0641d7bdbe8e93a45e"
+    },
+    {
+      "provider": "groq",
+      "model": "canopylabs/orpheus-arabic-saudi",
+      "source": "https://console.groq.com/docs/models",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a40e8f41492a605f5360c9205f2ab51b9cc95ed4128da4712dcd07674e48d573"
+    },
+    {
+      "provider": "groq",
+      "model": "meta-llama/llama-prompt-guard-2-22m",
+      "source": "https://huggingface.co/meta-llama/llama-prompt-guard-2-22m",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 401,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-safeguard-20b",
+      "source": "https://huggingface.co/openai/gpt-oss-safeguard-20b",
+      "scope": "candidate_card",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "1a3a493bbb99dd2935e6e61c902be60ba326d7627958f5f78279259bb77027e9"
+    },
+    {
+      "provider": "groq",
+      "model": "meta-llama/llama-prompt-guard-2-86m",
+      "source": "https://huggingface.co/meta-llama/llama-prompt-guard-2-86m",
+      "scope": "candidate_card",
+      "benchmark_status": "not_confirmed_in_consulted_source",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 401,
+      "evaluation_terms": [],
+      "sha256": null
+    },
+    {
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "source": "https://console.groq.com/docs/models",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a40e8f41492a605f5360c9205f2ab51b9cc95ed4128da4712dcd07674e48d573"
+    },
+    {
+      "provider": "groq",
+      "model": "canopylabs/orpheus-v1-english",
+      "source": "https://console.groq.com/docs/models",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a40e8f41492a605f5360c9205f2ab51b9cc95ed4128da4712dcd07674e48d573"
+    },
+    {
+      "provider": "groq",
+      "model": "whisper-large-v3-turbo",
+      "source": "https://console.groq.com/docs/models",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a40e8f41492a605f5360c9205f2ab51b9cc95ed4128da4712dcd07674e48d573"
+    },
+    {
+      "provider": "groq",
+      "model": "llama-3.1-8b-instant",
+      "source": "https://console.groq.com/docs/models",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a40e8f41492a605f5360c9205f2ab51b9cc95ed4128da4712dcd07674e48d573"
+    },
+    {
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "source": "https://console.groq.com/docs/models",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a40e8f41492a605f5360c9205f2ab51b9cc95ed4128da4712dcd07674e48d573"
+    },
+    {
+      "provider": "groq",
+      "model": "minimaxai/minimax-m2.7",
+      "source": "https://console.groq.com/docs/models",
+      "scope": "provider_index_only",
+      "benchmark_status": "evaluation_section_found_unreviewed",
+      "note": "Publisher evaluations do not validate this account or deployment; aliases are not assigned another version score.",
+      "http_status": 200,
+      "evaluation_terms": [
+        "wer"
+      ],
+      "sha256": "a40e8f41492a605f5360c9205f2ab51b9cc95ed4128da4712dcd07674e48d573"
+    }
+  ]
+}

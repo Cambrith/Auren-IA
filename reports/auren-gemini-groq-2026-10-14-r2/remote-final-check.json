@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-14T17:19:29.663270+00:00",
+  "new_generation_submitted": false,
+  "checks": [
+    {
+      "row": "gemini:antigravity-preview-09-2026::agent_tools::underlying=gemini-3.8-flash",
+      "environment_delete_http_status": 200,
+      "previous_cancel_http_status": 400,
+      "http_status": 404,
+      "status": null,
+      "reported_cost_usd": null
+    }
+  ]
+}

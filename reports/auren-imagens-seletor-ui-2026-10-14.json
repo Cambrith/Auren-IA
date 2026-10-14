@@ -1,0 +1,24 @@
+{
+  "single_search": true,
+  "only_horde_group": [
+    "AI Horde"
+  ],
+  "footer_spacing": true,
+  "image_models_shown": 164,
+  "combined_search": [
+    "Deliberate",
+    "Deliberate 3.0",
+    "Deliberate Inpainting",
+    "Perfectdeliberate"
+  ],
+  "paid_search_empty": true,
+  "keyboard_search_to_auto": true,
+  "keyboard_auto_to_model": true,
+  "minimal_image_actions": true,
+  "fallback_toggle": true,
+  "narrow_layout": true,
+  "returns_to_conversation": true,
+  "gemini_conversation_preserved": true,
+  "paid_image_config_preserved": true,
+  "no_generations": true
+}

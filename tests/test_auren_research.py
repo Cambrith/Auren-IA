@@ -9,6 +9,11 @@ from integration.auren_research import model_plan, plan
 
 
 class BoundedPlanner(unittest.TestCase):
+    def test_official_groq_search_remains_on_the_provider_domain(self):
+        queries,domains=plan('Pesquise os modelos Groq com fontes oficiais')
+        self.assertEqual(domains,('console.groq.com',))
+        self.assertTrue(all(q.startswith('site:console.groq.com ') for q in queries))
+
     def run_planner(self, calls, prompt='Pesquise limites Cohere com fontes oficiais', deadline=None):
         config = SimpleNamespace(name='cohere', model='tested', api_key='synthetic-key')
         record = {'ok': True, 'model': 'cavren:cohere:tested'}

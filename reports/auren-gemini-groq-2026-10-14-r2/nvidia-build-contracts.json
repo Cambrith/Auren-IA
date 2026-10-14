@@ -1,0 +1,694 @@
+{
+  "at": "2026-10-13T22:15:11.852394+00:00",
+  "models": [
+    {
+      "model": "arc/evo2-40b",
+      "source": "https://build.nvidia.com/arc/evo2-40b?section=deploy",
+      "at": "2026-10-13T22:03:51.512791+00:00",
+      "http_status": 200,
+      "text_sha256": "e82fa801963fec22bd95654d04d412e3abbf121149641a40c7d5cdb3b35946d7",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "arc/evo2-7b-forward",
+      "source": "https://build.nvidia.com/arc/evo2-7b-forward?section=deploy",
+      "at": "2026-10-13T22:04:01.346720+00:00",
+      "http_status": 200,
+      "text_sha256": "497220b9b20642dbd597dfdfe9265115eadf064e0a1fb453bb82eae5bbaa3c24",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "baai/bge-m3",
+      "source": "https://build.nvidia.com/baai/bge-m3?section=deploy",
+      "at": "2026-10-13T22:04:13.192468+00:00",
+      "http_status": 200,
+      "text_sha256": "cd3c8257ff376a42752223e523e0ec5e8782bfc2401e4a969d9e25efd7396982",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "black-forest-labs/flux.1-kontext-dev",
+      "source": "https://build.nvidia.com/black-forest-labs/flux.1-kontext-dev?section=deploy",
+      "at": "2026-10-13T22:04:24.022622+00:00",
+      "http_status": 200,
+      "text_sha256": "78f526921565adb31d48c863036cbae81f3ee7c5231d98c066d0b71380c80f05",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "colabfold/msa-search",
+      "source": "https://build.nvidia.com/colabfold/msa-search?section=deploy",
+      "at": "2026-10-13T22:04:34.066992+00:00",
+      "http_status": 200,
+      "text_sha256": "5100f51d30f9e79b6721971f4cb8824c9c4fc4c5178a693af06b8d8a6fa22c3f",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "deepmind/alphafold2",
+      "source": "https://build.nvidia.com/deepmind/alphafold2?section=deploy",
+      "at": "2026-10-13T22:04:45.946790+00:00",
+      "http_status": 200,
+      "text_sha256": "a13726148b465cdea8e5a17cf360ef195d570bde4f19ca30dca09bd9bb316f5f",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "deepmind/alphafold2-multimer",
+      "source": "https://build.nvidia.com/deepmind/alphafold2-multimer?section=deploy",
+      "at": "2026-10-13T22:04:55.851343+00:00",
+      "http_status": 200,
+      "text_sha256": "5baebddfa08fa1fea1488027b63bedf430322c9567e91aa5ef95206d10de186d",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "google/diffusiongemma-26b-a4b-it",
+      "source": "https://build.nvidia.com/google/diffusiongemma-26b-a4b-it?section=deploy",
+      "at": "2026-10-13T22:05:07.711593+00:00",
+      "http_status": 200,
+      "text_sha256": "7bf5f58070019903684c5b7ede483204c63debe7e1c41ae7c31b7b617a5297ca",
+      "endpoints": [
+        "https://integrate.api.nvidia.com/v1/chat/completions"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nLangChain\nNode\nShell\nGenerate API Key\nCopied\nCopy\nimport\nrequests\n\ninvoke_url\n=\n\"https://integrate.api.nvidia.com/v1/chat/completions\"\nstream\n=\nFalse\nheaders\n=\n{\n\"Authorization\"\n:\n\"Bearer $NVIDIA_API_KEY\"\n,\n\"Accept\"\n:\n\"text/event-stream\"\nif\nstream\nelse\n\"application/json\"\n,\n}\npayload\n=\n{\n\"messages\"\n:\n[\n{\n\"role\"\n:\n\"user\"\n,\n\"content\"\n:\n[\n{\n\"type\"\n:\n\"text\"\n,\n\"text\"\n:\n\"What is in this image?\"\n}\n,\n{\n\"type\"\n:\n\"image_url\"\n,\n\"image_url\"\n:\n{\n\"url\"\n:\n\"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1b.jpg\"\n}\n}\n]\n}\n]\n,\n\"model\"\n:\n\"google/diffusiongemma-26b-a4b-it\"\n,\n\"chat_template_kwargs\"\n:\n{\n\"enable_thinking\"\n:\nTrue\n}\n,\n\"max_tokens\"\n:\n4096\n,\n\"stream\"\n:\nstream\n,\n\"temperature\"\n:\n1\n,\n\"top_p\"\n:\n0.95\n}\nresponse\n=\nrequests\n.\npost\n(\ninvoke_url\n,\nheaders\n=\nheaders\n,\njson\n=\npayload\n,\nstream\n=\nstream\n)\nif\nstream\n:\nfor\nline\nin\nresponse\n.\niter_lines\n(\n)\n:\nif\nline\n:\nprint\n(\nline\n.\ndecode\n(\n\"utf-8\"\n)\n)\nelse\n:\nprint\n(\nresponse\n.\njson\n(\n)\n)\nDeploy\nReady to scale? Choose your deployment path.\nSelect your target environment\nLinux with Docker\nLinux with Docker\nDeploying your application in production? Get started with a 90-day evaluation of NVIDIA AI Enterprise\nGet NVIDIA AI Enterprise\nFollow the steps below to download and run the NVIDIA NIM inference microservice for this model on your infrastructure of choice.\nStep\n1\nGenerate API Key\nGet API Key\nStep\n2\nPull and Run the NIM\nBash\nCopied\nCopy\n$\ndocker\nlogin nvcr.io\nUsername:\n$oauthtoken\nPassword:\n<\nPASTE_API_KEY_HERE\n>\nPull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.\nBash\nCopied\nCopy\nexport\nNGC_API_KEY\n=\n<\nPASTE_API_KEY_HERE\n>\nexport\nLOCAL_NIM_CACHE\n=~\n/.cache/nim\nmkdir\n-p\n\"\n$LOCAL_NIM_CACHE\n\"\nchmod\n-R\na+w\n\"\n$LOCAL_NIM_CACHE\n\"\ndocker\nrun\n-it\n--rm\n\\\n--gpus\nall\n\\\n--ipc\nhost\n\\\n--shm-size\n=\n32GB\n\\\n-e\nNGC_API_KEY\n\\\n-v\n\"\n$LOCAL_NIM_CACHE\n:/opt/nim/.cache\"\n\\\n-p\n8000\n:8000\n\\\nnvcr.io/nim/google/diffusiongemma-26b-a4b-it:latest\nStep\n3\nTest the NIM\nYou can now make a local API call using this curl command:\nBash\nCopied\nCopy\ncurl\n-X\n'POST'\n\\\n'http://0.0.0.0:8000/v1/chat/completions'\n\\\n-H\n'Accept: application/json'\n\\\n-H\n'Content-Type: application/json'\n\\\n-d\n'{\n        \"model\": \"google/diffusiongemma-26b-a4b-it\",\n        \"messages\": [\n            {\n                \"role\": \"user\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": \"What is in this image?\"\n                    },\n                    {\n                        \"type\": \"image_url\",\n                        \"image_url\":\n                            {\n                                \"url\": \"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1b.jpg\"\n                            }\n                    }\n                ]\n            }\n        ],\n        \"max_tokens\": 1024\n    }'\nFor more details on getting started with this NIM, visit the\nNVIDIA NIM Docs\n.\n",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n4M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "source": "https://build.nvidia.com/google/gemma-3-27b-it?section=deploy",
+      "at": "2026-10-13T22:05:19.682609+00:00",
+      "http_status": 200,
+      "text_sha256": "f4feb8b220331df48c4f61300d3009fd137cefb4b5e3f31aa15a4c7b14369ade",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nAvailable\nDownload Available\nNot available",
+      "page_exact_model_match": false
+    },
+    {
+      "model": "google/gemma-3n-e4b-it",
+      "source": "https://build.nvidia.com/google/gemma-3n-e4b-it?section=deploy",
+      "at": "2026-10-13T22:05:29.635577+00:00",
+      "http_status": 200,
+      "text_sha256": "f7498f3d68f7acc87adb2375be32c3e2790fe0b1e5547cfe617024b01eb0b74a",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nAvailable\nDownload Available\nNot available\nAPI calls in last 30 days\n3M",
+      "page_exact_model_match": false
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "source": "https://build.nvidia.com/google/gemma-4-31b-it?section=deploy",
+      "at": "2026-10-13T22:05:40.552782+00:00",
+      "http_status": 200,
+      "text_sha256": "cc989329fd6e9227273437cc8792f5f1cfe8e1c4010bbffeee6fb820a1207961",
+      "endpoints": [
+        "https://integrate.api.nvidia.com/v1/chat/completions"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nLangChain\nNode\nShell\nGenerate API Key\nCopied\nCopy\nimport\nrequests\n\ninvoke_url\n=\n\"https://integrate.api.nvidia.com/v1/chat/completions\"\nstream\n=\nFalse\nheaders\n=\n{\n\"Authorization\"\n:\n\"Bearer $NVIDIA_API_KEY\"\n,\n\"Accept\"\n:\n\"text/event-stream\"\nif\nstream\nelse\n\"application/json\"\n,\n}\npayload\n=\n{\n\"model\"\n:\n\"google/gemma-4-31b-it\"\n,\n\"max_tokens\"\n:\n1024\n,\n\"stream\"\n:\nstream\n,\n\"temperature\"\n:\n0.5\n,\n\"top_p\"\n:\n1\n,\n\"frequency_penalty\"\n:\n0\n,\n\"presence_penalty\"\n:\n0\n,\n\"seed\"\n:\n0\n,\n\"messages\"\n:\n[\n{\n\"role\"\n:\n\"system\"\n,\n\"content\"\n:\n\"You are a helpful assistant.\"\n}\n,\n{\n\"role\"\n:\n\"user\"\n,\n\"content\"\n:\n\"What is 17 * 23?\"\n}\n]\n}\nresponse\n=\nrequests\n.\npost\n(\ninvoke_url\n,\nheaders\n=\nheaders\n,\njson\n=\npayload\n,\nstream\n=\nstream\n)\nif\nstream\n:\nfor\nline\nin\nresponse\n.\niter_lines\n(\n)\n:\nif\nline\n:\nprint\n(\nline\n.\ndecode\n(\n\"utf-8\"\n)\n)\nelse\n:\nprint\n(\nresponse\n.\njson\n(\n)\n)\nDeploy\nReady to scale? Choose your deployment path.\nSelect your target environment\nLinux with Docker\nLinux with Docker\nDeploying your application in production? Get started with a 90-day evaluation of NVIDIA AI Enterprise\nGet NVIDIA AI Enterprise\nFollow the steps below to download and run the NVIDIA NIM inference microservice for this model on your infrastructure of choice.\nStep\n1\nPull and Run the NIM\nPull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.\nBash\nCopied\nCopy\nexport\nLOCAL_NIM_CACHE\n=~\n/.cache/nim\nmkdir\n-p\n\"\n$LOCAL_NIM_CACHE\n\"\nchmod\n-R\na+w\n\"\n$LOCAL_NIM_CACHE\n\"\ndocker\nrun\n-it\n--rm\n\\\n--gpus\nall\n\\\n--ipc\nhost\n\\\n--shm-size\n=\n32GB\n\\\n-v\n\"\n$LOCAL_NIM_CACHE\n:/opt/nim/.cache\"\n\\\n-p\n8000\n:8000\n\\\nnvcr.io/nim/google/gemma-4-31b-it:latest\nStep\n2\nTest the NIM\nYou can now make a local API call using this curl command:\nBash\nCopied\nCopy\ncurl\n-X\n'POST'\n\\\n'http://0.0.0.0:8000/v1/chat/completions'\n\\\n-H\n'Accept: application/json'\n\\\n-H\n'Content-Type: application/json'\n\\\n-d\n'{\n        \"model\": \"google/gemma-4-31b-it\",\n        \"messages\": [\n            {\n                \"role\": \"user\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": \"What is in this image?\"\n                    },\n                    {\n                        \"type\": \"image_url\",\n                        \"image_url\":\n                            {\n                                \"url\": \"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1b.jpg\"\n                            }\n                    }\n                ]\n            }\n        ],\n        \"max_tokens\": 1024\n    }'\nFor more details on getting started with this NIM, visit the\nNVIDIA NIM Docs\n.\n",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n6M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "google/paligemma",
+      "source": "https://build.nvidia.com/google/paligemma?section=deploy",
+      "at": "2026-10-13T22:05:51.480804+00:00",
+      "http_status": 200,
+      "text_sha256": "78f526921565adb31d48c863036cbae81f3ee7c5231d98c066d0b71380c80f05",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "hive/ai-generated-image-detection",
+      "source": "https://build.nvidia.com/hive/ai-generated-image-detection?section=deploy",
+      "at": "2026-10-13T22:06:03.237070+00:00",
+      "http_status": 200,
+      "text_sha256": "c84fd0febceea2734284d901da2e1d15e1f074bcfb8fc5b33192523d92f85b4c",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "hive/deepfake-image-detection",
+      "source": "https://build.nvidia.com/hive/deepfake-image-detection?section=deploy",
+      "at": "2026-10-13T22:06:15.268064+00:00",
+      "http_status": 200,
+      "text_sha256": "ee37b5ee5cf730fed0ce4de1203364fdabf545bf2e7ea5abc747732faa46215b",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "ipd/proteinmpnn",
+      "source": "https://build.nvidia.com/ipd/proteinmpnn?section=deploy",
+      "at": "2026-10-13T22:06:26.143895+00:00",
+      "http_status": 200,
+      "text_sha256": "cc2a5082833d37cb336edc3c1106b29204bc1259e870a04926f3969e8bb5e75a",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "ipd/rfdiffusion",
+      "source": "https://build.nvidia.com/ipd/rfdiffusion?section=deploy",
+      "at": "2026-10-13T22:06:37.999608+00:00",
+      "http_status": 200,
+      "text_sha256": "4eae7e6206fecdf1bbf5cec861a21e2f829ce8b40cc1f9374548c5f035c0db92",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "source": "https://build.nvidia.com/meta/llama-3.2-11b-vision-instruct?section=deploy",
+      "at": "2026-10-13T22:06:50.036460+00:00",
+      "http_status": 200,
+      "text_sha256": "3237cd4b7dc52732f85e35df6707803285ecdfcf5a27c8b07a8a3e4addd39ab9",
+      "endpoints": [
+        "https://integrate.api.nvidia.com/v1/chat/completions"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nLangChain\nNode\nShell\nGenerate API Key\nCopied\nCopy\nimport\nrequests\n\ninvoke_url\n=\n\"https://integrate.api.nvidia.com/v1/chat/completions\"\nstream\n=\nFalse\nheaders\n=\n{\n\"Authorization\"\n:\n\"Bearer $NVIDIA_API_KEY\"\n,\n\"Accept\"\n:\n\"text/event-stream\"\nif\nstream\nelse\n\"application/json\"\n,\n}\npayload\n=\n{\n\"messages\"\n:\n[\n{\n\"content\"\n:\n[\n{\n\"image_url\"\n:\n{\n\"url\"\n:\n\"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1a.jpg\"\n}\n,\n\"type\"\n:\n\"image_url\"\n}\n,\n{\n\"type\"\n:\n\"text\"\n,\n\"text\"\n:\n\"Is there a car in this image?\"\n}\n]\n,\n\"role\"\n:\n\"user\"\n}\n]\n,\n\"model\"\n:\n\"meta/llama-3.2-11b-vision-instruct\"\n,\n\"frequency_penalty\"\n:\n0\n,\n\"max_tokens\"\n:\n512\n,\n\"presence_penalty\"\n:\n0\n,\n\"stream\"\n:\nstream\n,\n\"temperature\"\n:\n1\n,\n\"top_p\"\n:\n1\n}\nresponse\n=\nrequests\n.\npost\n(\ninvoke_url\n,\nheaders\n=\nheaders\n,\njson\n=\npayload\n,\nstream\n=\nstream\n)\nif\nstream\n:\nfor\nline\nin\nresponse\n.\niter_lines\n(\n)\n:\nif\nline\n:\nprint\n(\nline\n.\ndecode\n(\n\"utf-8\"\n)\n)\nelse\n:\nprint\n(\nresponse\n.\njson\n(\n)\n)\nDeploy\nReady to scale? Choose your deployment path.\nSelect your target environment\nLinux with Docker\nLinux with Docker\nDeploying your application in production? Get started with a 90-day evaluation of NVIDIA AI Enterprise\nGet NVIDIA AI Enterprise\nFollow the steps below to download and run the NVIDIA NIM inference microservice for this model on your infrastructure of choice.\nStep\n1\nGenerate API Key\nGet API Key\nStep\n2\nPull and Run the NIM\nBash\nCopied\nCopy\n$\ndocker\nlogin nvcr.io\nUsername:\n$oauthtoken\nPassword:\n<\nPASTE_API_KEY_HERE\n>\nPull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.\nBash\nCopied\nCopy\nexport\nNGC_API_KEY\n=\n<\nPASTE_API_KEY_HERE\n>\nexport\nLOCAL_NIM_CACHE\n=~\n/.cache/nim\nmkdir\n-p\n\"\n$LOCAL_NIM_CACHE\n\"\ndocker\nrun\n-it\n--rm\n\\\n--gpus\nall\n\\\n--shm-size\n=\n16GB\n\\\n-e\nNGC_API_KEY\n\\\n-v\n\"\n$LOCAL_NIM_CACHE\n:/opt/nim/.cache\"\n\\\n-u\n$(\nid\n-u\n)\n\\\n-p\n8000\n:8000\n\\\nnvcr.io/nim/meta/llama-3.2-11b-vision-instruct:latest\nStep\n3\nTest the NIM\nYou can now make a local API call using this curl command:\nBash\nCopied\nCopy\ncurl\n-X\n'POST'\n\\\n'http://0.0.0.0:8000/v1/chat/completions'\n\\\n-H\n'accept: application/json'\n\\\n-H\n'Content-Type: application/json'\n\\\n-d\n'{\n    \"model\": \"meta/llama-3.2-11b-vision-instruct\",\n    \"messages\": [{\"role\":\"user\", \"content\":[\n        {\"type\": \"text\", \"text\": \"Describe this image\"},\n        {\n          \"type\": \"image_url\",\n          \"image_url\": {\"url\": \"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1b.jpg\"}\n        }\n    ]}],\n    \"max_tokens\": 256\n}'\nFor more details on getting started with this NIM, visit the\nNVIDIA NIM Docs\n.\n",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n3M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "meta/llama-3.2-90b-vision-instruct",
+      "source": "https://build.nvidia.com/meta/llama-3.2-90b-vision-instruct?section=deploy",
+      "at": "2026-10-13T22:07:02.000834+00:00",
+      "http_status": 200,
+      "text_sha256": "19eb4ab50cdbc2f5e1873a83523ad9850427c9cb94fe3255dc0709caa48bcbb1",
+      "endpoints": [
+        "https://integrate.api.nvidia.com/v1/chat/completions"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nLangChain\nNode\nShell\nGenerate API Key\nCopied\nCopy\nimport\nrequests\n\ninvoke_url\n=\n\"https://integrate.api.nvidia.com/v1/chat/completions\"\nstream\n=\nFalse\nheaders\n=\n{\n\"Authorization\"\n:\n\"Bearer $NVIDIA_API_KEY\"\n,\n\"Accept\"\n:\n\"text/event-stream\"\nif\nstream\nelse\n\"application/json\"\n,\n}\npayload\n=\n{\n\"messages\"\n:\n[\n{\n\"content\"\n:\n[\n{\n\"image_url\"\n:\n{\n\"url\"\n:\n\"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1a.jpg\"\n}\n,\n\"type\"\n:\n\"image_url\"\n}\n,\n{\n\"type\"\n:\n\"text\"\n,\n\"text\"\n:\n\"Is there a car in this image?\"\n}\n]\n,\n\"role\"\n:\n\"user\"\n}\n]\n,\n\"model\"\n:\n\"meta/llama-3.2-90b-vision-instruct\"\n,\n\"frequency_penalty\"\n:\n0\n,\n\"max_tokens\"\n:\n512\n,\n\"presence_penalty\"\n:\n0\n,\n\"stream\"\n:\nstream\n,\n\"temperature\"\n:\n1\n,\n\"top_p\"\n:\n1\n}\nresponse\n=\nrequests\n.\npost\n(\ninvoke_url\n,\nheaders\n=\nheaders\n,\njson\n=\npayload\n,\nstream\n=\nstream\n)\nif\nstream\n:\nfor\nline\nin\nresponse\n.\niter_lines\n(\n)\n:\nif\nline\n:\nprint\n(\nline\n.\ndecode\n(\n\"utf-8\"\n)\n)\nelse\n:\nprint\n(\nresponse\n.\njson\n(\n)\n)\nDeploy\nReady to scale? Choose your deployment path.\nSelect your target environment\nLinux with Docker\nLinux with Docker\nDeploying your application in production? Get started with a 90-day evaluation of NVIDIA AI Enterprise\nGet NVIDIA AI Enterprise\nFollow the steps below to download and run the NVIDIA NIM inference microservice for this model on your infrastructure of choice.\nStep\n1\nGenerate API Key\nGet API Key\nStep\n2\nPull and Run the NIM\nBash\nCopied\nCopy\n$\ndocker\nlogin nvcr.io\nUsername:\n$oauthtoken\nPassword:\n<\nPASTE_API_KEY_HERE\n>\nPull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.\nBash\nCopied\nCopy\nexport\nNGC_API_KEY\n=\n<\nPASTE_API_KEY_HERE\n>\nexport\nLOCAL_NIM_CACHE\n=~\n/.cache/nim\nmkdir\n-p\n\"\n$LOCAL_NIM_CACHE\n\"\ndocker\nrun\n-it\n--rm\n\\\n--gpus\nall\n\\\n--shm-size\n=\n16GB\n\\\n-e\nNGC_API_KEY\n\\\n-v\n\"\n$LOCAL_NIM_CACHE\n:/opt/nim/.cache\"\n\\\n-u\n$(\nid\n-u\n)\n\\\n-p\n8000\n:8000\n\\\nnvcr.io/nim/meta/llama-3.2-90b-vision-instruct:latest\nStep\n3\nTest the NIM\nYou can now make a local API call using this curl command:\nBash\nCopied\nCopy\ncurl\n-X\n'POST'\n\\\n'http://0.0.0.0:8000/v1/chat/completions'\n\\\n-H\n'accept: application/json'\n\\\n-H\n'Content-Type: application/json'\n\\\n-d\n'{\n    \"model\": \"meta/llama-3.2-90b-vision-instruct\",\n    \"messages\": [{\"role\":\"user\", \"content\":[\n        {\"type\": \"text\", \"text\": \"Describe this image\"},\n        {\n          \"type\": \"image_url\",\n          \"image_url\": {\"url\": \"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1b.jpg\"}\n        }\n    ]}],\n    \"max_tokens\": 256\n}'\nFor more details on getting started with this NIM, visit the\nNVIDIA NIM Docs\n.\n",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n4M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "meta/llama-guard-4-12b",
+      "source": "https://build.nvidia.com/meta/llama-guard-4-12b?section=deploy",
+      "at": "2026-10-13T22:07:11.989363+00:00",
+      "http_status": 200,
+      "text_sha256": "279d8dffe2751d40e3855d942d03280de05248fdb387063ed5d6fb2c51cae906",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "meta/muse-glimmer-30b",
+      "source": "https://build.nvidia.com/meta/muse-glimmer-30b?section=deploy",
+      "at": "2026-10-13T22:07:21.887311+00:00",
+      "http_status": 200,
+      "text_sha256": "1f74539bfcd4f4d564a7079d6b19a117c921a710e8aa2f27b552d26860c148c7",
+      "endpoints": [
+        "https://integrate.api.nvidia.com/v1"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nLangChain\nNode\nShell\nGenerate API Key\nCopied\nCopy\nfrom\nopenai\nimport\nOpenAI\n\nclient\n=\nOpenAI\n(\nbase_url\n=\n\"https://integrate.api.nvidia.com/v1\"\n,\napi_key\n=\n\"$NVIDIA_API_KEY\"\n)\ncompletion\n=\nclient\n.\nchat\n.\ncompletions\n.\ncreate\n(\nmodel\n=\n\"meta/muse-glimmer-30b\"\n,\nmessages\n=\n[\n{\n\"role\"\n:\n\"user\"\n,\n\"content\"\n:\n\"Which number is larger, 9.11 or 9.8?\"\n}\n]\n,\ntemperature\n=\n1\n,\ntop_p\n=\n0.95\n,\nmax_tokens\n=\n8192\n,\nstream\n=\nFalse\n)\nprint\n(\ncompletion\n.\nchoices\n[\n0\n]\n.\nmessage\n.\ncontent\n)\nDeploy\nReady to scale? Choose your deployment path.\nSelect your target environment\nLinux with Docker\nLinux with Docker\nDeploying your application in production? Get started with a 90-day evaluation of NVIDIA AI Enterprise\nGet NVIDIA AI Enterprise\nFollow the steps below to download and run the NVIDIA NIM inference microservice for this model on your infrastructure of choice.\nStep\n1\nPull and Run the NIM\nPull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.\nBash\nCopied\nCopy\nexport\nLOCAL_NIM_CACHE\n=~\n/.cache/nim\nmkdir\n-p\n\"\n$LOCAL_NIM_CACHE\n\"\nchmod\n-R\na+w\n\"\n$LOCAL_NIM_CACHE\n\"\ndocker\nrun\n-it\n--rm\n\\\n--gpus\nall\n\\\n--shm-size\n=\n16GB\n\\\n-v\n\"\n$LOCAL_NIM_CACHE\n:/opt/nim/.cache\"\n\\\n-p\n8000\n:8000\n\\\nnvcr.io/nim/meta/muse-glimmer:latest\nStep\n2\nTest the NIM\nYou can now make a local API call using this curl command:\nBash\nCopied\nCopy\ncurl\n-X\n'POST'\n\\\n'http://0.0.0.0:8000/v1/chat/completions'\n\\\n-H\n'accept: application/json'\n\\\n-H\n'Content-Type: application/json'\n\\\n-d\n'{\n    \"model\": \"meta/Muse-Glimmer\",\n    \"messages\": [{\"role\":\"user\", \"content\":\"What is 17 * 23?\"}],\n    \"max_tokens\": 64\n}'\nFor more details on getting started with this NIM, visit the\nNVIDIA NIM Docs\n.\n",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "microsoft/phi-4-multimodal-instruct",
+      "source": "https://build.nvidia.com/microsoft/phi-4-multimodal-instruct?section=deploy",
+      "at": "2026-10-13T22:07:34.029189+00:00",
+      "http_status": 200,
+      "text_sha256": "f322fac3c3d9c53e896a38bebc52b4fba4cd791ff453c54af6e7d2522fec71c0",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nAvailable\nDownload Available\nNot available",
+      "page_exact_model_match": false
+    },
+    {
+      "model": "microsoft/trellis",
+      "source": "https://build.nvidia.com/microsoft/trellis?section=deploy",
+      "at": "2026-10-13T22:07:44.010835+00:00",
+      "http_status": 200,
+      "text_sha256": "007e73b539bd9c48c41355fcf49dab5f89572abe259ce7da2f6d8f3bbc866d34",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "minimaxai/minimax-m3",
+      "source": "https://build.nvidia.com/minimaxai/minimax-m3?section=deploy",
+      "at": "2026-10-13T22:07:53.831495+00:00",
+      "http_status": 200,
+      "text_sha256": "a9e30bed05fc8f555bbc019862cbf338520767d3ad25a18dcd8040eaad1bb009",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nAvailable\nDownload Available\nNot available\nAPI calls in last 30 days\n10M",
+      "page_exact_model_match": false
+    },
+    {
+      "model": "mistralai/ministral-14b-instruct-2512",
+      "source": "https://build.nvidia.com/mistralai/ministral-14b-instruct-2512?section=deploy",
+      "at": "2026-10-13T22:08:03.722849+00:00",
+      "http_status": 200,
+      "text_sha256": "00ebc9fe507d739967cbee77b5b91a83ac893764a8c02a21aa78f39ce0adfdc3",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n4M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "mistralai/mistral-large-3-675b-instruct-2512",
+      "source": "https://build.nvidia.com/mistralai/mistral-large-3-675b-instruct-2512?section=deploy",
+      "at": "2026-10-13T22:08:13.643945+00:00",
+      "http_status": 200,
+      "text_sha256": "c8a2f404b04431b3f1383ee89ebcafec60d153282af765a4a22654f3bcd708f8",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nAvailable\nDownload Available\nAvailable",
+      "page_exact_model_match": false
+    },
+    {
+      "model": "mistralai/mistral-medium-3.5-128b",
+      "source": "https://build.nvidia.com/mistralai/mistral-medium-3.5-128b?section=deploy",
+      "at": "2026-10-13T22:08:24.538875+00:00",
+      "http_status": 200,
+      "text_sha256": "5c0b1c243edc28c4d16bf59d4a6561c1722b21d0bedabac7bb95e820ded7be96",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n5M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "mistralai/mistral-small-4-119b-2603",
+      "source": "https://build.nvidia.com/mistralai/mistral-small-4-119b-2603?section=deploy",
+      "at": "2026-10-13T22:08:36.519819+00:00",
+      "http_status": 200,
+      "text_sha256": "68571443a97a136ec338efdf999d6141e0c4b49fa2c89cbfe722e8086545949b",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n11M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "moonshotai/kimi-k2.5",
+      "source": "https://build.nvidia.com/moonshotai/kimi-k2.5?section=deploy",
+      "at": "2026-10-13T22:08:46.438118+00:00",
+      "http_status": 200,
+      "text_sha256": "78f526921565adb31d48c863036cbae81f3ee7c5231d98c066d0b71380c80f05",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "moonshotai/kimi-k2.6",
+      "source": "https://build.nvidia.com/moonshotai/kimi-k2.6?section=deploy",
+      "at": "2026-10-13T22:09:06.601866+00:00",
+      "http_status": 200,
+      "text_sha256": "78f526921565adb31d48c863036cbae81f3ee7c5231d98c066d0b71380c80f05",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/ai-synthetic-video-detector",
+      "source": "https://build.nvidia.com/nvidia/ai-synthetic-video-detector?section=deploy",
+      "at": "2026-10-13T22:09:17.144908+00:00",
+      "http_status": 200,
+      "text_sha256": "78f526921565adb31d48c863036cbae81f3ee7c5231d98c066d0b71380c80f05",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/bevformer",
+      "source": "https://build.nvidia.com/nvidia/bevformer?section=deploy",
+      "at": "2026-10-13T22:09:28.917186+00:00",
+      "http_status": 200,
+      "text_sha256": "c56b8174db2787f8ebc3f4c3fc40c1ef9a797f881b899a68f3e4c98fabcd526a",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/corrdiff",
+      "source": "https://build.nvidia.com/nvidia/corrdiff?section=deploy",
+      "at": "2026-10-13T22:09:39.771850+00:00",
+      "http_status": 200,
+      "text_sha256": "6d4f5e5f0b3099c0bd025ecb07806896b80a8dede051c6f8de1f097c567e0132",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/cosmos-predict1-7b",
+      "source": "https://build.nvidia.com/nvidia/cosmos-predict1-7b?section=deploy",
+      "at": "2026-10-13T22:09:51.656318+00:00",
+      "http_status": 200,
+      "text_sha256": "565b56b7fff675f86703c6ceca65b0bcb20ffa410e552154db75340ccb240ca7",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/cuOpt",
+      "source": "https://build.nvidia.com/nvidia/cuOpt?section=deploy",
+      "at": "2026-10-13T22:10:02.537181+00:00",
+      "http_status": 200,
+      "text_sha256": "78f526921565adb31d48c863036cbae81f3ee7c5231d98c066d0b71380c80f05",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/deepseek-v4.1-flash",
+      "source": "https://build.nvidia.com/nvidia/deepseek-v4.1-flash?section=deploy",
+      "at": "2026-10-13T22:10:14.490285+00:00",
+      "http_status": 200,
+      "text_sha256": "50a24ab956f75c2a79396ffb7918981cad80df82a98a41603a036d151066e110",
+      "endpoints": [
+        "https://integrate.api.nvidia.com/v1"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nNode\nShell\nGenerate API Key\nCopied\nCopy\nimport\njson\nimport\nos\nfrom\nopenai\nimport\nOpenAI\n\nclient\n=\nOpenAI\n(\nbase_url\n=\n\"https://integrate.api.nvidia.com/v1\"\n,\napi_key\n=\nos\n.\nenviron\n[\n\"NVIDIA_API_KEY\"\n]\n)\ncompletion\n=\nclient\n.\nchat\n.\ncompletions\n.\ncreate\n(\nmodel\n=\n\"deepseek-ai/deepseek-v4.1-flash\"\n,\nmessages\n=\njson\n.\nloads\n(\n\"[{\\\"role\\\":\\\"user\\\",\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"Describe the path in this image and the landscape around it in two sentences.\\\"},{\\\"type\\\":\\\"image_url\\\",\\\"image_url\\\":{\\\"url\\\":\\\"data:image/jpeg;base64,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",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable",
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/fourcastnet",
+      "source": "https://build.nvidia.com/nvidia/fourcastnet?section=deploy",
+      "at": "2026-10-13T22:10:26.770921+00:00",
+      "http_status": 200,
+      "text_sha256": "1f03044e1829788c16c40e2eab5a3640384c954b34e7734547f5f30586a97e1d",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/genmol",
+      "source": "https://build.nvidia.com/nvidia/genmol?section=deploy",
+      "at": "2026-10-13T22:10:38.704748+00:00",
+      "http_status": 200,
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/ising-calibration-1.5-31b",
+      "source": "https://build.nvidia.com/nvidia/ising-calibration-1.5-31b?section=deploy",
+      "at": "2026-10-13T22:10:50.461481+00:00",
+      "http_status": 200,
+      "text_sha256": "c89544a0be9653a78a428c43f279fbe7382bccb63316d9629ec9a22a763c2e98",
+      "endpoints": [
+        "https://integrate.api.nvidia.com/v1/chat/completions"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nLangChain\nNode\nShell\nGenerate API Key\nCopied\nCopy\nimport\nrequests\n,\nbase64\n\ninvoke_url\n=\n\"https://integrate.api.nvidia.com/v1/chat/completions\"\nstream\n=\nFalse\ndef\nread_b64\n(\npath\n)\n:\nwith\nopen\n(\npath\n,\n\"rb\"\n)\nas\nf\n:\nreturn\nbase64\n.\nb64encode\n(\nf\n.\nread\n(\n)\n)\n.\ndecode\n(\n)\nheaders\n=\n{\n\"Authorization\"\n:\n\"Bearer $NVIDIA_API_KEY\"\n,\n\"Accept\"\n:\n\"text/event-stream\"\nif\nstream\nelse\n\"application/json\"\n}\npayload\n=\n{\n\"model\"\n:\n\"nvidia/ising-calibration-1.5-31b\"\n,\n\"messages\"\n:\n[\n{\n\"role\"\n:\n\"user\"\n,\n\"content\"\n:\n[\n{\n\"type\"\n:\n\"image_url\"\n,\n\"image_url\"\n:\n{\n\"url\"\n:\n\"https://assets.ngc.nvidia.com/products/api-catalog/ising-calibration-1-35b-a3b/resonator_spectroscopy.png\"\n}\n}\n,\n{\n\"type\"\n:\n\"text\"\n,\n\"text\"\n:\n\"I just ran a resonator spectroscopy measurement on my superconducting qubit chip. This plot shows the magnitude response as a function of probe frequency across a wide scan range.\\n\\nCan you tell me:\\n1. How many resonator dips are visible, and at what frequencies?\\n2. Is the signal quality good enough to extract reliable resonator frequencies?\\n3. What is the overall calibration status — can we proceed with qubit readout setup?\"\n}\n]\n}\n]\n,\n\"max_tokens\"\n:\n32768\n,\n\"temperature\"\n:\n1.00\n,\n\"top_p\"\n:\n0.95\n,\n\"stream\"\n:\nstream\n,\n}\nresponse\n=\nrequests\n.\npost\n(\ninvoke_url\n,\nheaders\n=\nheaders\n,\njson\n=\npayload\n,\nstream\n=\nstream\n)\nif\nstream\n:\nfor\nline\nin\nresponse\n.\niter_lines\n(\n)\n:\nif\nline\n:\nprint\n(\nline\n.\ndecode\n(\n\"utf-8\"\n)\n)\nelse\n:\nprint\n(\nresponse\n.\njson\n(\n)\n)\n",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nNot available",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "nvidia/kumo-relational",
+      "source": "https://build.nvidia.com/nvidia/kumo-relational?section=deploy",
+      "at": "2026-10-13T22:11:02.398432+00:00",
+      "http_status": 200,
+      "text_sha256": "e6fbb4f06a8f816f0793af9076ee6a6b85748343ef32ad06197c243f869c5508",
+      "endpoints": [
+        "https://ai.api.nvidia.com/v1/structured-data/nvidia/kumo-relational/predictions"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nNode\nShell\nGenerate API Key\nCopied\nCopy\nimport\njson\nimport\nrequests\n\n\npayload\n=\n{\n\"model\"\n:\n\"kumo-relational\"\n,\n\"task\"\n:\n{\n\"kind\"\n:\n\"binary_classification\"\n,\n\"target\"\n:\n{\n\"column_name\"\n:\n\"label\"\n,\n\"dtype\"\n:\n\"bool\"\n,\n\"classes\"\n:\n[\n\"false\"\n,\n\"true\"\n]\n,\n\"positive_class\"\n:\n\"true\"\n,\n}\n,\n\"entity_table_names\"\n:\n[\n\"accounts\"\n]\n,\n\"anchor_time_column\"\n:\n\"anchor_time\"\n,\n}\n,\n\"schema\"\n:\n{\n\"instance_table\"\n:\n{\n\"columns\"\n:\n{\n\"instance_id\"\n:\n{\n\"dtype\"\n:\n\"int64\"\n,\n\"stype\"\n:\n\"ID\"\n,\n\"nullable\"\n:\nFalse\n,\n}\n,\n\"anchor_time\"\n:\n{\n\"dtype\"\n:\n\"timestamp[us]\"\n,\n\"stype\"\n:\n\"timestamp\"\n,\n\"nullable\"\n:\nFalse\n,\n}\n,\n\"account_id\"\n:\n{\n\"dtype\"\n:\n\"int64\"\n,\n\"stype\"\n:\n\"ID\"\n,\n\"nullable\"\n:\nFalse\n,\n}\n,\n\"label\"\n:\n{\n\"dtype\"\n:\n\"bool\"\n,\n\"stype\"\n:\n\"categorical\"\n,\n}\n,\n}\n,\n\"primary_key\"\n:\n\"instance_id\"\n,\n}\n,\n\"related_tables\"\n:\n{\n\"accounts\"\n:\n{\n\"columns\"\n:\n{\n\"instance_id\"\n:\n{\n\"dtype\"\n:\n\"int64\"\n,\n\"stype\"\n:\n\"ID\"\n,\n\"nullable\"\n:\nFalse\n,\n}\n,\n\"account_id\"\n:\n{\n\"dtype\"\n:\n\"int64\"\n,\n\"stype\"\n:\n\"ID\"\n,\n\"nullable\"\n:\nFalse\n,\n}\n,\n\"amount\"\n:\n{\n\"dtype\"\n:\n\"float64\"\n,\n\"stype\"\n:\n\"numerical\"\n,\n}\n,\n\"segment\"\n:\n{\n\"dtype\"\n:\n\"string\"\n,\n\"stype\"\n:\n\"categorical\"\n,\n}\n,\n}\n,\n\"primary_key\"\n:\n[\n\"instance_id\"\n,\n\"account_id\"\n]\n,\n}\n}\n,\n\"relationships\"\n:\n[\n{\n\"source_columns\"\n:\n[\n\"instance_id\"\n,\n\"account_id\"\n]\n,\n\"target_table\"\n:\n\"accounts\"\n,\n\"target_columns\"\n:\n[\n\"instance_id\"\n,\n\"account_id\"\n]\n,\n}\n]\n,\n}\n,\n\"context\"\n:\n{\n\"instance_table\"\n:\n{\n\"format\"\n:\n\"arrays\"\n,\n\"columns\"\n:\n[\n\"instance_id\"\n,\n\"anchor_time\"\n,\n\"account_id\"\n,\n\"label\"\n]\n,\n\"rows\"\n:\n[\n[\n0\n,\n\"2025-01-01T00:00:00Z\"\n,\n100\n,\nFalse\n]\n,\n[\n1\n,\n\"2025-01-01T00:00:00Z\"\n,\n101\n,\nTrue\n]\n,\n[\n2\n,\n\"2025-01-02T00:00:00Z\"\n,\n102\n,\nFalse\n]\n,\n[\n3\n,\n\"2025-01-02T00:00:00Z\"\n,\n103\n,\nTrue\n]\n,\n]\n,\n}\n,\n\"related_tables\"\n:\n{\n\"accounts\"\n:\n{\n\"format\"\n:\n\"arrays\"\n,\n\"columns\"\n:\n[\n\"instance_id\"\n,\n\"account_id\"\n,\n\"amount\"\n,\n\"segment\"\n]\n,\n\"rows\"\n:\n[\n[\n0\n,\n100\n,\n10.5\n,\n\"small\"\n]\n,\n[\n1\n,\n101\n,\n250.0\n,\n\"enterprise\"\n]\n,\n[\n2\n,\n102\n,\n12.0\n,\n\"small\"\n]\n,\n[\n3\n,\n103\n,\n300.0\n,\n\"enterprise\"\n]\n,\n]\n,\n}\n}\n,\n}\n,\n\"predict\"\n:\n{\n\"instance_table\"\n:\n{\n\"format\"\n:\n\"arrays\"\n,\n\"columns\"\n:\n[\n\"instance_id\"\n,\n\"anchor_time\"\n,\n\"account_id\"\n]\n,\n\"rows\"\n:\n[\n[\n4\n,\n\"2025-02-01T00:00:00Z\"\n,\n104\n]\n]\n,\n}\n,\n\"related_tables\"\n:\n{\n\"accounts\"\n:\n{\n\"format\"\n:\n\"arrays\"\n,\n\"columns\"\n:\n[\n\"instance_id\"\n,\n\"account_id\"\n,\n\"amount\"\n,\n\"segment\"\n]\n,\n\"rows\"\n:\n[\n[\n4\n,\n104\n,\n275.0\n,\n\"enterprise\"\n]\n]\n,\n}\n}\n,\n}\n,\n\"output\"\n:\n{\n\"fields\"\n:\n[\n\"prediction\"\n,\n\"probabilities\"\n]\n}\n,\n}\nresponse\n=\nrequests\n.\npost\n(\n\"https://ai.api.nvidia.com/v1/structured-data/nvidia/kumo-relational/predictions\"\n,\nheaders\n=\n{\n\"Accept\"\n:\n\"application/json\"\n,\n\"Content-Type\"\n:\n\"application/json\"\n,\n\"Authorization\"\n:\n\"Bearer $NVIDIA_API_KEY\"\n,\n}\n,\njson\n=\npayload\n,\n)\nresponse\n.\nraise_for_status\n(\n)\nprint\n(\njson\n.\ndumps\n(\nresponse\n.\njson\n(\n)\n,\nindent\n=\n2\n)\n)\nDeploy\nReady to scale? Choose your deployment path.\nSelect your target environment\nLinux with Docker\nLinux with Docker\nDeploying your application in production? Get started with a 90-day evaluation of NVIDIA AI Enterprise\nGet NVIDIA AI Enterprise\nFollow the steps below to download and run the NVIDIA NIM inference microservice for this model on your infrastructure of choice.\nStep\n1\nGenerate API Key\nGet API Key\nStep\n2\nPull and Run the NIM\nBash\nCopied\nCopy\n$\ndocker\nlogin nvcr.io\nUsername:\n$oauthtoken\nPassword:\n<\nPASTE_API_KEY_HERE\n>\nPull and run the NVIDIA NIM with the command below. The container serves the single packaged\nkumo-relational\nmodel; no external model mount or runtime model download is required.\nBash\nCopied\nCopy\ndocker\nrun\n-it\n--rm\n\\\n--gpus\nall\n\\\n--shm-size\n=\n16GB\n\\\n-p\n8000\n:8000\n\\\nnvcr.io/nim/nvidia/kumo-relational:1.0.0\nThe NIM listens on internal port\n8000\nby default. Set\nNIM_HTTP_API_PORT\nonly when intentionally changing the container listen port, and update the Docker port mapping to match.\nStep\n3\nTest the NIM\nYou can now make a local API call using this curl command:\nBash\nCopied\nCopy\ncat\n>\n/tmp/kumo-relational-request.json\n<<\n'JSON'\n{\n  \"model\": \"kumo-relational\",\n  \"task\": {\n    \"kind\": \"binary_classification\",\n    \"target\": {\n      \"column_name\": \"TARGET\",\n      \"dtype\": \"bool\",\n      \"classes\": [\n        \"false\",\n        \"true\"\n      ],\n      \"positive_class\": \"true\"\n    },\n    \"entity_table_names\": [\n      \"users\"\n    ],\n    \"anchor_time_column\": \"__kumo_anchor_time\"\n  },\n  \"schema\": {\n    \"instance_table\": {\n      \"columns\": {\n        \"instance_id\": {\n          \"dtype\": \"int64\",\n          \"stype\": \"ID\",\n          \"nullable\": false\n        },\n        \"__kumo_entity_ref_0\": {\n          \"dtype\": \"int64\",\n          \"stype\": \"ID\"\n        },\n        \"__kumo_anchor_time\": {\n          \"dtype\": \"timestamp[us]\",\n          \"stype\": \"timestamp\",\n          \"nullable\": false\n        },\n        \"TARGET\": {\n          \"dtype\": \"bool\",\n          \"stype\": \"categorical\"\n        }\n      },\n      \"primary_key\": \"instance_id\"\n    },\n    \"related_tables\": {\n      \"users\": {\n        \"columns\": {\n          \"instance_id\": {\n            \"dtype\": \"int64\",\n            \"stype\": \"ID\",\n            \"nullable\": false\n          },\n          \"age\": {\n            \"dtype\": \"int64\",\n            \"stype\": \"numerical\"\n          },\n          \"country\": {\n            \"dtype\": \"string\",\n            \"stype\": \"categorical\"\n          },\n          \"user_id\": {\n            \"dtype\": \"int64\",\n            \"nullable\": false\n          },\n          \"plan\": {\n            \"dtype\": \"string\",\n            \"stype\": \"categorical\"\n          }\n        },\n        \"primary_key\": [\n          \"instance_id\",\n          \"user_id\"\n        ]\n      },\n      \"orders\": {\n        \"columns\": {\n          \"instance_id\": {\n            \"dtype\": \"int64\",\n            \"stype\": \"ID\",\n            \"nullable\": false\n          },\n          \"__node_id\": {\n            \"dtype\": \"int64\",\n            \"stype\": \"ID\",\n            \"nullable\": false\n          },\n          \"amount\": {\n            \"dtype\": \"float64\",\n            \"stype\": \"numerical\"\n          },\n          \"order_date\": {\n            \"dtype\": \"timestamp[us]\",\n            \"stype\": \"timestamp\"\n          },\n          \"category\": {\n            \"dtype\": \"string\",\n            \"stype\": \"categorical\"\n          },\n          \"user_id\": {\n            \"dtype\": \"int64\",\n            \"stype\": \"ID\"\n          }\n        },\n        \"primary_key\": [\n          \"instance_id\",\n          \"__node_id\"\n        ]\n      }\n    },\n    \"relationships\": [\n      {\n        \"source_columns\": [\n          \"__kumo_entity_ref_0\"\n        ],\n        \"target_table\": \"users\",\n        \"target_columns\": [\n          \"user_id\"\n        ]\n      },\n      {\n        \"source_table\": \"orders\",\n        \"source_columns\": [\n          \"user_id\"\n        ],\n        \"target_table\": \"users\",\n        \"target_columns\": [\n          \"user_id\"\n        ]\n      }\n    ]\n  },\n  \"context\": {\n    \"instance_table\": {\n      \"format\": \"arrays\",\n      \"columns\": [\n        \"instance_id\",\n        \"__kumo_entity_ref_0\",\n        \"__kumo_anchor_time\",\n        \"TARGET\"\n      ],\n      \"rows\": [\n        [\n          0,\n          3,\n          \"2024-12-02T00:00:00.000000Z\",\n          false\n        ],\n        [\n          1,\n          2,\n          \"2024-12-02T00:00:00.000000Z\",\n          false\n        ],\n        [\n          2,\n          1,\n          \"2024-12-02T00:00:00.000000Z\",\n          false\n        ],\n        [\n          3,\n          1,\n          \"2024-11-02T00:00:00.000000Z\",\n          true\n        ],\n        [\n          4,\n          3,\n          \"2024-11-02T00:00:00.000000Z\",\n          false\n        ],\n        [\n          5,\n          2,\n          \"2024-11-02T00:00:00.000000Z\",\n          false\n        ],\n        [\n          6,\n          2,\n          \"2024-10-03T00:00:00.000000Z\",\n          true\n        ],\n        [\n          7,\n          3,\n          \"2024-10-03T00:00:00.000000Z\",\n          true\n        ],\n        [\n          8,\n          1,\n          \"2024-10-03T00:00:00.000000Z\",\n          true\n        ]\n      ]\n    },\n    \"related_tables\": {\n      \"users\": {\n        \"format\": \"arrays\",\n        \"columns\": [\n          \"instance_id\",\n          \"age\",\n          \"country\",\n          \"user_id\",\n          \"plan\"\n        ],\n        \"rows\": [\n          [\n            0,\n            39,\n            \"GB\",\n            3,\n            \"free\"\n          ],\n          [\n            1,\n            54,\n            \"DE\",\n            2,\n            \"enterprise\"\n          ],\n          [\n            2,\n            24,\n            \"US\",\n            1,\n            \"pro\"\n          ],\n          [\n            3,\n            24,\n            \"US\",\n            1,\n            \"pro\"\n          ],\n          [\n            4,\n            39,\n            \"GB\",\n            3,\n            \"free\"\n          ],\n          [\n            5,\n            54,\n            \"DE\",\n            2,\n            \"enterprise\"\n          ],\n          [\n            6,\n            54,\n            \"DE\",\n            2,\n            \"enterprise\"\n          ],\n          [\n            7,\n            39,\n            \"GB\",\n            3,\n            \"free\"\n          ],\n          [\n            8,\n            24,\n            \"US\",\n            1,\n            \"pro\"\n          ]\n        ]\n      },\n      \"orders\": {\n        \"format\": \"arrays\",\n        \"columns\": [\n          \"instance_id\",\n          \"__node_id\",\n          \"amount\",\n          \"order_date\",\n          \"category\",\n          \"user_id\"\n        ],\n        \"rows\": [\n          [\n            0,\n            0,\n            52.69,\n            \"2024-10-15T00:00:00.000000Z\",\n            \"electronics\",\n            3\n          ],\n          [\n            1,\n            1,\n            91.86,\n            \"2024-09-20T00:00:00.000000Z\",\n            \"toys\",\n            2\n          ],\n          [\n            1,\n            2,\n            159.76,\n            \"2024-11-01T00:00:00.000000Z\",\n            \"toys\",\n            2\n          ],\n          [\n            2,\n            3,\n            95.5,\n            \"2024-09-10T00:00:00.000000Z\",\n            \"books\",\n            1\n          ],\n          [\n            2,\n            4,\n            162.75,\n            \"2024-10-05T00:00:00.000000Z\",\n            \"electronics\",\n            1\n          ],\n          [\n            2,\n            5,\n            113.64,\n            \"2024-12-01T00:00:00.000000Z\",\n            \"food\",\n            1\n          ],\n          [\n            3,\n            6,\n            95.5,\n            \"2024-09-10T00:00:00.000000Z\",\n            \"books\",\n            1\n          ],\n          [\n            3,\n            7,\n            162.75,\n            \"2024-10-05T00:00:00.000000Z\",\n            \"electronics\",\n            1\n          ],\n          [\n            4,\n            8,\n            52.69,\n            \"2024-10-15T00:00:00.000000Z\",\n            \"electronics\",\n            3\n          ],\n          [\n            5,\n            9,\n            91.86,\n            \"2024-09-20T00:00:00.000000Z\",\n            \"toys\",\n            2\n          ],\n          [\n            5,\n            10,\n            159.76,\n            \"2024-11-01T00:00:00.000000Z\",\n            \"toys\",\n            2\n          ],\n          [\n            6,\n            11,\n            91.86,\n            \"2024-09-20T00:00:00.000000Z\",\n            \"toys\",\n            2\n          ],\n          [\n            8,\n            12,\n            95.5,\n            \"2024-09-10T00:00:00.000000Z\",\n            \"books\",\n            1\n          ]\n        ]\n      }\n    }\n  },\n  \"predict\": {\n    \"instance_table\": {\n      \"format\": \"arrays\",\n      \"columns\": [\n        \"instance_id\",\n        \"__kumo_entity_ref_0\",\n        \"__kumo_anchor_time\"\n      ],\n      \"rows\": [\n        [\n          9,\n          1,\n          \"2025-01-01T00:00:00.000000Z\"\n        ]\n      ]\n    },\n    \"related_tables\": {\n      \"users\": {\n        \"format\": \"arrays\",\n        \"columns\": [\n          \"instance_id\",\n          \"age\",\n          \"country\",\n          \"user_id\",\n          \"plan\"\n        ],\n        \"rows\": [\n          [\n            9,\n            24,\n            \"US\",\n            1,\n            \"pro\"\n          ]\n        ]\n      },\n      \"orders\": {\n        \"format\": \"arrays\",\n        \"columns\": [\n          \"instance_id\",\n          \"__node_id\",\n          \"amount\",\n          \"order_date\",\n          \"category\",\n          \"user_id\"\n        ],\n        \"rows\": [\n          [\n            9,\n            13,\n            95.5,\n            \"2024-09-10T00:00:00.000000Z\",\n            \"books\",\n            1\n          ],\n          [\n            9,\n            14,\n            162.75,\n            \"2024-10-05T00:00:00.000000Z\",\n            \"electronics\",\n            1\n          ],\n          [\n            9,\n            15,\n            113.64,\n            \"2024-12-01T00:00:00.000000Z\",\n            \"food\",\n            1\n          ]\n        ]\n      }\n    }\n  },\n  \"output\": {\n    \"fields\": [\n      \"prediction\",\n      \"probabilities\"\n    ]\n  },\n  \"inference\": {\n    \"run_mode\": \"fast\",\n    \"use_prediction_time\": false,\n    \"inference_config\": {\n      \"kind\": \"classification\",\n      \"num_estimators\": 1,\n      \"column_shuffle\": false,\n      \"category_shuffle\": false,\n      \"hop_shuffle\": false,\n      \"class_shuffle\": false\n    }\n  },\n  \"metadata\": {\n    \"request_id\": \"kumo-relational-catalog-demo-001\",\n    \"source_query\": \"PREDICT COUNT(orders.*, 0, 30, days) > 0 FOR users.user_id=1\"\n  }\n}\nJSON\ncurl\n-X\n'POST'\n\\\n'http://127.0.0.1:8000/v1/predictions'\n\\\n-H\n'accept: application/json'\n\\\n-H\n'Content-Type: application/json'\n\\\n--data-binary @/tmp/kumo-relational-request.json\nFor more details on this NIM request format, see the API reference for\nPOST /v1/predictions\n.\n",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nExplore\nModels\nSkills\nBlueprints\nPlaybooks\nGPUs\nDocs\nSearch\n⌘K\nCtrl+K\n?\nLogin\nExplore\nModels\nSkills\nBlueprints\nPlaybooks\nGPUs\nDocs\n?\nTerms of Use\nPrivacy Policy\nYour Privacy Choices\nContact\nCopyright ©\n2026\nNVIDIA Corporation",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "nvidia/kumo-tabular",
+      "source": "https://build.nvidia.com/nvidia/kumo-tabular?section=deploy",
+      "at": "2026-10-13T22:11:12.624347+00:00",
+      "http_status": 200,
+      "text_sha256": "cd4ee9daaaf5cfe6e8aab0b9d61e3089ba9991a0b28208440cd69e8c1bd34942",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nExplore\nModels\nSkills\nBlueprints\nPlaybooks\nGPUs\nDocs\nSearch\n⌘K\nCtrl+K\n?\nLogin\nExplore\nModels\nSkills\nBlueprints\nPlaybooks\nGPUs\nDocs\n?\nTerms of Use\nPrivacy Policy\nYour Privacy Choices\nContact\nCopyright ©\n2026\nNVIDIA Corporation",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "nvidia/molmim",
+      "source": "https://build.nvidia.com/nvidia/molmim?section=deploy",
+      "at": "2026-10-13T22:11:23.673777+00:00",
+      "http_status": 200,
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/nemoretriever-parse",
+      "source": "https://build.nvidia.com/nvidia/nemoretriever-parse?section=deploy",
+      "at": "2026-10-13T22:11:34.456794+00:00",
+      "http_status": 200,
+      "text_sha256": "61506833a6e731aef3e4d1d94e7dacd07b0638258c76572a12ade436120fd275",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/nemotron-3-content-safety",
+      "source": "https://build.nvidia.com/nvidia/nemotron-3-content-safety?section=deploy",
+      "at": "2026-10-13T22:11:44.416333+00:00",
+      "http_status": 200,
+      "text_sha256": "e1d6f0cec2cbfa8fc15dcc72dff8a897bdb47da19973c93047d93fdd2a9feb86",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "source": "https://build.nvidia.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning?section=deploy",
+      "at": "2026-10-13T22:11:54.487348+00:00",
+      "http_status": 200,
+      "text_sha256": "8f7d843ef25725650defd2bb6673f51c74c40c29073ae76f58bac6cf036c0949",
+      "endpoints": [
+        "https://integrate.api.nvidia.com/v1/chat/completions"
+      ],
+      "prototype_text": "Prototype\nStart building with a free API endpoint.\nPython\nLangChain\nNode\nShell\nGenerate API Key\nCopied\nCopy\nimport\nrequests\n\ninvoke_url\n=\n\"https://integrate.api.nvidia.com/v1/chat/completions\"\nstream\n=\nFalse\nheaders\n=\n{\n\"Authorization\"\n:\n\"Bearer $NVIDIA_API_KEY\"\n,\n\"Accept\"\n:\n\"text/event-stream\"\nif\nstream\nelse\n\"application/json\"\n,\n}\npayload\n=\n{\n\"messages\"\n:\n[\n{\n\"role\"\n:\n\"user\"\n,\n\"content\"\n:\n[\n{\n\"type\"\n:\n\"text\"\n,\n\"text\"\n:\n\"What is in this image?\"\n}\n,\n{\n\"type\"\n:\n\"image_url\"\n,\n\"image_url\"\n:\n{\n\"url\"\n:\n\"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1b.jpg\"\n}\n}\n]\n}\n]\n,\n\"model\"\n:\n\"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning\"\n,\n\"max_tokens\"\n:\n65536\n,\n\"reasoning_budget\"\n:\n16384\n,\n\"stream\"\n:\nstream\n,\n\"temperature\"\n:\n0.6\n,\n\"top_p\"\n:\n0.95\n}\nresponse\n=\nrequests\n.\npost\n(\ninvoke_url\n,\nheaders\n=\nheaders\n,\njson\n=\npayload\n,\nstream\n=\nstream\n)\nif\nstream\n:\nfor\nline\nin\nresponse\n.\niter_lines\n(\n)\n:\nif\nline\n:\nprint\n(\nline\n.\ndecode\n(\n\"utf-8\"\n)\n)\nelse\n:\nprint\n(\nresponse\n.\njson\n(\n)\n)\nDeploy\nReady to scale? Choose your deployment path.\nSelect your target environment\nLinux with Docker\nLinux with Docker\nDeploying your application in production? Get started with a 90-day evaluation of NVIDIA AI Enterprise\nGet NVIDIA AI Enterprise\nFollow the steps below to download and run the NVIDIA NIM inference microservice for this model on your infrastructure of choice.\nStep\n1\nGenerate API Key\nGet API Key\nStep\n2\nPull and Run the NIM\nBash\nCopied\nCopy\n$\ndocker\nlogin nvcr.io\nUsername:\n$oauthtoken\nPassword:\n<\nPASTE_API_KEY_HERE\n>\nPull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.\nBash\nCopied\nCopy\nexport\nNGC_API_KEY\n=\n<\nPASTE_API_KEY_HERE\n>\nexport\nLOCAL_NIM_CACHE\n=~\n/.cache/nim\nmkdir\n-p\n\"\n$LOCAL_NIM_CACHE\n\"\nchmod\n-R\na+w\n\"\n$LOCAL_NIM_CACHE\n\"\ndocker\nrun\n-it\n--rm\n\\\n--gpus\nall\n\\\n--ipc\nhost\n\\\n--shm-size\n=\n32GB\n\\\n-e\nNGC_API_KEY\n\\\n-v\n\"\n$LOCAL_NIM_CACHE\n:/opt/nim/.cache\"\n\\\n-p\n8000\n:8000\n\\\nnvcr.io/nim/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:latest\nStep\n3\nTest the NIM\nYou can now make a local API call using this curl command:\nBash\nCopied\nCopy\ncurl\n-X\n'POST'\n\\\n'http://0.0.0.0:8000/v1/chat/completions'\n\\\n-H\n'Accept: application/json'\n\\\n-H\n'Content-Type: application/json'\n\\\n-d\n'{\n        \"model\": \"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning\",\n        \"messages\": [\n            {\n                \"role\": \"user\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": \"What is in this image?\"\n                    },\n                    {\n                        \"type\": \"image_url\",\n                        \"image_url\":\n                            {\n                                \"url\": \"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1b.jpg\"\n                            }\n                    }\n                ]\n            }\n        ],\n        \"max_tokens\": 1024\n    }'\nFor more details on getting started with this NIM, visit the\nNVIDIA NIM Docs\n.\n",
+      "availability_text": "Model Availability\nFree Endpoint\nAvailable\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n8M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "nvidia/nemotron-3.5-content-safety",
+      "source": "https://build.nvidia.com/nvidia/nemotron-3.5-content-safety?section=deploy",
+      "at": "2026-10-13T22:12:06.703973+00:00",
+      "http_status": 200,
+      "text_sha256": "32b045a99671ca35ee6dd10182ec40b75bd25b0174479122c068fba96391c01e",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/nemotron-nano-12b-v2-vl",
+      "source": "https://build.nvidia.com/nvidia/nemotron-nano-12b-v2-vl?section=deploy",
+      "at": "2026-10-13T22:12:17.746978+00:00",
+      "http_status": 200,
+      "text_sha256": "9258cc0cd8c421f5c925f719f0f35096d1b48415be5f661f8d00215b7265cbba",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nNot available\nDownload Available\nAvailable\nAPI calls in last 30 days\n5M",
+      "page_exact_model_match": true
+    },
+    {
+      "model": "nvidia/nemotron-parse",
+      "source": "https://build.nvidia.com/nvidia/nemotron-parse?section=deploy",
+      "at": "2026-10-13T22:12:28.664575+00:00",
+      "http_status": 200,
+      "text_sha256": "4aa044d2a9d64de9917b8f07406e5d3a9f59d4fc7027ecfd60e5505eb397bece",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/nemotron-parse-2.0",
+      "source": "https://build.nvidia.com/nvidia/nemotron-parse-2.0?section=deploy",
+      "at": "2026-10-13T22:12:40.609980+00:00",
+      "http_status": 200,
+      "text_sha256": "766869303022c9c9b95476e8c50d0d47c73e3e2557c1cc5fc4b7e49ff550197f",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/nv-dinov2",
+      "source": "https://build.nvidia.com/nvidia/nv-dinov2?section=deploy",
+      "at": "2026-10-13T22:12:50.556242+00:00",
+      "http_status": 200,
+      "text_sha256": "81bd0b88295c24af499991806bf8da33452f213f2c94e20b1d1b38c6e9740c97",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/nv-grounding-dino",
+      "source": "https://build.nvidia.com/nvidia/nv-grounding-dino?section=deploy",
+      "at": "2026-10-13T22:13:00.443326+00:00",
+      "http_status": 200,
+      "text_sha256": "f555243152b1f7d7bd45ecb79d80ffc5a4dbdd4d9d7cb8bded1ff26bb61666d9",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/retail-object-detection",
+      "source": "https://build.nvidia.com/nvidia/retail-object-detection?section=deploy",
+      "at": "2026-10-13T22:13:11.311929+00:00",
+      "http_status": 200,
+      "text_sha256": "15f0881487ab4b32c61816a452aa8edc8a480a1fbdbacc39de1babd4f21f1b6f",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/sparsedrive",
+      "source": "https://build.nvidia.com/nvidia/sparsedrive?section=deploy",
+      "at": "2026-10-13T22:13:22.146225+00:00",
+      "http_status": 200,
+      "text_sha256": "96e2e121def3f9f235cbb89960f4fef6688336ac93d95f1fb2942387e4928148",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/streampetr",
+      "source": "https://build.nvidia.com/nvidia/streampetr?section=deploy",
+      "at": "2026-10-13T22:13:32.082229+00:00",
+      "http_status": 200,
+      "text_sha256": "e87694e8bf4f460455e80fca252496fb6892e5b3a976fdf0e70f0cbeb9f21489",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/vila",
+      "source": "https://build.nvidia.com/nvidia/vila?section=deploy",
+      "at": "2026-10-13T22:13:42.961832+00:00",
+      "http_status": 200,
+      "text_sha256": "026c6061905e4ac073c56f8b0844756913f53275c06b49983b199d6ea1f6c2ac",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/vista3d",
+      "source": "https://build.nvidia.com/nvidia/vista3d?section=deploy",
+      "at": "2026-10-13T22:13:54.813704+00:00",
+      "http_status": 200,
+      "text_sha256": "78f526921565adb31d48c863036cbae81f3ee7c5231d98c066d0b71380c80f05",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "nvidia/visual-changenet",
+      "source": "https://build.nvidia.com/nvidia/visual-changenet?section=deploy",
+      "at": "2026-10-13T22:14:05.697159+00:00",
+      "http_status": 200,
+      "text_sha256": "78f526921565adb31d48c863036cbae81f3ee7c5231d98c066d0b71380c80f05",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "openfold/openfold2",
+      "source": "https://build.nvidia.com/openfold/openfold2?section=deploy",
+      "at": "2026-10-13T22:14:16.545784+00:00",
+      "http_status": 200,
+      "text_sha256": "82d6c3b308b3bcc4ac3df98dd5fce6df1a1f7535fd17207746d690093386b3cc",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "openfold/openfold3",
+      "source": "https://build.nvidia.com/openfold/openfold3?section=deploy",
+      "at": "2026-10-13T22:14:28.604907+00:00",
+      "http_status": 200,
+      "text_sha256": "436555f5d80120c2944e57cb87cf3a6c9083bcc0f04edc8fc03e66096d97339a",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "qwen/qwen3.5-122b-a10b",
+      "source": "https://build.nvidia.com/qwen/qwen3.5-122b-a10b?section=deploy",
+      "at": "2026-10-13T22:14:39.606505+00:00",
+      "http_status": 200,
+      "text_sha256": "f2c93732098bcb854130eb4e8d7e20cb5bbe04be3a959152a067dc3a8b32c684",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nAvailable\nDownload Available\nAvailable",
+      "page_exact_model_match": false
+    },
+    {
+      "model": "snowflake/arctic-embed-l",
+      "source": "https://build.nvidia.com/snowflake/arctic-embed-l?section=deploy",
+      "at": "2026-10-13T22:14:50.579654+00:00",
+      "http_status": 200,
+      "text_sha256": "91cebfa83156c1b7598391a529e5770fabaff70b5e9e7de0f52d062a6f0ab78e",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": null,
+      "page_exact_model_match": false
+    },
+    {
+      "model": "stepfun-ai/step-3.7-flash",
+      "source": "https://build.nvidia.com/stepfun-ai/step-3.7-flash?section=deploy",
+      "at": "2026-10-13T22:15:01.477855+00:00",
+      "http_status": 200,
+      "text_sha256": "f758e0388cc492220add419b7032d37e933d6d525d08a7705810a1294366d4ff",
+      "endpoints": [],
+      "prototype_text": "",
+      "availability_text": "Model Availability\nFree Endpoint\nDeprecated\nPartner Endpoint\nAvailable\nDownload Available\nAvailable",
+      "page_exact_model_match": false
+    }
+  ]
+}

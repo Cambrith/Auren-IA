@@ -44,6 +44,10 @@ QTest.qWait(500)
 pulse2=js("(()=>{const e=document.querySelector('#splash-screen img');if(!e)return null;const s=getComputedStyle(e);return {transform:s.transform,width:s.width,height:s.height,animation:s.animationName}})()")
 result['pulse_changes_transform_only']=bool(pulse1 and pulse2 and pulse1['animation']=='auren-loading' and pulse1['width']==pulse2['width']=='104px' and pulse1['transform']!=pulse2['transform'])
 ready();QTest.qWait(500)
+result['default_labels']=js("[...document.querySelectorAll('.lunvri-controls .selector')].map(e=>e.textContent.trim())")
+assert 'Automática' in result['default_labels'][0]
+assert 'Automático' in result['default_labels'][1]
+assert 'Automático' in result['default_labels'][2]
 result['matching_trigger_text']=js("(()=>{const font=s=>{const c=getComputedStyle(document.querySelector(s));return [c.fontFamily,c.fontSize,c.fontWeight,c.lineHeight,c.color]};return {task:font('.task-trigger strong'),mode:font('.mode-trigger strong'),automatic:font('.automatic-label'),heights:[...document.querySelectorAll('.lunvri-controls .selector')].map(x=>x.getBoundingClientRect().height)}})()")
 assert result['matching_trigger_text']['task']==result['matching_trigger_text']['mode']==result['matching_trigger_text']['automatic']
 capture('auren-seletores-compactos-2026-10-13.png')
@@ -71,6 +75,6 @@ before=layout();size=window.size();window.showMinimized();QTest.qWait(400);windo
 result['normal_resume_preserves_size']=window.size()==size and not window.isMaximized();assert result['normal_resume_preserves_size']
 result['resume_layout_stable']=layout()==before;assert result['resume_layout_stable']
 result['no_horizontal_overflow']=js('document.documentElement.scrollWidth<=innerWidth');assert result['no_horizontal_overflow']
-result['page_background']=window.page().backgroundColor().name();assert result['page_background']=='#111214'
+result['page_background']=window.page().backgroundColor().name();assert result['page_background']=='#080d17'
 window.close();print(json.dumps(result),flush=True)
 window.web.setPage(QWebEnginePage(window.web))

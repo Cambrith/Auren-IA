@@ -1,4 +1,4 @@
-"""Documented Cohere/Mistral speech-to-text transports, with vault credentials."""
+"""Documented Cohere/Mistral/Groq speech-to-text transports, with vault credentials."""
 import base64
 import time
 from cavren.errors import CavrenError
@@ -6,7 +6,9 @@ from integration.lunvri_manual import emit
 from integration.lunvri_connections import connection_settings
 
 ROUTES={'cohere:cohere-transcribe-03-2026':'https://api.cohere.com/v2/audio/transcriptions',
-        'mistral:voxtral-mini-latest':'https://api.mistral.ai/v1/audio/transcriptions'}
+        'mistral:voxtral-mini-latest':'https://api.mistral.ai/v1/audio/transcriptions',
+        'groq:whisper-large-v3':'https://api.groq.com/openai/v1/audio/transcriptions',
+        'groq:whisper-large-v3-turbo':'https://api.groq.com/openai/v1/audio/transcriptions'}
 MIMES={'wav':'audio/wav','mp3':'audio/mpeg','mpeg':'audio/mpeg','ogg':'audio/ogg','flac':'audio/flac'}
 
 
@@ -36,6 +38,8 @@ def run(job, normalize_messages, *, output=emit):
     cfg=connection_settings().providers[provider]
     language=job.get('auren_transcribe_language','auto')
     if language not in ('auto','pt','en'):raise CavrenError('input','Escolha Português, Inglês ou detecção automática.')
+    if provider=='cohere' and language=='auto':
+        raise CavrenError('input','Cohere exige um idioma explícito. Escolha Lusofonia ou Echo, ou use Mistral no perfil Escuta.')
     data={'model':model}
     if language!='auto':data['language']=language
     output({'type':'generation.task_status','state':'processing','description':'Transcrevendo áudio · '+provider+' · '+model,'generation_id':job['generation_id']})

@@ -314,3 +314,9 @@ cypress/screenshots
 
 # Isolated Cavren preview runtime, databases, credentials and logs.
 .cavren/
+
+# Temporary files left by resumable model probes; keep canonical evidence.
+reports/**/.execution.lock
+reports/**/.csv-*
+reports/**/.complete-csv-*
+reports/**/.results.json*

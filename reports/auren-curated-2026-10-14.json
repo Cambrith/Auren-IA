@@ -1,0 +1,246 @@
+{
+  "started_at": "2026-10-14T16:07:05.490288+00:00",
+  "scope": "Four benchmark-shortlisted routes only.",
+  "records": {
+    "gemini:gemini-3.8-flash": {
+      "samples": [
+        {
+          "task": "chat",
+          "sample": 0,
+          "date": "2026-10-14T16:07:05.490455+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": false,
+          "semantic_check": false,
+          "code": "unavailable",
+          "seconds": 1.083,
+          "first_text_seconds": null
+        }
+      ]
+    },
+    "groq:qwen/qwen3.8-27b": {
+      "samples": [
+        {
+          "task": "chat",
+          "sample": 0,
+          "date": "2026-10-14T16:07:08.583104+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "a934c244755c66aebb0d6f9f5687038ffae8f00b00b28b4e17521016393f38b9",
+          "output_characters": 3,
+          "seconds": 0.385,
+          "first_text_seconds": 0.378
+        },
+        {
+          "task": "chat",
+          "sample": 1,
+          "date": "2026-10-14T16:07:10.968127+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "c232946a48a2a647d0bcd5c7fb3443f8bfc88a87705b8ff205b0930fd663c6bf",
+          "output_characters": 12,
+          "seconds": 0.279,
+          "first_text_seconds": 0.265
+        },
+        {
+          "task": "code",
+          "sample": 2,
+          "date": "2026-10-14T16:07:13.247857+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "a21aec98a412a2f940f1f0e82605ea1262866833c5b8e464253b07389aaeca89",
+          "output_characters": 46,
+          "seconds": 0.617,
+          "first_text_seconds": 0.572
+        },
+        {
+          "task": "documents",
+          "sample": 3,
+          "date": "2026-10-14T16:07:15.865762+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "b17fd564df6078122c5f7a80e2e1977b456c8b340d68d81a7cef6c05f18a9495",
+          "output_characters": 321,
+          "seconds": 0.446,
+          "first_text_seconds": 0.274
+        },
+        {
+          "task": "research",
+          "date": "2026-10-14T16:07:18.325681+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "code": "ok",
+          "source_urls": [
+            "https://console.groq.com/docs/model/openai/gpt-oss-120b",
+            "https://console.groq.com/docs/models?erid=2W5zFJmrUKT"
+          ],
+          "response_sha256": "f8874e8d8a0178d113974942d2122d9bd9d2fee8af924c6a4875027fea2cdbb7",
+          "seconds": 3.69
+        }
+      ]
+    },
+    "groq:openai/gpt-oss-120b": {
+      "samples": [
+        {
+          "task": "chat",
+          "sample": 0,
+          "date": "2026-10-14T16:07:22.017635+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "a934c244755c66aebb0d6f9f5687038ffae8f00b00b28b4e17521016393f38b9",
+          "output_characters": 3,
+          "seconds": 0.519,
+          "first_text_seconds": 0.515
+        },
+        {
+          "task": "chat",
+          "sample": 1,
+          "date": "2026-10-14T16:07:24.537742+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "c232946a48a2a647d0bcd5c7fb3443f8bfc88a87705b8ff205b0930fd663c6bf",
+          "output_characters": 12,
+          "seconds": 1.181,
+          "first_text_seconds": 1.013
+        },
+        {
+          "task": "code",
+          "sample": 2,
+          "date": "2026-10-14T16:07:27.719154+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": false,
+          "semantic_check": false,
+          "code": "semantic_or_completion_check_failed",
+          "response_sha256": "ab6e81a4f90f6474f55058ba0802ab815dc5a96e9d5e519d8449a5c8f34960bb",
+          "output_characters": 81,
+          "seconds": 0.835,
+          "first_text_seconds": 0.779
+        },
+        {
+          "task": "documents",
+          "sample": 3,
+          "date": "2026-10-14T16:07:30.554350+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "0873b6176b8cee032779ac88a05a0ee1f03fbb478d38830c7510b71c84279b2e",
+          "output_characters": 186,
+          "seconds": 0.777,
+          "first_text_seconds": 0.664
+        },
+        {
+          "task": "research",
+          "date": "2026-10-14T16:07:33.346385+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": false,
+          "code": "source_or_content_check_failed",
+          "source_urls": [
+            "https://console.groq.com/docs/model/openai/gpt-oss-120b",
+            "https://console.groq.com/docs/models?erid=2W5zFJmrUKT"
+          ],
+          "response_sha256": "1bcedf7076b1700e1c458bc114c7912da5b5b501997e7805a35e7bb818a0e718",
+          "seconds": 2.299
+        }
+      ]
+    },
+    "groq:openai/gpt-oss-20b": {
+      "samples": [
+        {
+          "task": "chat",
+          "sample": 0,
+          "date": "2026-10-14T16:07:35.647580+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "a934c244755c66aebb0d6f9f5687038ffae8f00b00b28b4e17521016393f38b9",
+          "output_characters": 3,
+          "seconds": 0.799,
+          "first_text_seconds": 0.799
+        },
+        {
+          "task": "chat",
+          "sample": 1,
+          "date": "2026-10-14T16:07:38.447236+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "c232946a48a2a647d0bcd5c7fb3443f8bfc88a87705b8ff205b0930fd663c6bf",
+          "output_characters": 12,
+          "seconds": 0.97,
+          "first_text_seconds": 0.963
+        },
+        {
+          "task": "code",
+          "sample": 2,
+          "date": "2026-10-14T16:07:41.418227+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": false,
+          "semantic_check": false,
+          "code": "semantic_or_completion_check_failed",
+          "response_sha256": "ab6e81a4f90f6474f55058ba0802ab815dc5a96e9d5e519d8449a5c8f34960bb",
+          "output_characters": 81,
+          "seconds": 0.385,
+          "first_text_seconds": 0.349
+        },
+        {
+          "task": "documents",
+          "sample": 3,
+          "date": "2026-10-14T16:07:43.804194+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "semantic_check": true,
+          "code": "ok",
+          "response_sha256": "ab0191df315e7bd665b60a14c56b1243cd535a098021248a6d4526bb2e41e3f9",
+          "output_characters": 87,
+          "seconds": 0.611,
+          "first_text_seconds": 0.574
+        },
+        {
+          "task": "research",
+          "date": "2026-10-14T16:07:46.429747+00:00",
+          "called": true,
+          "reported_cost_usd": null,
+          "ok": true,
+          "code": "ok",
+          "source_urls": [
+            "https://console.groq.com/docs/model/openai/gpt-oss-120b",
+            "https://console.groq.com/docs/models?erid=2W5zFJmrUKT"
+          ],
+          "response_sha256": "87abbe8174828ec22c495adc46c70cc74e42fc7d952edda3db82140df09d1c14",
+          "seconds": 1.67
+        }
+      ]
+    }
+  },
+  "cost_note": "Reported cost absent is unknown; configured account-policy eligibility is retained, not inferred from HTTP 200.",
+  "finished_at": "2026-10-14T16:07:48.102084+00:00"
+}

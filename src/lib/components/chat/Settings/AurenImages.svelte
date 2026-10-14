@@ -143,7 +143,8 @@
 			<figcaption><a href={file.url} download={file.name}>Salvar imagem gerada</a></figcaption>
 		</figure>{/each}
 	<p class="notice">
-		Na conversa, use o filtro “Gerar imagens” do seletor. O botão “Usar gerador padrão” aplica o
-		modelo salvo à conversa.
+		Na conversa, a tarefa “Gerar imagens” oferece apenas o AI Horde, sem pagamento em dinheiro.
+		O modelo salvo recebe a indicação “Padrão” nessa lista quando é compatível. Os demais
+		geradores continuam disponíveis nestas configurações para uso futuro.
 	</p>
 </section>

@@ -1,0 +1,78 @@
+{
+  "started_at": "2026-10-14T17:03:57.394885+00:00",
+  "high_stream_samples": [
+    {
+      "ok": true,
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "requested_effort": "high",
+      "seconds": 1.95,
+      "errors": [],
+      "reported_cost_usd": null
+    },
+    {
+      "ok": true,
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "requested_effort": "high",
+      "seconds": 1.232,
+      "errors": [],
+      "reported_cost_usd": null
+    }
+  ],
+  "semantic_cases": [
+    {
+      "prompt": "Monte um banner minimalista para a feira de ciências",
+      "expected": "image",
+      "decision": {
+        "task": "image",
+        "reason": "semantic_request",
+        "matches": [
+          "image"
+        ],
+        "semantic_mode": "ether",
+        "classifier": "groq:qwen/qwen3.8-27b"
+      },
+      "ok": true
+    },
+    {
+      "prompt": "Prepare uma consulta SQL para ligar vendas a clientes",
+      "expected": "code",
+      "decision": {
+        "task": "code",
+        "reason": "semantic_request",
+        "matches": [
+          "code"
+        ],
+        "semantic_mode": "arquiteto",
+        "classifier": "groq:qwen/qwen3.8-27b"
+      },
+      "ok": true
+    },
+    {
+      "prompt": "Quero saber o que mudou nesta semana com fontes atualizadas",
+      "expected": "research",
+      "decision": {
+        "task": "research",
+        "reason": "semantic_request",
+        "matches": [
+          "research"
+        ],
+        "semantic_mode": "insight",
+        "classifier": "groq:qwen/qwen3.8-27b"
+      },
+      "ok": true
+    },
+    {
+      "prompt": "Não desenhe um coelho. Responda apenas em texto",
+      "expected": "chat",
+      "decision": {
+        "task": "chat",
+        "reason": "conversation",
+        "matches": []
+      },
+      "ok": true
+    }
+  ],
+  "finished_at": "2026-10-14T17:04:10.371935+00:00"
+}

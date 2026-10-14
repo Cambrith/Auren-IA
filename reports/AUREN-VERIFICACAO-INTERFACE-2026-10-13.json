@@ -1,0 +1,103 @@
+{
+  "pulse_changes_transform_only": true,
+  "default_labels": [
+    "TarefaAutomática⌄",
+    "Modo de conversaAutomático ⌄",
+    "ModeloAutomático ⌄"
+  ],
+  "matching_trigger_text": {
+    "task": [
+      "-apple-system, BlinkMacSystemFont, Inter, Vazirmatn, ui-sans-serif, system-ui, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Helvetica Neue\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "13px",
+      "600",
+      "18px",
+      "rgb(244, 250, 255)"
+    ],
+    "mode": [
+      "-apple-system, BlinkMacSystemFont, Inter, Vazirmatn, ui-sans-serif, system-ui, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Helvetica Neue\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "13px",
+      "600",
+      "18px",
+      "rgb(244, 250, 255)"
+    ],
+    "automatic": [
+      "-apple-system, BlinkMacSystemFont, Inter, Vazirmatn, ui-sans-serif, system-ui, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Helvetica Neue\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "13px",
+      "600",
+      "18px",
+      "rgb(244, 250, 255)"
+    ],
+    "heights": [
+      54,
+      54,
+      54
+    ]
+  },
+  "task_menu_wide": {
+    "panelHeight": 345,
+    "listHeight": 288,
+    "scrollHeight": 444,
+    "scrollTop": 0,
+    "chosenVisible": true,
+    "rowHeights": [
+      66.6875,
+      51.84375,
+      51.84375,
+      51.84375,
+      66.6875,
+      51.84375,
+      51.84375,
+      51.84375
+    ],
+    "overflowX": false
+  },
+  "last_task_visible": true,
+  "model_menu_wide": {
+    "panelHeight": 402,
+    "listHeight": 169.5,
+    "scrollHeight": 33229,
+    "scrollTop": 0,
+    "chosenVisible": true,
+    "rowHeights": [
+      51.84375,
+      51.84375,
+      51.84375,
+      51.84375,
+      51.84375,
+      51.84375,
+      51.84375,
+      51.84375
+    ],
+    "overflowX": false
+  },
+  "last_model_visible": true,
+  "task_menu_narrow": {
+    "panelHeight": 345,
+    "listHeight": 288,
+    "scrollHeight": 444,
+    "scrollTop": 0,
+    "chosenVisible": true,
+    "rowHeights": [
+      66.6875,
+      51.84375,
+      51.84375,
+      51.84375,
+      66.6875,
+      51.84375,
+      51.84375,
+      51.84375
+    ],
+    "overflowX": false
+  },
+  "menu_height_stable": true,
+  "repeated_open_1_stable": true,
+  "repeated_open_2_stable": true,
+  "repeated_open_3_stable": true,
+  "normal_resume_preserves_size": true,
+  "resume_layout_stable": true,
+  "no_horizontal_overflow": true,
+  "page_background": "#080d17",
+  "details_initial_state": "true",
+  "details_after_reload": "false",
+  "details_persistence_and_restore": true
+}

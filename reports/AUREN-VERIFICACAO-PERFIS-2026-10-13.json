@@ -1,0 +1,100 @@
+{
+  "pulse_changes_transform_only": true,
+  "default_labels": [
+    "TarefaAutomática⌄",
+    "Perfil da tarefaAutomático ⌄",
+    "ModeloAutomático ⌄"
+  ],
+  "matching_trigger_text": {
+    "task": [
+      "-apple-system, BlinkMacSystemFont, Inter, Vazirmatn, ui-sans-serif, system-ui, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Helvetica Neue\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "13px",
+      "600",
+      "18px",
+      "rgb(244, 250, 255)"
+    ],
+    "mode": [
+      "-apple-system, BlinkMacSystemFont, Inter, Vazirmatn, ui-sans-serif, system-ui, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Helvetica Neue\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "13px",
+      "600",
+      "18px",
+      "rgb(244, 250, 255)"
+    ],
+    "automatic": [
+      "-apple-system, BlinkMacSystemFont, Inter, Vazirmatn, ui-sans-serif, system-ui, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Helvetica Neue\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "13px",
+      "600",
+      "18px",
+      "rgb(244, 250, 255)"
+    ],
+    "heights": [
+      54,
+      54,
+      54
+    ]
+  },
+  "equal_automatic_widths": [
+    176,
+    176,
+    176
+  ],
+  "automatic_profiles": [
+    "Automático"
+  ],
+  "task_profiles": {
+    "Conversar": [
+      "Éter",
+      "Ímpeto",
+      "Insight",
+      "Arquiteto"
+    ],
+    "Gerar imagens": [
+      "Centelha",
+      "Aurora",
+      "Prisma"
+    ],
+    "Analisar documentos": [
+      "Prisma",
+      "Lente",
+      "Atlas",
+      "Cartógrafo"
+    ],
+    "Gerar código": [
+      "Oficina",
+      "Faísca",
+      "Nexo",
+      "Forja"
+    ],
+    "Pesquisa aprofundada": [
+      "Trama",
+      "Radar",
+      "Horizonte",
+      "Observatório"
+    ],
+    "Gerar voz": [
+      "Vox"
+    ],
+    "Transcrever áudio": [
+      "Escuta",
+      "Lusofonia",
+      "Echo"
+    ]
+  },
+  "transcribe_Escuta_cohere_visible": false,
+  "transcribe_Echo_cohere_visible": true,
+  "manual_model": {
+    "caption": "Modelo",
+    "name": "Tiny Aya Water",
+    "width": 196,
+    "align": "left",
+    "textX": 463
+  },
+  "matching_model_alignment": true,
+  "narrow_widths": [
+    153.328125,
+    153.328125,
+    153.328125
+  ],
+  "no_horizontal_overflow": true,
+  "page_background": "#080d17"
+}

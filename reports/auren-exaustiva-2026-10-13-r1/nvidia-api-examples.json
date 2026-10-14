@@ -1,0 +1,854 @@
+{
+  "models": [
+    {
+      "card_slug": "nvidia/body-pose",
+      "source": "https://build.nvidia.com/nvidia/body-pose/api",
+      "at": "2026-10-14T10:20:16.090339+00:00",
+      "http_status": 200,
+      "examples": [
+        "git",
+        "Python 3.10+",
+        "git clone https://github.com/NVIDIA-Maxine/nim-clients.git\ncd nim-clients/body-pose\n",
+        "python3 -m pip install -r requirements.txt\n",
+        "cd scripts\n",
+        "python body_pose.py --preview-mode \\\n--target grpc.nvcf.nvidia.com:443 \\\n--function-id 254b3621-bb66-4b7b-9c89-621c352b4d91 \\\n--api-key $NVIDIA_API_KEY \\\n--video-input <input_file_path> \\\n--output <output_file_path>\n"
+      ],
+      "text_sha256": "55582aea09b0a6d70c51917e6ae8aa6f546cbc44b869c3517b3a6aa6d8f106a8",
+      "function_ids": [
+        "254b3621-bb66-4b7b-9c89-621c352b4d91"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ],
+      "prior_quoted_only_function_ids": []
+    },
+    {
+      "card_slug": "nvidia/parakeet-tdt-0_6b",
+      "source": "https://build.nvidia.com/nvidia/parakeet-tdt-0_6b/api",
+      "at": "2026-10-14T10:20:26.224561+00:00",
+      "http_status": 200,
+      "examples": [
+        "<path_to_audio_file>",
+        "en-GB",
+        "de-DE",
+        "fr-FR",
+        "es-ES",
+        "curl -s https://2b940e91-a70e-4483-a958-d50408b96589.invocation.api.nvcf.nvidia.com/v1/audio/transcriptions \\\n     -H \"Authorization: Bearer $NVIDIA_API_KEY\" \\\n     -F language=en-GB \\\n     -F file=\"@<path_to_audio_file>\"\n",
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "--language-code",
+        "en-GB",
+        "de-DE",
+        "fr-FR",
+        "es-ES",
+        "python python-clients/scripts/asr/transcribe_file_offline.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"2b940e91-a70e-4483-a958-d50408b96589\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en-GB \\\n    --word-time-offsets --automatic-punctuation \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "17ce17eebe6f0ddb7274c804e896f80f2899807db9b2f0002a6bf6c7e5bf86e0",
+      "function_ids": [
+        "2b940e91-a70e-4483-a958-d50408b96589"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "wan-ai/wan2.2-animate-2-14b",
+      "source": "https://build.nvidia.com/wan-ai/wan2.2-animate-2-14b/api",
+      "at": "2026-10-14T10:20:36.262095+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "071bea141b0f11fe71db249e8b1e99c776091207871a6fb8447ecf18f6e2fb5f",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ]
+    },
+    {
+      "card_slug": "nvidia/vsr",
+      "source": "https://build.nvidia.com/nvidia/vsr/api",
+      "at": "2026-10-14T10:20:46.163754+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/qwen-image-edit-nvpcb-ovsl2sl",
+      "source": "https://build.nvidia.com/nvidia/qwen-image-edit-nvpcb-ovsl2sl/api",
+      "at": "2026-10-14T10:20:57.950455+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "91845f330a75c15eb0627f413b7ade899f030d0c4b9aed1a73f747e7b42f9aee",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ]
+    },
+    {
+      "card_slug": "nvidia/nemotron-ocr-v2",
+      "source": "https://build.nvidia.com/nvidia/nemotron-ocr-v2/api",
+      "at": "2026-10-14T10:21:08.904636+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "resembleai/chatterbox-multilingual-tts",
+      "source": "https://build.nvidia.com/resembleai/chatterbox-multilingual-tts/api",
+      "at": "2026-10-14T10:21:20.936064+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/tts/talk.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"ddacc747-1269-4fab-bfd9-8f593dead106\"  \\\n    --metadata authorization \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en-US \\\n    --text \"this audio is generated from nvidia's text to speech model\" \\\n    --voice \"Chatterbox-Multilingual.en-US.Male\" \\\n    --output audio.wav\n",
+        "python python-clients/scripts/tts/talk.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"ddacc747-1269-4fab-bfd9-8f593dead106\"  \\\n    --metadata authorization \"Bearer $NVIDIA_API_KEY\" \\\n    --list-voices\n"
+      ],
+      "text_sha256": "c2a00b5603f502fa5cebf10036dafe427a3b2474233f643c5131ba047fba51b9",
+      "function_ids": [
+        "ddacc747-1269-4fab-bfd9-8f593dead106"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/cosmos3-nano",
+      "source": "https://build.nvidia.com/nvidia/cosmos3-nano/api",
+      "at": "2026-10-14T10:21:30.823502+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/cosmos3-nano-reasoner",
+      "source": "https://build.nvidia.com/nvidia/cosmos3-nano-reasoner/api",
+      "at": "2026-10-14T10:21:42.668314+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "qwen/qwen-image",
+      "source": "https://build.nvidia.com/qwen/qwen-image/api",
+      "at": "2026-10-14T10:21:52.521442+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "a8e9b5b564acfb29cd9b48340b1e90b825a4de61327098b326e31fb5bd68fe3d",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ]
+    },
+    {
+      "card_slug": "qwen/qwen-image-edit",
+      "source": "https://build.nvidia.com/qwen/qwen-image-edit/api",
+      "at": "2026-10-14T10:22:02.324438+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "bc8c58c339e24a56e33e9449e3750ca803d143189786a8754251e549f33f7459",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ]
+    },
+    {
+      "card_slug": "nvidia/relighting",
+      "source": "https://build.nvidia.com/nvidia/relighting/api",
+      "at": "2026-10-14T10:22:12.136761+00:00",
+      "http_status": 200,
+      "examples": [
+        "git",
+        "Python 3.10+",
+        "git clone https://github.com/NVIDIA-Maxine/nim-clients.git\ncd nim-clients/relighting\n",
+        "sudo apt-get install python3-pip\npip install -r requirements.txt\n",
+        "cd scripts\n",
+        "python relighting.py --preview-mode \\\n--target grpc.nvcf.nvidia.com:443 \\\n--function-id 253bc77f-2d6c-4b9d-86c6-c6fb0f9e239c \\\n--api-key $NVIDIA_API_KEY \\\n--video-input <input_file_path> \\\n--output <output_file_path>\n"
+      ],
+      "text_sha256": "2a47baed32b6d6151616eafb8c48ca01833a25f84f6b56647f171633cb575ec2",
+      "function_ids": [
+        "253bc77f-2d6c-4b9d-86c6-c6fb0f9e239c"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ],
+      "prior_quoted_only_function_ids": []
+    },
+    {
+      "card_slug": "nvidia/synthetic-video-detector",
+      "source": "https://build.nvidia.com/nvidia/synthetic-video-detector/api",
+      "at": "2026-10-14T10:22:24.113293+00:00",
+      "http_status": 200,
+      "examples": [
+        "git",
+        "Python 3.10+",
+        "git clone https://github.com/NVIDIA-Maxine/nim-clients.git\ncd nim-clients/synthetic-video-detector/\n",
+        "sudo apt-get install python3-pip\npip install -r requirements.txt\n",
+        "cd scripts\n",
+        "python synthetic-video-detector.py --preview-mode \\\n--target grpc.nvcf.nvidia.com:443 \\\n--function-id 847b6e53-0133-452d-ab85-d7acf3ace723 \\\n--api-key $NVIDIA_API_KEY \\\n--video-input <input file path> \\\n--save-csv\n",
+        "python synthetic-video-detector.py --preview-mode \\\n--target grpc.nvcf.nvidia.com:443 \\\n--function-id 847b6e53-0133-452d-ab85-d7acf3ace723 \\\n--api-key $NVIDIA_API_KEY \\\n--video-input ../assets/fake_sample_video.mp4 \\\n--save-csv\n"
+      ],
+      "text_sha256": "e0a50583203ffa4f94ee2f5f4b72db3068ceb3cc83f8cc3b481661006dc51d23",
+      "function_ids": [
+        "847b6e53-0133-452d-ab85-d7acf3ace723"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ],
+      "prior_quoted_only_function_ids": []
+    },
+    {
+      "card_slug": "nvidia/active-speaker-detection",
+      "source": "https://build.nvidia.com/nvidia/active-speaker-detection/api",
+      "at": "2026-10-14T10:22:35.191613+00:00",
+      "http_status": 200,
+      "examples": [
+        "git",
+        "Python 3.10+",
+        "git clone https://github.com/NVIDIA-Maxine/nim-clients.git\ncd nim-clients/active-speaker-detection/\n",
+        "sudo apt-get install python3-pip\npip install -r requirements.txt\n",
+        "cd scripts\n",
+        "python active_speaker_detection.py --preview-mode \\\n--target grpc.nvcf.nvidia.com:443 \\\n--function-id f286f937-05c4-454b-8312-fba67a2a6fa7 \\\n--api-key $NVIDIA_API_KEY \\\n--video-input <input videofile path> \\\n--audio-input <input audio file path> \\\n--diarization-input <input diarization file path> \\\n--output <output file path>\n",
+        "python active_speaker_detection.py --preview-mode \\\n--target grpc.nvcf.nvidia.com:443 \\\n--function-id f286f937-05c4-454b-8312-fba67a2a6fa7 \\\n--api-key $NVIDIA_API_KEY \\\n--video-input ../assets/sample_video_streamable.mp4 \\\n--audio-input ../assets/sample_audio.wav \\\n--diarization-input ../assets/sample_diarization.json \\\n--output out.mp4\n"
+      ],
+      "text_sha256": "607beadbbad33f92daeeac1724764aa54d869b6857a1d189201794b509322bf5",
+      "function_ids": [
+        "f286f937-05c4-454b-8312-fba67a2a6fa7"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ],
+      "prior_quoted_only_function_ids": []
+    },
+    {
+      "card_slug": "nvidia/lipsync",
+      "source": "https://build.nvidia.com/nvidia/lipsync/api",
+      "at": "2026-10-14T10:22:46.193835+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/ising-calibration-1-35b-a3b",
+      "source": "https://build.nvidia.com/nvidia/ising-calibration-1-35b-a3b/api",
+      "at": "2026-10-14T10:22:56.154008+00:00",
+      "http_status": 200,
+      "examples": [
+        "import requests, base64\n\ninvoke_url = \"https://integrate.api.nvidia.com/v1/chat/completions\"\nstream = False\n\ndef read_b64(path):\n  with open(path, \"rb\") as f:\n    return base64.b64encode(f.read()).decode()\n\nheaders = {\n  \"Authorization\": \"Bearer $NVIDIA_API_KEY\",\n  \"Accept\": \"text/event-stream\" if stream else \"application/json\"\n}\n\npayload = {\n  \"model\": \"nvidia/ising-calibration-1.5-31b\",\n  \"messages\": [{\"role\":\"user\",\"content\":[{\"type\":\"image_url\",\"image_url\":{\"url\":\"https://assets.ngc.nvidia.com/products/api-catalog/ising-calibration-1-35b-a3b/resonator_spectroscopy.png\"}},{\"type\":\"text\",\"text\":\"I just ran a resonator spectroscopy measurement on my superconducting qubit chip. This plot shows the magnitude response as a function of probe frequency across a wide scan range.\\n\\nCan you tell me:\\n1. How many resonator dips are visible, and at what frequencies?\\n2. Is the signal quality good enough to extract reliable resonator frequencies?\\n3. What is the overall calibration status — can we proceed with qubit readout setup?\"}]}],\n  \"max_tokens\": 32768,\n  \"temperature\": 1.00,\n  \"top_p\": 0.95,\n  \"stream\": stream,\n  \n}\nresponse = requests.post(invoke_url, headers=headers, json=payload, stream=stream)\nif stream:\n    for line in response.iter_lines():\n        if line:\n            print(line.decode(\"utf-8\"))\nelse:\n    print(response.json())"
+      ],
+      "text_sha256": "c89544a0be9653a78a428c43f279fbe7382bccb63316d9629ec9a22a763c2e98",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://docs.api.nvidia.com/nim/reference/nvidia-ising-calibration-1-5-31b"
+      ]
+    },
+    {
+      "card_slug": "nvidia/nemotron-voicechat",
+      "source": "https://build.nvidia.com/nvidia/nemotron-voicechat/api",
+      "at": "2026-10-14T10:23:16.020434+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/nemotron-asr-streaming",
+      "source": "https://build.nvidia.com/nvidia/nemotron-asr-streaming/api",
+      "at": "2026-10-14T10:23:26.825786+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"bb0837de-8c7b-481f-9ec8-ef5663e9c1fa\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "b30a8313351220457f0e5e5d2aa778a8547caa547d66a88b21fb1c25e73f3686",
+      "function_ids": [
+        "bb0837de-8c7b-481f-9ec8-ef5663e9c1fa"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/nemotron-ocr-v1",
+      "source": "https://build.nvidia.com/nvidia/nemotron-ocr-v1/api",
+      "at": "2026-10-14T10:23:37.051383+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/nemotron-table-structure-v1",
+      "source": "https://build.nvidia.com/nvidia/nemotron-table-structure-v1/api",
+      "at": "2026-10-14T10:23:46.865607+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/nemotron-page-elements-v3",
+      "source": "https://build.nvidia.com/nvidia/nemotron-page-elements-v3/api",
+      "at": "2026-10-14T10:23:56.726433+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/nemotron-graphic-elements-v1",
+      "source": "https://build.nvidia.com/nvidia/nemotron-graphic-elements-v1/api",
+      "at": "2026-10-14T10:24:06.696607+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/cosmos-transfer2_5-2b",
+      "source": "https://build.nvidia.com/nvidia/cosmos-transfer2_5-2b/api",
+      "at": "2026-10-14T10:24:16.548172+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "arc/evo2-40b-forward",
+      "source": "https://build.nvidia.com/arc/evo2-40b-forward/api",
+      "at": "2026-10-14T10:24:28.355874+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "216f01076d67294e55abeb19a2937c0e234caea7fc4fd39b9c7a89fc45c7ab11",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ]
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-zh-tw",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-zh-tw/api",
+      "at": "2026-10-14T10:24:39.161276+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"8473f56d-51ef-473c-bb26-efd4f5def2bf\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code zh-TW \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "8227ecdc2f1104ecfed9e3216b9d8b2e99e99f9ae180f1da836fef224941295b",
+      "function_ids": [
+        "8473f56d-51ef-473c-bb26-efd4f5def2bf"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-zh-cn",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-zh-cn/api",
+      "at": "2026-10-14T10:24:49.045440+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"9add5ef7-322e-47e0-ad7a-5653fb8d259b\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code zh-CN \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "51f572cdbb202d92d378ccda125dced445746950b9f4b0ba676bc97343712403",
+      "function_ids": [
+        "9add5ef7-322e-47e0-ad7a-5653fb8d259b"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-es",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-es/api",
+      "at": "2026-10-14T10:25:01.152101+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"a9eeee8f-b509-4712-b19d-194361fa5f31\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code es-US \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "eb452d14b740a5428542bc5350c2998a5d11bbc44c5cd3996d8f41e8d246d068",
+      "function_ids": [
+        "a9eeee8f-b509-4712-b19d-194361fa5f31"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-vi",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-vi/api",
+      "at": "2026-10-14T10:25:12.018967+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"f3dff2bb-99f9-403d-a5f1-f574a757deb0\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code vi-VN \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "8414310e996885fa6f576036534640f29315fa6d311084753d740232b23d2892",
+      "function_ids": [
+        "f3dff2bb-99f9-403d-a5f1-f574a757deb0"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "stabilityai/stable-diffusion-3_5-large",
+      "source": "https://build.nvidia.com/stabilityai/stable-diffusion-3_5-large/api",
+      "at": "2026-10-14T10:25:23.918439+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "85b39aa49b2412836d462776ac991ddcf35eb9f671aaa5ce6c97404eae6499f3",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ]
+    },
+    {
+      "card_slug": "nvidia/parakeet-tdt-0_6b-v2",
+      "source": "https://build.nvidia.com/nvidia/parakeet-tdt-0_6b-v2/api",
+      "at": "2026-10-14T10:25:34.761942+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file_offline.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"d3fe9151-442b-4204-a70d-5fcc597fd610\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en-US \\\n    --word-time-offsets --automatic-punctuation \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "216582c3546b2e24852aa869cdb0ee3e27c6777e348bfacbcd09ea1ac98b4ff4",
+      "function_ids": [
+        "d3fe9151-442b-4204-a70d-5fcc597fd610"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/nemoretriever-ocr",
+      "source": "https://build.nvidia.com/nvidia/nemoretriever-ocr/api",
+      "at": "2026-10-14T10:25:46.923568+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/riva-translate-1_6b",
+      "source": "https://build.nvidia.com/nvidia/riva-translate-1_6b/api",
+      "at": "2026-10-14T10:25:56.722693+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/nmt/nmt.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"0778f2eb-b64d-45e7-acae-7dd9b9b35b4d\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --text \"This is an example text for Riva text translation\" \\\n    --source-language-code en \\\n    --target-language-code de\n",
+        "python python-clients/scripts/nmt/nmt.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"0778f2eb-b64d-45e7-acae-7dd9b9b35b4d\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --list-models\n"
+      ],
+      "text_sha256": "2f67b32ceb15f29e6e48a523f5874b4206955b1368fed00ec4ce4a20753b4326",
+      "function_ids": [
+        "0778f2eb-b64d-45e7-acae-7dd9b9b35b4d"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/bnr",
+      "source": "https://build.nvidia.com/nvidia/bnr/api",
+      "at": "2026-10-14T10:26:06.786182+00:00",
+      "http_status": 200,
+      "examples": [
+        "git",
+        "Python 3.10+",
+        "git clone https://github.com/NVIDIA-Maxine/nim-clients.git\ncd nim-clients/bnr\n",
+        "sudo apt-get install python3-pip\npip install -r requirements.txt\n",
+        "cd scripts\n",
+        "python bnr.py --preview-mode \\\n    --ssl-mode TLS \\\n    --target grpc.nvcf.nvidia.com:443 \\\n    --function-id c95bfe76-c553-4975-bc18-8ef9d6e2666b \\\n    --api-key $NVIDIA_API_KEY \\\n    --input <input_file_path> \\\n    --output <output_file_path> \\\n    --streaming False\n",
+        "--preview-mode",
+        "--ssl-mode",
+        "--target <ip:port>",
+        "127.0.0.1:8001",
+        "--api-key $NVIDIA_API_KEY",
+        "TRY API",
+        "--function-id <function_id>",
+        "--input <input_file_path>",
+        "../assets/bnr_48k_input.wav",
+        "--output <output_file_path>",
+        "./bnr_48k_output.wav",
+        "--streaming",
+        "--intensity-ratio"
+      ],
+      "text_sha256": "ed7a2c8604cc75f4451570e5236299fc405da6dea230bb79776e2514c9934830",
+      "function_ids": [
+        "c95bfe76-c553-4975-bc18-8ef9d6e2666b"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ],
+      "prior_quoted_only_function_ids": []
+    },
+    {
+      "card_slug": "mit/boltz2",
+      "source": "https://build.nvidia.com/mit/boltz2/api",
+      "at": "2026-10-14T10:26:16.747406+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/magpie-tts-zeroshot",
+      "source": "https://build.nvidia.com/nvidia/magpie-tts-zeroshot/api",
+      "at": "2026-10-14T10:26:27.595177+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/parakeet-1_1b-rnnt-multilingual-asr",
+      "source": "https://build.nvidia.com/nvidia/parakeet-1_1b-rnnt-multilingual-asr/api",
+      "at": "2026-10-14T10:26:38.473943+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"71203149-d3b7-4460-8231-1be2543a1fca\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "1c9400af1bf87d4cdd1fc57da44dee005fda342bc8889cdd8dcdb56420e13359",
+      "function_ids": [
+        "71203149-d3b7-4460-8231-1be2543a1fca"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/magpie-tts-multilingual",
+      "source": "https://build.nvidia.com/nvidia/magpie-tts-multilingual/api",
+      "at": "2026-10-14T10:26:49.374114+00:00",
+      "http_status": 200,
+      "examples": [
+        "curl -s https://877104f7-e885-42b9-8de8-f6e4c6303969.invocation.api.nvcf.nvidia.com/v1/audio/list_voices \\\n     -H \"Authorization: Bearer $NVIDIA_API_KEY\"\n",
+        "text",
+        "language",
+        "voice",
+        "curl -s -X POST https://877104f7-e885-42b9-8de8-f6e4c6303969.invocation.api.nvcf.nvidia.com/v1/audio/synthesize \\\n     -H \"Authorization: Bearer $NVIDIA_API_KEY\" \\\n     -F \"text=this audio is generated from nvidias text to speech model\" \\\n     -F \"language=en-US\" \\\n     -F \"voice=Magpie-Multilingual.EN-US.Aria\" \\\n     -F \"encoding=LINEAR_PCM\" \\\n     -F \"sample_rate_hz=44100\" \\\n     --output audio.wav\n",
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/tts/talk.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"877104f7-e885-42b9-8de8-f6e4c6303969\"  \\\n    --metadata authorization \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en-US \\\n    --text \"this audio is generated from nvidia's text to speech model\" \\\n    --voice \"Magpie-Multilingual.EN-US.Aria\" \\\n    --output audio.wav\n",
+        "python python-clients/scripts/tts/talk.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"877104f7-e885-42b9-8de8-f6e4c6303969\"  \\\n    --metadata authorization \"Bearer $NVIDIA_API_KEY\" \\\n    --list-voices\n"
+      ],
+      "text_sha256": "21fe94989a37913d3368207cf7741ef0fffae39ea82eb7a37f81b9a961d0f208",
+      "function_ids": [
+        "877104f7-e885-42b9-8de8-f6e4c6303969"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "openai/whisper-large-v3",
+      "source": "https://build.nvidia.com/openai/whisper-large-v3/api",
+      "at": "2026-10-14T10:27:01.320935+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "--language-code",
+        "multi",
+        "python python-clients/scripts/asr/transcribe_file_offline.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"b702f636-f60c-4a3d-a6f4-f3568c13bd7d\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en \\\n    --input-file <path_to_audio_file>\n",
+        "python python-clients/scripts/asr/transcribe_file_offline.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"b702f636-f60c-4a3d-a6f4-f3568c13bd7d\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code fr \\\n    --custom-configuration \"task:translate\" \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "ff00cd98e722df91bc3cba0a4ba5967115607f2c18d87625a6031521ae3a8472",
+      "function_ids": [
+        "b702f636-f60c-4a3d-a6f4-f3568c13bd7d"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/canary-1b-asr",
+      "source": "https://build.nvidia.com/nvidia/canary-1b-asr/api",
+      "at": "2026-10-14T10:27:11.186445+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "source_language",
+        "python python-clients/scripts/asr/transcribe_file_offline.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"b0e8b4a5-217c-40b7-9b96-17d84e666317\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en-US \\\n    --input-file <path_to_audio_file>\n",
+        "python python-clients/scripts/asr/transcribe_file_offline.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"b0e8b4a5-217c-40b7-9b96-17d84e666317\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en-US \\\n    --custom-configuration \"target_language:hi-IN,task:translate\" \\\n    --input-file <path_to_audio_file>\n",
+        "--language-code",
+        "target_language"
+      ],
+      "text_sha256": "d0c2b0a49c434b27778c94e9b656655146360a9f6bc62226dcba6d12c80620c5",
+      "function_ids": [
+        "b0e8b4a5-217c-40b7-9b96-17d84e666317"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/genmol-generate",
+      "source": "https://build.nvidia.com/nvidia/genmol-generate/api",
+      "at": "2026-10-14T10:27:22.045380+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "baidu/paddleocr",
+      "source": "https://build.nvidia.com/baidu/paddleocr/api",
+      "at": "2026-10-14T10:27:33.898569+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/conformer-ctc-asr",
+      "source": "https://build.nvidia.com/nvidia/conformer-ctc-asr/api",
+      "at": "2026-10-14T10:27:44.709194+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"50124cf2-fb60-4a8c-9d25-d85b85199526\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code es-US \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "4643f1e6dd6e14733f326e5662ebbeb965a6fb65ff2bb69b9a13268f6204750f",
+      "function_ids": [
+        "50124cf2-fb60-4a8c-9d25-d85b85199526"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/studiovoice",
+      "source": "https://build.nvidia.com/nvidia/studiovoice/api",
+      "at": "2026-10-14T10:27:54.653600+00:00",
+      "http_status": 200,
+      "examples": [
+        "git",
+        "Python 3.10+",
+        "git clone https://github.com/NVIDIA-Maxine/nim-clients.git\ncd nim-clients/studio-voice\n",
+        "sudo apt-get install python3-pip\npip install -r requirements.txt\n",
+        "cd scripts\n",
+        "python studio_voice.py --preview-mode \\\n    --ssl-mode TLS \\\n    --target grpc.nvcf.nvidia.com:443 \\\n    --function-id 3f0aeba3-6d91-4465-b8cc-cc2aef355186 \\\n    --api-key $NVIDIA_API_KEY \\\n    --input <input_file_path> \\\n    --output <output_file_path>\n",
+        "--preview-mode",
+        "--ssl-mode",
+        "--target <ip:port>",
+        "127.0.0.1:8001",
+        "--api-key $NVIDIA_API_KEY",
+        "TRY API",
+        "--function-id <function_id>",
+        "--input <input_file_path>",
+        "../assets/studio_voice_48k_input.wav",
+        "--output <output_file_path>",
+        "./studio_voice_48k_output.wav",
+        "--streaming"
+      ],
+      "text_sha256": "da20dd726e96e02f7d7ba8df2cc6caa1dc21acdb3efe7f97a1f4f8544f5680ab",
+      "function_ids": [
+        "3f0aeba3-6d91-4465-b8cc-cc2aef355186"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ],
+      "prior_quoted_only_function_ids": []
+    },
+    {
+      "card_slug": "nvidia/megatron-1b-nmt",
+      "source": "https://build.nvidia.com/nvidia/megatron-1b-nmt/api",
+      "at": "2026-10-14T10:28:04.545256+00:00",
+      "http_status": 200,
+      "examples": [
+        "",
+        "रीवा अनुवाद स्रोत भाषा से लक्ष्य भाषा में पाठ का अनुवाद करने के लिए मेगेट्रॉन मॉडल का उपयोग करता है।"
+      ],
+      "text_sha256": "ab9e7f2a3ac6233aa3429bd69088ca2920fc44fe972c61aec2c2849f5dc8b622",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ]
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-1_1b-asr",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-1_1b-asr/api",
+      "at": "2026-10-14T10:28:24.657993+00:00",
+      "http_status": 200,
+      "examples": [
+        "<path_to_audio_file>",
+        "curl -s https://1598d209-5e27-4d3c-8079-4751568b1081.invocation.api.nvcf.nvidia.com/v1/audio/transcriptions \\\n     -H \"Authorization: Bearer $NVIDIA_API_KEY\" \\\n     -F language=en-US \\\n     -F word_time_offsets=True \\\n     -F file=\"@<path_to_audio_file>\"\n",
+        "pip install -U nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"1598d209-5e27-4d3c-8079-4751568b1081\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en-US \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "a1a73467723a79d67bb81baf0e7782520de75b4ee83ae06a554432563c2d20bd",
+      "function_ids": [
+        "1598d209-5e27-4d3c-8079-4751568b1081"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-asr",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-asr/api",
+      "at": "2026-10-14T10:28:35.473462+00:00",
+      "http_status": 200,
+      "examples": [
+        "pip install nvidia-riva-client\n",
+        "git clone https://github.com/nvidia-riva/python-clients.git\n",
+        "python python-clients/scripts/asr/transcribe_file.py \\\n    --server grpc.nvcf.nvidia.com:443 --use-ssl \\\n    --metadata function-id \"d8dd4e9b-fbf5-4fb0-9dba-8cf436c8d965\" \\\n    --metadata \"authorization\" \"Bearer $NVIDIA_API_KEY\" \\\n    --language-code en-US \\\n    --input-file <path_to_audio_file>\n"
+      ],
+      "text_sha256": "53d373e5038b588228477c61fa21282e8b9a7c5f5c39b23c09c51ea464bc8e89",
+      "function_ids": [
+        "d8dd4e9b-fbf5-4fb0-9dba-8cf436c8d965"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/",
+        "https://github.com/nvidia-riva/common/archive/refs/heads/main.zip",
+        "https://github.com/nvidia-riva/cpp-clients",
+        "https://github.com/nvidia-riva/python-clients"
+      ]
+    },
+    {
+      "card_slug": "nvidia/eyecontact",
+      "source": "https://build.nvidia.com/nvidia/eyecontact/api",
+      "at": "2026-10-14T10:28:46.496990+00:00",
+      "http_status": 200,
+      "examples": [
+        "git",
+        "Python 3.10+",
+        "git clone https://github.com/NVIDIA-Maxine/nim-clients.git\ncd nim-clients/eye-contact/\n",
+        "sudo apt-get install python3-pip\npip install -r requirements.txt\n",
+        "cd scripts\n",
+        "python eye-contact.py --preview-mode \\\n--target grpc.nvcf.nvidia.com:443 \\\n--function-id 480bffcb-6fea-4571-9741-eb50212c9c0f \\\n--api-key $NVIDIA_API_KEY \\\n--input <input file path> \\\n--output <output file path and the file name>\n",
+        "python eye-contact.py --preview-mode \\\n--target grpc.nvcf.nvidia.com:443 \\\n--function-id 480bffcb-6fea-4571-9741-eb50212c9c0f \\\n--api-key $NVIDIA_API_KEY \\\n--input ../assets/sample_transactional.mp4 \\\n--output ../assets/output.mp4\n"
+      ],
+      "text_sha256": "a3b996c256221e1ca48821fe89b9e6e3f8e4e9df6101956456b6a0861d43bbcb",
+      "function_ids": [
+        "480bffcb-6fea-4571-9741-eb50212c9c0f"
+      ],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ],
+      "prior_quoted_only_function_ids": []
+    },
+    {
+      "card_slug": "google/google-paligemma",
+      "source": "https://build.nvidia.com/google/google-paligemma/api",
+      "at": "2026-10-14T10:28:58.307507+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "cd9d6c345b11b6d4b3dac0c55fa8ff178f46615b8133937afef30ce7df23f5e6",
+      "function_ids": [],
+      "reference_links": [
+        "https://docs.api.nvidia.com/"
+      ]
+    },
+    {
+      "card_slug": "nvidia/molmim-generate",
+      "source": "https://build.nvidia.com/nvidia/molmim-generate/api",
+      "at": "2026-10-14T10:29:09.164354+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "mit/diffdock",
+      "source": "https://build.nvidia.com/mit/diffdock/api",
+      "at": "2026-10-14T10:29:20.953546+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    },
+    {
+      "card_slug": "nvidia/nvidia-cuopt",
+      "source": "https://build.nvidia.com/nvidia/nvidia-cuopt/api",
+      "at": "2026-10-14T10:29:30.740194+00:00",
+      "http_status": 200,
+      "examples": [],
+      "text_sha256": "6e387b5086848057bfac6fe69ca73e513f6deadaa39e86cd21ad8a44ea4436f6",
+      "function_ids": [],
+      "reference_links": []
+    }
+  ]
+}

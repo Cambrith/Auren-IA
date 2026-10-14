@@ -15,14 +15,55 @@ class Tasks(unittest.TestCase):
         self.assertEqual(automatic_context('Pesquise rapidamente','research')[0],'insight')
         self.assertEqual(automatic_context('Explique "resposta curta"','chat')[0],'ether')
 
-    def test_automatic_image_profile_respects_manual_choice(self):
+    def test_automatic_task_ignores_historical_manual_image_profile(self):
         from integration.lunvri_bridge import prepare_job
         model={'id':'cavren:auto','cavren':{'price_kind':'free','provider':'aihorde','capabilities':{'image_generation':True}}}
         body={'model':model['id'],'auren_task':'auto','auren_mode_manual':False,'auren_image_profile':'balanced','auren_image_profile_manual':False,'messages':[{'role':'user','content':'Crie uma imagem detalhada de uma esfera'}]}
         with patch('integration.lunvri_bridge.catalog',return_value=[model]):
             self.assertEqual(prepare_job(body,'test')['auren_image_profile'],'detailed')
             body.update(auren_image_profile_manual=True,auren_image_profile='rapid')
+            self.assertEqual(prepare_job(body,'test')['auren_image_profile'],'detailed')
+            body['auren_task']='image'
             self.assertEqual(prepare_job(body,'test')['auren_image_profile'],'rapid')
+
+    def test_cohere_detection_is_rejected_locally_before_http(self):
+        from types import SimpleNamespace
+        from integration import auren_transcribe
+        job={'generation_id':'synthetic','mode_id':'ether','mode_options':{'manual_route':'cohere:cohere-transcribe-03-2026'},'messages':[{'role':'user','content':[{'type':'input_audio','input_audio':{'format':'wav','data':'aW1n'}}]}],'auren_transcribe_language':'auto'}
+        with patch('integration.auren_validation.verified',return_value=True),patch.object(auren_transcribe,'connection_settings',return_value=SimpleNamespace(providers={'cohere':SimpleNamespace(api_key='synthetic')})),patch('httpx.Client') as client:
+            with self.assertRaisesRegex(CavrenError,'idioma explícito'):
+                auren_transcribe.run(job,lambda m:m,output=lambda e:None)
+            client.assert_not_called()
+
+    def test_groq_transcription_uses_audio_transport_and_optional_language(self):
+        import httpx
+        from types import SimpleNamespace
+        from integration import auren_transcribe
+        for model, language in (('whisper-large-v3', 'pt'), ('whisper-large-v3-turbo', 'auto')):
+            seen=[]
+            def response(request):
+                seen.append(request)
+                return httpx.Response(200, json={'text':'Auren está pronta. Bom dia.'})
+            original=httpx.Client
+            job={'generation_id':'synthetic','mode_id':'ether','mode_options':{'manual_route':'groq:'+model},
+                 'messages':[{'role':'user','content':[{'type':'input_audio','input_audio':{'format':'wav','data':'aW1n'}}]}],
+                 'auren_transcribe_language':language}
+            events=[]
+            with patch('integration.auren_validation.verified',return_value=True), patch.object(auren_transcribe,'connection_settings',return_value=SimpleNamespace(providers={'groq':SimpleNamespace(api_key='synthetic')})), patch('httpx.Client',side_effect=lambda **kw:original(transport=httpx.MockTransport(response),**kw)):
+                auren_transcribe.run(job,None,output=events.append)
+            self.assertEqual(str(seen[0].url),'https://api.groq.com/openai/v1/audio/transcriptions')
+            self.assertIn(model.encode(),seen[0].content)
+            self.assertEqual(b'name="language"' in seen[0].content,language!='auto')
+            self.assertTrue(any(e['type']=='generation.completed' for e in events))
+
+    def test_nonchat_profiles_have_task_owned_contexts(self):
+        from integration.auren_profiles import DEFINITIONS
+        for task in ('code','documents','research'):
+            for profile in DEFINITIONS[task]['profiles']:
+                content=specialize([{'role':'user','content':'synthetic'}],profile['id'],task)[0]['content']
+                self.assertIn(profile['name'],content)
+                if task in ('documents','research'):
+                    self.assertNotIn('Você é Auren no modo Arquiteto',content)
 
     def test_detector_and_ambiguous_fallback(self):
         for text,expected in [('Crie uma imagem de uma esfera','image'),('Escreva uma função Python','code'),

@@ -1,0 +1,15 @@
+{
+  "remote_id": "batch-1791915243-CcGffi6RV5y2YiQbrbnC",
+  "provider": "openrouter",
+  "row": "openrouter:anthropic/claude-opus-5.5:batch::batch",
+  "updated_at": "2026-10-13T18:26:09.032215-03:00",
+  "states": [
+    {
+      "at": "2026-10-13T18:26:09.032182-03:00",
+      "state": "completed"
+    }
+  ],
+  "result": "valid",
+  "cancel_http_status": null,
+  "input_file_id": null
+}

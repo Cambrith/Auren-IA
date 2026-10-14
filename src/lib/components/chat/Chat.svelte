@@ -967,7 +967,7 @@
 			messages: {},
 			currentId: null
 		};
-		params = {};
+		params = $config?.auren?.local ? newAurenChatParams() : {};
 		chatVariables = {};
 		chatFiles = [];
 		files = [];
@@ -2593,7 +2593,9 @@
 					selectedModels = JSON.parse(sessionStorage.selectedModels);
 					sessionStorage.removeItem('selectedModels');
 				} else {
-					if ($settings?.models) {
+					if ($config?.auren?.local) {
+						selectedModels = ['cavren:auto'];
+					} else if ($settings?.models) {
 						// Set from user settings
 						selectedModels = $settings?.models;
 					} else if (defaultModels && defaultModels.length > 0) {
@@ -2650,7 +2652,7 @@
 		};
 
 		chatFiles = [];
-		params = {};
+		params = $config?.auren?.local ? newAurenChatParams() : {};
 		chatVariables = {};
 		taskIds = null;
 		chatTasks = [];
@@ -3685,33 +3687,13 @@
 		}
 		const cavrenModel = $models.find((model) => model.id === selectedModels[0]);
 		const cavrenInfo = (cavrenModel as any)?.cavren;
-		if (cavrenModel?.id.startsWith('cavren:')) {
-			const attachments = [
-				...files,
-				...chatFiles,
-				...createMessagesList(history, history.currentId).flatMap((m) => m.files ?? [])
-			];
-			const caps = cavrenInfo?.capabilities ?? {};
-			const unsupported = attachments.some((file) => {
-				const mime = file.content_type ?? file.file?.meta?.content_type ?? '';
-				return (
-					((file.type === 'image' || mime.startsWith('image/')) && !caps.vision) ||
-					(mime.startsWith('video/') && !caps.video) ||
-					(mime.startsWith('audio/') && !caps.audio)
-				);
-			});
-			if (unsupported) {
-				toast.error(
-					'Este modelo não aceita um dos anexos da conversa. Troque para um modelo compatível no seletor acima. Seus anexos foram mantidos.'
-				);
-				return { status: 'rejected' };
-			}
-		}
+
 
 		if (
 			cavrenModel?.id.startsWith('cavren:') &&
 			cavrenInfo?.price_kind &&
 			cavrenInfo.price_kind !== 'free' &&
+			!hasNativeAurenAttachments([...files, ...chatFiles, ...createMessagesList(history, history.currentId).flatMap((m) => m.files ?? [])]) &&
 			params.cavren_billing_confirmed !== true
 		) {
 			toast.warning(
@@ -3932,6 +3914,7 @@
 
 				if (
 					hasImages &&
+					!model.id.startsWith('cavren:') &&
 					!(model.info?.meta?.capabilities?.vision ?? true) &&
 					!imageGenerationEnabled
 				) {
@@ -4634,9 +4617,10 @@
 		}
 	};
 
-	// Conversation params are the single persisted source for both controls and Plugins.
-	import { changeTask, restoreAurenTask, singleAurenModel, type AurenOptions } from '$lib/utils/aurenTask';
-	$: aurenOptions = {
+	// Conversation params are shared by the selectors and the web-search shortcut.
+	import { hasNativeAurenAttachments } from '$lib/utils/aurenAttachments';
+	import { changeTask, restoreAurenTask, newAurenChatParams, singleAurenModel, normalizeAurenOptions, type AurenOptions } from '$lib/utils/aurenTask';
+	$: aurenOptions = normalizeAurenOptions({
 		task_id: params.auren_task ?? (params.lunvri_image_generation ? 'image' : 'chat'),
 		mode_manual: params.auren_mode_manual ?? Boolean(params.cavren_mode_id),
 		conversation_mode: params.auren_conversation_mode,
@@ -4655,7 +4639,7 @@
 		image_fallback: params.auren_image_fallback !== false,
 		conversation_model: params.auren_conversation_model,
 		image_model: params.auren_image_model
-	};
+	});
 	function setAurenOptions(options: AurenOptions) {
 		params = {
 			...params,

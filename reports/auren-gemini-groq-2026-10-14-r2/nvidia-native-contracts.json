@@ -1,0 +1,2046 @@
+[
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/deepseek-ai-deepseek-v4-flash-infer",
+    "requested_model": "deepseek-ai/deepseek-v4-flash",
+    "checked_at": "2026-10-13T21:33:59.079451+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/deepseek-ai-deepseek-v4-flash-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/deepseek-ai-deepseek-v4-flash-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/deepseek-ai-deepseek-v4-flash-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to deepseek-ai/deepseek-v4-flash\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n≤ 1\nDefaults to 1\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.95\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nmax_tokens\ninteger\n1 to 16384\nDefaults to 16384\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nreasoning_effort\nenum\nDefaults to high\nControls DeepSeek V4 Flash's reasoning mode.\nnone\ndisables thinking,\nhigh\nenables high reasoning mode, and\nmax\nenables maximum reasoning effort. Snippets translate this field into the model's\nchat_template_kwargs\n.\nnone\nhigh\nmax\nAllowed:\nnone\nhigh\nmax\nseed\ninteger\nnull\n0 to 18446744073709552000\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "2ab9b33f86080388aa0b52b733007d3627f0c2735bb2d4d7357077119adb509f",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/deepseek-ai-deepseek-v4-flash-0731-infer",
+    "requested_model": "deepseek-ai/deepseek-v4-flash-0731",
+    "checked_at": "2026-10-13T21:33:59.079756+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/deepseek-ai-deepseek-v4-flash-0731-infer",
+        "http_status": 404,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/deepseek-ai-deepseek-v4-flash-0731-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/deepseek-ai-deepseek-v4-flash-0731-infer",
+        "http_status": 404,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/deepseek-ai-deepseek-v4-flash-0731-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/deepseek-ai-deepseek-v4-pro-infer",
+    "requested_model": "deepseek-ai/deepseek-v4-pro",
+    "checked_at": "2026-10-13T21:33:59.080075+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/deepseek-ai-deepseek-v4-pro-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/deepseek-ai-deepseek-v4-pro-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/deepseek-ai-deepseek-v4-pro-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to deepseek-ai/deepseek-v4-pro\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n≤ 1\nDefaults to 1\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.95\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nmax_tokens\ninteger\n1 to 16384\nDefaults to 8192\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nreasoning_effort\nenum\nDefaults to high\nControls DeepSeek V4 Pro's reasoning mode.\nnone\ndisables thinking,\nhigh\nenables high reasoning mode, and\nmax\nenables maximum reasoning effort. Snippets translate this field into the model's\nchat_template_kwargs\n.\nnone\nhigh\nmax\nAllowed:\nnone\nhigh\nmax\nseed\ninteger\nnull\n0 to 18446744073709552000\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "c0c50939c194a08dfdc1ca77292a65101f6dcb44c69dd80ac20fa8ccd96bf787",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/google-gemma-7b-infer",
+    "requested_model": "google/gemma-7b",
+    "checked_at": "2026-10-13T21:33:59.080386+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/google-gemma-7b-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/google-gemma-7b-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/google-gemma-7b-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nOpenAI ChatCompletionRequest\nmodel\nstring\nDefaults to google/gemma-7b\nmax_tokens\ninteger\n≥ 1\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\ntemperature\nnumber\n0 to 1\nDefaults to 0.3\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n0 to 1\nDefaults to 1\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nseed\nnull\nDefaults to 0\nThe model generates random results. Changing the input seed alone will produce a different response with similar characteristics. It is possible to reproduce results by fixing the input seed (assuming all other hyperparameters are also fixed).\nmessages\nstring | array\nrequired\nA list of messages comprising the conversation so far.\nMessages\nstring | array\n",
+    "text_sha256": "621d7f191c79de4867b4d48f64ddab10022a8d5ce08068b70dc5d24fb8ebce15",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-llama-3_1-8b-infer",
+    "requested_model": "meta/llama-3.1-8b-instruct",
+    "checked_at": "2026-10-13T21:34:00.699960+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_1-8b-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_1-8b-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_1-8b-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to meta/llama-3.1-8b-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.2\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\ntools\narray | null\nTools\narray | null\ntool_choice\nChatCompletionNamedToolChoiceParam | string\nControls which (if any) tool is called by the model.\nTool Choice\nChatCompletionNamedToolChoiceParam | string\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "1fb47f3ba2afeb82f438ea4b6bb54f6523afd340a7b71d85d5c28bfaa724d49c",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-llama-3_1-70b-infer",
+    "requested_model": "meta/llama-3.1-70b-instruct",
+    "checked_at": "2026-10-13T21:34:00.982284+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_1-70b-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_1-70b-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_1-70b-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to meta/llama-3.1-70b-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.2\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\ntools\narray | null\nTools\narray | null\ntool_choice\nChatCompletionNamedToolChoiceParam | string\nControls which (if any) tool is called by the model.\nTool Choice\nChatCompletionNamedToolChoiceParam | string\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "6d379504dec371d5c5c3371d1dada97a00e6cbd8e1d524439ce5212e2ed02ecf",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-1b-instruct-infer",
+    "requested_model": "meta/llama-3.2-1b-instruct",
+    "checked_at": "2026-10-13T21:34:01.171751+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-1b-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-1b-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-1b-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to meta/llama-3.2-1b-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.2\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "f48de9ec8acb9dd53665f7d60e6d8efe306e4a08ac1f08465b763f6ab0ad95e3",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-3b-instruct-infer",
+    "requested_model": "meta/llama-3.2-3b-instruct",
+    "checked_at": "2026-10-13T21:34:01.312403+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-3b-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-3b-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-3b-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to meta/llama-3.2-3b-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.2\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "617aeff29876de8a4bbed26da3045eabaf67bf2977969e06227dd00e2c654f9b",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-llama-3_3-70b-instruct-infer",
+    "requested_model": "meta/llama-3.3-70b-instruct",
+    "checked_at": "2026-10-13T21:34:01.916881+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_3-70b-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_3-70b-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_3-70b-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to meta/llama-3.3-70b-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.2\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\ntools\narray | null\nTools\narray | null\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "c30248ccba5f5ad8ab816ed08c4f3f4551e83cbcc8ed346fc1b52fc7488dae4d",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/microsoft-phi-4-mini-instruct-infer",
+    "requested_model": "microsoft/phi-4-mini-instruct",
+    "checked_at": "2026-10-13T21:34:02.694750+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/microsoft-phi-4-mini-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/microsoft-phi-4-mini-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/microsoft-phi-4-mini-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to microsoft/phi-4-mini-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.1\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\ntools\narray | null\nTools\narray | null\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "cc6f26b4fb4299650cfb91a6281d3c0205af23561989da696976eca1548a7cdd",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/microsoft-phi-4-mini-flash-reasoning-infer",
+    "requested_model": "microsoft/phi-4-mini-flash-reasoning",
+    "checked_at": "2026-10-13T21:34:03.452803+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/microsoft-phi-4-mini-flash-reasoning-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/microsoft-phi-4-mini-flash-reasoning-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/microsoft-phi-4-mini-flash-reasoning-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to microsoft/phi-4-mini-flash-reasoning\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.6\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.95\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 16384\nDefaults to 8192\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "a60f25dbdfff163a304f37ac50e0676dea47f307c235b84ea151cc8ebe264d4d",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/mistralai-mistral-nemotron-infer",
+    "requested_model": "mistralai/mistral-nemotron",
+    "checked_at": "2026-10-13T21:34:03.562911+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/mistralai-mistral-nemotron-infer",
+        "http_status": 404,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/mistralai-mistral-nemotron-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-mistral-nemotron-infer",
+        "http_status": 404,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-mistral-nemotron-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/mistralai-mixtral-8x7b-instruct-infer",
+    "requested_model": "mistralai/mixtral-8x7b-instruct",
+    "checked_at": "2026-10-13T21:34:03.642093+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/mistralai-mixtral-8x7b-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/mistralai-mixtral-8x7b-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/mistralai-mixtral-8x7b-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nOpenAI ChatCompletionRequest\nmodel\nstring\nDefaults to mistralai/mixtral-8x7b-instruct-v0.1\nmax_tokens\ninteger\n≥ 1\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\ntemperature\nnumber\n0 to 1\nDefaults to 0.3\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n0 to 1\nDefaults to 1\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nseed\nnull\nDefaults to 0\nThe model generates random results. Changing the input seed alone will produce a different response with similar characteristics. It is possible to reproduce results by fixing the input seed (assuming all other hyperparameters are also fixed).\nmessages\nstring | array\nrequired\nA list of messages comprising the conversation so far.\nMessages\nstring | array\n",
+    "text_sha256": "2fe6b329fe334635ef98e015d1e5024dcece51712492fbdceb0148cf48ca0270",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/mistralai-mixtral-8x22b-instruct-infer",
+    "requested_model": "mistralai/mixtral-8x22b-instruct",
+    "checked_at": "2026-10-13T21:34:04.283935+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/mistralai-mixtral-8x22b-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/mistralai-mixtral-8x22b-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/mistralai-mixtral-8x22b-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nOpenAI ChatCompletionRequest\nmodel\nstring\nDefaults to mistralai/mixtral-8x22b-instruct-v0.1\nmax_tokens\ninteger\n≥ 1\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\ntemperature\nnumber\n0 to 1\nDefaults to 0.5\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n0 to 1\nDefaults to 1\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nseed\ninteger\nDefaults to 0\nThe model generates random results. Changing the input seed alone will produce a different response with similar characteristics. It is possible to reproduce results by fixing the input seed (assuming all other hyperparameters are also fixed).\nmessages\nstring | array\nrequired\nA list of messages comprising the conversation so far.\nMessages\nstring | array\n",
+    "text_sha256": "94ee2a4a423d2ddbbbc7580720d3ef55c39dcf0ae6e9a5207e641a73540cebdb",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-instruct-infer",
+    "requested_model": "moonshotai/kimi-k2-instruct",
+    "checked_at": "2026-10-13T21:34:05.323366+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to moonshotai/kimi-k2-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.6\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.9\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\ntools\narray | null\nTools\narray | null\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 16384\nDefaults to 4096\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "ca4b41d0cd07d51196c066c814368aad88e54da8e51625f0d2af1c958a633a32",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-thinking-infer",
+    "requested_model": "moonshotai/kimi-k2-thinking",
+    "checked_at": "2026-10-13T21:34:05.455406+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-thinking-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-thinking-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-thinking-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to moonshotai/kimi-k2-thinking\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 1\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.9\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\ntools\narray | null\nTools\narray | null\nmax_tokens\ninteger\n1 to 32768\nDefaults to 16384\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nseed\ninteger\nnull\n0 to 18446744073709552000\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "74ced833c92f6623b3d09abc10c7725dd2396a267bf72c82d692caf0c20fb15c",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-gliner-pii-infer",
+    "requested_model": "nvidia/gliner-pii",
+    "checked_at": "2026-10-13T21:34:06.465422+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-gliner-pii-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-gliner-pii-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/nvidia-gliner-pii-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to nvidia/gliner-pii\nThe GLiNER model to use for entity extraction\nmessages\narray of objects\nrequired\nlength ≥ 1\nA list of messages with the text to analyze. Only the last user message\ncontent will be used for entity extraction.\nMessages\n*\nobject\nrole\nstring\nenum\nrequired\nThe role of the message author\nuser\nassistant\nAllowed:\nuser\nassistant\ncontent\nstring\nrequired\nFor user messages: the text to analyze for entity extraction.\nFor assistant messages: JSON string containing entity extraction results\nwith fields: total_entities, entities (array of {text, label,\nstart, end, score}), and tagged_text.\nADD\nobject\nlabels\narray of strings\nEntity types to detect. None uses the default PII labels\n(55 categories including email, phone_number,\nssn, first_name, last_name, address, etc.).\nLabels\nADD\nstring\nthreshold\nnumber\n0 to 1\nDefaults to 0.5\nConfidence threshold for entity detection (0.0 to 1.0).\nLower values detect more entities but may include false positives.\nchunk_length\ninteger\n1 to 2048\nDefaults to 384\nContext window size for processing. Longer texts are\nautomatically split into chunks with overlap for complete coverage.\nMust be greater than overlap.\noverlap\ninteger\n0 to 512\nDefaults to 128\nToken overlap between chunks to prevent entity clipping. Must be less than chunk_length.\nflat_ner\nboolean\nDefaults to false\nWhen True, prevents overlapping entity spans. When False, may return\nnested entities (e.g., both \"John Doe\" as a name and \"John\" as first_name).\ntrue\nfalse\n",
+    "text_sha256": "5072a30b44112e5ba02d1a7a4d618041b091d45d948f8031c331d84b5ca49cf9",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_3-nemotron-super-49b-v1-infer",
+    "requested_model": "nvidia/llama-3.3-nemotron-super-49b-v1",
+    "checked_at": "2026-10-13T21:34:06.816656+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nOpenAI ChatCompletionRequest\nmodel\nstring\nDefaults to nvidia/llama-3.3-nemotron-super-49b-v1\nmax_tokens\ninteger\n1 to 16384\nDefaults to 4096\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\ntemperature\nnumber\n0 to 1\nDefaults to 0.6\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.95\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nseed\ninteger\n0 to 18446744073709552000\nDefaults to 0\nThe model generates random results. Changing the input seed alone will produce a different response with similar characteristics. It is possible to reproduce results by fixing the input seed (assuming all other hyperparameters are also fixed).\nmessages\narray\nrequired\nA list of messages comprising the conversation so far.\nMessages\narray\n",
+    "text_sha256": "a1d4e9e466f5f8a12ad82e6f8d3fc0e235d1b1897644d999fb81d0c09255e86f",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_3-nemotron-super-49b-v1_5-infer",
+    "requested_model": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+    "checked_at": "2026-10-13T21:34:07.415413+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1_5-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1_5-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1_5-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nOpenAI ChatCompletionRequest\nmodel\nstring\nDefaults to nvidia/llama-3.3-nemotron-super-49b-v1.5\nmax_tokens\ninteger\n1 to 65536\nDefaults to 65536\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\ntemperature\nnumber\n0 to 1\nDefaults to 0.6\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.95\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nseed\ninteger\n0 to 18446744073709552000\nDefaults to 0\nThe model generates random results. Changing the input seed alone will produce a different response with similar characteristics. It is possible to reproduce results by fixing the input seed (assuming all other hyperparameters are also fixed).\nmessages\narray\nrequired\nA list of messages comprising the conversation so far.\nMessages\narray\n",
+    "text_sha256": "06f92e97ef0c092a32cffbf21fdb22a94a2c1a7e30693a461b7a47f310432ba9",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemoguard-jailbreak-detect-infer",
+    "requested_model": "nvidia/nemoguard-jailbreak-detect",
+    "checked_at": "2026-10-13T21:34:07.695505+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemoguard-jailbreak-detect-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemoguard-jailbreak-detect-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/nvidia-nemoguard-jailbreak-detect-infer",
+    "endpoint": "https://ai.api.nvidia.com/v1",
+    "contract_text": "Body Params\ninput\nstring | array | null\nInput\nstring | array | null\n",
+    "text_sha256": "cfda12277c7603efb145f97284fb26d328f90686bb6452dd761cfe0552c6e165",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-nano-30b-a3b-infer",
+    "requested_model": "nvidia/nemotron-3-nano-30b-a3b",
+    "checked_at": "2026-10-13T21:34:08.174827+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-nano-30b-a3b-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-nano-30b-a3b-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-nano-30b-a3b-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to nvidia/nemotron-3-nano-30b-a3b\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n≤ 1\nDefaults to 1\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 1\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nmax_tokens\ninteger\n1 to 32768\nDefaults to 16384\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nseed\ninteger\nnull\n0 to 18446744073709552000\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.\nstream\nboolean\nDefaults to true\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "e08059970cc3a802f936495e482834b8408e2b262d0ac75bcef48766905ba45a",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-content-safety-reasoning-4b-infer",
+    "requested_model": "nvidia/nemotron-content-safety-reasoning-4b",
+    "checked_at": "2026-10-13T21:34:08.398715+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-content-safety-reasoning-4b-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-content-safety-reasoning-4b-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-content-safety-reasoning-4b-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to nvidia/nemotron-content-safety-reasoning-4b\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n≤ 1\nDefaults to 1\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 1\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nmax_tokens\ninteger\n1 to 32768\nDefaults to 16384\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nseed\ninteger\nnull\n0 to 18446744073709552000\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.\nstream\nboolean\nDefaults to true\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "0607b6d45b3d7bc4fb5b2173f1aa83a9b438aa1518464ddfad17db84316dd5fb",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nvidia-nemotron-nano-9b-v2-infer",
+    "requested_model": "nvidia/nvidia-nemotron-nano-9b-v2",
+    "checked_at": "2026-10-13T21:34:09.311602+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nvidia-nemotron-nano-9b-v2-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nvidia-nemotron-nano-9b-v2-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/nvidia-nvidia-nemotron-nano-9b-v2-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to nvidia/llama-3.1-nemoguard-8b-content-safety\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "83f5b8a1668fe69b9d399283a48bea00ed79040a4257b3abca7a4529e8dff084",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-usdcode-infer",
+    "requested_model": "nvidia/usdcode",
+    "checked_at": "2026-10-13T21:34:09.680992+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-usdcode-infer",
+        "http_status": 404,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-usdcode-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-usdcode-infer",
+        "http_status": 404,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-usdcode-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/openai-gpt-oss-120b-infer",
+    "requested_model": "openai/gpt-oss-120b",
+    "checked_at": "2026-10-13T21:34:09.857407+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/openai-gpt-oss-120b-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/openai-gpt-oss-120b-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/openai-gpt-oss-120b-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to openai/gpt-oss-120b\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.6\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 4096\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nreasoning_effort\nenum\nDefaults to medium\nControls the effort level for reasoning in reasoning-capable models. 'low' provides basic reasoning, 'medium' provides balanced reasoning, and 'high' provides detailed step-by-step reasoning.\nlow\nmedium\nhigh\nAllowed:\nlow\nmedium\nhigh\ntools\narray of objects\nA list of tools the model may call.\nTools\nADD\nobject\ntool_choice\nstring | object\nControls which (if any) tool is called by the model.\nTool Choice\nstring | object\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "d79dd8f0d9ac98c7bd96202dfe88c6906b5519a87b4315d96f3103042cc9936a",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/poolside-laguna-xs-2-1-infer",
+    "requested_model": "poolside/laguna-xs-2-1",
+    "checked_at": "2026-10-13T21:34:10.006374+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/poolside-laguna-xs-2-1-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/poolside-laguna-xs-2-1-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/poolside-laguna-xs-2-1-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to poolside/laguna-xs-2.1\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 1\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.95\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nmax_tokens\ninteger\n1 to 16384\nDefaults to 8192\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "900235a14f34b80c38ad9feb22d876a22e2ee42540ce095e8fa12b3f1400f3f9",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/qwen-qwen2_5-coder-32b-instruct-infer",
+    "requested_model": "qwen/qwen2.5-coder-32b-instruct",
+    "checked_at": "2026-10-13T21:34:10.733937+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/qwen-qwen2_5-coder-32b-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/qwen-qwen2_5-coder-32b-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/qwen-qwen2_5-coder-32b-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to qwen/qwen2.5-coder-32b-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n≤ 1\nDefaults to 0.2\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nmax_tokens\ninteger\n1 to 4000\nDefaults to 1024\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nseed\ninteger\nnull\n0 to 18446744073709552000\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "b5f380584581b40f716f7c72f506f65a99af639dca52e21f296cbbbc860b2833",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/qwen-qwen3-next-80b-a3b-instruct-infer",
+    "requested_model": "qwen/qwen3-next-80b-a3b-instruct",
+    "checked_at": "2026-10-13T21:34:11.262899+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/qwen-qwen3-next-80b-a3b-instruct-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/qwen-qwen3-next-80b-a3b-instruct-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/qwen-qwen3-next-80b-a3b-instruct-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to qwen/qwen3-next-80b-a3b-instruct\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.6\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 4096\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "da8d2b0ff7069847f8c4c8a140ae77766584cbb4927e1cbc2c2921bdb7657ee2",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/qwen-qwen3-next-80b-a3b-thinking-infer",
+    "requested_model": "qwen/qwen3-next-80b-a3b-thinking",
+    "checked_at": "2026-10-13T21:34:11.340064+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/qwen-qwen3-next-80b-a3b-thinking-infer",
+        "http_status": 200,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/qwen-qwen3-next-80b-a3b-thinking-infer"
+      }
+    ],
+    "source_current": "https://docs.api.nvidia.com/nim/reference/qwen-qwen3-next-80b-a3b-thinking-infer",
+    "endpoint": "https://integrate.api.nvidia.com/v1",
+    "contract_text": "Body Params\nmodel\nstring\nDefaults to qwen/qwen3-next-80b-a3b-thinking\nmessages\narray of objects\nrequired\nA list of messages comprising the conversation so far. The roles of the messages must be alternating between\nuser\nand\nassistant\n. The last input message should have role\nuser\n. A message with the the\nsystem\nrole is optional, and must be the very first message if it is present;\ncontext\nis also optional, but must come before a user question.\nMessages\n*\nADD\nobject\ntemperature\nnumber\n0 to 1\nDefaults to 0.6\nThe sampling temperature to use for text generation. The higher the temperature value is, the less deterministic the output text will be. It is not recommended to modify both temperature and top_p in the same call.\ntop_p\nnumber\n≤ 1\nDefaults to 0.7\nThe top-p sampling mass used for text generation. The top-p value determines the probability mass that is sampled at sampling time. For example, if top_p = 0.2, only the most likely tokens (summing to 0.2 cumulative probability) will be sampled. It is not recommended to modify both temperature and top_p in the same call.\nfrequency_penalty\nnumber\n-2 to 2\nDefaults to 0\nIndicates how much to penalize new tokens based on their existing frequency in the text so far, decreasing model likelihood to repeat the same line verbatim.\npresence_penalty\nnumber\n-2 to 2\nDefaults to 0\nPositive values penalize new tokens based on whether they appear in the text so far, increasing model likelihood to talk about new topics.\nmax_tokens\ninteger\n1 to 4096\nDefaults to 4096\nThe maximum number of tokens to generate in any given call. Note that the model is not aware of this value, and generation will simply stop at the number of tokens specified.\nstream\nboolean\nDefaults to false\nIf set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events (SSE) as they become available (JSON responses are prefixed by\ndata:\n), with the stream terminated by a\ndata: [DONE]\nmessage.\ntrue\nfalse\nstop\narray | string | null\nA string or a list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.\nStop\narray | string | null\nHeaders\naccept\nstring\nenum\nDefaults to application/json\nGenerated from available response content types\napplication/json\ntext/event-stream\nAllowed:\napplication/json\ntext/event-stream\n",
+    "text_sha256": "50fe20721b09b9a3429c65f8214f49b63d159e72dbe446e5c1ff71357d706e74",
+    "verified_contract_page": true
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/qwen-qwq-32b-infer",
+    "requested_model": "qwen/qwq-32b",
+    "checked_at": "2026-10-13T21:34:12.450392+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/qwen-qwq-32b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/qwen-qwq-32b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/qwen-qwq-32b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/qwen-qwq-32b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/sarvamai-sarvam-m-infer",
+    "requested_model": "sarvamai/sarvam-m",
+    "checked_at": "2026-10-13T21:34:12.757472+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/sarvamai-sarvam-m-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/sarvamai-sarvam-m-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/sarvamai-sarvam-m-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/sarvamai-sarvam-m-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/stepfun-ai-step-3-5-flash-infer",
+    "requested_model": "stepfun-ai/step-3.5-flash",
+    "checked_at": "2026-10-13T21:34:12.757705+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/stepfun-ai-step-3-5-flash-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/stepfun-ai-step-3-5-flash-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/stepfun-ai-step-3-5-flash-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/stepfun-ai-step-3-5-flash-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/stockmark-stockmark-2-100b-instruct-infer",
+    "requested_model": "stockmark/stockmark-2-100b-instruct",
+    "checked_at": "2026-10-13T21:34:12.864947+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/stockmark-stockmark-2-100b-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/stockmark-stockmark-2-100b-instruct-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/stockmark-stockmark-2-100b-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/stockmark-stockmark-2-100b-instruct-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/thinkingmachines-inkling-infer",
+    "requested_model": "thinking-machines/inkling",
+    "checked_at": "2026-10-13T21:34:12.866913+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/thinkingmachines-inkling-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/thinkingmachines-inkling-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/thinkingmachines-inkling-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/thinkingmachines-inkling-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/upstage-solar-10_7b-instruct-infer",
+    "requested_model": "upstage/solar-10.7b-instruct",
+    "checked_at": "2026-10-13T21:34:12.978139+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/upstage-solar-10_7b-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/upstage-solar-10_7b-instruct-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/upstage-solar-10_7b-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/upstage-solar-10_7b-instruct-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/z-ai-glm4-7-infer",
+    "requested_model": "z-ai/glm4.7",
+    "checked_at": "2026-10-13T21:34:12.980949+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/z-ai-glm4-7-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/z-ai-glm4-7-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/z-ai-glm4-7-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/z-ai-glm4-7-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/baai-bge-m3-invoke",
+    "requested_model": "baai/bge-m3",
+    "checked_at": "2026-10-13T21:34:13.130902+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/baai-bge-m3-invoke",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/baai-bge-m3-invoke"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/baai-bge-m3-invoke",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/baai-bge-m3-invoke"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/baai-bge-m3-statuspolling",
+    "requested_model": "baai/bge-m3",
+    "checked_at": "2026-10-13T21:34:13.133804+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/baai-bge-m3-statuspolling",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/baai-bge-m3-statuspolling"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/baai-bge-m3-statuspolling",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/baai-bge-m3-statuspolling"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nemoretriever-1b-vlm-embed-v1-infer",
+    "requested_model": "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1",
+    "checked_at": "2026-10-13T21:34:13.211087+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nemoretriever-1b-vlm-embed-v1-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nemoretriever-1b-vlm-embed-v1-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nemoretriever-1b-vlm-embed-v1-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nemoretriever-1b-vlm-embed-v1-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nemoretriever-300m-embed-v2-infer",
+    "requested_model": "nvidia/llama-3.2-nemoretriever-300m-embed-v2",
+    "checked_at": "2026-10-13T21:34:13.266106+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nemoretriever-300m-embed-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nemoretriever-300m-embed-v2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nemoretriever-300m-embed-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nemoretriever-300m-embed-v2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nemoretriever-500m-rerank-v2-infer",
+    "requested_model": "nvidia/llama-3.2-nemoretriever-500m-rerank-v2",
+    "checked_at": "2026-10-13T21:34:13.321847+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nemoretriever-500m-rerank-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nemoretriever-500m-rerank-v2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nemoretriever-500m-rerank-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nemoretriever-500m-rerank-v2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nv-embedqa-1b-v2-infer",
+    "requested_model": "nvidia/llama-3.2-nv-embedqa-1b-v2",
+    "checked_at": "2026-10-13T21:34:13.367923+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nv-embedqa-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nv-embedqa-1b-v2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nv-embedqa-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nv-embedqa-1b-v2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nv-rerankqa-1b-v1-infer",
+    "requested_model": "nvidia/llama-3.2-nv-rerankqa-1b-v1",
+    "checked_at": "2026-10-13T21:34:13.473525+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v1-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v1-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nv-rerankqa-1b-v1-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nv-rerankqa-1b-v1-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nv-rerankqa-1b-v2-infer",
+    "requested_model": "nvidia/llama-3.2-nv-rerankqa-1b-v2",
+    "checked_at": "2026-10-13T21:34:13.475195+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nv-rerankqa-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-3_2-nv-rerankqa-1b-v2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-nemotron-embed-1b-v2-infer",
+    "requested_model": "nvidia/llama-nemotron-embed-1b-v2",
+    "checked_at": "2026-10-13T21:34:13.513240+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-embed-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-embed-1b-v2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-nemotron-embed-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-nemotron-embed-1b-v2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-nemotron-embed-vl-1b-v2-infer",
+    "requested_model": "nvidia/llama-nemotron-embed-vl-1b-v2",
+    "checked_at": "2026-10-13T21:34:13.582414+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-embed-vl-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-embed-vl-1b-v2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-nemotron-embed-vl-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-nemotron-embed-vl-1b-v2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-nemotron-rerank-1b-v2-infer",
+    "requested_model": "nvidia/llama-nemotron-rerank-1b-v2",
+    "checked_at": "2026-10-13T21:34:13.612520+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-rerank-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-rerank-1b-v2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-nemotron-rerank-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-nemotron-rerank-1b-v2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-llama-nemotron-rerank-vl-1b-v2-infer",
+    "requested_model": "nvidia/llama-nemotron-rerank-vl-1b-v2",
+    "checked_at": "2026-10-13T21:34:13.692101+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-rerank-vl-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-rerank-vl-1b-v2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-nemotron-rerank-vl-1b-v2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-llama-nemotron-rerank-vl-1b-v2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nvclip-infer",
+    "requested_model": "nvidia/nvclip",
+    "checked_at": "2026-10-13T21:34:13.698481+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nvclip-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nvclip-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nvclip-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nvclip-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nv-embedqa-e5-v5-infer",
+    "requested_model": "nvidia/nv-embedqa-e5-v5",
+    "checked_at": "2026-10-13T21:34:13.712058+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nv-embedqa-e5-v5-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nv-embedqa-e5-v5-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nv-embedqa-e5-v5-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nv-embedqa-e5-v5-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nv-rerankqa-mistral-4b-v3-infer",
+    "requested_model": "nvidia/nv-rerankqa-mistral-4b-v3",
+    "checked_at": "2026-10-13T21:34:13.779629+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nv-rerankqa-mistral-4b-v3-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nv-rerankqa-mistral-4b-v3-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nv-rerankqa-mistral-4b-v3-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nv-rerankqa-mistral-4b-v3-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/snowflake-arctic-embed-l-statuspolling",
+    "requested_model": "snowflake/arctic-embed-l",
+    "checked_at": "2026-10-13T21:34:13.806909+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/snowflake-arctic-embed-l-statuspolling",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/snowflake-arctic-embed-l-statuspolling"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/snowflake-arctic-embed-l-statuspolling",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/snowflake-arctic-embed-l-statuspolling"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/black-forest-labs-flux_1-dev-infer",
+    "requested_model": "black-forest-labs/flux.1-dev",
+    "checked_at": "2026-10-13T21:34:13.892624+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/black-forest-labs-flux_1-dev-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/black-forest-labs-flux_1-dev-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/black-forest-labs-flux_1-dev-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/black-forest-labs-flux_1-dev-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/black-forest-labs-flux_1-schnell-infer",
+    "requested_model": "black-forest-labs/flux.1-schnell",
+    "checked_at": "2026-10-13T21:34:13.911143+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/black-forest-labs-flux_1-schnell-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/black-forest-labs-flux_1-schnell-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/black-forest-labs-flux_1-schnell-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/black-forest-labs-flux_1-schnell-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/black-forest-labs-flux_2-klein-4b-infer",
+    "requested_model": "black-forest-labs/flux.2-klein-4b",
+    "checked_at": "2026-10-13T21:34:13.993809+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/black-forest-labs-flux_2-klein-4b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/black-forest-labs-flux_2-klein-4b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/black-forest-labs-flux_2-klein-4b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/black-forest-labs-flux_2-klein-4b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/diffusiongemma-26b-a4b-it-infer",
+    "requested_model": "google/diffusiongemma-26b-a4b-it",
+    "checked_at": "2026-10-13T21:34:13.996401+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/diffusiongemma-26b-a4b-it-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/diffusiongemma-26b-a4b-it-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/diffusiongemma-26b-a4b-it-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/diffusiongemma-26b-a4b-it-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/google-gemma-3-27b-it-infer",
+    "requested_model": "google/gemma-3-27b-it",
+    "checked_at": "2026-10-13T21:34:14.097510+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/google-gemma-3-27b-it-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/google-gemma-3-27b-it-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/google-gemma-3-27b-it-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/google-gemma-3-27b-it-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/google-gemma-3n-e4b-it-infer",
+    "requested_model": "google/gemma-3n-e4b-it",
+    "checked_at": "2026-10-13T21:34:14.109493+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/google-gemma-3n-e4b-it-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/google-gemma-3n-e4b-it-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/google-gemma-3n-e4b-it-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/google-gemma-3n-e4b-it-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/google-gemma-4-31b-it-infer",
+    "requested_model": "google/gemma-4-31b-it",
+    "checked_at": "2026-10-13T21:34:14.133888+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/google-gemma-4-31b-it-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/google-gemma-4-31b-it-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/google-gemma-4-31b-it-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/google-gemma-4-31b-it-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/hive-ai-generated-image-detection-infer",
+    "requested_model": "hive/ai-generated-image-detection",
+    "checked_at": "2026-10-13T21:34:14.184159+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/hive-ai-generated-image-detection-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/hive-ai-generated-image-detection-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/hive-ai-generated-image-detection-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/hive-ai-generated-image-detection-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/hive-deepfake-image-detection-infer",
+    "requested_model": "hive/deepfake-image-detection",
+    "checked_at": "2026-10-13T21:34:14.205303+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/hive-deepfake-image-detection-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/hive-deepfake-image-detection-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/hive-deepfake-image-detection-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/hive-deepfake-image-detection-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-llama-guard-4-12b-infer",
+    "requested_model": "meta/llama-guard-4-12b",
+    "checked_at": "2026-10-13T21:34:14.242519+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-llama-guard-4-12b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-llama-guard-4-12b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/meta-llama-guard-4-12b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/meta-llama-guard-4-12b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/microsoft-phi-4-multimodal-instruct-infer",
+    "requested_model": "microsoft/phi-4-multimodal-instruct",
+    "checked_at": "2026-10-13T21:34:14.291077+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/microsoft-phi-4-multimodal-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/microsoft-phi-4-multimodal-instruct-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/microsoft-phi-4-multimodal-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/microsoft-phi-4-multimodal-instruct-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/microsoft-trellis-infer",
+    "requested_model": "microsoft/trellis",
+    "checked_at": "2026-10-13T21:34:14.298896+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/microsoft-trellis-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/microsoft-trellis-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/microsoft-trellis-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/microsoft-trellis-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/minimaxai-minimax-m3-infer",
+    "requested_model": "minimaxai/minimax-m3",
+    "checked_at": "2026-10-13T21:34:14.330944+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/minimaxai-minimax-m3-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/minimaxai-minimax-m3-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/minimaxai-minimax-m3-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/minimaxai-minimax-m3-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/mistralai-mistral-large-3-675b-instruct-2512-infer",
+    "requested_model": "mistralai/mistral-large-3-675b-instruct-2512",
+    "checked_at": "2026-10-13T21:34:14.397789+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/mistralai-mistral-large-3-675b-instruct-2512-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/mistralai-mistral-large-3-675b-instruct-2512-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-mistral-large-3-675b-instruct-2512-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-mistral-large-3-675b-instruct-2512-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/mistralai-ministral-14b-instruct-2512-infer",
+    "requested_model": "mistralai/ministral-14b-instruct-2512",
+    "checked_at": "2026-10-13T21:34:14.411389+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/mistralai-ministral-14b-instruct-2512-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/mistralai-ministral-14b-instruct-2512-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-ministral-14b-instruct-2512-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-ministral-14b-instruct-2512-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/mistralai-mistral-medium-3-5-128b-infer",
+    "requested_model": "mistralai/mistral-medium-3.5-128b",
+    "checked_at": "2026-10-13T21:34:14.418108+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/mistralai-mistral-medium-3-5-128b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/mistralai-mistral-medium-3-5-128b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-mistral-medium-3-5-128b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-mistral-medium-3-5-128b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/mistralai-mistral-small-4-119b-2603-infer",
+    "requested_model": "mistralai/mistral-small-4-119b-2603",
+    "checked_at": "2026-10-13T21:34:14.499614+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/mistralai-mistral-small-4-119b-2603-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/mistralai-mistral-small-4-119b-2603-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-mistral-small-4-119b-2603-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/mistralai-mistral-small-4-119b-2603-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-6-infer",
+    "requested_model": "moonshotai/kimi-k2.6",
+    "checked_at": "2026-10-13T21:34:14.528922+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-6-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-6-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/moonshotai-kimi-k2-6-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/moonshotai-kimi-k2-6-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-bevformer-infer",
+    "requested_model": "nvidia/bevformer",
+    "checked_at": "2026-10-13T21:34:14.533836+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-bevformer-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-bevformer-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-bevformer-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-bevformer-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-ising-calibration-1-5-31b-infer",
+    "requested_model": "nvidia/ising-calibration-1.5-31b",
+    "checked_at": "2026-10-13T21:34:14.609247+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-ising-calibration-1-5-31b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-ising-calibration-1-5-31b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-ising-calibration-1-5-31b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-ising-calibration-1-5-31b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemoretriever-parse-infer",
+    "requested_model": "nvidia/nemoretriever-parse",
+    "checked_at": "2026-10-13T21:34:14.627781+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemoretriever-parse-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemoretriever-parse-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemoretriever-parse-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemoretriever-parse-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning",
+    "requested_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "checked_at": "2026-10-13T21:34:14.653899+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-nano-12b-v2-vl-infer",
+    "requested_model": "nvidia/nemotron-nano-12b-v2-vl",
+    "checked_at": "2026-10-13T21:34:14.705754+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-nano-12b-v2-vl-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-nano-12b-v2-vl-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-nano-12b-v2-vl-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-nano-12b-v2-vl-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-parse-infer",
+    "requested_model": "nvidia/nemotron-parse",
+    "checked_at": "2026-10-13T21:34:14.724434+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-parse-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-parse-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-parse-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-parse-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-parse-2_0-infer",
+    "requested_model": "nvidia/nemotron-parse-2.0",
+    "checked_at": "2026-10-13T21:34:14.737589+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-parse-2_0-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-parse-2_0-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-parse-2_0-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-parse-2_0-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nv-dinov2-infer",
+    "requested_model": "nvidia/nv-dinov2",
+    "checked_at": "2026-10-13T21:34:14.820696+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nv-dinov2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nv-dinov2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nv-dinov2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nv-dinov2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nv-grounding-dino-infer",
+    "requested_model": "nvidia/nv-grounding-dino",
+    "checked_at": "2026-10-13T21:34:14.833329+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nv-grounding-dino-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nv-grounding-dino-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nv-grounding-dino-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nv-grounding-dino-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-retail-object-detection-infer",
+    "requested_model": "nvidia/retail-object-detection",
+    "checked_at": "2026-10-13T21:34:14.835315+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-retail-object-detection-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-retail-object-detection-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-retail-object-detection-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-retail-object-detection-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-sparsedrive-infer",
+    "requested_model": "nvidia/sparsedrive",
+    "checked_at": "2026-10-13T21:34:14.914308+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-sparsedrive-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-sparsedrive-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-sparsedrive-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-sparsedrive-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-streampetr-infer",
+    "requested_model": "nvidia/streampetr",
+    "checked_at": "2026-10-13T21:34:14.923193+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-streampetr-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-streampetr-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-streampetr-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-streampetr-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-vila-infer",
+    "requested_model": "nvidia/vila",
+    "checked_at": "2026-10-13T21:34:14.941392+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-vila-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-vila-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-vila-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-vila-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-visual-changenet-infer",
+    "requested_model": "nvidia/visual-changenet",
+    "checked_at": "2026-10-13T21:34:14.985071+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-visual-changenet-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-visual-changenet-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-visual-changenet-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-visual-changenet-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/stabilityai-stable-diffusion-3-medium-infer",
+    "requested_model": "stabilityai/stable-diffusion-3-medium",
+    "checked_at": "2026-10-13T21:34:15.068153+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/stabilityai-stable-diffusion-3-medium-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/stabilityai-stable-diffusion-3-medium-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/stabilityai-stable-diffusion-3-medium-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/stabilityai-stable-diffusion-3-medium-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/stabilityai-stable-diffusion-xl-infer",
+    "requested_model": "stabilityai/stable-diffusion-xl",
+    "checked_at": "2026-10-13T21:34:15.098928+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/stabilityai-stable-diffusion-xl-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/stabilityai-stable-diffusion-xl-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/stabilityai-stable-diffusion-xl-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/stabilityai-stable-diffusion-xl-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/stabilityai-stable-video-diffusion-infer",
+    "requested_model": "stabilityai/stable-video-diffusion",
+    "checked_at": "2026-10-13T21:34:15.103002+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/stabilityai-stable-video-diffusion-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/stabilityai-stable-video-diffusion-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/stabilityai-stable-video-diffusion-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/stabilityai-stable-video-diffusion-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/stepfun-ai-step-3-7-flash-infer",
+    "requested_model": "stepfun-ai/step-3.7-flash",
+    "checked_at": "2026-10-13T21:34:15.165012+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/stepfun-ai-step-3-7-flash-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/stepfun-ai-step-3-7-flash-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/stepfun-ai-step-3-7-flash-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/stepfun-ai-step-3-7-flash-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/black-forest-labs-flux_1-kontext-dev-infer",
+    "requested_model": "black-forest-labs/flux.1-kontext-dev",
+    "checked_at": "2026-10-13T21:34:15.185442+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/black-forest-labs-flux_1-kontext-dev-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/black-forest-labs-flux_1-kontext-dev-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/black-forest-labs-flux_1-kontext-dev-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/black-forest-labs-flux_1-kontext-dev-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/google-paligemma-infer",
+    "requested_model": "google/paligemma",
+    "checked_at": "2026-10-13T21:34:15.192756+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/google-paligemma-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/google-paligemma-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/google-paligemma-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/google-paligemma-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-11b-vision-instruct-infer",
+    "requested_model": "meta/llama-3.2-11b-vision-instruct",
+    "checked_at": "2026-10-13T21:34:15.254041+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-11b-vision-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-11b-vision-instruct-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/meta-llama-3_2-11b-vision-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/meta-llama-3_2-11b-vision-instruct-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-90b-vision-instruct-infer",
+    "requested_model": "meta/llama-3.2-90b-vision-instruct",
+    "checked_at": "2026-10-13T21:34:15.274297+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-90b-vision-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-llama-3_2-90b-vision-instruct-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/meta-llama-3_2-90b-vision-instruct-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/meta-llama-3_2-90b-vision-instruct-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/meta-muse-glimmer-30b-infer",
+    "requested_model": "meta/muse-glimmer-30b",
+    "checked_at": "2026-10-13T21:34:15.315908+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/meta-muse-glimmer-30b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/meta-muse-glimmer-30b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/meta-muse-glimmer-30b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/meta-muse-glimmer-30b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-5-infer",
+    "requested_model": "moonshotai/kimi-k2.5",
+    "checked_at": "2026-10-13T21:34:15.364299+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-5-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/moonshotai-kimi-k2-5-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/moonshotai-kimi-k2-5-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/moonshotai-kimi-k2-5-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-deepseek-v4_1-flash-infer",
+    "requested_model": "nvidia/deepseek-v4.1-flash",
+    "checked_at": "2026-10-13T21:34:15.378869+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-deepseek-v4_1-flash-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-deepseek-v4_1-flash-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-deepseek-v4_1-flash-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-deepseek-v4_1-flash-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-kumo-relational-statuspolling",
+    "requested_model": "nvidia/kumo-relational",
+    "checked_at": "2026-10-13T21:34:15.415146+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-kumo-relational-statuspolling",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-kumo-relational-statuspolling"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-kumo-relational-statuspolling",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-kumo-relational-statuspolling"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-kumo-tabular-statuspolling",
+    "requested_model": "nvidia/kumo-tabular",
+    "checked_at": "2026-10-13T21:34:15.452624+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-kumo-tabular-statuspolling",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-kumo-tabular-statuspolling"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-kumo-tabular-statuspolling",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-kumo-tabular-statuspolling"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-content-safety-infer",
+    "requested_model": "nvidia/nemotron-3-content-safety",
+    "checked_at": "2026-10-13T21:34:15.490053+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-content-safety-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-content-safety-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-3-content-safety-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-3-content-safety-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-5-content-safety-infer",
+    "requested_model": "nvidia/nemotron-3.5-content-safety",
+    "checked_at": "2026-10-13T21:34:15.516157+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-5-content-safety-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-5-content-safety-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-3-5-content-safety-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-nemotron-3-5-content-safety-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/qwen-qwen3-5-122b-a10b-infer",
+    "requested_model": "qwen/qwen3.5-122b-a10b",
+    "checked_at": "2026-10-13T21:34:15.580599+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/qwen-qwen3-5-122b-a10b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/qwen-qwen3-5-122b-a10b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/qwen-qwen3-5-122b-a10b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/qwen-qwen3-5-122b-a10b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/arc-evo2-40b-infer",
+    "requested_model": "arc/evo2-40b",
+    "checked_at": "2026-10-13T21:34:15.593902+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/arc-evo2-40b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/arc-evo2-40b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/arc-evo2-40b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/arc-evo2-40b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/arc-evo2-7b-infer",
+    "requested_model": "arc/evo2-7b-forward",
+    "checked_at": "2026-10-13T21:34:15.627022+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/arc-evo2-7b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/arc-evo2-7b-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/arc-evo2-7b-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/arc-evo2-7b-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/colabfold-msa-search-infer",
+    "requested_model": "colabfold/msa-search",
+    "checked_at": "2026-10-13T21:34:15.680130+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/colabfold-msa-search-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/colabfold-msa-search-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/colabfold-msa-search-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/colabfold-msa-search-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/deepmind-alphafold2-infer",
+    "requested_model": "deepmind/alphafold2",
+    "checked_at": "2026-10-13T21:34:15.691853+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/deepmind-alphafold2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/deepmind-alphafold2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/deepmind-alphafold2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/deepmind-alphafold2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/deepmind-alphafold2-multimer-infer",
+    "requested_model": "deepmind/alphafold2-multimer",
+    "checked_at": "2026-10-13T21:34:15.700173+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/deepmind-alphafold2-multimer-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/deepmind-alphafold2-multimer-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/deepmind-alphafold2-multimer-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/deepmind-alphafold2-multimer-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/ipd-proteinmpnn-infer",
+    "requested_model": "ipd/proteinmpnn",
+    "checked_at": "2026-10-13T21:34:15.750839+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/ipd-proteinmpnn-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/ipd-proteinmpnn-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/ipd-proteinmpnn-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/ipd-proteinmpnn-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/ipd-rfdiffusion-infer",
+    "requested_model": "ipd/rfdiffusion",
+    "checked_at": "2026-10-13T21:34:15.797982+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/ipd-rfdiffusion-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/ipd-rfdiffusion-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/ipd-rfdiffusion-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/ipd-rfdiffusion-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-genmol-infer",
+    "requested_model": "nvidia/genmol",
+    "checked_at": "2026-10-13T21:34:15.820545+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-genmol-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-genmol-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-genmol-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-genmol-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-molmim-infer",
+    "requested_model": "nvidia/molmim",
+    "checked_at": "2026-10-13T21:34:15.852997+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-molmim-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-molmim-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-molmim-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-molmim-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-vista3d-infer",
+    "requested_model": "nvidia/vista3d",
+    "checked_at": "2026-10-13T21:34:15.914948+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-vista3d-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-vista3d-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-vista3d-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-vista3d-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/openfold-openfold2-infer",
+    "requested_model": "openfold/openfold2",
+    "checked_at": "2026-10-13T21:34:15.926738+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/openfold-openfold2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/openfold-openfold2-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/openfold-openfold2-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/openfold-openfold2-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/openfold-openfold3-infer",
+    "requested_model": "openfold/openfold3",
+    "checked_at": "2026-10-13T21:34:15.929880+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/openfold-openfold3-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/openfold-openfold3-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/openfold-openfold3-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/openfold-openfold3-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-cuopt-infer",
+    "requested_model": "nvidia/cuOpt",
+    "checked_at": "2026-10-13T21:34:16.018115+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-cuopt-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-cuopt-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-cuopt-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-cuopt-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-corrdiff-infer",
+    "requested_model": "nvidia/corrdiff",
+    "checked_at": "2026-10-13T21:34:16.030356+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-corrdiff-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-corrdiff-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-corrdiff-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-corrdiff-infer"
+      }
+    ],
+    "verified_contract_page": false
+  },
+  {
+    "source_original": "https://docs.api.nvidia.com/reference-link/nvidia-fourcastnet-infer",
+    "requested_model": "nvidia/fourcastnet",
+    "checked_at": "2026-10-13T21:34:16.035982+00:00",
+    "attempts": [
+      {
+        "url": "https://docs.api.nvidia.com/nim/reference/nvidia-fourcastnet-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/reference/nvidia-fourcastnet-infer"
+      },
+      {
+        "url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-fourcastnet-infer",
+        "http_status": 429,
+        "final_url": "https://docs.api.nvidia.com/nim/re/reference/nvidia-fourcastnet-infer"
+      }
+    ],
+    "verified_contract_page": false
+  }
+]

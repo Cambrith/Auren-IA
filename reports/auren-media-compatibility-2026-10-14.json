@@ -1,0 +1,17 @@
+{
+  "provider": "cohere",
+  "model": "command-a-plus-05-2026",
+  "operation": "vision",
+  "transport": "Auren PreparedChatProvider compatibility",
+  "real_call": true,
+  "max_output_tokens": 1024,
+  "cost_class": "unknown_actual_cost",
+  "ok": true,
+  "response_excerpt": "PIXEL-739|2|1",
+  "seconds": 1.666,
+  "usage": {
+    "input_tokens": 290,
+    "output_tokens": 117,
+    "total_tokens": 407
+  }
+}

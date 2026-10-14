@@ -10,6 +10,7 @@ from cavren.errors import CavrenError
 from cavren.modes import routes_for
 from integration.lunvri_connections import STATE, connection_settings, deepseek_allowed
 from integration.lunvri_manual import run as run_route, emit
+from integration.auren_media import requirements, compatible, describe
 
 RECOVERABLE = {'auth', 'forbidden', 'rate_limit', 'quota_exhausted', 'unavailable_for_plan',
                'unavailable', 'not_found', 'timeout', 'network', 'invalid_response', 'request', 'context_too_large'}
@@ -40,18 +41,6 @@ def cooldowns(route=None, error=None):
         return data
 
 
-def requirements(messages):
-    caps = set()
-    for message in messages:
-        if isinstance(message['content'], list):
-            for part in message['content']:
-                cap = {'image_url': 'vision', 'input_video': 'video', 'video_url': 'video',
-                       'input_audio': 'audio', 'file': 'pdf'}.get(part.get('type'))
-                if cap:
-                    caps.add(cap)
-    return caps
-
-
 def candidates(job, models, settings, blocked):
     from integration.lunvri_connections import validated_catalog
     models = validated_catalog(models)
@@ -61,12 +50,17 @@ def candidates(job, models, settings, blocked):
     task = job.get('auren_task', 'image' if image else 'chat')
     native = image or task in ('transcribe','speech')
     from integration.auren_images import validate, rank
+    from integration.auren_routing import ordered_models
+    policy_ids = ordered_models(task, job['mode_id'], required) if not native and job.get('auren_evidence_policy') else []
+    policy_routes = {id.removeprefix('cavren:'): i for i, id in enumerate(policy_ids)}
     mode_routes = {} if native else {r.route_id: i for i, r in enumerate(routes_for(job['mode_id']))}
     def priority(model):
         info = model['cavren']
         route = info.get('route_id', '')
         if manual == route:
             return (-1, 0, route)
+        if route in policy_routes:
+            return (0, policy_routes[route], route)
         if not native and route == job.get('auren_recommended_route'):
             return (0, -1, route)
         if image:
@@ -86,9 +80,13 @@ def candidates(job, models, settings, blocked):
     for model in sorted(models, key=priority):
         info = model['cavren']
         route, provider = info.get('route_id'), info.get('provider')
+        if task == 'transcribe' and job.get('auren_transcribe_language', 'auto') == 'auto' and provider == 'cohere':
+            continue  # Cohere's documented transport requires an explicit ISO language.
         if not route or not info.get('available', True):
             continue
-        if task in ('code','documents','research','transcribe','speech'):
+        if not native and task in ('chat','code','documents','research') and job.get('auren_evidence_policy') and route != manual and route not in policy_routes:
+            continue
+        if task in ('code','documents','research','transcribe','speech') and not (required and not native):
             from integration.auren_tasks import models_for
             if model['id'] not in models_for(task):
                 continue
@@ -109,11 +107,14 @@ def candidates(job, models, settings, blocked):
         if blocked.get(route, 0) > time.time() or blocked.get(provider + ':*', 0) > time.time():
             continue
         caps = info['capabilities']
-        if not all(caps.get(cap) for cap in required):
+        if not (all(caps.get(cap) for cap in required) if native else compatible(info, job['messages'])):
             continue
         if image and not caps.get('image_generation') or not image and info.get('image_only'):
             continue
         if image:
+            # Composer policy: automatic generations stay on community kudos.
+            if route != manual and provider != 'aihorde' and job.get('auren_evidence_policy'):
+                continue
             try:
                 validate(job, info)
             except CavrenError:
@@ -145,10 +146,22 @@ def run(job, normalize_messages, *, route_runner=run_route, output=emit):
     settings = connection_settings()
     choices = candidates(job, models, settings, cooldowns())
     if not choices:
-        raise CavrenError('routes', 'Nenhum modelo gratuito compatível está disponível agora. Troque o modelo ou aguarde a renovação da cota.')
+        if job.get('lunvri_image_generation') and job.get('auren_image_operation') == 'reference':
+            raise CavrenError('routes', 'Não há gerador gratuito validado que use imagens de referência. Para analisar o anexo, use Conversar ou Automática; seus arquivos foram preservados.')
+        media = describe(requirements(job['messages']))
+        raise CavrenError('routes', 'Nenhum modelo gratuito compatível' + (' com ' + media if media else '') + ' está disponível agora. Seus anexos foram preservados; aguarde a cota ou escolha uma rota compatível.')
+    required = requirements(job['messages'])
+    if required and not job.get('lunvri_image_generation') and job.get('auren_task') not in ('speech','transcribe'):
+        output({'type':'generation.task_selected','generation_id':job['generation_id'],
+                'provider':choices[0]['cavren']['provider'],'effective_model':choices[0]['cavren']['model_id'],
+                'description':('Usando um modelo compatível com os anexos nesta mensagem' if job.get('auren_attachment_switch')
+                               else 'Analisando ' + describe(required))})
     if job.get('auren_requested_task') == 'auto':
         from integration.auren_tasks import DEFINITIONS
-        context=('perfil '+{'rapid':'Rápido','balanced':'Equilibrado','detailed':'Detalhado'}.get(job.get('auren_image_profile'),'Equilibrado')) if job['auren_task']=='image' else ('modo '+{'ether':'Éter','impeto':'Ímpeto','insight':'Insight','arquiteto':'Arquiteto'}[job['mode_id']]) if job['auren_task'] not in ('speech','transcribe') else 'português' if job['auren_task']=='speech' else 'idioma '+job.get('auren_transcribe_language','auto')
+        from integration.auren_profiles import profile_name
+        task=job['auren_task']
+        profile=job.get('auren_image_profile','balanced') if task=='image' else job.get('auren_transcribe_language','auto') if task=='transcribe' else 'pt-BR' if task=='speech' else job['mode_id']
+        context='perfil '+(profile_name(task,profile) or 'Automático')
         output({'type':'generation.task_selected','generation_id':job['generation_id'],
                 'description':'Tarefa detectada: '+DEFINITIONS[job['auren_task']]['name']+' · '+context+' · '+choices[0]['cavren']['label']})
     started = time.monotonic()
@@ -165,7 +178,7 @@ def run(job, normalize_messages, *, route_runner=run_route, output=emit):
         if blocked.get(info['route_id'],0) > time.time() or blocked.get(info['provider'] + ':*',0) > time.time():
             continue
         if index:
-            output({'type': 'generation.fallback', 'generation_id':job['generation_id'], 'attempt_id':f"{job['generation_id']}:{index}", 'provider':info['provider'], 'effective_model':info['model_id'], 'description': 'Tentando ' + info['label'] + ' · ' + info.get('provider_name',info['provider'])})
+            output({'type': 'generation.fallback', 'generation_id':job['generation_id'], 'attempt_id':f"{job['generation_id']}:{index}", 'provider':info['provider'], 'effective_model':info['model_id'], 'failure_code':last_error.code if last_error else None, 'description': 'Tentando ' + info['label'] + ' · ' + info.get('provider_name',info['provider'])})
         attempt = dict(job, mode_options=dict(job['mode_options'], manual_route=info['route_id'],
                                            billing_confirmed=info['route_id']==job['mode_options'].get('manual_route') and job['mode_options'].get('billing_confirmed',False)),
                        auren_context=search_context, auren_deadline=deadline,
@@ -184,6 +197,10 @@ def run(job, normalize_messages, *, route_runner=run_route, output=emit):
                 event['response']['fallback_index'] = index
                 event['response']['auren_task'] = job.get('auren_task')
                 event['response']['auren_requested_task'] = job.get('auren_requested_task')
+                event['response']['auren_routing_decision'] = job.get('auren_routing_decision')
+                event['response']['auren_requested_model'] = job.get('auren_requested_model')
+                event['response']['auren_attachment_switch'] = job.get('auren_attachment_switch')
+                event['response']['auren_input_modalities'] = sorted(required)
             sequence += 1
             if event.get('generation_id', job['generation_id']) != job['generation_id']:
                 return

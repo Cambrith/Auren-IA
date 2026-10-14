@@ -3,7 +3,7 @@ import re
 from urllib.parse import urlparse
 
 OFFICIAL_DOMAINS={
-    'cohere':'docs.cohere.com', 'cloudflare':'developers.cloudflare.com',
+    'cohere':'docs.cohere.com', 'groq':'console.groq.com', 'cloudflare':'developers.cloudflare.com',
     'mistral':'docs.mistral.ai', 'openrouter':'openrouter.ai',
     'nvidia':'docs.nvidia.com', 'gemini':'ai.google.dev',
     'openai':'platform.openai.com', 'anthropic':'docs.anthropic.com',

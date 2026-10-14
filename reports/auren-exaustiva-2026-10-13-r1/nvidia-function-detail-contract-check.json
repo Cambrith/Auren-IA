@@ -1,0 +1,29 @@
+{
+  "source": "https://api.nvcf.nvidia.com/v2/nvcf/functions/42c86b5f-545a-4b2f-a83b-90fd71da9912/versions/0a920d81-6c96-453c-924a-7e0ae38c9a47",
+  "at": "2026-10-14T07:50:16.338571-03:00",
+  "http_status": 200,
+  "response_keys": [
+    "function"
+  ],
+  "function_field_names": [
+    "id",
+    "ncaId",
+    "versionId",
+    "name",
+    "status",
+    "ownedByDifferentAccount",
+    "apiBodyFormat",
+    "healthUri",
+    "createdAt",
+    "description",
+    "health",
+    "functionType"
+  ],
+  "contract": {
+    "name": "ai-nemotron-voicechat",
+    "status": "ACTIVE",
+    "functionType": "DEFAULT",
+    "apiBodyFormat": "CUSTOM",
+    "description": "ai-nemotron-voicechat"
+  }
+}

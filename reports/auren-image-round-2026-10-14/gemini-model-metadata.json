@@ -1,0 +1,122 @@
+[
+  {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash-image",
+    "operation": "model_metadata_read",
+    "at": "2026-10-14T21:02:14.725859+00:00",
+    "http_status": 200,
+    "result": "metadata_available",
+    "supported_generation_methods": [
+      "generateContent",
+      "countTokens",
+      "batchGenerateContent"
+    ],
+    "input_token_limit": 32768,
+    "output_token_limit": 32768
+  },
+  {
+    "provider": "gemini",
+    "model": "gemini-3-pro-image",
+    "operation": "model_metadata_read",
+    "at": "2026-10-14T21:02:15.127925+00:00",
+    "http_status": 200,
+    "result": "metadata_available",
+    "supported_generation_methods": [
+      "generateContent",
+      "countTokens",
+      "batchGenerateContent"
+    ],
+    "input_token_limit": 131072,
+    "output_token_limit": 32768
+  },
+  {
+    "provider": "gemini",
+    "model": "gemini-3-pro-image-preview",
+    "operation": "model_metadata_read",
+    "at": "2026-10-14T21:02:15.779547+00:00",
+    "http_status": 200,
+    "result": "metadata_available",
+    "supported_generation_methods": [
+      "generateContent",
+      "countTokens",
+      "batchGenerateContent"
+    ],
+    "input_token_limit": 131072,
+    "output_token_limit": 32768
+  },
+  {
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-image",
+    "operation": "model_metadata_read",
+    "at": "2026-10-14T21:02:15.963500+00:00",
+    "http_status": 200,
+    "result": "metadata_available",
+    "supported_generation_methods": [
+      "generateContent",
+      "countTokens",
+      "batchGenerateContent"
+    ],
+    "input_token_limit": 65536,
+    "output_token_limit": 65536
+  },
+  {
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-image-preview",
+    "operation": "model_metadata_read",
+    "at": "2026-10-14T21:02:16.598891+00:00",
+    "http_status": 200,
+    "result": "metadata_available",
+    "supported_generation_methods": [
+      "generateContent",
+      "countTokens",
+      "batchGenerateContent"
+    ],
+    "input_token_limit": 65536,
+    "output_token_limit": 65536
+  },
+  {
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite-image",
+    "operation": "model_metadata_read",
+    "at": "2026-10-14T21:02:16.781445+00:00",
+    "http_status": 200,
+    "result": "metadata_available",
+    "supported_generation_methods": [
+      "generateContent",
+      "countTokens",
+      "batchGenerateContent"
+    ],
+    "input_token_limit": 65536,
+    "output_token_limit": 65536
+  },
+  {
+    "provider": "gemini",
+    "model": "gemini-nano-banana-2.1",
+    "operation": "model_metadata_read",
+    "at": "2026-10-14T21:02:17.410807+00:00",
+    "http_status": 200,
+    "result": "metadata_available",
+    "supported_generation_methods": [
+      "generateContent",
+      "countTokens",
+      "batchGenerateContent"
+    ],
+    "input_token_limit": 65536,
+    "output_token_limit": 65536
+  },
+  {
+    "provider": "gemini",
+    "model": "nano-banana-pro-preview",
+    "operation": "model_metadata_read",
+    "at": "2026-10-14T21:02:17.596422+00:00",
+    "http_status": 200,
+    "result": "metadata_available",
+    "supported_generation_methods": [
+      "generateContent",
+      "countTokens",
+      "batchGenerateContent"
+    ],
+    "input_token_limit": 131072,
+    "output_token_limit": 32768
+  }
+]

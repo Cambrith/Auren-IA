@@ -1,0 +1,22 @@
+{
+  "http_status": 200,
+  "result_keys": [
+    "results",
+    "usage"
+  ],
+  "items": [
+    {
+      "keys": [
+        "index",
+        "external_reference",
+        "result",
+        "success"
+      ],
+      "result_keys": [
+        "translated_text"
+      ],
+      "translated_text": "Boa manhã",
+      "item_translated_text": null
+    }
+  ]
+}

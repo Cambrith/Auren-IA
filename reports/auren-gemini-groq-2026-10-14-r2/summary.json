@@ -1,0 +1,91 @@
+{
+  "snapshot_at": "2026-10-14T13:56:42.475085-03:00",
+  "reported_at": "2026-10-14T14:15:12.843369-03:00",
+  "routes": 77,
+  "operations": 492,
+  "by_status": {
+    "not_tested": 208,
+    "valid": 70,
+    "failed": 186,
+    "inconclusive": 14,
+    "partial_validity": 14
+  },
+  "by_provider": {
+    "gemini": {
+      "not_tested": 200,
+      "valid": 55,
+      "failed": 167,
+      "inconclusive": 8,
+      "partial_validity": 11
+    },
+    "groq": {
+      "not_tested": 8,
+      "valid": 15,
+      "failed": 19,
+      "inconclusive": 6,
+      "partial_validity": 3
+    }
+  },
+  "real_attempts": 338,
+  "auxiliary_real_calls": 35,
+  "rows_with_real_call": 284,
+  "positive_reported_usd": 0,
+  "positive_cost_responses": 0,
+  "zero_cost_responses": 0,
+  "unknown_cost_attempts": 338,
+  "cost_classes": {
+    "not_called": 208,
+    "unknown": 284
+  },
+  "budget": {
+    "max_output_tokens": 512,
+    "timeout_seconds": 30,
+    "image_deadline_seconds": 60,
+    "max_positive_reported_usd": 0.5,
+    "max_estimated_request_usd": 0.06,
+    "unknown_cost_call_limit_per_provider": 2500,
+    "provider_concurrency": 1,
+    "note": "Reported-cost cap is not a invoice-total guarantee; unknown costs tracked separately. Unknown high-cost generative modalities blocked until bounded.",
+    "image_total_usd": 19.22,
+    "image_per_call_usd": 0.5,
+    "image_authorization": "Explicit user reply in current chat: USD 20 total and USD .50 per request.",
+    "pacing_revision": "Conservative per-provider minimum delay: Cohere/NVIDIA/OpenRouter zero-priced 3.1s, Groq 2.1s, others1.1s; Retry-After takes precedence. Initial attempt history retained.",
+    "video_total_usd": 40.0,
+    "video_per_call_usd": 2,
+    "media_pricing_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "video_authorization": "Explicit user reply in current chat: USD 40 total and USD 2 per request.",
+    "unknown_consumption_guard_definition": "Counts accepted generation and transport-outcome-unknown calls; HTTP >=400 denials remain unknown in ledger but excluded from this accepted-generation count. No zero cost is inferred.",
+    "deep_research_planning_authorization": {
+      "at": "2026-10-14T09:22:23.075427-03:00",
+      "user_authorized": true,
+      "max_new_submissions_per_route": 1,
+      "routes": 3,
+      "follow_up_seconds": 30,
+      "reported_cost_unknown_authorized": true,
+      "complete_research_authorized": false
+    },
+    "prior_reservations_usd": {
+      "image": 0.78,
+      "video": 0.0
+    },
+    "media_authorization_source": "/home/cambrith/.codex/.chatgpt-projects/g-p-6aa1781aa48c81919924bcaa9a4f38eb/cavren-openwebui/reports/auren-exaustiva-2026-10-13-r1/results.json"
+  },
+  "all_tested": false,
+  "rows_with_native_real_call": 284,
+  "scope_exhaustive_certified": false,
+  "discovery_limit": "Frozen union is reconciled. General provider documentation may expose additional specialized transports; discovery certification remains pending.",
+  "historical_rows": 870,
+  "historical_routes": 853,
+  "inherited_fixture_generation_calls_not_new": 2,
+  "scope": "Gemini/Groq functionality only; global r1 remains paused.",
+  "all_rows_terminal": true,
+  "models_with_native_call": 71,
+  "models_without_native_call": [
+    "gemini:deep-research-max-preview-04-2026",
+    "gemini:deep-research-preview-04-2026",
+    "gemini:deep-research-pro-preview-12-2025",
+    "gemini:gemini-omni-1.1-flash",
+    "gemini:gemini-omni-flash-preview",
+    "gemini:nano-banana-pro-preview"
+  ]
+}

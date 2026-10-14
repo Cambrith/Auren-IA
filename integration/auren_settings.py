@@ -72,7 +72,9 @@ def public_state(refresh=False):
         connections.append({'id':provider,'name':label,'state':state,'credential_saved':saved,'count':sum(m['cavren'].get('provider')==provider for m in models),
                             'image_count':sum(m['cavren'].get('provider')==provider and m['cavren']['capabilities'].get('image_generation',False) for m in models)})
     from integration.auren_tasks import tasks, recommended
-    return {'mode_recommendations': {mode:recommended('code' if mode=='arquiteto' else 'chat',mode) for mode in ('ether','impeto','insight','arquiteto')}, 'tasks': tasks(), 'connections':connections,'preferences':preferences(),'updated':snapshot.get('updated'),
+    return {'mode_recommendations': {mode:recommended('code' if mode=='arquiteto' else 'chat',mode) for mode in ('ether','impeto','insight','arquiteto')},
+            'image_profile_recommendations': {profile:recommended('image', profile=profile) for profile in ('rapid','balanced','detailed')},
+            'tasks': tasks(), 'connections':connections,'preferences':preferences(),'updated':snapshot.get('updated'),
             'models':[{'id':m['id'],'name':m['name'],'cavren':m['cavren']} for m in models],
             'version': '0.12.0','local':True}
 

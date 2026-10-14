@@ -136,7 +136,7 @@
 	const modelAccessLabel = (model) => {
 		if (model?.cavren && !model?.user_id)
 			return model.cavren.provider_name
-				? `${model.cavren.provider_name} · Externo`
+				? model.cavren.provider_name
 				: 'Seleção automática';
 		if (isPublicModel(model)) {
 			return $i18n.t('Public');

@@ -26,8 +26,6 @@
 	import Notes from './InputMenu/Notes.svelte';
 	import Knowledge from './InputMenu/Knowledge.svelte';
 	import AttachWebpageModal from './AttachWebpageModal.svelte';
-	import Photo from '$lib/components/icons/Photo.svelte';
-	import PuzzlePiece from '$lib/components/icons/Cube.svelte';
 	import GlobeAlt from '$lib/components/icons/GlobeAlt.svelte';
 
 	const i18n: any = getContext('i18n');
@@ -58,7 +56,6 @@
 	$: webPluginActive = !aurenOptions.image_generation &&
 		!['transcribe', 'speech'].includes(aurenOptions.task_id ?? '') &&
 		(aurenOptions.web_search || aurenOptions.task_id === 'research');
-	const taskNames: Record<string, string> = { auto: 'Automática', chat: 'Conversar', image: 'Gerar imagens', documents: 'Analisar documentos', code: 'Gerar código', research: 'Pesquisa aprofundada', speech: 'Gerar voz', transcribe: 'Transcrever áudio' };
 	let show = false;
 	let tab = '';
 
@@ -156,10 +153,19 @@
 					{#if $config?.auren?.local}
 						<button
 							type="button"
-							class="flex items-center justify-between gap-2 w-full p-2 rounded-xl hover:bg-gray-800/20"
-							on:click={() => (tab = 'auren_plugins')}
-							><PuzzlePiece /><span class="flex-1 text-left">Plugins</span><ChevronRight /></button
+							class="flex gap-2 w-full items-center h-[1.6875rem] px-2 text-[0.8125rem] font-normal cursor-pointer hover:bg-gray-50/40 dark:hover:bg-gray-800/40 rounded-xl text-left disabled:opacity-50 disabled:cursor-not-allowed"
+							disabled={aurenDisabled || aurenOptions.image_generation || ['transcribe', 'speech', 'research'].includes(aurenOptions.task_id ?? '')}
+							aria-pressed={webPluginActive}
+							data-auren-web-search
+							on:click={() => {
+								onAurenPlugin('web');
+								show = false;
+							}}
 						>
+							<GlobeAlt className="size-3.5 shrink-0" />
+							<span class="flex-1">Pesquisar na web</span>
+							{#if webPluginActive}<span aria-hidden="true" class="text-cyan-400">✓</span>{/if}
+						</button>
 					{/if}
 					{#if toolPermissionsEnabled}
 						<button
@@ -559,40 +565,6 @@
 							</button>
 						{/if}
 					{/if}
-				</div>
-			{:else if tab === 'auren_plugins'}
-				<div class="p-1 space-y-1" role="group" aria-label="Plugins da Auren">
-					<button
-						type="button"
-						class="flex items-center gap-2 w-full p-2 rounded-xl"
-						on:click={() => (tab = '')}><ChevronLeft />Plugins</button
-					>
-					<button
-						type="button"
-						class="flex items-center gap-2 w-full p-2 rounded-xl hover:bg-gray-800/20"
-						disabled={aurenDisabled ||
-							aurenOptions.image_generation ||
-							['transcribe', 'speech', 'research'].includes(aurenOptions.task_id ?? '')}
-						aria-pressed={webPluginActive}
-						on:click={() => {
-							onAurenPlugin('web');
-							show = false;
-						}}><GlobeAlt />Pesquisa na web {webPluginActive ? '✓' : ''}</button
-					>
-					<button
-						type="button"
-						class="flex items-center gap-2 w-full p-2 rounded-xl hover:bg-gray-800/20"
-						disabled={aurenDisabled}
-						aria-pressed={aurenOptions.image_generation}
-						on:click={() => {
-							onAurenPlugin('image');
-							show = false;
-						}}><Photo />Gerar imagens {aurenOptions.image_generation ? '✓' : ''}</button
-					>
-					<p class="px-2 text-xs text-gray-500">
-						Tarefa ativa: {taskNames[aurenOptions.task_id ?? (aurenOptions.image_generation ? 'image' : 'chat')] ?? 'Conversar'}.
-						{aurenOptions.image_generation ? 'Pesquisa disponível ao voltar a Conversar.' : 'Pesquisa usa o SearXNG local.'}
-					</p>
 				</div>
 			{:else if tab === 'tool_permissions'}
 				<div class="flex max-h-72 flex-col overflow-hidden" in:fly={{ x: 20, duration: 150 }}>

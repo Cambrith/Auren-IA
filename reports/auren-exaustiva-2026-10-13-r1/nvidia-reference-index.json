@@ -1,0 +1,1326 @@
+{
+  "source": "https://docs.api.nvidia.com/nim/reference/models-1",
+  "http_status": 200,
+  "links": [
+    {
+      "title": "Models",
+      "url": "/nim/reference/models-1"
+    },
+    {
+      "title": "LLM APIs",
+      "url": "/nim/reference/llm-apis"
+    },
+    {
+      "title": "deepseek-ai / deepseek-v4-flash",
+      "url": "/nim/reference/deepseek-ai-deepseek-v4-flash"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/deepseek-ai-deepseek-v4-flash-infer"
+    },
+    {
+      "title": "deepseek-ai / deepseek-v4-flash-0731",
+      "url": "/nim/reference/deepseek-ai-deepseek-v4-flash-0731"
+    },
+    {
+      "title": "deepseek-ai / deepseek-v4-pro",
+      "url": "/nim/reference/deepseek-ai-deepseek-v4-pro"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/deepseek-ai-deepseek-v4-pro-infer"
+    },
+    {
+      "title": "google / codegemma-7b",
+      "url": "/nim/reference/google-codegemma-7b"
+    },
+    {
+      "title": "Create a chat completion post",
+      "url": "/nim/reference/google-codegemma-7b-infer"
+    },
+    {
+      "title": "google / gemma-7b",
+      "url": "/nim/reference/google-gemma-7b"
+    },
+    {
+      "title": "Create a chat completion post",
+      "url": "/nim/reference/google-gemma-7b-infer"
+    },
+    {
+      "title": "meta / llama2-70b",
+      "url": "/nim/reference/meta-llama2-70b"
+    },
+    {
+      "title": "Create a chat completion post",
+      "url": "/nim/reference/meta-llama2-70b-infer"
+    },
+    {
+      "title": "meta / llama-3.1-8b-instruct",
+      "url": "/nim/reference/meta-llama-3_1-8b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/meta-llama-3_1-8b-infer"
+    },
+    {
+      "title": "meta / llama-3.1-70b-instruct",
+      "url": "/nim/reference/meta-llama-3_1-70b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/meta-llama-3_1-70b-infer"
+    },
+    {
+      "title": "meta / llama-3.2-1b-instruct",
+      "url": "/nim/reference/meta-llama-3_2-1b-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/meta-llama-3_2-1b-instruct-infer"
+    },
+    {
+      "title": "meta / llama-3.2-3b-instruct",
+      "url": "/nim/reference/meta-llama-3_2-3b-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/meta-llama-3_2-3b-instruct-infer"
+    },
+    {
+      "title": "meta / llama-3.3-70b-instruct",
+      "url": "/nim/reference/meta-llama-3_3-70b-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/meta-llama-3_3-70b-instruct-infer"
+    },
+    {
+      "title": "microsoft / phi-4-mini-instruct",
+      "url": "/nim/reference/microsoft-phi-4-mini-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/microsoft-phi-4-mini-instruct-infer"
+    },
+    {
+      "title": "microsoft / phi-4-mini-flash-reasoning",
+      "url": "/nim/reference/microsoft-phi-4-mini-flash-reasoning"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/microsoft-phi-4-mini-flash-reasoning-infer"
+    },
+    {
+      "title": "minimaxai / minimax-m2.5",
+      "url": "/nim/reference/minimaxai-minimax-m2.5"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/minimaxai-minimax-m2.5-infer"
+    },
+    {
+      "title": "minimaxai / minimax-m2.7",
+      "url": "/nim/reference/minimaxai-minimax-m2.7"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/minimaxai-minimax-m2.7-infer"
+    },
+    {
+      "title": "mistralai / mixtral-8x7b-instruct",
+      "url": "/nim/reference/mistralai-mixtral-8x7b-instruct"
+    },
+    {
+      "title": "Create a chat completion post",
+      "url": "/nim/reference/mistralai-mixtral-8x7b-instruct-infer"
+    },
+    {
+      "title": "mistralai / mixtral-8x22b-instruct",
+      "url": "/nim/reference/mistralai-mixtral-8x22b-instruct"
+    },
+    {
+      "title": "Create a chat completion post",
+      "url": "/nim/reference/mistralai-mixtral-8x22b-instruct-infer"
+    },
+    {
+      "title": "moonshotai / kimi-k2-instruct",
+      "url": "/nim/reference/moonshotai-kimi-k2-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/moonshotai-kimi-k2-instruct-infer"
+    },
+    {
+      "title": "moonshotai / kimi-k2-thinking",
+      "url": "/nim/reference/moonshotai-kimi-k2-thinking"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/moonshotai-kimi-k2-thinking-infer"
+    },
+    {
+      "title": "moonshotai / kimi-k3",
+      "url": "/nim/reference/moonshotai-kimi-k3"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/moonshotai-kimi-k3-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/moonshotai-kimi-k3-statuspolling"
+    },
+    {
+      "title": "nvidia / gliner-pii",
+      "url": "/nim/reference/nvidia-gliner-pii"
+    },
+    {
+      "title": "Extract named entities from text using GLiNER PII model post",
+      "url": "/nim/reference/nvidia-gliner-pii-infer"
+    },
+    {
+      "title": "nvidia / llama-3.1-nemoguard-8b-content-safety",
+      "url": "/nim/reference/nvidia-llama-3_1-nemoguard-8b-content-safety"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-llama-3_1-nemoguard-8b-content-safety-infer"
+    },
+    {
+      "title": "nvidia / llama-3.1-nemoguard-8b-topic-control",
+      "url": "/nim/reference/nvidia-llama-3_1-nemoguard-8b-topic-control"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-llama-3_1-nemoguard-8b-topic-control-infer"
+    },
+    {
+      "title": "nvidia / llama-3.1-nemotron-safety-guard-8b-v3",
+      "url": "/nim/reference/nvidia-llama-3_1-nemotron-safety-guard-8b-v3"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-llama-3_1-nemotron-safety-guard-8b-v3-infer"
+    },
+    {
+      "title": "nvidia / llama-3.1-nemotron-ultra-253b-v1",
+      "url": "/nim/reference/nvidia-llama-3_1-nemotron-ultra-253b-v1"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-llama-3_1-nemotron-ultra-253b-v1-infer"
+    },
+    {
+      "title": "nvidia / llama-3.3-nemotron-super-49b-v1",
+      "url": "/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1-infer"
+    },
+    {
+      "title": "nvidia / llama-3.3-nemotron-super-49b-v1.5",
+      "url": "/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1_5"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-llama-3_3-nemotron-super-49b-v1_5-infer"
+    },
+    {
+      "title": "nvidia / nemoguard-jailbreak-detect",
+      "url": "/nim/reference/nvidia-nemoguard-jailbreak-detect"
+    },
+    {
+      "title": "Classify text for jailbreak attempt. post",
+      "url": "/nim/reference/nvidia-nemoguard-jailbreak-detect-infer"
+    },
+    {
+      "title": "nvidia / nemotron-3-nano-30b-a3b",
+      "url": "/nim/reference/nvidia-nemotron-3-nano-30b-a3b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-nemotron-3-nano-30b-a3b-infer"
+    },
+    {
+      "title": "nvidia / nemotron-3-super-120b-a12b",
+      "url": "/nim/reference/nvidia-nemotron-3-super-120b-a12b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-nemotron-3-super-120b-a12b-infer"
+    },
+    {
+      "title": "nvidia / nemotron-3-ultra-550b-a55b",
+      "url": "/nim/reference/nvidia-nemotron-3-ultra-550b-a55b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-nemotron-3-ultra-550b-a55b-infer"
+    },
+    {
+      "title": "nvidia / nemotron-3.5-lightning-30b-a3b",
+      "url": "/nim/reference/nvidia-nemotron-3-5-lightning-30b-a3b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-nemotron-3-5-lightning-30b-a3b-infer"
+    },
+    {
+      "title": "nvidia / nemotron-content-safety-reasoning-4b",
+      "url": "/nim/reference/nvidia-nemotron-content-safety-reasoning-4b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-nemotron-content-safety-reasoning-4b-infer"
+    },
+    {
+      "title": "nvidia / nemotron-nano-9b-v2",
+      "url": "/nim/reference/nvidia-nvidia-nemotron-nano-9b-v2"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-nvidia-nemotron-nano-9b-v2-infer"
+    },
+    {
+      "title": "nvidia / riva-translate-4b-instruct-v2",
+      "url": "/nim/reference/nvidia-riva-translate-4b-instruct-v2"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-riva-translate-4b-instruct-v2-infer"
+    },
+    {
+      "title": "openai / gpt-oss-20b",
+      "url": "/nim/reference/openai-gpt-oss-20b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/openai-gpt-oss-20b-infer"
+    },
+    {
+      "title": "openai / gpt-oss-120b",
+      "url": "/nim/reference/openai-gpt-oss-120b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/openai-gpt-oss-120b-infer"
+    },
+    {
+      "title": "poolside / laguna-xs-2.1",
+      "url": "/nim/reference/poolside-laguna-xs-2-1"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/poolside-laguna-xs-2-1-infer"
+    },
+    {
+      "title": "qwen / qwen2.5-coder-32b-instruct",
+      "url": "/nim/reference/qwen-qwen2_5-coder-32b-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/qwen-qwen2_5-coder-32b-instruct-infer"
+    },
+    {
+      "title": "qwen / qwen3-next-80b-a3b-instruct",
+      "url": "/nim/reference/qwen-qwen3-next-80b-a3b-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/qwen-qwen3-next-80b-a3b-instruct-infer"
+    },
+    {
+      "title": "qwen / qwen3-next-80b-a3b-thinking",
+      "url": "/nim/reference/qwen-qwen3-next-80b-a3b-thinking"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/qwen-qwen3-next-80b-a3b-thinking-infer"
+    },
+    {
+      "title": "qwen / qwq-32b",
+      "url": "/nim/reference/qwen-qwq-32b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/qwen-qwq-32b-infer"
+    },
+    {
+      "title": "sarvamai / sarvam-m",
+      "url": "/nim/reference/sarvamai-sarvam-m"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/sarvamai-sarvam-m-infer"
+    },
+    {
+      "title": "stepfun-ai / step-3.5-flash",
+      "url": "/nim/reference/stepfun-ai-step-3-5-flash"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/stepfun-ai-step-3-5-flash-infer"
+    },
+    {
+      "title": "stockmark / stockmark-2-100b-instruct",
+      "url": "/nim/reference/stockmark-stockmark-2-100b-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/stockmark-stockmark-2-100b-instruct-infer"
+    },
+    {
+      "title": "thinking machines / inkling",
+      "url": "/nim/reference/thinkingmachines-inkling"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/thinkingmachines-inkling-infer"
+    },
+    {
+      "title": "upstage / solar-10.7b-instruct",
+      "url": "/nim/reference/upstage-solar-10_7b-instruct"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/upstage-solar-10_7b-instruct-infer"
+    },
+    {
+      "title": "z-ai / glm4.7",
+      "url": "/nim/reference/z-ai-glm4-7"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/z-ai-glm4-7-infer"
+    },
+    {
+      "title": "z-ai / glm5.1",
+      "url": "/nim/reference/z-ai-glm5.1"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/z-ai-glm5.1-infer"
+    },
+    {
+      "title": "z-ai / glm-5.2",
+      "url": "/nim/reference/z-ai-glm-5.2"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/z-ai-glm-5.2-infer"
+    },
+    {
+      "title": "z-ai / glm-5.3",
+      "url": "/nim/reference/z-ai-glm-5-3"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/z-ai-glm-5-3-infer"
+    },
+    {
+      "title": "z-ai / glm-5.3-flash",
+      "url": "/nim/reference/z-ai-glm-5-3-flash"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/z-ai-glm-5-3-flash-infer"
+    },
+    {
+      "title": "Retrieval APIs",
+      "url": "/nim/reference/retrieval-apis"
+    },
+    {
+      "title": "baai / bge-m3",
+      "url": "/nim/reference/baai-bge-m3"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/baai-bge-m3-invoke"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/baai-bge-m3-statuspolling"
+    },
+    {
+      "title": "nvidia / embed-qa-4",
+      "url": "/nim/reference/nvidia-embed-qa-4"
+    },
+    {
+      "title": "Create embedding vector post",
+      "url": "/nim/reference/nvidia-embedding-2b-infer"
+    },
+    {
+      "title": "nvidia / llama-3.2-nemoretriever-1b-vlm-embed-v1",
+      "url": "/nim/reference/nvidia-llama-3_2-nemoretriever-1b-vlm-embed-v1"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/nvidia-llama-3_2-nemoretriever-1b-vlm-embed-v1-infer"
+    },
+    {
+      "title": "nvidia / llama-3.2-nemoretriever-300m-embed-v2",
+      "url": "/nim/reference/nvidia-llama-3_2-nemoretriever-300m-embed-v2"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/nvidia-llama-3_2-nemoretriever-300m-embed-v2-infer"
+    },
+    {
+      "title": "nvidia / llama-3.2-nemoretriever-500m-rerank-v2",
+      "url": "/nim/reference/nvidia-llama-3_2-nemoretriever-500m-rerank-v2"
+    },
+    {
+      "title": "Rank passages by their relation to a query. post",
+      "url": "/nim/reference/nvidia-llama-3_2-nemoretriever-500m-rerank-v2-infer"
+    },
+    {
+      "title": "nvidia / llama-3.2-nv-embedqa-1b-v1",
+      "url": "/nim/reference/nvidia-llama-3_2-nv-embedqa-1b-v1"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/nvidia-llama-3_2-nv-embedqa-1b-v1-infer"
+    },
+    {
+      "title": "nvidia / llama-3.2-nv-embedqa-1b-v2",
+      "url": "/nim/reference/nvidia-llama-3_2-nv-embedqa-1b-v2"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/nvidia-llama-3_2-nv-embedqa-1b-v2-infer"
+    },
+    {
+      "title": "nvidia / llama-3.2-nv-rerankqa-1b-v1",
+      "url": "/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v1"
+    },
+    {
+      "title": "Rank passages by their relation to a query. post",
+      "url": "/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v1-infer"
+    },
+    {
+      "title": "nvidia / llama-3.2-nv-rerankqa-1b-v2",
+      "url": "/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v2"
+    },
+    {
+      "title": "Rank passages by their relation to a query. post",
+      "url": "/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v2-infer"
+    },
+    {
+      "title": "nvidia / llama-nemotron-embed-1b-v2",
+      "url": "/nim/reference/nvidia-llama-nemotron-embed-1b-v2"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/nvidia-llama-nemotron-embed-1b-v2-infer"
+    },
+    {
+      "title": "nvidia / llama-nemotron-embed-vl-1b-v2",
+      "url": "/nim/reference/nvidia-llama-nemotron-embed-vl-1b-v2"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/nvidia-llama-nemotron-embed-vl-1b-v2-infer"
+    },
+    {
+      "title": "nvidia / llama-nemotron-rerank-1b-v2",
+      "url": "/nim/reference/nvidia-llama-nemotron-rerank-1b-v2"
+    },
+    {
+      "title": "Rank passages by their relation to a query. post",
+      "url": "/nim/reference/nvidia-llama-nemotron-rerank-1b-v2-infer"
+    },
+    {
+      "title": "nvidia / llama-nemotron-rerank-vl-1b-v2",
+      "url": "/nim/reference/nvidia-llama-nemotron-rerank-vl-1b-v2"
+    },
+    {
+      "title": "Rank passages by their relation to a query. post",
+      "url": "/nim/reference/nvidia-llama-nemotron-rerank-vl-1b-v2-infer"
+    },
+    {
+      "title": "nvidia / nemotron-3-embed-1b",
+      "url": "/nim/reference/nvidia-nemotron-3-embed-1b"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/nvidia-nemotron-3-embed-1b-infer"
+    },
+    {
+      "title": "nvidia / nvclip",
+      "url": "/nim/reference/nvidia-nvclip"
+    },
+    {
+      "title": "Creates an embedding vector representing the input text or image. post",
+      "url": "/nim/reference/nvidia-nvclip-infer"
+    },
+    {
+      "title": "nvidia / nv-embedqa-e5-v5",
+      "url": "/nim/reference/nvidia-nv-embedqa-e5-v5"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/nvidia-nv-embedqa-e5-v5-infer"
+    },
+    {
+      "title": "nvidia / nv-rerankqa-mistral-4b-v3",
+      "url": "/nim/reference/nvidia-nv-rerankqa-mistral-4b-v3"
+    },
+    {
+      "title": "Rank passages by their relation to a query. post",
+      "url": "/nim/reference/nvidia-nv-rerankqa-mistral-4b-v3-infer"
+    },
+    {
+      "title": "snowflake / arctic-embed-l",
+      "url": "/nim/reference/snowflake-arctic-embed-l"
+    },
+    {
+      "title": "Creates an embedding vector from the input text. post",
+      "url": "/nim/reference/snowflake-arctic-embed-l-invoke"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/snowflake-arctic-embed-l-statuspolling"
+    },
+    {
+      "title": "Visual Models APIs",
+      "url": "/nim/reference/visual-models-apis"
+    },
+    {
+      "title": "adept / fuyu-8b",
+      "url": "/nim/reference/adept-fuyu-8b"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/adept-fuyu-8b-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/adept-fuyu-8b-statuspolling"
+    },
+    {
+      "title": "black forest labs / flux.1-dev",
+      "url": "/nim/reference/black-forest-labs-flux_1-dev"
+    },
+    {
+      "title": "Infer post",
+      "url": "/nim/reference/black-forest-labs-flux_1-dev-infer"
+    },
+    {
+      "title": "black forest labs / flux.1-schnell",
+      "url": "/nim/reference/black-forest-labs-flux_1-schnell"
+    },
+    {
+      "title": "Infer post",
+      "url": "/nim/reference/black-forest-labs-flux_1-schnell-infer"
+    },
+    {
+      "title": "black forest labs / flux.2-klein-4b",
+      "url": "/nim/reference/black-forest-labs-flux_2-klein-4b"
+    },
+    {
+      "title": "Infer post",
+      "url": "/nim/reference/black-forest-labs-flux_2-klein-4b-infer"
+    },
+    {
+      "title": "google / diffusiongemma-26b-a4b-it",
+      "url": "/nim/reference/diffusiongemma-26b-a4b-it"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/diffusiongemma-26b-a4b-it-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/diffusiongemma-26b-a4b-it-statuspolling"
+    },
+    {
+      "title": "google / gemma-3-27b-it",
+      "url": "/nim/reference/google-gemma-3-27b-it"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/google-gemma-3-27b-it-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/google-gemma-3-27b-it-statuspolling"
+    },
+    {
+      "title": "google / gemma-3n-e4b-it",
+      "url": "/nim/reference/google-gemma-3n-e4b-it"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/google-gemma-3n-e4b-it-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/google-gemma-3n-e4b-it-statuspolling"
+    },
+    {
+      "title": "google / gemma-4-31b-it",
+      "url": "/nim/reference/google-gemma-4-31b-it"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/google-gemma-4-31b-it-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/google-gemma-4-31b-it-statuspolling"
+    },
+    {
+      "title": "hive / ai-generated-image-detection",
+      "url": "/nim/reference/hive-ai-generated-image-detection"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/hive-ai-generated-image-detection-infer"
+    },
+    {
+      "title": "hive / deepfake-image-detection",
+      "url": "/nim/reference/hive-deepfake-image-detection"
+    },
+    {
+      "title": "Infer post",
+      "url": "/nim/reference/hive-deepfake-image-detection-infer"
+    },
+    {
+      "title": "meta / llama-guard-4-12b",
+      "url": "/nim/reference/meta-llama-guard-4-12b"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/meta-llama-guard-4-12b-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/meta-llama-guard-4-12b-statuspolling"
+    },
+    {
+      "title": "microsoft / phi-4-multimodal-instruct",
+      "url": "/nim/reference/microsoft-phi-4-multimodal-instruct"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/microsoft-phi-4-multimodal-instruct-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/microsoft-phi-4-multimodal-instruct-statuspolling"
+    },
+    {
+      "title": "microsoft / trellis",
+      "url": "/nim/reference/microsoft-trellis"
+    },
+    {
+      "title": "Infer post",
+      "url": "/nim/reference/microsoft-trellis-infer"
+    },
+    {
+      "title": "minimaxai / minimax-m3",
+      "url": "/nim/reference/minimaxai-minimax-m3"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/minimaxai-minimax-m3-infer"
+    },
+    {
+      "title": "mistralai / mistral-7b-instruct-v0.3",
+      "url": "/nim/reference/mistralai-mistral-7b-instruct-v03"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/mistralai-mistral-7b-instruct-v03-infer"
+    },
+    {
+      "title": "mistralai / ministral-14b-instruct-2512",
+      "url": "/nim/reference/mistralai-ministral-14b-instruct-2512"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/mistralai-ministral-14b-instruct-2512-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/mistralai-ministral-14b-instruct-2512-statuspolling"
+    },
+    {
+      "title": "mistralai / mistral-large-3-675b-instruct-2512",
+      "url": "/nim/reference/mistralai-mistral-large-3-675b-instruct-2512"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/mistralai-mistral-large-3-675b-instruct-2512-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/mistralai-mistral-large-3-675b-instruct-2512-statuspolling"
+    },
+    {
+      "title": "mistralai / mistral-medium-3-5-128b",
+      "url": "/nim/reference/mistralai-mistral-medium-3-5-128b"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/mistralai-mistral-medium-3-5-128b-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/mistralai-mistral-medium-3-5-128b-statuspolling"
+    },
+    {
+      "title": "mistralai / mistral-small-4-119b-2603",
+      "url": "/nim/reference/mistralai-mistral-small-4-119b-2603"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/mistralai-mistral-small-4-119b-2603-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/mistralai-mistral-small-4-119b-2603-statuspolling"
+    },
+    {
+      "title": "moonshot ai / kimi-k2.6",
+      "url": "/nim/reference/moonshotai-kimi-k2-6"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/moonshotai-kimi-k2-6-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/moonshotai-kimi-k2-6-statuspolling"
+    },
+    {
+      "title": "nvidia / bevformer",
+      "url": "/nim/reference/nvidia-bevformer"
+    },
+    {
+      "title": "Post V1 Bevformer Process post",
+      "url": "/nim/reference/nvidia-bevformer-infer"
+    },
+    {
+      "title": "nvidia / cosmos-predict1-7b",
+      "url": "/nim/reference/nvidia-cosmos-1_0-diffusion-7b"
+    },
+    {
+      "title": "nvidia / ising-calibration-1.5-31b",
+      "url": "/nim/reference/nvidia-ising-calibration-1-5-31b"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-ising-calibration-1-5-31b-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-ising-calibration-1-5-31b-statuspolling"
+    },
+    {
+      "title": "nvidia / nemoretriever-parse",
+      "url": "/nim/reference/nvidia-nemoretriever-parse"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-nemoretriever-parse-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nemoretriever-parse-statuspolling"
+    },
+    {
+      "title": "nvidia / nemotron-3-nano-omni-30b-a3b-reasoning",
+      "url": "/nim/reference/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-statuspolling"
+    },
+    {
+      "title": "nvidia / nemotron-nano-12b-v2-vl",
+      "url": "/nim/reference/nvidia-nemotron-nano-12b-v2-vl"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-nemotron-nano-12b-v2-vl-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nemotron-nano-12b-v2-vl-statuspolling"
+    },
+    {
+      "title": "nvidia / nemotron-parse",
+      "url": "/nim/reference/nvidia-nemotron-parse"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-nemotron-parse-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nemotron-parse-statuspolling"
+    },
+    {
+      "title": "nvidia / nemotron-parse-2.0",
+      "url": "/nim/reference/nvidia-nemotron-parse-2_0"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-nemotron-parse-2_0-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nemotron-parse-2_0-statuspolling"
+    },
+    {
+      "title": "nvidia / nv-dinov2",
+      "url": "/nim/reference/nvidia-nv-dinov2"
+    },
+    {
+      "title": "Run inference on the input image. post",
+      "url": "/nim/reference/nvidia-nv-dinov2-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nv-dinov2-statuspolling"
+    },
+    {
+      "title": "nvidia / nv-grounding-dino",
+      "url": "/nim/reference/nvidia-nv-grounding-dino"
+    },
+    {
+      "title": "Run inference on the input image/video for a given text prompt post",
+      "url": "/nim/reference/nvidia-nv-grounding-dino-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nv-grounding-dino-statuspolling"
+    },
+    {
+      "title": "nvidia / retail-object-detection",
+      "url": "/nim/reference/nvidia-retail-object-detection"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-retail-object-detection-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-retail-object-detection-statuspolling"
+    },
+    {
+      "title": "nvidia / sparsedrive",
+      "url": "/nim/reference/nvidia-sparsedrive"
+    },
+    {
+      "title": "Post V1 Sparsedrive Inference post",
+      "url": "/nim/reference/nvidia-sparsedrive-infer"
+    },
+    {
+      "title": "nvidia / streampetr",
+      "url": "/nim/reference/nvidia-streampetr"
+    },
+    {
+      "title": "Post V1 Streampetr Process post",
+      "url": "/nim/reference/nvidia-streampetr-infer"
+    },
+    {
+      "title": "nvidia / vila",
+      "url": "/nim/reference/nvidia-vila"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-vila-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-vila-statuspolling"
+    },
+    {
+      "title": "nvidia / visual-changenet",
+      "url": "/nim/reference/nvidia-visual-changenet"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-visual-changenet-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-visual-changenet-statuspolling"
+    },
+    {
+      "title": "stabilityai / stable-diffusion-3-medium",
+      "url": "/nim/reference/stabilityai-stable-diffusion-3-medium"
+    },
+    {
+      "title": "Request generation post",
+      "url": "/nim/reference/stabilityai-stable-diffusion-3-medium-infer"
+    },
+    {
+      "title": "stabilityai / stable-diffusion-xl",
+      "url": "/nim/reference/stabilityai-stable-diffusion-xl"
+    },
+    {
+      "title": "Request generation post",
+      "url": "/nim/reference/stabilityai-stable-diffusion-xl-infer"
+    },
+    {
+      "title": "stabilityai / stable-video-diffusion",
+      "url": "/nim/reference/stabilityai-stable-video-diffusion"
+    },
+    {
+      "title": "Request generation post",
+      "url": "/nim/reference/stabilityai-stable-video-diffusion-infer"
+    },
+    {
+      "title": "stepfun-ai / step-3.7-flash",
+      "url": "/nim/reference/stepfun-ai-step-3-7-flash"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/stepfun-ai-step-3-7-flash-infer"
+    },
+    {
+      "title": "Multimodal APIs",
+      "url": "/nim/reference/multimodal-apis"
+    },
+    {
+      "title": "black-forest-labs / flux.1-kontext-dev",
+      "url": "/nim/reference/black-forest-labs-flux_1-kontext-dev"
+    },
+    {
+      "title": "Infer post",
+      "url": "/nim/reference/black-forest-labs-flux_1-kontext-dev-infer"
+    },
+    {
+      "title": "google / paligemma",
+      "url": "/nim/reference/google-paligemma"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/google-paligemma-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/google-paligemma-statuspolling"
+    },
+    {
+      "title": "meta / llama-3.2-11b-vision-instruct",
+      "url": "/nim/reference/meta-llama-3_2-11b-vision-instruct"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/meta-llama-3_2-11b-vision-instruct-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/meta-llama-3_2-11b-vision-instruct-statuspolling"
+    },
+    {
+      "title": "meta / llama-3_2-90b-vision-instruct",
+      "url": "/nim/reference/meta-llama-3_2-90b-vision-instruct"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/meta-llama-3_2-90b-vision-instruct-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/meta-llama-3_2-90b-vision-instruct-statuspolling"
+    },
+    {
+      "title": "meta / muse-glimmer-30b",
+      "url": "/nim/reference/meta-muse-glimmer-30b"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/meta-muse-glimmer-30b-infer"
+    },
+    {
+      "title": "moonshotai / kimi-k2.5",
+      "url": "/nim/reference/moonshotai-kimi-k2-5"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/moonshotai-kimi-k2-5-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/moonshotai-kimi-k2-5-statuspolling"
+    },
+    {
+      "title": "nvidia / deepseek-v4.1-flash",
+      "url": "/nim/reference/nvidia-deepseek-v4_1-flash"
+    },
+    {
+      "title": "Creates a model response for the given chat conversation. post",
+      "url": "/nim/reference/nvidia-deepseek-v4_1-flash-infer"
+    },
+    {
+      "title": "nvidia / kumo-relational",
+      "url": "/nim/reference/nvidia-kumo-relational"
+    },
+    {
+      "title": "List available models get",
+      "url": "/nim/reference/nvidia-kumo-relational-infer"
+    },
+    {
+      "title": "Run a Kumo Relational prediction post",
+      "url": "/nim/reference/nvidia-kumo-relational-statuspolling"
+    },
+    {
+      "title": "nvidia / kumo-tabular",
+      "url": "/nim/reference/nvidia-kumo-tabular"
+    },
+    {
+      "title": "List available models get",
+      "url": "/nim/reference/nvidia-kumo-tabular-infer"
+    },
+    {
+      "title": "Run a one-shot Kumo Tabular prediction post",
+      "url": "/nim/reference/nvidia-kumo-tabular-statuspolling"
+    },
+    {
+      "title": "nvidia / nemotron-3-content-safety",
+      "url": "/nim/reference/nvidia-nemotron-3-content-safety"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-nemotron-3-content-safety-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nemotron-3-content-safety-statuspolling"
+    },
+    {
+      "title": "nvidia / nemotron-3.5-content-safety",
+      "url": "/nim/reference/nvidia-nemotron-3-5-content-safety"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-nemotron-3-5-content-safety-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-nemotron-3-5-content-safety-statuspolling"
+    },
+    {
+      "title": "nvidia / neva-22b",
+      "url": "/nim/reference/nvidia-neva-22b"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/nvidia-neva-22b-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/nvidia-neva-22b-statuspolling"
+    },
+    {
+      "title": "qwen / qwen3.5-122b-a10b",
+      "url": "/nim/reference/qwen-qwen3-5-122b-a10b"
+    },
+    {
+      "title": "Request response from the model post",
+      "url": "/nim/reference/qwen-qwen3-5-122b-a10b-infer"
+    },
+    {
+      "title": "Gets the result of an earlier function invocation request that returned a status of 202. get",
+      "url": "/nim/reference/qwen-qwen3-5-122b-a10b-statuspolling"
+    },
+    {
+      "title": "Healthcare APIs",
+      "url": "/nim/reference/healthcare-apis"
+    },
+    {
+      "title": "arc / evo2-7b-forward",
+      "url": "/nim/reference/arc-evo2-7b"
+    },
+    {
+      "title": "Run model forward pass and save layers outputs post",
+      "url": "/nim/reference/arc-evo2-7b-infer"
+    },
+    {
+      "title": "arc / evo2-40b",
+      "url": "/nim/reference/arc-evo2-40b"
+    },
+    {
+      "title": "Generate DNA sequences post",
+      "url": "/nim/reference/arc-evo2-40b-infer"
+    },
+    {
+      "title": "colabfold / msa-search",
+      "url": "/nim/reference/colabfold-msa-search"
+    },
+    {
+      "title": "Multiple Sequence Alignment Search Request post",
+      "url": "/nim/reference/colabfold-msa-search-infer"
+    },
+    {
+      "title": "deepmind / alphafold2",
+      "url": "/nim/reference/deepmind-alphafold2"
+    },
+    {
+      "title": "Nim Api Post Call Protein Structure Alphafold2 Predict Structure From Sequence Post post",
+      "url": "/nim/reference/deepmind-alphafold2-infer"
+    },
+    {
+      "title": "deepmind / alphafold2-multimer",
+      "url": "/nim/reference/deepmind-alphafold2-multimer"
+    },
+    {
+      "title": "Nim Api Post Call Protein Structure Alphafold2 Predict Structure From Sequence Post post",
+      "url": "/nim/reference/deepmind-alphafold2-multimer-infer"
+    },
+    {
+      "title": "ipd / proteinmpnn",
+      "url": "/nim/reference/ipd-proteinmpnn"
+    },
+    {
+      "title": "Predict amino acid sequences post",
+      "url": "/nim/reference/ipd-proteinmpnn-infer"
+    },
+    {
+      "title": "ipd / rfdiffusion",
+      "url": "/nim/reference/ipd-rfdiffusion"
+    },
+    {
+      "title": "Generate new protein structures (binder designs, motif scaffoldings, etc.) post",
+      "url": "/nim/reference/ipd-rfdiffusion-infer"
+    },
+    {
+      "title": "mit / boltz2",
+      "url": "/nim/reference/mit-boltz2"
+    },
+    {
+      "title": "Post Mit Boltz Predict Api post",
+      "url": "/nim/reference/mit-boltz2-infer"
+    },
+    {
+      "title": "mit / diffdock",
+      "url": "/nim/reference/mit-diffdock"
+    },
+    {
+      "title": "Molecular Docking post",
+      "url": "/nim/reference/mit-diffdock-infer"
+    },
+    {
+      "title": "nvidia / genmol",
+      "url": "/nim/reference/nvidia-genmol"
+    },
+    {
+      "title": "Molecular Generation post",
+      "url": "/nim/reference/nvidia-genmol-infer"
+    },
+    {
+      "title": "nvidia / molmim",
+      "url": "/nim/reference/nvidia-molmim"
+    },
+    {
+      "title": "Perform molecule generation post",
+      "url": "/nim/reference/nvidia-molmim-infer"
+    },
+    {
+      "title": "nvidia / vista3d",
+      "url": "/nim/reference/nvidia-vista3d"
+    },
+    {
+      "title": "Run Inference post",
+      "url": "/nim/reference/nvidia-vista3d-infer"
+    },
+    {
+      "title": "openfold / openfold2",
+      "url": "/nim/reference/openfold-openfold2"
+    },
+    {
+      "title": "Nim Api Post Call Monomer Structure From Msa And Template post",
+      "url": "/nim/reference/openfold-openfold2-infer"
+    },
+    {
+      "title": "openfold / openfold3",
+      "url": "/nim/reference/openfold-openfold3"
+    },
+    {
+      "title": "Post Of3 Predict post",
+      "url": "/nim/reference/openfold-openfold3-infer"
+    },
+    {
+      "title": "Route Optimization APIs",
+      "url": "/nim/reference/route-optimization-apis"
+    },
+    {
+      "title": "nvidia / cuOpt",
+      "url": "/nim/reference/nvidia-cuopt"
+    },
+    {
+      "title": "Submit to solver post",
+      "url": "/nim/reference/nvidia-cuopt-infer"
+    },
+    {
+      "title": "Status polling get",
+      "url": "/nim/reference/nvidia-cuopt-statuspolling"
+    },
+    {
+      "title": "Climate Simulation APIs",
+      "url": "/nim/reference/climate-simulation-apis"
+    },
+    {
+      "title": "nvidia / corrdiff",
+      "url": "/nim/reference/nvidia-corrdiff"
+    },
+    {
+      "title": "Inference post",
+      "url": "/nim/reference/nvidia-corrdiff-infer"
+    },
+    {
+      "title": "nvidia / fourcastnet",
+      "url": "/nim/reference/nvidia-fourcastnet"
+    },
+    {
+      "title": "Runs FourCastNet inference. post",
+      "url": "/nim/reference/nvidia-fourcastnet-infer"
+    },
+    {
+      "title": "Large Language Models Handles a wide range of text generation tasks, such as question answering, summarization, reasoning, and code generation. View More",
+      "url": "https://docs.api.nvidia.com/nim/reference/llm-apis"
+    },
+    {
+      "title": "Retrieval Models Optimize text question-answering retrieval and improve accuracy by reranking potential candidates. View More",
+      "url": "https://docs.api.nvidia.com/nim/reference/retrieval-apis"
+    },
+    {
+      "title": "Visual Models Offers advanced image and video synthesis capabilities, utilizing techniques like Adversarial Diffusion Distillation and latent diffusion models. View More",
+      "url": "https://docs.api.nvidia.com/nim/reference/visual-models-apis"
+    },
+    {
+      "title": "Multimodal Combines visual and textual understanding for enhanced performance across tasks such as image understanding, text generation, and code generation, leveraging multiple modalities of data (text + images). View More",
+      "url": "https://docs.api.nvidia.com/nim/reference/multimodal-apis"
+    },
+    {
+      "title": "Healthcare Models AI model APIs for generative and predictive drug discovery, medical imaging, and genomics analysis. View More",
+      "url": "https://docs.api.nvidia.com/nim/reference/healthcare-apis"
+    },
+    {
+      "title": "Route Optimization Optimizes logistics routing, supporting various vehicle routing problem variants and enabling dynamic, data-driven decision-making. View More",
+      "url": "https://docs.api.nvidia.com/nim/reference/route-optimization-apis"
+    },
+    {
+      "title": "Climate Simulation Models Features FourCastNet for accurate, high-resolution, and fast-timescale weather forecasting, advancing climate simulation and weather prediction through AI. View More",
+      "url": "https://docs.api.nvidia.com/nim/reference/climate-simulation-apis"
+    },
+    {
+      "title": "LLM APIs",
+      "url": "/nim/reference/llm-apis"
+    },
+    {
+      "title": "LLM APIs",
+      "url": "/nim/reference/llm-apis"
+    }
+  ]
+}

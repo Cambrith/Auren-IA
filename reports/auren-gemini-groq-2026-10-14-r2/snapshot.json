@@ -1,0 +1,3932 @@
+{
+  "started_at": "2026-10-14T13:56:42.475085-03:00",
+  "models": {
+    "gemini:antigravity-preview-05-2026": {
+      "provider": "gemini",
+      "model": "antigravity-preview-05-2026",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844894-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/antigravity-preview-05-2026",
+        "displayName": "Antigravity Agent Preview",
+        "description": "Preview release of Antigravity Agent (05-2026)",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "0.1",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:antigravity-preview-09-2026": {
+      "provider": "gemini",
+      "model": "antigravity-preview-09-2026",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844898-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/antigravity-preview-09-2026",
+        "displayName": "Antigravity Agent Preview",
+        "description": "Preview release of Antigravity Agent (09-2026)",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "0.1",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:antigravity-preview-latest": {
+      "provider": "gemini",
+      "model": "antigravity-preview-latest",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844902-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/antigravity-preview-latest",
+        "displayName": "Antigravity Agent Preview Latest",
+        "description": "Latest preview release of Antigravity Agent",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "Antigravity Agent Preview Latest",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:deep-research-max-preview-04-2026": {
+      "provider": "gemini",
+      "model": "deep-research-max-preview-04-2026",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844907-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/deep-research-max-preview-04-2026",
+        "displayName": "Deep Research Max Preview (Apr-21-2026)",
+        "description": "Preview release (April 21st, 2026) of Deep Research Max",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "deepthink-exp-05-20",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:deep-research-preview-04-2026": {
+      "provider": "gemini",
+      "model": "deep-research-preview-04-2026",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844911-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/deep-research-preview-04-2026",
+        "displayName": "Deep Research Preview (Apr-21-2026)",
+        "description": "Preview release (April 21th, 2026) of Deep Research",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "deepthink-exp-05-20",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:deep-research-pro-preview-12-2025": {
+      "provider": "gemini",
+      "model": "deep-research-pro-preview-12-2025",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844915-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/deep-research-pro-preview-12-2025",
+        "displayName": "Deep Research Pro Preview (Dec-12-2025)",
+        "description": "Preview release (December 12th, 2025) of Deep Research Pro",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "deepthink-exp-05-20",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-computer-use-preview-10-2025": {
+      "provider": "gemini",
+      "model": "gemini-2.5-computer-use-preview-10-2025",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844888-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-2.5-computer-use-preview-10-2025",
+        "displayName": "Gemini 2.5 Computer Use Preview 10-2025",
+        "description": "Gemini 2.5 Computer Use Preview 10-2025",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "Gemini 2.5 Computer Use Preview 10-2025",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-flash": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844631-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-2.5-flash",
+        "displayName": "Gemini 2.5 Flash",
+        "description": "Stable version of Gemini 2.5 Flash, our mid-size multimodal model that supports up to 1 million tokens, released in June of 2025.",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "001",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-flash-lite": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-lite",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844686-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-2.5-flash-lite",
+        "displayName": "Gemini 2.5 Flash-Lite",
+        "description": "Stable version of Gemini 2.5 Flash-Lite, released in July of 2025",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "001",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-pro": {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844643-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-2.5-pro",
+        "displayName": "Gemini 2.5 Pro",
+        "description": "Stable release (June 17th, 2025) of Gemini 2.5 Pro",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "2.5",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3-flash-preview": {
+      "provider": "gemini",
+      "model": "gemini-3-flash-preview",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844715-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3-flash-preview",
+        "displayName": "Gemini 3 Flash Preview",
+        "description": "Gemini 3 Flash Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3-flash-preview-12-2025",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-flash-lite": {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844752-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.1-flash-lite",
+        "displayName": "Gemini 3.1 Flash Lite",
+        "description": "Gemini 3.1 Flash Lite",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.1-flash-lite-05-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-flash-lite-preview": {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite-preview",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844729-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.1-flash-lite-preview",
+        "displayName": "Gemini 3.1 Flash Lite Preview",
+        "description": "Gemini 3.1 Flash Lite Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.1-flash-lite-preview-03-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-pro-preview": {
+      "provider": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844720-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.1-pro-preview",
+        "displayName": "Gemini 3.1 Pro Preview",
+        "description": "Gemini 3.1 Pro Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.1-pro-preview-01-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-pro-preview-customtools": {
+      "provider": "gemini",
+      "model": "gemini-3.1-pro-preview-customtools",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844725-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.1-pro-preview-customtools",
+        "displayName": "Gemini 3.1 Pro Preview Custom Tools",
+        "description": "Gemini 3.1 Pro Preview optimized for custom tool usage",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.1-pro-preview-01-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.5-flash": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844803-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.5-flash",
+        "displayName": "Gemini 3.5 Flash",
+        "description": "Gemini 3.5 Flash",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.5-flash-05-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.5-flash-lite": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "engine_registry",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844807-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.5-flash-lite",
+        "displayName": "Gemini 3.5 Flash Lite",
+        "description": "Gemini 3.5 Flash Lite",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.5-flash-lite-07-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.6-flash": {
+      "provider": "gemini",
+      "model": "gemini-3.6-flash",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844843-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.6-flash",
+        "displayName": "Gemini 3.6 Flash",
+        "description": "Gemini 3.6 Flash",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.6-flash-07-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.7-flash": {
+      "provider": "gemini",
+      "model": "gemini-3.7-flash",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844847-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.7-flash",
+        "displayName": "Gemini 3.7 Flash",
+        "description": "Gemini 3.7 Flash",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.7-flash-08-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.8-flash": {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "engine_registry",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844851-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-3.8-flash",
+        "displayName": "Gemini 3.8 Flash",
+        "description": "Gemini 3.8 Flash",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-4-argon": {
+      "provider": "gemini",
+      "model": "gemini-4-argon",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844855-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-4-argon",
+        "displayName": "Gemini 4 Argon",
+        "description": "Gemini 4 Argon",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 32768,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-flash-latest": {
+      "provider": "gemini",
+      "model": "gemini-flash-latest",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844672-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-flash-latest",
+        "displayName": "Gemini Flash Latest",
+        "description": "Latest release of Gemini Flash",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "Gemini Flash Latest",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-flash-lite-latest": {
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844677-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-flash-lite-latest",
+        "displayName": "Gemini Flash-Lite Latest",
+        "description": "Latest release of Gemini Flash-Lite",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "Gemini Flash-Lite Latest",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-omni-1.1-flash": {
+      "provider": "gemini",
+      "model": "gemini-omni-1.1-flash",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844817-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-omni-1.1-flash",
+        "displayName": "Gemini Omni 1.1 Flash",
+        "description": "Gemini Omni 1.1 Flash ",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "001",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-omni-flash-preview": {
+      "provider": "gemini",
+      "model": "gemini-omni-flash-preview",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844812-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-omni-flash-preview",
+        "displayName": "Gemini Omni Flash Preview",
+        "description": "Gemini Omni Flash Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "001",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-pro-latest": {
+      "provider": "gemini",
+      "model": "gemini-pro-latest",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844681-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-pro-latest",
+        "displayName": "Gemini Pro Latest",
+        "description": "Latest release of Gemini Pro",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "Gemini Pro Latest",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-robotics-er-2-preview": {
+      "provider": "gemini",
+      "model": "gemini-robotics-er-2-preview",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844883-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": true,
+          "audio": true,
+          "pdf": true,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemini-robotics-er-2-preview",
+        "displayName": "Gemini Robotics-ER 2 Preview",
+        "description": "Gemini Robotics-ER 2 Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "2-preview",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemma-4-26b-a4b-it": {
+      "provider": "gemini",
+      "model": "gemma-4-26b-a4b-it",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844661-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemma-4-26b-a4b-it",
+        "displayName": "Gemma 4 26B A4B IT",
+        "description": "Gemma 4 26B A4B IT",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 262144,
+        "outputTokenLimit": 32768,
+        "version": "001",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemma-4-31b-it": {
+      "provider": "gemini",
+      "model": "gemma-4-31b-it",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844666-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/gemma-4-31b-it",
+        "displayName": "Gemma 4 31B IT",
+        "description": "Gemma 4 31B IT",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 262144,
+        "outputTokenLimit": 32768,
+        "version": "001",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-flash-image": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-image",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844709-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": true,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "image"
+        ],
+        "name": "models/gemini-2.5-flash-image",
+        "displayName": "Nano Banana",
+        "description": "Gemini 2.5 Flash Preview Image",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 32768,
+        "outputTokenLimit": 32768,
+        "version": "2.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-flash-image-preview": {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-image-preview",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844786-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": true,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "image"
+        ],
+        "name": "models/gemini-3.1-flash-image-preview",
+        "displayName": "Nano Banana 2",
+        "description": "Gemini 3.1 Flash Image Preview.",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 65536,
+        "outputTokenLimit": 65536,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-flash-image": {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-image",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844790-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": true,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "image"
+        ],
+        "name": "models/gemini-3.1-flash-image",
+        "displayName": "Nano Banana 2",
+        "description": "Gemini 3.1 Flash Image.",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 65536,
+        "outputTokenLimit": 65536,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-flash-lite-image": {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite-image",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844794-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": true,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "image"
+        ],
+        "name": "models/gemini-3.1-flash-lite-image",
+        "displayName": "Nano Banana 2 Lite",
+        "description": "Gemini 3.1 Flash Lite Image.",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 65536,
+        "outputTokenLimit": 65536,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-nano-banana-2.1": {
+      "provider": "gemini",
+      "model": "gemini-nano-banana-2.1",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844799-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": true,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "image"
+        ],
+        "name": "models/gemini-nano-banana-2.1",
+        "displayName": "Nano Banana 2.1",
+        "description": "Gemini Nano Banana 2.1.",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 65536,
+        "outputTokenLimit": 65536,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3-pro-image-preview": {
+      "provider": "gemini",
+      "model": "gemini-3-pro-image-preview",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844757-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": true,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "image"
+        ],
+        "name": "models/gemini-3-pro-image-preview",
+        "displayName": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 32768,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3-pro-image": {
+      "provider": "gemini",
+      "model": "gemini-3-pro-image",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844761-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": true,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "image"
+        ],
+        "name": "models/gemini-3-pro-image",
+        "displayName": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 32768,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:nano-banana-pro-preview": {
+      "provider": "gemini",
+      "model": "nano-banana-pro-preview",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844766-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "name": "models/nano-banana-pro-preview",
+        "displayName": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 32768,
+        "version": "3.0",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "groq:allam-2-7b": {
+      "provider": "groq",
+      "model": "allam-2-7b",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474947-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "id": "allam-2-7b",
+        "name": "ALLaM-2-7b",
+        "object": "model",
+        "created": 1737672203,
+        "owned_by": "SDAIA",
+        "context_length": 4096,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:openai/gpt-oss-120b": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474952-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "id": "openai/gpt-oss-120b",
+        "name": "GPT OSS 120B",
+        "object": "model",
+        "created": 1754408224,
+        "owned_by": "OpenAI",
+        "pricing": {
+          "prompt": "0.00000015",
+          "completion": "0.0000006",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000000075"
+        },
+        "context_length": 131072,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:openai/gpt-oss-20b": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "engine_registry",
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474933-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": false,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "id": "openai/gpt-oss-20b",
+        "name": "GPT OSS 20B",
+        "object": "model",
+        "created": 1754407957,
+        "owned_by": "OpenAI",
+        "pricing": {
+          "prompt": "0.000000075",
+          "completion": "0.0000003",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.0000000375"
+        },
+        "context_length": 131072,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:qwen/qwen3.8-27b": {
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "sources": [
+        "local_snapshot",
+        "historical_inventory",
+        "engine_registry",
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474957-03:00"
+      ],
+      "metadata": {
+        "local_capabilities": {
+          "vision": true,
+          "video": false,
+          "audio": false,
+          "pdf": false,
+          "image_generation": false,
+          "file_upload": true,
+          "web_search": false,
+          "builtin_tools": false,
+          "code_interpreter": false,
+          "terminal": false
+        },
+        "local_operations": [],
+        "local_image_only": false,
+        "historical_operations": [
+          "text"
+        ],
+        "id": "qwen/qwen3.8-27b",
+        "name": "Qwen/Qwen3.8-27B",
+        "object": "model",
+        "created": 1786984846,
+        "owned_by": "Alibaba Cloud",
+        "pricing": {
+          "prompt": "0.0000008",
+          "completion": "0.000004",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.0000004"
+        },
+        "context_length": 131072,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "gemini:gemini-2.5-flash-preview-tts": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-preview-tts",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844651-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-2.5-flash-preview-tts",
+        "displayName": "Gemini 2.5 Flash Preview TTS",
+        "description": "Gemini 2.5 Flash Preview TTS",
+        "supportedGenerationMethods": [
+          "countTokens",
+          "generateContent"
+        ],
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "version": "gemini-2.5-flash-exp-tts-2025-05-19",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-pro-preview-tts": {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro-preview-tts",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844656-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-2.5-pro-preview-tts",
+        "displayName": "Gemini 2.5 Pro Preview TTS",
+        "description": "Gemini 2.5 Pro Preview TTS",
+        "supportedGenerationMethods": [
+          "countTokens",
+          "generateContent",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "version": "gemini-2.5-pro-preview-tts-2025-05-19",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.5-transcribe": {
+      "provider": "gemini",
+      "model": "gemini-3.5-transcribe",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844822-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.5-transcribe",
+        "displayName": "Gemini 3.5 Transcribe",
+        "description": "Gemini 3.5 Transcribe",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 98304,
+        "outputTokenLimit": 32768,
+        "version": "3.5-transcribe-08-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:lyria-3-clip-preview": {
+      "provider": "gemini",
+      "model": "lyria-3-clip-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844859-03:00"
+      ],
+      "metadata": {
+        "name": "models/lyria-3-clip-preview",
+        "displayName": "Lyria 3 Clip Preview",
+        "description": "Lyria 3 30s model Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "lyria-3-clip-preview",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:lyria-3-pro-preview": {
+      "provider": "gemini",
+      "model": "lyria-3-pro-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844863-03:00"
+      ],
+      "metadata": {
+        "name": "models/lyria-3-pro-preview",
+        "displayName": "Lyria 3 Pro Preview",
+        "description": "Lyria 3 Pro Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "lyria-3-pro-preview",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:lyria-3.5": {
+      "provider": "gemini",
+      "model": "lyria-3.5",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844867-03:00"
+      ],
+      "metadata": {
+        "name": "models/lyria-3.5",
+        "displayName": "Lyria 3.5",
+        "description": "Music Generation model",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "3.5",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-flash-tts-preview": {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-tts-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844871-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.1-flash-tts-preview",
+        "displayName": "Gemini 3.1 Flash TTS Preview",
+        "description": "Gemini 3.1 Flash TTS Preview",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "version": "3.1-flash-tts-preview",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.8-flash-tts": {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844875-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.8-flash-tts",
+        "displayName": "Gemini 3.8 Flash TTS",
+        "description": "Gemini 3.8 Flash TTS",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "version": "3.8-flash-tts",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.8-flash-lite-tts": {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-lite-tts",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844879-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.8-flash-lite-tts",
+        "displayName": "Gemini 3.8 Flash Lite TTS",
+        "description": "Gemini 3.8 Flash Lite TTS",
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "version": "3.8-flash-lite-tts",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-embedding-001": {
+      "provider": "gemini",
+      "model": "gemini-embedding-001",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844919-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-embedding-001",
+        "displayName": "Gemini Embedding 001",
+        "description": "Obtain a distributed representation of a text.",
+        "supportedGenerationMethods": [
+          "embedContent",
+          "countTextTokens",
+          "countTokens",
+          "asyncBatchEmbedContent"
+        ],
+        "inputTokenLimit": 2048,
+        "outputTokenLimit": 1,
+        "version": "001",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-embedding-2-preview": {
+      "provider": "gemini",
+      "model": "gemini-embedding-2-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844923-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-embedding-2-preview",
+        "displayName": "Gemini Embedding 2 Preview",
+        "description": "Obtain a distributed representation of multimodal content.",
+        "supportedGenerationMethods": [
+          "embedContent",
+          "countTextTokens",
+          "countTokens",
+          "asyncBatchEmbedContent"
+        ],
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 1,
+        "version": "2",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-embedding-2": {
+      "provider": "gemini",
+      "model": "gemini-embedding-2",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844928-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-embedding-2",
+        "displayName": "Gemini Embedding 2",
+        "description": "Obtain a distributed representation of multimodal content.",
+        "supportedGenerationMethods": [
+          "embedContent",
+          "countTextTokens",
+          "countTokens",
+          "asyncBatchEmbedContent"
+        ],
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 1,
+        "version": "2",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:aqa": {
+      "provider": "gemini",
+      "model": "aqa",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844933-03:00"
+      ],
+      "metadata": {
+        "name": "models/aqa",
+        "displayName": "Model that performs Attributed Question Answering.",
+        "description": "Model trained to return answers to questions that are grounded in provided sources, along with estimating answerable probability.",
+        "supportedGenerationMethods": [
+          "generateAnswer"
+        ],
+        "inputTokenLimit": 7168,
+        "outputTokenLimit": 1024,
+        "version": "001",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:veo-3.1-generate-preview": {
+      "provider": "gemini",
+      "model": "veo-3.1-generate-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844937-03:00"
+      ],
+      "metadata": {
+        "name": "models/veo-3.1-generate-preview",
+        "displayName": "Veo 3.1",
+        "description": "Veo 3.1",
+        "supportedGenerationMethods": [
+          "predictLongRunning"
+        ],
+        "inputTokenLimit": 480,
+        "outputTokenLimit": 8192,
+        "version": "3.1",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:veo-3.1-fast-generate-preview": {
+      "provider": "gemini",
+      "model": "veo-3.1-fast-generate-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844941-03:00"
+      ],
+      "metadata": {
+        "name": "models/veo-3.1-fast-generate-preview",
+        "displayName": "Veo 3.1 fast",
+        "description": "Veo 3.1 fast",
+        "supportedGenerationMethods": [
+          "predictLongRunning"
+        ],
+        "inputTokenLimit": 480,
+        "outputTokenLimit": 8192,
+        "version": "3.1",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:veo-3.1-lite-generate-preview": {
+      "provider": "gemini",
+      "model": "veo-3.1-lite-generate-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844945-03:00"
+      ],
+      "metadata": {
+        "name": "models/veo-3.1-lite-generate-preview",
+        "displayName": "Veo 3.1 lite",
+        "description": "Veo 3.1 lite",
+        "supportedGenerationMethods": [
+          "predictLongRunning"
+        ],
+        "inputTokenLimit": 480,
+        "outputTokenLimit": 8192,
+        "version": "3.1",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.5-transcribe-live": {
+      "provider": "gemini",
+      "model": "gemini-3.5-transcribe-live",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844949-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.5-transcribe-live",
+        "displayName": "Gemini 3.5 Transcribe Live",
+        "description": "Gemini 3.5 Transcribe Live",
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "3.5-transcribe-live-08-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-flash-native-audio-latest": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-latest",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844953-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-2.5-flash-native-audio-latest",
+        "displayName": "Gemini 2.5 Flash Native Audio Latest",
+        "description": "Latest release of Gemini 2.5 Flash Native Audio",
+        "supportedGenerationMethods": [
+          "countTokens",
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 8192,
+        "version": "Gemini 2.5 Flash Native Audio Latest",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-flash-native-audio-preview-09-2025": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-preview-09-2025",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844960-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-2.5-flash-native-audio-preview-09-2025",
+        "displayName": "Gemini 2.5 Flash Native Audio Preview 09-2025",
+        "description": "Gemini 2.5 Flash Native Audio Preview 09-2025",
+        "supportedGenerationMethods": [
+          "countTokens",
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 8192,
+        "version": "gemini-2.5-flash-preview-native-audio-dialog-2025-05-19",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-2.5-flash-native-audio-preview-12-2025": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844964-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-2.5-flash-native-audio-preview-12-2025",
+        "displayName": "Gemini 2.5 Flash Native Audio Preview 12-2025",
+        "description": "Gemini 2.5 Flash Native Audio Preview 12-2025",
+        "supportedGenerationMethods": [
+          "countTokens",
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 8192,
+        "version": "12-2025",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.1-flash-live-preview": {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-live-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844968-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.1-flash-live-preview",
+        "displayName": "Gemini 3.1 Flash Live Preview",
+        "description": "Gemini 3.1 Flash Live Preview",
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "3.1-flash-live-03-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.8-live": {
+      "provider": "gemini",
+      "model": "gemini-3.8-live",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844973-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.8-live",
+        "displayName": "Gemini 3.8 Live",
+        "description": "Gemini 3.8 Live",
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "3.1-flash-live-03-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.8-live-extended-thinking": {
+      "provider": "gemini",
+      "model": "gemini-3.8-live-extended-thinking",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844977-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.8-live-extended-thinking",
+        "displayName": "Gemini 3.8 Live Extended Thinking",
+        "description": "Gemini 3.8 Live Extended Thinking",
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "3.1-flash-live-03-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-robotics-er-2-streaming-preview": {
+      "provider": "gemini",
+      "model": "gemini-robotics-er-2-streaming-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844981-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-robotics-er-2-streaming-preview",
+        "displayName": "Gemini Robotics-ER 2 Streaming Preview",
+        "description": "Gemini Robotics-ER 2 Streaming Preview",
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "version": "2-streaming-preview",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:gemini-3.5-live-translate-preview": {
+      "provider": "gemini",
+      "model": "gemini-3.5-live-translate-preview",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844985-03:00"
+      ],
+      "metadata": {
+        "name": "models/gemini-3.5-live-translate-preview",
+        "displayName": "Gemini 3.5 Live Translate Preview",
+        "description": "Gemini 3.5 Live Translate Preview",
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "inputTokenLimit": 16384,
+        "outputTokenLimit": 32768,
+        "version": "3.5-live-translate-06-2026",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "gemini:lyria-realtime-exp": {
+      "provider": "gemini",
+      "model": "lyria-realtime-exp",
+      "sources": [
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        "https://generativelanguage.googleapis.com/v1beta/models refreshed 2026-10-14T13:56:41.844990-03:00"
+      ],
+      "metadata": {
+        "name": "models/lyria-realtime-exp",
+        "displayName": "Lyria Realtime Experimental",
+        "description": "Lyria Realtime Experimental",
+        "supportedGenerationMethods": [
+          "bidiGenerateMusic"
+        ],
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "version": "lyria-realtime-exp",
+        "_source": "https://generativelanguage.googleapis.com/v1beta/models",
+        "_at": "2026-10-13T14:53:35.590039-03:00"
+      }
+    },
+    "groq:canopylabs/orpheus-arabic-saudi": {
+      "provider": "groq",
+      "model": "canopylabs/orpheus-arabic-saudi",
+      "sources": [
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474942-03:00"
+      ],
+      "metadata": {
+        "id": "canopylabs/orpheus-arabic-saudi",
+        "name": "Canopy Labs Orpheus Arabic Saudi",
+        "object": "model",
+        "created": 1765926439,
+        "owned_by": "Canopy Labs",
+        "pricing": {
+          "prompt": "0.00004",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.00002"
+        },
+        "context_length": 4000,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:meta-llama/llama-prompt-guard-2-22m": {
+      "provider": "groq",
+      "model": "meta-llama/llama-prompt-guard-2-22m",
+      "sources": [
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474928-03:00"
+      ],
+      "metadata": {
+        "id": "meta-llama/llama-prompt-guard-2-22m",
+        "name": "Llama Prompt Guard 2 22M",
+        "object": "model",
+        "created": 1748632101,
+        "owned_by": "Meta",
+        "pricing": {
+          "prompt": "0.00000003",
+          "completion": "0.00000003",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000000015"
+        },
+        "context_length": 512,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:openai/gpt-oss-safeguard-20b": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-safeguard-20b",
+      "sources": [
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474961-03:00"
+      ],
+      "metadata": {
+        "id": "openai/gpt-oss-safeguard-20b",
+        "name": "Safety GPT OSS 20B",
+        "object": "model",
+        "created": 1761708789,
+        "owned_by": "OpenAI",
+        "pricing": {
+          "prompt": "0.000000075",
+          "completion": "0.0000003",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.0000000375"
+        },
+        "context_length": 131072,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:meta-llama/llama-prompt-guard-2-86m": {
+      "provider": "groq",
+      "model": "meta-llama/llama-prompt-guard-2-86m",
+      "sources": [
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474909-03:00"
+      ],
+      "metadata": {
+        "id": "meta-llama/llama-prompt-guard-2-86m",
+        "name": "Prompt Guard 2 86M",
+        "object": "model",
+        "created": 1748632165,
+        "owned_by": "Meta",
+        "pricing": {
+          "prompt": "0.00000004",
+          "completion": "0.00000004",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.00000002"
+        },
+        "context_length": 512,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:whisper-large-v3": {
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "sources": [
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474938-03:00"
+      ],
+      "metadata": {
+        "id": "whisper-large-v3",
+        "name": "Whisper",
+        "object": "model",
+        "created": 1693721698,
+        "owned_by": "OpenAI",
+        "context_length": 448,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:canopylabs/orpheus-v1-english": {
+      "provider": "groq",
+      "model": "canopylabs/orpheus-v1-english",
+      "sources": [
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474918-03:00"
+      ],
+      "metadata": {
+        "id": "canopylabs/orpheus-v1-english",
+        "name": "Canopy Labs Orpheus V1 English",
+        "object": "model",
+        "created": 1766186316,
+        "owned_by": "Canopy Labs",
+        "pricing": {
+          "prompt": "0.000022",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000011"
+        },
+        "context_length": 4000,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:whisper-large-v3-turbo": {
+      "provider": "groq",
+      "model": "whisper-large-v3-turbo",
+      "sources": [
+        "https://api.groq.com/openai/v1/models",
+        "https://api.groq.com/openai/v1/models refreshed 2026-10-14T13:56:42.474923-03:00"
+      ],
+      "metadata": {
+        "id": "whisper-large-v3-turbo",
+        "name": "Whisper Large V3 Turbo",
+        "object": "model",
+        "created": 1728413088,
+        "owned_by": "OpenAI",
+        "context_length": 448,
+        "_source": "https://api.groq.com/openai/v1/models",
+        "_at": "2026-10-13T14:53:36.822004-03:00"
+      }
+    },
+    "groq:llama-3.1-8b-instant": {
+      "provider": "groq",
+      "model": "llama-3.1-8b-instant",
+      "sources": [
+        "https://console.groq.com/docs/models"
+      ],
+      "metadata": {
+        "documented_candidate": true
+      }
+    },
+    "groq:llama-3.3-70b-versatile": {
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "sources": [
+        "https://console.groq.com/docs/models"
+      ],
+      "metadata": {
+        "documented_candidate": true
+      }
+    },
+    "groq:minimaxai/minimax-m2.7": {
+      "provider": "groq",
+      "model": "minimaxai/minimax-m2.7",
+      "sources": [
+        "https://console.groq.com/docs/models"
+      ],
+      "metadata": {
+        "documented_candidate": true
+      }
+    }
+  },
+  "catalogs": {
+    "gemini": [
+      {
+        "name": "models/gemini-2.5-flash",
+        "version": "001",
+        "displayName": "Gemini 2.5 Flash",
+        "description": "Stable version of Gemini 2.5 Flash, our mid-size multimodal model that supports up to 1 million tokens, released in June of 2025.",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-2.5-pro",
+        "version": "2.5",
+        "displayName": "Gemini 2.5 Pro",
+        "description": "Stable release (June 17th, 2025) of Gemini 2.5 Pro",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-2.5-flash-preview-tts",
+        "version": "gemini-2.5-flash-exp-tts-2025-05-19",
+        "displayName": "Gemini 2.5 Flash Preview TTS",
+        "description": "Gemini 2.5 Flash Preview TTS",
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "supportedGenerationMethods": [
+          "countTokens",
+          "generateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-2.5-pro-preview-tts",
+        "version": "gemini-2.5-pro-preview-tts-2025-05-19",
+        "displayName": "Gemini 2.5 Pro Preview TTS",
+        "description": "Gemini 2.5 Pro Preview TTS",
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "supportedGenerationMethods": [
+          "countTokens",
+          "generateContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemma-4-26b-a4b-it",
+        "version": "001",
+        "displayName": "Gemma 4 26B A4B IT",
+        "description": "Gemma 4 26B A4B IT",
+        "inputTokenLimit": 262144,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemma-4-31b-it",
+        "version": "001",
+        "displayName": "Gemma 4 31B IT",
+        "description": "Gemma 4 31B IT",
+        "inputTokenLimit": 262144,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-flash-latest",
+        "version": "Gemini Flash Latest",
+        "displayName": "Gemini Flash Latest",
+        "description": "Latest release of Gemini Flash",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-flash-lite-latest",
+        "version": "Gemini Flash-Lite Latest",
+        "displayName": "Gemini Flash-Lite Latest",
+        "description": "Latest release of Gemini Flash-Lite",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-pro-latest",
+        "version": "Gemini Pro Latest",
+        "displayName": "Gemini Pro Latest",
+        "description": "Latest release of Gemini Pro",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-2.5-flash-lite",
+        "version": "001",
+        "displayName": "Gemini 2.5 Flash-Lite",
+        "description": "Stable version of Gemini 2.5 Flash-Lite, released in July of 2025",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-2.5-flash-image",
+        "version": "2.0",
+        "displayName": "Nano Banana",
+        "description": "Gemini 2.5 Flash Preview Image",
+        "inputTokenLimit": 32768,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 1
+      },
+      {
+        "name": "models/gemini-3-flash-preview",
+        "version": "3-flash-preview-12-2025",
+        "displayName": "Gemini 3 Flash Preview",
+        "description": "Gemini 3 Flash Preview",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.1-pro-preview",
+        "version": "3.1-pro-preview-01-2026",
+        "displayName": "Gemini 3.1 Pro Preview",
+        "description": "Gemini 3.1 Pro Preview",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.1-pro-preview-customtools",
+        "version": "3.1-pro-preview-01-2026",
+        "displayName": "Gemini 3.1 Pro Preview Custom Tools",
+        "description": "Gemini 3.1 Pro Preview optimized for custom tool usage",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.1-flash-lite-preview",
+        "version": "3.1-flash-lite-preview-03-2026",
+        "displayName": "Gemini 3.1 Flash Lite Preview",
+        "description": "Gemini 3.1 Flash Lite Preview",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.1-flash-lite",
+        "version": "3.1-flash-lite-05-2026",
+        "displayName": "Gemini 3.1 Flash Lite",
+        "description": "Gemini 3.1 Flash Lite",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3-pro-image-preview",
+        "version": "3.0",
+        "displayName": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image Preview",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 1,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3-pro-image",
+        "version": "3.0",
+        "displayName": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 1,
+        "thinking": true
+      },
+      {
+        "name": "models/nano-banana-pro-preview",
+        "version": "3.0",
+        "displayName": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image Preview",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 1,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.1-flash-image-preview",
+        "version": "3.0",
+        "displayName": "Nano Banana 2",
+        "description": "Gemini 3.1 Flash Image Preview.",
+        "inputTokenLimit": 65536,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 1,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.1-flash-image",
+        "version": "3.0",
+        "displayName": "Nano Banana 2",
+        "description": "Gemini 3.1 Flash Image.",
+        "inputTokenLimit": 65536,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 1,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.1-flash-lite-image",
+        "version": "3.0",
+        "displayName": "Nano Banana 2 Lite",
+        "description": "Gemini 3.1 Flash Lite Image.",
+        "inputTokenLimit": 65536,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 1,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-nano-banana-2.1",
+        "version": "3.0",
+        "displayName": "Nano Banana 2.1",
+        "description": "Gemini Nano Banana 2.1.",
+        "inputTokenLimit": 65536,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 1,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.5-flash",
+        "version": "3.5-flash-05-2026",
+        "displayName": "Gemini 3.5 Flash",
+        "description": "Gemini 3.5 Flash",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.5-flash-lite",
+        "version": "3.5-flash-lite-07-2026",
+        "displayName": "Gemini 3.5 Flash Lite",
+        "description": "Gemini 3.5 Flash Lite",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-omni-flash-preview",
+        "version": "001",
+        "displayName": "Gemini Omni Flash Preview",
+        "description": "Gemini Omni Flash Preview",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-omni-1.1-flash",
+        "version": "001",
+        "displayName": "Gemini Omni 1.1 Flash",
+        "description": "Gemini Omni 1.1 Flash ",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.5-transcribe",
+        "version": "3.5-transcribe-08-2026",
+        "displayName": "Gemini 3.5 Transcribe",
+        "description": "Gemini 3.5 Transcribe",
+        "inputTokenLimit": 98304,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-3.6-flash",
+        "version": "3.6-flash-07-2026",
+        "displayName": "Gemini 3.6 Flash",
+        "description": "Gemini 3.6 Flash",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.7-flash",
+        "version": "3.7-flash-08-2026",
+        "displayName": "Gemini 3.7 Flash",
+        "description": "Gemini 3.7 Flash",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.8-flash",
+        "version": "3.0",
+        "displayName": "Gemini 3.8 Flash",
+        "description": "Gemini 3.8 Flash",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-4-argon",
+        "version": "3.0",
+        "displayName": "Gemini 4 Argon",
+        "description": "Gemini 4 Argon",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/lyria-3-clip-preview",
+        "version": "lyria-3-clip-preview",
+        "displayName": "Lyria 3 Clip Preview",
+        "description": "Lyria 3 30s model Preview",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/lyria-3-pro-preview",
+        "version": "lyria-3-pro-preview",
+        "displayName": "Lyria 3 Pro Preview",
+        "description": "Lyria 3 Pro Preview",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/lyria-3.5",
+        "version": "3.5",
+        "displayName": "Lyria 3.5",
+        "description": "Music Generation model",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-3.1-flash-tts-preview",
+        "version": "3.1-flash-tts-preview",
+        "displayName": "Gemini 3.1 Flash TTS Preview",
+        "description": "Gemini 3.1 Flash TTS Preview",
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-3.8-flash-tts",
+        "version": "3.8-flash-tts",
+        "displayName": "Gemini 3.8 Flash TTS",
+        "description": "Gemini 3.8 Flash TTS",
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-3.8-flash-lite-tts",
+        "version": "3.8-flash-lite-tts",
+        "displayName": "Gemini 3.8 Flash Lite TTS",
+        "description": "Gemini 3.8 Flash Lite TTS",
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 16384,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-robotics-er-2-preview",
+        "version": "2-preview",
+        "displayName": "Gemini Robotics-ER 2 Preview",
+        "description": "Gemini Robotics-ER 2 Preview",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-2.5-computer-use-preview-10-2025",
+        "version": "Gemini 2.5 Computer Use Preview 10-2025",
+        "displayName": "Gemini 2.5 Computer Use Preview 10-2025",
+        "description": "Gemini 2.5 Computer Use Preview 10-2025",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/antigravity-preview-05-2026",
+        "version": "0.1",
+        "displayName": "Antigravity Agent Preview",
+        "description": "Preview release of Antigravity Agent (05-2026)",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ]
+      },
+      {
+        "name": "models/antigravity-preview-09-2026",
+        "version": "0.1",
+        "displayName": "Antigravity Agent Preview",
+        "description": "Preview release of Antigravity Agent (09-2026)",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ]
+      },
+      {
+        "name": "models/antigravity-preview-latest",
+        "version": "Antigravity Agent Preview Latest",
+        "displayName": "Antigravity Agent Preview Latest",
+        "description": "Latest preview release of Antigravity Agent",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ]
+      },
+      {
+        "name": "models/deep-research-max-preview-04-2026",
+        "version": "deepthink-exp-05-20",
+        "displayName": "Deep Research Max Preview (Apr-21-2026)",
+        "description": "Preview release (April 21st, 2026) of Deep Research Max",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/deep-research-preview-04-2026",
+        "version": "deepthink-exp-05-20",
+        "displayName": "Deep Research Preview (Apr-21-2026)",
+        "description": "Preview release (April 21th, 2026) of Deep Research",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/deep-research-pro-preview-12-2025",
+        "version": "deepthink-exp-05-20",
+        "displayName": "Deep Research Pro Preview (Dec-12-2025)",
+        "description": "Preview release (December 12th, 2025) of Deep Research Pro",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-embedding-001",
+        "version": "001",
+        "displayName": "Gemini Embedding 001",
+        "description": "Obtain a distributed representation of a text.",
+        "inputTokenLimit": 2048,
+        "outputTokenLimit": 1,
+        "supportedGenerationMethods": [
+          "embedContent",
+          "countTextTokens",
+          "countTokens",
+          "asyncBatchEmbedContent"
+        ]
+      },
+      {
+        "name": "models/gemini-embedding-2-preview",
+        "version": "2",
+        "displayName": "Gemini Embedding 2 Preview",
+        "description": "Obtain a distributed representation of multimodal content.",
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 1,
+        "supportedGenerationMethods": [
+          "embedContent",
+          "countTextTokens",
+          "countTokens",
+          "asyncBatchEmbedContent"
+        ]
+      },
+      {
+        "name": "models/gemini-embedding-2",
+        "version": "2",
+        "displayName": "Gemini Embedding 2",
+        "description": "Obtain a distributed representation of multimodal content.",
+        "inputTokenLimit": 8192,
+        "outputTokenLimit": 1,
+        "supportedGenerationMethods": [
+          "embedContent",
+          "countTextTokens",
+          "countTokens",
+          "asyncBatchEmbedContent"
+        ]
+      },
+      {
+        "name": "models/aqa",
+        "version": "001",
+        "displayName": "Model that performs Attributed Question Answering.",
+        "description": "Model trained to return answers to questions that are grounded in provided sources, along with estimating answerable probability.",
+        "inputTokenLimit": 7168,
+        "outputTokenLimit": 1024,
+        "supportedGenerationMethods": [
+          "generateAnswer"
+        ],
+        "temperature": 0.2,
+        "topP": 1,
+        "topK": 40
+      },
+      {
+        "name": "models/veo-3.1-generate-preview",
+        "version": "3.1",
+        "displayName": "Veo 3.1",
+        "description": "Veo 3.1",
+        "inputTokenLimit": 480,
+        "outputTokenLimit": 8192,
+        "supportedGenerationMethods": [
+          "predictLongRunning"
+        ]
+      },
+      {
+        "name": "models/veo-3.1-fast-generate-preview",
+        "version": "3.1",
+        "displayName": "Veo 3.1 fast",
+        "description": "Veo 3.1 fast",
+        "inputTokenLimit": 480,
+        "outputTokenLimit": 8192,
+        "supportedGenerationMethods": [
+          "predictLongRunning"
+        ]
+      },
+      {
+        "name": "models/veo-3.1-lite-generate-preview",
+        "version": "3.1",
+        "displayName": "Veo 3.1 lite",
+        "description": "Veo 3.1 lite",
+        "inputTokenLimit": 480,
+        "outputTokenLimit": 8192,
+        "supportedGenerationMethods": [
+          "predictLongRunning"
+        ]
+      },
+      {
+        "name": "models/gemini-3.5-transcribe-live",
+        "version": "3.5-transcribe-live-08-2026",
+        "displayName": "Gemini 3.5 Transcribe Live",
+        "description": "Gemini 3.5 Transcribe Live",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-2.5-flash-native-audio-latest",
+        "version": "Gemini 2.5 Flash Native Audio Latest",
+        "displayName": "Gemini 2.5 Flash Native Audio Latest",
+        "description": "Latest release of Gemini 2.5 Flash Native Audio",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 8192,
+        "supportedGenerationMethods": [
+          "countTokens",
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-2.5-flash-native-audio-preview-09-2025",
+        "version": "gemini-2.5-flash-preview-native-audio-dialog-2025-05-19",
+        "displayName": "Gemini 2.5 Flash Native Audio Preview 09-2025",
+        "description": "Gemini 2.5 Flash Native Audio Preview 09-2025",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 8192,
+        "supportedGenerationMethods": [
+          "countTokens",
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-2.5-flash-native-audio-preview-12-2025",
+        "version": "12-2025",
+        "displayName": "Gemini 2.5 Flash Native Audio Preview 12-2025",
+        "description": "Gemini 2.5 Flash Native Audio Preview 12-2025",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 8192,
+        "supportedGenerationMethods": [
+          "countTokens",
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-3.1-flash-live-preview",
+        "version": "3.1-flash-live-03-2026",
+        "displayName": "Gemini 3.1 Flash Live Preview",
+        "description": "Gemini 3.1 Flash Live Preview",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-3.8-live",
+        "version": "3.1-flash-live-03-2026",
+        "displayName": "Gemini 3.8 Live",
+        "description": "Gemini 3.8 Live",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-3.8-live-extended-thinking",
+        "version": "3.1-flash-live-03-2026",
+        "displayName": "Gemini 3.8 Live Extended Thinking",
+        "description": "Gemini 3.8 Live Extended Thinking",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2,
+        "thinking": true
+      },
+      {
+        "name": "models/gemini-robotics-er-2-streaming-preview",
+        "version": "2-streaming-preview",
+        "displayName": "Gemini Robotics-ER 2 Streaming Preview",
+        "description": "Gemini Robotics-ER 2 Streaming Preview",
+        "inputTokenLimit": 131072,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/gemini-3.5-live-translate-preview",
+        "version": "3.5-live-translate-06-2026",
+        "displayName": "Gemini 3.5 Live Translate Preview",
+        "description": "Gemini 3.5 Live Translate Preview",
+        "inputTokenLimit": 16384,
+        "outputTokenLimit": 32768,
+        "supportedGenerationMethods": [
+          "bidiGenerateContent"
+        ],
+        "temperature": 1,
+        "topP": 0.95,
+        "topK": 64,
+        "maxTemperature": 2
+      },
+      {
+        "name": "models/lyria-realtime-exp",
+        "version": "lyria-realtime-exp",
+        "displayName": "Lyria Realtime Experimental",
+        "description": "Lyria Realtime Experimental",
+        "inputTokenLimit": 1048576,
+        "outputTokenLimit": 65536,
+        "supportedGenerationMethods": [
+          "bidiGenerateMusic"
+        ]
+      }
+    ],
+    "groq": [
+      {
+        "id": "meta-llama/llama-prompt-guard-2-86m",
+        "object": "model",
+        "created": 1748632165,
+        "owned_by": "Meta",
+        "active": true,
+        "context_window": 512,
+        "public_apps": null,
+        "max_completion_tokens": 512,
+        "name": "Prompt Guard 2 86M",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 512,
+        "max_output_length": 512,
+        "pricing": {
+          "prompt": "0.00000004",
+          "completion": "0.00000004",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.00000002"
+        },
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "stop",
+          "seed",
+          "max_tokens"
+        ],
+        "supported_features": [
+          "json_mode"
+        ]
+      },
+      {
+        "id": "canopylabs/orpheus-v1-english",
+        "object": "model",
+        "created": 1766186316,
+        "owned_by": "Canopy Labs",
+        "active": true,
+        "context_window": 4000,
+        "public_apps": null,
+        "max_completion_tokens": 50000,
+        "name": "Canopy Labs Orpheus V1 English",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "context_length": 4000,
+        "max_output_length": 50000,
+        "pricing": {
+          "prompt": "0.000022",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000011"
+        }
+      },
+      {
+        "id": "whisper-large-v3-turbo",
+        "object": "model",
+        "created": 1728413088,
+        "owned_by": "OpenAI",
+        "active": true,
+        "context_window": 448,
+        "public_apps": null,
+        "max_completion_tokens": 448,
+        "hugging_face_id": "openai/whisper-large-v3-turbo",
+        "name": "Whisper Large V3 Turbo",
+        "input_modalities": [
+          "audio"
+        ],
+        "output_modalities": [
+          "transcription"
+        ],
+        "context_length": 448,
+        "max_output_length": 448
+      },
+      {
+        "id": "meta-llama/llama-prompt-guard-2-22m",
+        "object": "model",
+        "created": 1748632101,
+        "owned_by": "Meta",
+        "active": true,
+        "context_window": 512,
+        "public_apps": null,
+        "max_completion_tokens": 512,
+        "name": "Llama Prompt Guard 2 22M",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 512,
+        "max_output_length": 512,
+        "pricing": {
+          "prompt": "0.00000003",
+          "completion": "0.00000003",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000000015"
+        },
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "stop",
+          "seed",
+          "max_tokens"
+        ]
+      },
+      {
+        "model_card": "https://openai.com/index/gpt-oss-model-card",
+        "id": "openai/gpt-oss-20b",
+        "object": "model",
+        "created": 1754407957,
+        "owned_by": "OpenAI",
+        "active": true,
+        "context_window": 131072,
+        "public_apps": null,
+        "max_completion_tokens": 65536,
+        "hugging_face_id": "openai/gpt-oss-20b",
+        "name": "GPT OSS 20B",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 131072,
+        "max_output_length": 65536,
+        "pricing": {
+          "prompt": "0.000000075",
+          "completion": "0.0000003",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.0000000375"
+        },
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "stop",
+          "seed",
+          "max_tokens"
+        ],
+        "supported_features": [
+          "tools",
+          "json_mode",
+          "structured_outputs",
+          "reasoning"
+        ]
+      },
+      {
+        "model_card": "https://huggingface.co/openai/whisper-large-v3",
+        "id": "whisper-large-v3",
+        "object": "model",
+        "created": 1693721698,
+        "owned_by": "OpenAI",
+        "active": true,
+        "context_window": 448,
+        "public_apps": null,
+        "max_completion_tokens": 448,
+        "hugging_face_id": "openai/whisper-large-v3",
+        "name": "Whisper",
+        "input_modalities": [
+          "audio"
+        ],
+        "output_modalities": [
+          "transcription"
+        ],
+        "context_length": 448,
+        "max_output_length": 448
+      },
+      {
+        "id": "canopylabs/orpheus-arabic-saudi",
+        "object": "model",
+        "created": 1765926439,
+        "owned_by": "Canopy Labs",
+        "active": true,
+        "context_window": 4000,
+        "public_apps": null,
+        "max_completion_tokens": 50000,
+        "name": "Canopy Labs Orpheus Arabic Saudi",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "context_length": 4000,
+        "max_output_length": 50000,
+        "pricing": {
+          "prompt": "0.00004",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.00002"
+        }
+      },
+      {
+        "id": "allam-2-7b",
+        "object": "model",
+        "created": 1737672203,
+        "owned_by": "SDAIA",
+        "active": true,
+        "context_window": 4096,
+        "public_apps": null,
+        "max_completion_tokens": 4096,
+        "hugging_face_id": "ALLaM-AI/ALLaM-2.0-7B-Instruct",
+        "name": "ALLaM-2-7b",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 4096,
+        "max_output_length": 4096,
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "stop",
+          "seed",
+          "max_tokens"
+        ],
+        "supported_features": [
+          "json_mode"
+        ]
+      },
+      {
+        "model_card": "https://openai.com/index/gpt-oss-model-card",
+        "id": "openai/gpt-oss-120b",
+        "object": "model",
+        "created": 1754408224,
+        "owned_by": "OpenAI",
+        "active": true,
+        "context_window": 131072,
+        "public_apps": null,
+        "max_completion_tokens": 65536,
+        "hugging_face_id": "openai/gpt-oss-120b",
+        "name": "GPT OSS 120B",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 131072,
+        "max_output_length": 65536,
+        "pricing": {
+          "prompt": "0.00000015",
+          "completion": "0.0000006",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000000075"
+        },
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "stop",
+          "seed",
+          "max_tokens"
+        ],
+        "supported_features": [
+          "tools",
+          "json_mode",
+          "structured_outputs",
+          "reasoning"
+        ]
+      },
+      {
+        "id": "qwen/qwen3.8-27b",
+        "object": "model",
+        "created": 1786984846,
+        "owned_by": "Alibaba Cloud",
+        "active": true,
+        "context_window": 131072,
+        "public_apps": null,
+        "max_completion_tokens": 16384,
+        "name": "Qwen/Qwen3.8-27B",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 131072,
+        "max_output_length": 16384,
+        "pricing": {
+          "prompt": "0.0000008",
+          "completion": "0.000004",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.0000004"
+        },
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "stop",
+          "seed",
+          "max_tokens"
+        ],
+        "supported_features": [
+          "tools",
+          "json_mode",
+          "reasoning"
+        ]
+      },
+      {
+        "model_card": "openai/gpt-oss-safeguard-20b",
+        "id": "openai/gpt-oss-safeguard-20b",
+        "object": "model",
+        "created": 1761708789,
+        "owned_by": "OpenAI",
+        "active": true,
+        "context_window": 131072,
+        "public_apps": null,
+        "max_completion_tokens": 65536,
+        "hugging_face_id": "openai/gpt-oss-safeguard-20b",
+        "name": "Safety GPT OSS 20B",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 131072,
+        "max_output_length": 65536,
+        "pricing": {
+          "prompt": "0.000000075",
+          "completion": "0.0000003",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.0000000375"
+        },
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "stop",
+          "seed",
+          "max_tokens"
+        ],
+        "supported_features": [
+          "tools",
+          "json_mode",
+          "structured_outputs",
+          "reasoning"
+        ]
+      }
+    ]
+  },
+  "providers": {
+    "gemini": {
+      "credential_available": true,
+      "catalog_calls": [
+        {
+          "at": "2026-10-14T13:56:41.844388-03:00",
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
+          "http_status": 200
+        }
+      ]
+    },
+    "groq": {
+      "credential_available": true,
+      "catalog_calls": [
+        {
+          "at": "2026-10-14T13:56:42.474813-03:00",
+          "endpoint": "https://api.groq.com/openai/v1/models",
+          "http_status": 200
+        }
+      ]
+    }
+  },
+  "scope": "Gemini and Groq union of fresh configured catalogs, previous exact IDs and current documented Groq enterprise candidates."
+}

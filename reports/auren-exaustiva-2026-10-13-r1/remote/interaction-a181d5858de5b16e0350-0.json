@@ -1,0 +1,9 @@
+{
+  "remote_id": "v1_ChZybV9QYXA0V25faXEydy0teE0zNER3EhZybV9QYXA0V25faXEydy0teE0zNER3",
+  "environment_id": "6c5cdfc3f64789818b75829628d99ca4",
+  "row": "gemini:antigravity-preview-05-2026::agent_text",
+  "at": "2026-10-14T09:04:02.688678-03:00",
+  "status": "incomplete",
+  "result": "valid_native_agent_text",
+  "environment_delete_http_status": 200
+}

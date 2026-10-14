@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-14T09:06:58.566112-03:00",
+  "reviews": [
+    {
+      "key": "gemini:antigravity-preview-05-2026::agent_tools",
+      "success": true,
+      "step_types": [
+        "thought",
+        "function_call"
+      ]
+    },
+    {
+      "key": "gemini:antigravity-preview-09-2026::agent_tools",
+      "success": true,
+      "step_types": [
+        "thought",
+        "function_call"
+      ]
+    }
+  ],
+  "new_inference_calls": 0
+}

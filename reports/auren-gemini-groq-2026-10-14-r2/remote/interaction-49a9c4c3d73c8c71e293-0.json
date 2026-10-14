@@ -1,0 +1,9 @@
+{
+  "remote_id": "v1_ChdBTGpQYXJmX0F2S0h6N0lQMGQ2Uy1RNBIXQUxqUGFyZl9BdktIejdJUDBkNlMtUTQ",
+  "environment_id": "b230702a707acdaaad35222374cf8673",
+  "row": "gemini:antigravity-preview-09-2026::agent_text::underlying=gemini-3.8-flash",
+  "at": "2026-10-14T14:12:42.502266-03:00",
+  "status": "incomplete",
+  "result": "valid_native_agent_text",
+  "environment_delete_http_status": 200
+}

@@ -1,0 +1,15 @@
+{
+  "remote_id": "batch-1791915349-wtJqN8S2ZPmY4b5RXpTe",
+  "provider": "openrouter",
+  "row": "openrouter:anthropic/claude-sonnet-5.5:batch::batch",
+  "updated_at": "2026-10-13T18:26:10.921211-03:00",
+  "states": [
+    {
+      "at": "2026-10-13T18:26:10.921177-03:00",
+      "state": "completed"
+    }
+  ],
+  "result": "valid",
+  "cancel_http_status": null,
+  "input_file_id": null
+}

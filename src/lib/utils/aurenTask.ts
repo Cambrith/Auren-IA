@@ -32,7 +32,7 @@ export function changeAurenTask(options: AurenOptions, current: string, next: st
 	const task_modes = { ...options.task_modes, [previous]: options.mode_id };
 	const task_mode_manual = {
 		...options.task_mode_manual,
-		[previous]: Boolean(options.mode_manual)
+		[previous]: previous === 'image' ? Boolean(options.image_profile_manual) : Boolean(options.mode_manual)
 	};
 	const conversation_model = previous === 'chat' ? current : options.conversation_model;
 	const image_model = previous === 'image' ? current : options.image_model;
@@ -56,10 +56,11 @@ export function changeAurenTask(options: AurenOptions, current: string, next: st
 			task_models,
 			task_modes,
 			task_mode_manual,
+			image_profile_manual: next === 'auto' ? false : next === 'image' ? (task_mode_manual.image ?? options.image_profile_manual) : options.image_profile_manual,
 			mode_manual:
-				next === 'auto' ? Boolean(options.mode_manual) : (task_mode_manual[next] ?? false),
+				next === 'auto' ? false : (task_mode_manual[next] ?? false),
 			mode_id:
-				next === 'auto' && options.mode_manual ? options.mode_id : (task_modes[next] ?? suggested)
+				next === 'auto' ? 'ether' : (task_modes[next] ?? suggested)
 		},
 		model:
 			task_models[next] ??
@@ -69,4 +70,14 @@ export function changeAurenTask(options: AurenOptions, current: string, next: st
 }
 export function changeTask(options: AurenOptions, current: string, image: boolean) {
 	return changeAurenTask(options, current, image ? 'image' : 'chat');
+}
+
+/** Defaults for a fresh conversation only. Historical chats use restoreAurenTask. */
+export function newAurenChatParams() {
+	return { auren_task: 'auto', auren_mode_manual: false, cavren_mode_id: 'ether' };
+}
+
+/** Automatic task never accepts a conversation mode or media profile override. */
+export function normalizeAurenOptions(options: AurenOptions): AurenOptions {
+ return activeTask(options) === 'auto' ? { ...options, mode_id: 'ether', mode_manual: false, image_profile_manual: false } : options;
 }

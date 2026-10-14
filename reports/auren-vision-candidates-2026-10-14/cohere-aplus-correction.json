@@ -1,0 +1,23 @@
+{
+  "provider": "cohere",
+  "model": "command-a-plus-05-2026",
+  "operation": "vision/image-understanding",
+  "transport": "native_v2",
+  "attempt": "corrected_output_cap",
+  "real_call": true,
+  "output_token_cap": 512,
+  "retries": 0,
+  "fixture_sha256": "a4930caead9c4a55a0458c1f25d92352f02752255e9157a349be415d01295a13",
+  "cost_class": "unknown_actual_cost",
+  "http_status": 200,
+  "result": "valid",
+  "semantic_pass": true,
+  "response_excerpt": "PIXEL-739|2|1",
+  "response_sha256": "f5288aac037102d02b45c368d47124d539795650d9244de47668e85eebb756c0",
+  "finish_reason": "COMPLETE",
+  "usage_tokens": {
+    "input_tokens": 300,
+    "output_tokens": 99
+  },
+  "seconds": 0.938
+}

@@ -35,14 +35,12 @@ def prepare_job(body: dict, generation_id: str) -> dict:
     if model not in allowed:
         raise ValueError("Escolha um modelo integrado à Auren.")
     info = allowed[model].get('cavren', {})
-    if info.get('price_kind', 'free') != 'free' and body.get('cavren_billing_confirmed') is not True:
-        raise ValueError('Confirme o possível custo deste modelo antes de usá-lo.')
+    requested_model = model
+    attachment_switch = None
     task = body.get('auren_task')
     if task not in (None, 'auto', 'chat', 'image', 'documents', 'code', 'research', 'transcribe', 'speech'):
         raise ValueError('Escolha uma tarefa Auren válida.')
     images = task == 'image' if task else body.get('lunvri_image_generation') is True or info.get('image_only') is True
-    if images and model != 'cavren:auto' and not info.get('capabilities', {}).get('image_generation'):
-        raise ValueError('Escolha um modelo que tenha suporte a geração de imagens.')
     raw_messages = body.get("messages")
     if not isinstance(raw_messages, list) or not raw_messages:
         raise ValueError("A conversa precisa de uma mensagem.")
@@ -65,15 +63,42 @@ def prepare_job(body: dict, generation_id: str) -> dict:
     if type(limit) is not int or not 256 <= limit <= 65536:
         raise ValueError("O limite de resposta deve estar entre 256 e 65536 tokens.")
     requested_task = task
-    from integration.auren_tasks import tasks, detect, recommended, automatic_context
+    from integration.auren_tasks import tasks, classify, recommended, automatic_context
+    decision = None
     if task == 'auto':
-        task = detect(prompt, messages)
+        decision = classify(prompt, messages)
+        from integration.auren_intent import refine
+        decision = refine(prompt, messages, decision)
+        task = decision['task']
+        if task not in {item['id'] for item in tasks()}:
+            decision = dict(decision, task='chat', reason='unavailable')
+            task = 'chat'
     task = task or ('image' if images else 'chat')
     if task not in ('chat', 'image') and task not in {item['id'] for item in tasks()}:
         raise ValueError('Esta tarefa ainda não passou na validação gratuita.')
     images = task == 'image'
+    from integration.auren_media import requirements, compatible
+    required = requirements(messages)
+    operations = info.get('task_operations', [])
+    incompatible_media = required and task in ('chat','documents','code','research') and not compatible(info, messages)
+    incompatible_auto_task = requested_task == 'auto' and (
+        images and not info.get('capabilities', {}).get('image_generation') or
+        not images and info.get('image_only') or
+        operations and task not in operations or
+        task == 'transcribe' and 'transcribe' not in operations
+    )
+    if model != 'cavren:auto' and (incompatible_media or incompatible_auto_task):
+        # Only this request changes route. The UI's model/task/profile choice is
+        # kept for future messages; billing consent never transfers to a backup.
+        attachment_switch = {'requested_model': requested_model,
+                             'reason': 'incompatible_attachment' if incompatible_media else 'automatic_task',
+                             'required': sorted(required)}
+        model = 'cavren:auto'
+        info = allowed.get(model, {}).get('cavren', {})
+    if info.get('price_kind', 'free') != 'free' and body.get('cavren_billing_confirmed') is not True:
+        raise ValueError('Confirme o possível custo deste modelo antes de usá-lo.')
     if images and model != 'cavren:auto' and not info.get('capabilities',{}).get('image_generation'):
-        raise ValueError('O modelo manual não gera imagens. Escolha um gerador compatível ou Automático.')
+        raise ValueError('O modelo manual não tem suporte a geração de imagens. Escolha um gerador compatível ou Automático.')
     if not images and info.get('image_only'):
         raise ValueError('O modelo manual só gera imagens. Escolha um modelo compatível com esta tarefa.')
     if task == 'transcribe' and model != 'cavren:auto' and 'transcribe' not in info.get('task_operations', []):
@@ -82,13 +107,21 @@ def prepare_job(body: dict, generation_id: str) -> dict:
         operations = info.get('task_operations', [])
         if operations and task not in operations:
             raise ValueError('O modelo manual não executa esta tarefa. Escolha um modelo compatível ou Automático.')
-        if task in ('documents','code','research','transcribe','speech'):
+        if task in ('documents','code','research','transcribe','speech') and not (required and task in ('documents','code','research')):
             from integration.auren_tasks import models_for
             if model not in models_for(task):
                 raise ValueError('O modelo manual ainda não foi validado gratuitamente para esta tarefa. Escolha um modelo validado ou Automático.')
-    if not body.get('auren_mode_manual', bool(body.get('cavren_mode_id'))):
-        mode = automatic_context(prompt,task)[0] if requested_task=='auto' else {'code':'arquiteto','documents':'insight','research':'insight'}.get(task, mode)
-    suggested = recommended(task, mode)
+    if requested_task == 'auto' or not body.get('auren_mode_manual', bool(body.get('cavren_mode_id'))):
+        mode = (decision.get('semantic_mode') or automatic_context(prompt,task)[0]) if requested_task=='auto' else {'code':'arquiteto','documents':'insight','research':'insight'}.get(task, mode)
+    transcribe_language = 'auto' if requested_task == 'auto' else body.get('auren_transcribe_language', 'auto')
+    profile = transcribe_language if task == 'transcribe' else (
+        automatic_context(prompt, task)[1] if requested_task == 'auto' else body.get('auren_image_profile', 'balanced')) if images else None
+    suggested = recommended(task, mode, profile, required=required if not images else ())
+    if task == 'transcribe' and transcribe_language == 'auto':
+        if model != 'cavren:auto' and info.get('provider') == 'cohere':
+            raise ValueError('Cohere exige idioma explícito. Selecione Transcrever áudio e o perfil Lusofonia ou Echo, ou use Automático.')
+        from integration.auren_tasks import models_for
+        suggested = next((id for id in models_for('transcribe') if id.startswith('cavren:mistral:')), None)
     from integration.auren_settings import preferences
     prefs = preferences() if images else {}
     has_reference = any(isinstance(m['content'], list) and any(p.get('type') == 'image_url' for p in m['content']) for m in messages)
@@ -98,13 +131,15 @@ def prepare_job(body: dict, generation_id: str) -> dict:
     if not images and task not in ('transcribe','speech'):
         from integration.auren_modes import specialize
         messages = specialize(messages, mode, task)
+        if decision and decision['reason'] in ('ambiguous','unsupported','unavailable'):
+            messages[0]['content'] += '\nO roteador manteve a resposta em texto por ambiguidade ou tarefa indisponível. Explique a limitação ou peça que o usuário escolha um único resultado. Não afirme ter executado outra tarefa.'
     job = {
         "kind": "chat",
         "generation_id": generation_id,
         "mode_id": mode,
         "mode_options": {
             "manual_route": "" if model == "cavren:auto" else model.removeprefix("cavren:"),
-            "billing_confirmed": body.get("cavren_billing_confirmed") is True,
+            "billing_confirmed": not attachment_switch and body.get("cavren_billing_confirmed") is True,
             "web_search": not images and body.get("cavren_web_search") is True,
         },
         "messages": messages,
@@ -114,11 +149,14 @@ def prepare_job(body: dict, generation_id: str) -> dict:
         "lunvri_direct": info.get('integrated') is False or images,
         "lunvri_image_generation": images,
         "auren_task": task,
+        "auren_routing_decision": decision,
+        "auren_requested_model": requested_model,
+        "auren_attachment_switch": attachment_switch,
         "auren_requested_task": requested_task or task,
         "auren_evidence_policy": True,
         "auren_verified_only": model == 'cavren:auto' or requested_task == 'auto' or task in ('documents','code','research','transcribe','speech'),
         "auren_recommended_route": (suggested or '').removeprefix('cavren:'),
-        "auren_transcribe_language": body.get('auren_transcribe_language', 'auto'),
+        "auren_transcribe_language": transcribe_language,
         "auren_image_operation": operation,
         "auren_image_profile": body.get("auren_image_profile", "balanced"),
         "auren_image_fallback": body.get("auren_image_fallback", True) is not False,
@@ -127,7 +165,7 @@ def prepare_job(body: dict, generation_id: str) -> dict:
         "auren_image_preferred_route": prefs.get("image_model_id", "").removeprefix("cavren:"),
     }
 
-    if requested_task=='auto' and images and body.get('auren_image_profile_manual',bool(body.get('auren_image_profile'))) is not True:
+    if requested_task=='auto' and images:
         job['auren_image_profile']=automatic_context(prompt,task)[1]
 
     if requested_task == 'auto' and model != 'cavren:auto':
@@ -301,10 +339,10 @@ class BridgeHandler(BaseHTTPRequestHandler):
                     if event.get("generation_id", generation_id) != generation_id:
                         continue
                     kind = event.get("type")
-                    if kind == "generation.delta" and streaming:
+                    if kind == "generation.delta" and streaming and not job.get("lunvri_image_generation"):
                         self.sse(self.chunk(generation_id, body["model"], {"content": event["text"]}))
                     elif kind in ("generation.fallback", "generation.task_selected") and streaming:
-                        self.sse({'event': {'type': 'status', 'data': {'action': 'task' if kind=='generation.task_selected' else 'fallback', 'generation_id':generation_id, 'attempt_id':event.get('attempt_id'), 'provider':event.get('provider'), 'effective_model':event.get('effective_model'), 'description': event['description'], 'done': True}}})
+                        self.sse({'event': {'type': 'status', 'data': {'action': 'task' if kind=='generation.task_selected' else 'fallback', 'generation_id':generation_id, 'attempt_id':event.get('attempt_id'), 'provider':event.get('provider'), 'effective_model':event.get('effective_model'), 'failure_code':event.get('failure_code'), 'description': event['description'], 'done': True}}})
                     elif kind == "generation.searching" and streaming:
                         self.sse(
                             {
@@ -352,9 +390,9 @@ class BridgeHandler(BaseHTTPRequestHandler):
                         break
                     elif kind == 'generation.files':
                         generated_files = event['files']
-                        if streaming: self.sse({'event': {'type': 'files', 'data': {'files': event['files']}}})
+                        # Publish the completed result once, after the terminal event.
                     elif kind in ('generation.image_status', 'generation.task_status') and streaming:
-                        self.sse({'event': {'type': 'status', 'data': {**{k: event.get(k) for k in ('generation_id', 'attempt_id', 'remote_id', 'provider', 'effective_model', 'requested_model', 'queue_position', 'wait_time', 'eligible_workers', 'state')}, 'action': 'image_generation' if kind=='generation.image_status' else 'task', 'description': event['description'], 'done': event.get('done',False)}}})
+                        self.sse({'event': {'type': 'status', 'data': {**{k: event.get(k) for k in ('generation_id', 'attempt_id', 'remote_id', 'provider', 'effective_model', 'requested_model', 'queue_position', 'wait_time', 'eligible_workers', 'state', 'started_at')}, 'action': 'image_generation' if kind=='generation.image_status' else 'task', 'description': event['description'], 'done': event.get('done',False)}}})
                     elif kind == "generation.error":
                         terminal = True
                         if streaming:
@@ -381,8 +419,17 @@ class BridgeHandler(BaseHTTPRequestHandler):
                     "completion_tokens": usage.get("output_tokens"),
                     "total_tokens": usage.get("total_tokens"),
                 }
-                route = {k: final.get(k) for k in ("provider", "model", "public_mode", "fallback_index", "auren_task", "auren_requested_task")}
+                route = {k: final.get(k) for k in ("provider", "model", "public_mode", "fallback_index", "auren_task", "auren_requested_task", "auren_routing_decision", "auren_requested_model", "auren_attachment_switch", "auren_input_modalities")}
+                if job.get('lunvri_image_generation'):
+                    route['auren_image_profile'] = job.get('auren_image_profile', 'balanced')
                 if streaming:
+                    if generated_files:
+                        self.sse({'event': {'type':'files','data':{'files':generated_files,'generation_id':generation_id}}})
+                    from integration.auren_profiles import profile_name
+                    from integration.auren_tasks import DEFINITIONS
+                    context_name=profile_name(route.get('auren_task') or 'chat', route.get('auren_image_profile') if job.get('lunvri_image_generation') else job.get('auren_transcribe_language','auto') if route.get('auren_task')=='transcribe' else 'pt-BR' if route.get('auren_task')=='speech' else route.get('public_mode'))
+                    description=' · '.join(filter(None,[DEFINITIONS.get(route.get('auren_task'),{}).get('name'), context_name, route.get('model')]))
+                    self.sse({'event':{'type':'status','data':{'action':'auren_details','hidden':True,'done':True,'generation_id':generation_id,'description':description,**route}}})
                     result = self.chunk(generation_id, body["model"], {}, "stop")
                     result.update(usage=usage, cavren=route)
                     self.sse(result)
@@ -397,7 +444,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
                             "choices": [
                                 {
                                     "index": 0,
-                                    "message": {"role": "assistant", "content": final["text"]},
+                                    "message": {"role": "assistant", "content": "" if job.get("lunvri_image_generation") else final["text"]},
                                     "finish_reason": "stop",
                                 }
                             ],

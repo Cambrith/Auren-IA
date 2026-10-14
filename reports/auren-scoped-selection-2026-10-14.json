@@ -1,0 +1,318 @@
+{
+  "at": "2026-10-14T17:17:15.673349+00:00",
+  "method": "Dry selection only, no new inference. Availability/cooldowns may change. Image eligibility has historical transport evidence; current quality failures are in the separate practical report.",
+  "profiles": [
+    {
+      "task": "chat",
+      "profile_id": "ether",
+      "name": "Éter",
+      "recommended": "cavren:groq:qwen/qwen3.8-27b",
+      "eligible_current_order": [
+        "groq:qwen/qwen3.8-27b",
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "gemini:gemini-3.5-flash-lite",
+        "cohere:command-a-plus-05-2026",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "effort": "high"
+    },
+    {
+      "task": "chat",
+      "profile_id": "impeto",
+      "name": "Ímpeto",
+      "recommended": "cavren:groq:qwen/qwen3.8-27b",
+      "eligible_current_order": [
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-20b",
+        "gemini:gemini-3.5-flash-lite",
+        "groq:openai/gpt-oss-120b",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "effort": "none"
+    },
+    {
+      "task": "chat",
+      "profile_id": "insight",
+      "name": "Insight",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "nvidia:z-ai/glm-5.3",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "effort": null
+    },
+    {
+      "task": "chat",
+      "profile_id": "arquiteto",
+      "name": "Arquiteto",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "nvidia:z-ai/glm-5.3",
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-120b",
+        "gemini:gemini-3.5-flash-lite",
+        "cloudflare:@cf/qwen/qwen3.8-27b"
+      ],
+      "effort": null
+    },
+    {
+      "task": "image",
+      "profile_id": "rapid",
+      "name": "Centelha",
+      "recommended": "cavren:aihorde:Abyss OrangeMix",
+      "eligible_current_order": [
+        "aihorde:Deliberate",
+        "aihorde:stable_diffusion",
+        "aihorde:Abyss OrangeMix",
+        "aihorde:AbsoluteReality"
+      ],
+      "effort": null
+    },
+    {
+      "task": "image",
+      "profile_id": "balanced",
+      "name": "Aurora",
+      "recommended": "cavren:aihorde:Abyss OrangeMix",
+      "eligible_current_order": [
+        "aihorde:stable_diffusion",
+        "aihorde:Deliberate",
+        "aihorde:AbsoluteReality",
+        "aihorde:Abyss OrangeMix"
+      ],
+      "effort": null
+    },
+    {
+      "task": "image",
+      "profile_id": "detailed",
+      "name": "Prisma",
+      "recommended": "cavren:aihorde:Abyss OrangeMix",
+      "eligible_current_order": [
+        "aihorde:stable_diffusion",
+        "aihorde:Deliberate",
+        "aihorde:AbsoluteReality",
+        "aihorde:Abyss OrangeMix"
+      ],
+      "effort": null
+    },
+    {
+      "task": "code",
+      "profile_id": "ether",
+      "name": "Oficina",
+      "recommended": "cavren:groq:qwen/qwen3.8-27b",
+      "eligible_current_order": [
+        "groq:qwen/qwen3.8-27b",
+        "nvidia:moonshotai/kimi-k3",
+        "nvidia:z-ai/glm-5.3",
+        "cloudflare:@cf/qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": "high"
+    },
+    {
+      "task": "code",
+      "profile_id": "impeto",
+      "name": "Faísca",
+      "recommended": "cavren:groq:qwen/qwen3.8-27b",
+      "eligible_current_order": [
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": "none"
+    },
+    {
+      "task": "code",
+      "profile_id": "insight",
+      "name": "Nexo",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "nvidia:z-ai/glm-5.3",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": null
+    },
+    {
+      "task": "code",
+      "profile_id": "arquiteto",
+      "name": "Forja",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "nvidia:z-ai/glm-5.3",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": null
+    },
+    {
+      "task": "documents",
+      "profile_id": "ether",
+      "name": "Prisma",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": null
+    },
+    {
+      "task": "documents",
+      "profile_id": "impeto",
+      "name": "Lente",
+      "recommended": "cavren:groq:qwen/qwen3.8-27b",
+      "eligible_current_order": [
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-20b",
+        "groq:openai/gpt-oss-120b",
+        "cloudflare:@cf/qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": "none"
+    },
+    {
+      "task": "documents",
+      "profile_id": "insight",
+      "name": "Atlas",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": null
+    },
+    {
+      "task": "documents",
+      "profile_id": "arquiteto",
+      "name": "Cartógrafo",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "groq:openai/gpt-oss-120b",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "cloudflare:@cf/qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": null
+    },
+    {
+      "task": "research",
+      "profile_id": "ether",
+      "name": "Trama",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": null
+    },
+    {
+      "task": "research",
+      "profile_id": "impeto",
+      "name": "Radar",
+      "recommended": "cavren:groq:qwen/qwen3.8-27b",
+      "eligible_current_order": [
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-20b",
+        "cohere:command-a-plus-05-2026",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": "none"
+    },
+    {
+      "task": "research",
+      "profile_id": "insight",
+      "name": "Horizonte",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": null
+    },
+    {
+      "task": "research",
+      "profile_id": "arquiteto",
+      "name": "Observatório",
+      "recommended": "cavren:nvidia:moonshotai/kimi-k3",
+      "eligible_current_order": [
+        "nvidia:moonshotai/kimi-k3",
+        "cohere:command-a-plus-05-2026",
+        "groq:qwen/qwen3.8-27b",
+        "gemini:gemini-3.5-flash-lite"
+      ],
+      "effort": null
+    },
+    {
+      "task": "speech",
+      "profile_id": "pt-BR",
+      "name": "Vox",
+      "recommended": "cavren:nvidia:magpie-tts-multilingual",
+      "eligible_current_order": [
+        "nvidia:magpie-tts-multilingual"
+      ],
+      "effort": null
+    },
+    {
+      "task": "transcribe",
+      "profile_id": "auto",
+      "name": "Escuta",
+      "recommended": "cavren:mistral:voxtral-mini-latest",
+      "eligible_current_order": [
+        "mistral:voxtral-mini-latest",
+        "groq:whisper-large-v3-turbo",
+        "groq:whisper-large-v3"
+      ],
+      "effort": null
+    },
+    {
+      "task": "transcribe",
+      "profile_id": "pt",
+      "name": "Lusofonia",
+      "recommended": "cavren:cohere:cohere-transcribe-03-2026",
+      "eligible_current_order": [
+        "cohere:cohere-transcribe-03-2026",
+        "groq:whisper-large-v3-turbo",
+        "mistral:voxtral-mini-latest",
+        "groq:whisper-large-v3"
+      ],
+      "effort": null
+    },
+    {
+      "task": "transcribe",
+      "profile_id": "en",
+      "name": "Echo",
+      "recommended": "cavren:cohere:cohere-transcribe-03-2026",
+      "eligible_current_order": [
+        "cohere:cohere-transcribe-03-2026",
+        "groq:whisper-large-v3-turbo",
+        "mistral:voxtral-mini-latest",
+        "groq:whisper-large-v3"
+      ],
+      "effort": null
+    }
+  ]
+}

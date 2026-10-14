@@ -256,7 +256,7 @@ class AurenWindow(QWidget):
         return self.web.page()
 
     def setPage(self, page):
-        page.setBackgroundColor(QColor('#111214'))
+        page.setBackgroundColor(QColor('#080d17'))
         self.web.setPage(page)
         script = QWebEngineScript()
         script.setName('auren-native-layout')

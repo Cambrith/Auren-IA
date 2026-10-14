@@ -47,6 +47,28 @@ def extract_document(data, name, mime):
                 rows.append('\t'.join('' if value is None else str(value) for value in row))
         book.close()
         text, limited = '\n'.join(rows), True
+    elif suffix in ('.pptx', '.odt'):
+        with zipfile.ZipFile(BytesIO(data)) as archive:
+            if sum(entry.file_size for entry in archive.infolist()) > 100 * 1024 * 1024:
+                raise ValueError('Documento muito grande para leitura local.')
+            if suffix == '.pptx':
+                import re
+                entries = sorted((n for n in archive.namelist() if re.fullmatch(r'ppt/slides/slide\d+\.xml', n)),
+                                 key=lambda n: int(re.search(r'slide(\d+)', n)[1]))
+                texts = []
+                for number, name in enumerate(entries[:80], 1):
+                    tree = ET.fromstring(archive.read(name))
+                    texts.append('Slide ' + str(number) + '\n' + '\n'.join(
+                        node.text or '' for node in tree.iter('{http://schemas.openxmlformats.org/drawingml/2006/main}t')))
+                text, limited = '\n\n'.join(texts), len(entries) > 80
+            else:
+                entry = archive.getinfo('content.xml')
+                if entry.file_size > 10 * 1024 * 1024:
+                    raise ValueError('Documento muito grande.')
+                tree = ET.fromstring(archive.read(entry))
+                ns = '{urn:oasis:names:tc:opendocument:xmlns:text:1.0}'
+                text = '\n'.join(''.join(node.itertext()) for node in tree.iter() if node.tag in (ns+'p', ns+'h'))
+                limited = False
     elif mime.startswith('text/') or suffix in (
         '.txt',
         '.md',
@@ -59,10 +81,12 @@ def extract_document(data, name, mime):
         '.html',
         '.css',
         '.log',
+        '.tsv', '.tsx', '.jsx', '.yaml', '.yml', '.toml', '.ini', '.sql',
+        '.sh', '.rs', '.c', '.cpp', '.h', '.java', '.tex', '.rst',
     ):
         text, limited = data.decode('utf-8', errors='replace'), False
     else:
-        raise ValueError('Formato não suportado. Use PDF, DOCX, XLSX, CSV ou um arquivo de texto.')
+        raise ValueError('Formato não suportado. Use PDF, DOCX, PPTX, ODT, XLSX, CSV ou um arquivo de texto/código.')
     if not text.strip():
         raise ValueError(
             'Não encontrei texto no documento. PDFs digitalizados precisam de um modelo com leitura nativa de PDF.'
@@ -72,7 +96,8 @@ def extract_document(data, name, mime):
         if limited or len(text) > MAX_TEXT
         else ''
     )
-    return text[:MAX_TEXT] + note
+    scope = '\n[Texto extraído localmente; imagens e layout do documento não foram lidos.]' if suffix in ('.docx', '.pptx', '.odt') else ''
+    return text[:MAX_TEXT] + note + scope
 
 
 async def file_bytes(file, user):
@@ -82,7 +107,10 @@ async def file_bytes(file, user):
             header, encoded = url.split(';base64,', 1)
             if len(encoded) > MAX_FILE * 4 // 3 + 8:
                 raise ValueError()
-            return base64.b64decode(encoded, validate=True), header[5:]
+            data = base64.b64decode(encoded, validate=True)
+            if len(data) > MAX_FILE:
+                raise ValueError()
+            return data, header[5:]
         except ValueError:
             raise HTTPException(400, 'Anexo local inválido.') from None
     record = await Files.get_file_by_id(file.get('id') or url)
@@ -99,8 +127,8 @@ async def file_bytes(file, user):
 async def prepare_attachments(form_data, model, user):
     if not str(form_data.get('model', '')).startswith('cavren:'):
         return
-    info = model.get('cavren') or {}
-    caps = info.get('capabilities') or {}
+    # Prepare bytes independently of the selected model. The authenticated
+    # Auren bridge chooses a proven compatible route after seeing the parts.
     total_size = 0
     for message in form_data.get('messages', []):
         if message.get('role') != 'user':
@@ -125,8 +153,8 @@ async def prepare_attachments(form_data, model, user):
                 )
             encoded = base64.b64encode(data).decode()
             if mime.startswith('image/'):
-                if not caps.get('vision'):
-                    raise HTTPException(400, 'Este modelo não aceita imagens. Escolha outro modelo.')
+                if mime not in ('image/png', 'image/jpeg', 'image/webp'):
+                    raise HTTPException(400, 'Use uma imagem PNG, JPEG ou WebP; converta os demais formatos antes de anexar.')
                 parts = [
                     p
                     for p in parts
@@ -134,16 +162,19 @@ async def prepare_attachments(form_data, model, user):
                 ]
                 parts.append({'type': 'image_url', 'image_url': {'url': f'data:{mime};base64,{encoded}'}})
             elif mime.startswith('video/'):
-                if not caps.get('video'):
-                    raise HTTPException(400, 'Este modelo não aceita vídeos. Escolha um modelo com suporte a vídeo.')
+                if mime not in ('video/mp4', 'video/mpeg', 'video/quicktime', 'video/webm'):
+                    raise HTTPException(400, 'Use vídeo MP4, MPEG, MOV ou WebM nesta integração.')
                 parts.append({'type': 'input_video', 'input_video': {'mime_type': mime, 'data': encoded}})
             elif mime.startswith('audio/'):
-                if not caps.get('audio'):
-                    raise HTTPException(400, 'Este modelo não aceita áudio.')
-                fmt = Path(file.get('name', '')).suffix.lstrip('.')
+                fmt = {'audio/wav':'wav', 'audio/x-wav':'wav', 'audio/mpeg':'mp3', 'audio/mp3':'mp3',
+                       'audio/ogg':'ogg', 'audio/flac':'flac', 'audio/aac':'aac'}.get(mime)
+                if not fmt:
+                    raise HTTPException(400, 'Use áudio WAV, MP3, OGG, FLAC ou AAC nesta integração.')
                 parts.append({'type': 'input_audio', 'input_audio': {'format': fmt, 'data': encoded}})
-            elif mime == 'application/pdf' and info.get('provider') == 'gemini' and caps.get('pdf'):
-                parts.append({'type': 'input_file', 'input_file': {'mime_type': mime, 'data': encoded}})
+            elif mime == 'application/pdf' or Path(file.get('name', '')).suffix.lower() == '.pdf':
+                # Native PDF preserves scanned pages, figures and layout. A
+                # text-only selected model will be rerouted for this request.
+                parts.append({'type': 'input_file', 'input_file': {'mime_type': 'application/pdf', 'data': encoded}})
             else:
                 try:
                     text = await asyncio.to_thread(extract_document, data, file.get('name', ''), mime)

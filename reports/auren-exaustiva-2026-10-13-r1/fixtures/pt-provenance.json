@@ -1,0 +1,14 @@
+{
+  "operation": "speech_fixture_generation",
+  "provider": "nvidia",
+  "model": "magpie-tts-multilingual",
+  "http_status": 200,
+  "reported_cost_usd": null,
+  "cost_class": "unknown",
+  "synthetic_text": "Auren está pronta. Bom dia.",
+  "language": "pt-BR",
+  "semantic_listening_pending": true,
+  "duration_seconds": 2.647074829931973,
+  "valid_wav": true,
+  "sha256": "e8e387147d8d98f89055dafbd95d29936704218012c129105e3a3e9016d6c14c"
+}

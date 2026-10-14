@@ -12,5 +12,32 @@ TASK_PROMPTS={
  'research':'Realize uma síntese das fontes coletadas em etapas. Prefira fontes primárias, compare divergências e cite URLs que sustentem cada afirmação. Indique quando uma fonte foi lida somente como trecho. Não prometa cobertura exaustiva da web.',
 }
 
+TASK_PROFILE_PROMPTS={
+ 'code': {
+  'ether':'Produza código e explique seu uso, entradas e limitações. Preserve contratos existentes.',
+  'impeto':'Faça a menor correção ou trecho útil para o pedido. Informe condições essenciais e evite mudanças adjacentes.',
+  'insight':'Revise lógica, casos extremos, erros e alternativas. Relacione cada conclusão ao código fornecido; diferencie análise e teste executado.',
+  'arquiteto':MODE_PROMPTS['arquiteto'].removeprefix('Você é Auren no modo Arquiteto, '),
+ },
+ 'documents': {
+  'ether':'Resuma e compare os documentos com equilíbrio. Separe posições diferentes e cite o material que sustenta a comparação.',
+  'impeto':'Extraia os fatos necessários à pergunta de forma concisa. Preserve unidades, datas e nomes presentes no documento; marque dados ausentes.',
+  'insight':'Analise relações, contradições e lacunas nos documentos. Separe evidência textual de interpretação e cite os identificadores disponíveis.',
+  'arquiteto':'Organize a estrutura dos documentos: tópicos, sequência, dependências e lacunas. Não aplique um contexto de engenharia de software a material de outro domínio.',
+ },
+ 'research': {
+  'ether':'Sintetize e relacione as fontes consultadas. Preserve divergências e associe conclusões às referências.',
+  'impeto':'Responda à pergunta delimitada com os fatos essenciais e suas fontes. Não sacrifique a atribuição nem condições importantes por brevidade.',
+  'insight':'Examine evidências, divergências e limites de cobertura. Distinga fatos, inferências e questões que as fontes não resolvem.',
+  'arquiteto':'Organize a investigação e compare as evidências coletadas por questão. Indique o que permanece não verificado; não afirme novas buscas sem resultados de ferramentas.',
+ },
+}
+
 def specialize(messages, mode, task):
-    return [{'role':'system','content':MODE_PROMPTS[mode]+'\n'+TASK_PROMPTS.get(task,'')},*messages]
+    from integration.auren_profiles import profile_name
+    context=TASK_PROFILE_PROMPTS.get(task,{}).get(mode)
+    if context is not None:
+        context='Você é Auren no perfil '+profile_name(task,mode)+'. '+context
+    else:
+        context=MODE_PROMPTS[mode]
+    return [{'role':'system','content':context+'\n'+TASK_PROMPTS.get(task,'')+'\nExecute o pedido sem anunciar o perfil, o modelo ou o provedor, salvo se o usuário pedir esses detalhes.'},*messages]

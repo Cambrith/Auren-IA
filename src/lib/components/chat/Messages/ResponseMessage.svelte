@@ -42,6 +42,7 @@
 	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
 	import { resolveLocalizedModelName } from '$lib/utils/localizedContent';
 	import equal from 'fast-deep-equal';
+	import { aurenStatuses, aurenFiles } from '$lib/utils/aurenPresentation';
 
 	import Name from './Name.svelte';
 	import ProfileImage from './ProfileImage.svelte';
@@ -79,6 +80,8 @@
 		timestamp: number;
 		role: string;
 		statusHistory?: {
+			state?: string;
+			started_at?: number;
 			done: boolean;
 			action: string;
 			description: string;
@@ -86,6 +89,8 @@
 			query?: string;
 		}[];
 		status?: {
+			state?: string;
+			started_at?: number;
 			done: boolean;
 			action: string;
 			description: string;
@@ -192,7 +197,25 @@
 	$: localizedModelName = model ? resolveLocalizedModelName(model, $i18n.language) : message.model;
 	$: model = $models.find((m) => m.id === message.model);
 
-	$: statusEntries = message?.statusHistory ?? [...(message?.status ? [message?.status] : [])];
+	$: isAuren = (model?.id ?? message.model)?.startsWith('cavren:');
+	let imageElapsedSeconds = 0;
+	let imageProgressTimer: ReturnType<typeof setInterval> | undefined;
+	$: rawStatuses = message?.statusHistory ?? [...(message?.status ? [message?.status] : [])];
+	$: imageInProgress = isAuren && !message.done && !message.error && rawStatuses.some((s) => s.action === 'image_generation' && !s.done);
+	$: if (imageInProgress && !imageProgressTimer) {
+		const latest = rawStatuses.filter((s) => s.action === 'image_generation').at(-1) as any;
+		const suppliedStart = latest?.started_at;
+		const start = typeof suppliedStart === 'number' && suppliedStart > 0 && suppliedStart <= Date.now() / 1000 ? suppliedStart * 1000 : Date.now();
+		const update = () => (imageElapsedSeconds = Math.max(0, Math.floor((Date.now() - start) / 1000)));
+		update();
+		imageProgressTimer = setInterval(update, 1000);
+	} else if (!imageInProgress && imageProgressTimer) {
+		clearInterval(imageProgressTimer);
+		imageProgressTimer = undefined;
+	}
+	onDestroy(() => { if (imageProgressTimer) clearInterval(imageProgressTimer); });
+	$: statusEntries = isAuren ? aurenStatuses(rawStatuses, $settings?.aurenShowDetails === true, message.done === true, imageElapsedSeconds) : rawStatuses;
+	$: visibleFiles = aurenFiles(message.files ?? [], isAuren, message.done);
 	$: hasVisibleStatus =
 		(model?.info?.meta?.capabilities?.status_updates ?? true) &&
 		statusEntries.length > 0 &&
@@ -709,7 +732,7 @@
 				<div class="chat-{message.role} w-full min-w-full">
 					<div>
 						{#if model?.info?.meta?.capabilities?.status_updates ?? true}
-							<StatusHistory statusHistory={message?.statusHistory} />
+							<StatusHistory statusHistory={statusEntries} />
 						{/if}
 						{#if message.aurenCancelled && message.model?.startsWith('cavren:')}
 							<p class="my-2 text-sm text-gray-500 dark:text-gray-400" role="status">Geração interrompida.</p>
@@ -727,12 +750,12 @@
 								<a href={file.url} download="Auren-voz.wav" class="text-sm">Baixar áudio</a>
 							</div>
 						{/each}
-						{#if message?.files && message.files?.filter( (f) => ['image', 'file'].includes(f.type) ).length > 0}
+						{#if visibleFiles.length && visibleFiles.filter( (f) => ['image', 'file'].includes(f.type) ).length > 0}
 							<div
 								class="my-1 w-full flex overflow-x-auto gap-2 flex-wrap"
 								dir={$settings?.chatDirection ?? 'auto'}
 							>
-								{#each message.files.filter((f) => ['image', 'file'].includes(f.type)) as file}
+								{#each visibleFiles.filter((f) => ['image', 'file'].includes(f.type)) as file}
 									<div>
 										{#if file.type === 'image' || (file?.content_type ?? '').startsWith('image/')}
 											<Image src={file.url} alt={file.name || $i18n.t('Generated Image')} />
@@ -924,8 +947,7 @@
 
 							{#if !message.done && !message.error && (model?.id ?? message.model)?.startsWith('cavren:')}
 								<AurenActivity
-									description={statusEntries.filter((s) => s.action === 'image_generation').at(-1)
-										?.description ?? ''}
+									description={rawStatuses.filter((s) => s.action === 'image_generation').at(-1)?.state === 'queued' ? 'Aguardando a geração…' : 'Gerando a imagem…'}
 									phase={statusEntries.some((s) => s.action === 'image_generation' && !s.done)
 										? 'image'
 										: hasResponseContent

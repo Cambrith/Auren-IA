@@ -1,0 +1,21 @@
+{
+  "source": "https://raw.githubusercontent.com/Zymrael/vortex/main/vortex/model/model.py",
+  "http_status": 200,
+  "sha256": "ece8ead41ffa89a27dd6706d6814b807784163477d64de0d2df54a3fa1b49feb",
+  "primary_project_reference": "https://github.com/ArcInstitute/evo2",
+  "documented_module": "embedding_layer",
+  "evidence_lines": [
+    {
+      "line": 662,
+      "text": "self.embedding_layer = VocabParallelEmbedding(config)"
+    },
+    {
+      "line": 714,
+      "text": "self.unembed = Lambda(self.embedding_layer.unembed)"
+    },
+    {
+      "line": 730,
+      "text": "x = self.embedding_layer(x)"
+    }
+  ]
+}

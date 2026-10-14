@@ -1,0 +1,7 @@
+{
+  "remote_id": "7364f6cd-533f-41fe-83d6-184a9475f053",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/qwen/qwen3.8-27b::batch",
+  "at": "2026-10-14T07:40:27.699593-03:00",
+  "result": "valid"
+}

@@ -1,0 +1,170 @@
+{
+  "started_at": "2026-10-14T16:10:29.808814+00:00",
+  "scope": "Existing bridge preparation, shortlist, real streaming worker; no DB or user conversation writes.",
+  "records": [
+    {
+      "task": "chat",
+      "profile_id": "ether",
+      "date": "2026-10-14T16:10:29.808973+00:00",
+      "expected_model": "cavren:groq:openai/gpt-oss-120b",
+      "reported_cost_usd": null,
+      "ok": true,
+      "returncode": 0,
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "fallback_index": 0,
+      "output_characters": 3,
+      "event_types": [
+        "generation.completed",
+        "generation.delta",
+        "generation.usage"
+      ],
+      "errors": [],
+      "seconds": 1.835
+    },
+    {
+      "task": "chat",
+      "profile_id": "impeto",
+      "date": "2026-10-14T16:10:34.669353+00:00",
+      "expected_model": "cavren:groq:openai/gpt-oss-20b",
+      "reported_cost_usd": null,
+      "ok": true,
+      "returncode": 0,
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "fallback_index": 0,
+      "output_characters": 3,
+      "event_types": [
+        "generation.completed",
+        "generation.delta",
+        "generation.usage"
+      ],
+      "errors": [],
+      "seconds": 1.503
+    },
+    {
+      "task": "chat",
+      "profile_id": "insight",
+      "date": "2026-10-14T16:10:39.198330+00:00",
+      "expected_model": "cavren:nvidia:moonshotai/kimi-k3",
+      "reported_cost_usd": null,
+      "ok": true,
+      "returncode": 0,
+      "provider": "nvidia",
+      "model": "moonshotai/kimi-k3",
+      "fallback_index": 0,
+      "output_characters": 3,
+      "event_types": [
+        "generation.completed",
+        "generation.delta",
+        "generation.usage"
+      ],
+      "errors": [],
+      "seconds": 18.782
+    },
+    {
+      "task": "chat",
+      "profile_id": "arquiteto",
+      "date": "2026-10-14T16:11:01.006394+00:00",
+      "expected_model": "cavren:nvidia:moonshotai/kimi-k3",
+      "reported_cost_usd": null,
+      "ok": true,
+      "returncode": 0,
+      "provider": "nvidia",
+      "model": "moonshotai/kimi-k3",
+      "fallback_index": 0,
+      "output_characters": 3,
+      "event_types": [
+        "generation.completed",
+        "generation.delta",
+        "generation.usage"
+      ],
+      "errors": [],
+      "seconds": 16.424
+    },
+    {
+      "task": "code",
+      "profile_id": "impeto",
+      "date": "2026-10-14T16:11:20.456354+00:00",
+      "expected_model": "cavren:groq:qwen/qwen3.8-27b",
+      "reported_cost_usd": null,
+      "ok": true,
+      "returncode": 0,
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "fallback_index": 0,
+      "output_characters": 28,
+      "event_types": [
+        "generation.completed",
+        "generation.delta",
+        "generation.usage"
+      ],
+      "errors": [],
+      "seconds": 1.112
+    },
+    {
+      "task": "code",
+      "profile_id": "arquiteto",
+      "date": "2026-10-14T16:11:24.575319+00:00",
+      "expected_model": "cavren:nvidia:moonshotai/kimi-k3",
+      "reported_cost_usd": null,
+      "ok": true,
+      "returncode": 0,
+      "provider": "nvidia",
+      "model": "moonshotai/kimi-k3",
+      "fallback_index": 0,
+      "output_characters": 46,
+      "event_types": [
+        "generation.completed",
+        "generation.delta",
+        "generation.usage"
+      ],
+      "errors": [],
+      "seconds": 11.12
+    },
+    {
+      "task": "documents",
+      "profile_id": "insight",
+      "date": "2026-10-14T16:11:38.702711+00:00",
+      "expected_model": "cavren:groq:openai/gpt-oss-120b",
+      "reported_cost_usd": null,
+      "ok": true,
+      "returncode": 0,
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "fallback_index": 0,
+      "output_characters": 118,
+      "event_types": [
+        "generation.completed",
+        "generation.delta",
+        "generation.usage"
+      ],
+      "errors": [],
+      "seconds": 1.407
+    },
+    {
+      "task": "research",
+      "profile_id": "impeto",
+      "date": "2026-10-14T16:11:43.117345+00:00",
+      "expected_model": "cavren:groq:openai/gpt-oss-20b",
+      "reported_cost_usd": null,
+      "ok": false,
+      "returncode": 0,
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "fallback_index": 0,
+      "output_characters": 106,
+      "event_types": [
+        "generation.completed",
+        "generation.delta",
+        "generation.searching",
+        "generation.sources",
+        "generation.task_status",
+        "generation.usage"
+      ],
+      "errors": [],
+      "seconds": 1.814
+    }
+  ],
+  "finished_at": "2026-10-14T16:11:47.933637+00:00"
+}

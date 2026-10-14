@@ -1,0 +1,1911 @@
+{
+  "at": "2026-10-14T17:18:30.083706+00:00",
+  "models": [
+    {
+      "provider": "gemini",
+      "model": "antigravity-preview-05-2026",
+      "operations": 5,
+      "called_operations": 3,
+      "valid_operations": [
+        "agent_tools"
+      ],
+      "states": {
+        "not_tested": 2,
+        "partial_validity": 2,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "research_agent",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "antigravity-preview-09-2026",
+      "operations": 14,
+      "called_operations": 12,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 2,
+        "partial_validity": 7,
+        "inconclusive": 5
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "research_agent",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "antigravity-preview-latest",
+      "operations": 5,
+      "called_operations": 3,
+      "valid_operations": [
+        "agent_tools"
+      ],
+      "states": {
+        "not_tested": 2,
+        "partial_validity": 1,
+        "inconclusive": 1,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "research_agent",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "aqa",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [
+        "grounded_answer"
+      ],
+      "states": {
+        "valid": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "deep-research-max-preview-04-2026",
+      "operations": 3,
+      "called_operations": 0,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "research_agent",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "agent_planning",
+          "reason": "Não chamada novamente: a única sondagem de planejamento autorizada por rota já foi consumida na r1; histórico preservado. Pesquisa completa não autorizada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "deep-research-preview-04-2026",
+      "operations": 3,
+      "called_operations": 0,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "research_agent",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "agent_planning",
+          "reason": "Não chamada novamente: a única sondagem de planejamento autorizada por rota já foi consumida na r1; histórico preservado. Pesquisa completa não autorizada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "deep-research-pro-preview-12-2025",
+      "operations": 3,
+      "called_operations": 0,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "research_agent",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "agent_planning",
+          "reason": "Não chamada novamente: a única sondagem de planejamento autorizada por rota já foi consumida na r1; histórico preservado. Pesquisa completa não autorizada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-computer-use-preview-10-2025",
+      "operations": 4,
+      "called_operations": 3,
+      "valid_operations": [],
+      "states": {
+        "failed": 3,
+        "not_tested": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-image",
+      "operations": 13,
+      "called_operations": 2,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 11,
+        "failed": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "batch",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-lite",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-latest",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [
+        "live"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-preview-09-2025",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [
+        "live"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [
+        "live"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-preview-tts",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [
+        "speech"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro-preview-tts",
+      "operations": 3,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 2,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3-flash-preview",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [
+        "audio_input",
+        "code",
+        "documents",
+        "pdf"
+      ],
+      "states": {
+        "valid": 4,
+        "not_tested": 3,
+        "inconclusive": 1,
+        "failed": 4
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3-pro-image",
+      "operations": 13,
+      "called_operations": 2,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 11,
+        "failed": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "batch",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3-pro-image-preview",
+      "operations": 13,
+      "called_operations": 2,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 11,
+        "failed": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "batch",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-image",
+      "operations": 13,
+      "called_operations": 2,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 11,
+        "failed": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "batch",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-image-preview",
+      "operations": 13,
+      "called_operations": 2,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 11,
+        "failed": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "batch",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite-image",
+      "operations": 13,
+      "called_operations": 2,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 11,
+        "failed": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "batch",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite-preview",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-live-preview",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [
+        "live"
+      ],
+      "states": {
+        "valid": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-tts-preview",
+      "operations": 3,
+      "called_operations": 1,
+      "valid_operations": [
+        "speech"
+      ],
+      "states": {
+        "not_tested": 2,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-pro-preview-customtools",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [
+        "audio_input",
+        "code",
+        "json",
+        "pdf",
+        "text",
+        "tools",
+        "video_input",
+        "vision"
+      ],
+      "states": {
+        "valid": 8,
+        "not_tested": 3,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-live-translate-preview",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "failed": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-transcribe",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 1,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-transcribe-live",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [
+        "live"
+      ],
+      "states": {
+        "valid": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.6-flash",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.7-flash",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 8,
+        "not_tested": 3,
+        "inconclusive": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-lite-tts",
+      "operations": 3,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 2,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "operations": 3,
+      "called_operations": 1,
+      "valid_operations": [
+        "speech"
+      ],
+      "states": {
+        "not_tested": 2,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-live",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [
+        "live"
+      ],
+      "states": {
+        "valid": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-live-extended-thinking",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "failed": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-4-argon",
+      "operations": 11,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-embedding-001",
+      "operations": 4,
+      "called_operations": 1,
+      "valid_operations": [
+        "embeddings"
+      ],
+      "states": {
+        "not_tested": 3,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch_embeddings",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_text_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-embedding-2",
+      "operations": 10,
+      "called_operations": 7,
+      "valid_operations": [
+        "embeddings",
+        "single_embeddings",
+        "image_embeddings",
+        "audio_embeddings",
+        "video_embeddings",
+        "pdf_embeddings",
+        "mixed_embeddings"
+      ],
+      "states": {
+        "not_tested": 3,
+        "valid": 7
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch_embeddings",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_text_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-embedding-2-preview",
+      "operations": 10,
+      "called_operations": 7,
+      "valid_operations": [
+        "embeddings",
+        "single_embeddings",
+        "image_embeddings",
+        "audio_embeddings",
+        "video_embeddings",
+        "pdf_embeddings",
+        "mixed_embeddings"
+      ],
+      "states": {
+        "not_tested": 3,
+        "valid": 7
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch_embeddings",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_text_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-flash-latest",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [
+        "audio_input",
+        "code",
+        "json",
+        "pdf",
+        "text",
+        "tools",
+        "video_input",
+        "vision"
+      ],
+      "states": {
+        "valid": 8,
+        "not_tested": 3,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-nano-banana-2.1",
+      "operations": 13,
+      "called_operations": 2,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 11,
+        "failed": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "batch",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-omni-1.1-flash",
+      "operations": 10,
+      "called_operations": 0,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 10
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-omni-flash-preview",
+      "operations": 10,
+      "called_operations": 0,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 10
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_input",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "json",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "pdf",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "tools",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "video_input",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        },
+        {
+          "operation": "vision",
+          "reason": "Não chamada: Gemini Omni é geração de vídeo; contrato nativo e limite de preço ainda precisam de confirmação. Não foi enviado a chat."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-pro-latest",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [],
+      "states": {
+        "failed": 9,
+        "not_tested": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-robotics-er-2-preview",
+      "operations": 12,
+      "called_operations": 9,
+      "valid_operations": [
+        "audio_input",
+        "code",
+        "documents",
+        "json",
+        "pdf",
+        "tools"
+      ],
+      "states": {
+        "valid": 6,
+        "not_tested": 3,
+        "failed": 3
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "cache",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-robotics-er-2-streaming-preview",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "failed": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "gemma-4-26b-a4b-it",
+      "operations": 4,
+      "called_operations": 3,
+      "valid_operations": [],
+      "states": {
+        "failed": 3,
+        "not_tested": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemma-4-31b-it",
+      "operations": 4,
+      "called_operations": 3,
+      "valid_operations": [
+        "code",
+        "documents"
+      ],
+      "states": {
+        "valid": 2,
+        "not_tested": 1,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "lyria-3-clip-preview",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 1,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "lyria-3-pro-preview",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 1,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "lyria-3.5",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 1,
+        "failed": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "lyria-realtime-exp",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "partial_validity": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "nano-banana-pro-preview",
+      "operations": 7,
+      "called_operations": 0,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 7
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "code",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "count_tokens",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "documents",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        },
+        {
+          "operation": "image",
+          "reason": "Não chamada: não foi confirmado um limite de preço por requisição dentro de US$ 0,50."
+        },
+        {
+          "operation": "image_reference",
+          "reason": "Não chamada: não foi confirmado um limite de preço por requisição dentro de US$ 0,50."
+        },
+        {
+          "operation": "text",
+          "reason": "Não chamada: operação de chat/genérica não é o contrato escolhido para este gerador de imagens."
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "veo-3.1-fast-generate-preview",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "failed": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "veo-3.1-generate-preview",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "failed": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "gemini",
+      "model": "veo-3.1-lite-generate-preview",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "failed": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "groq",
+      "model": "allam-2-7b",
+      "operations": 6,
+      "called_operations": 5,
+      "valid_operations": [
+        "code"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 1,
+        "failed": 2,
+        "inconclusive": 2
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "groq",
+      "model": "canopylabs/orpheus-arabic-saudi",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "inconclusive": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "groq",
+      "model": "canopylabs/orpheus-v1-english",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "inconclusive": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "groq",
+      "model": "llama-3.1-8b-instant",
+      "operations": 6,
+      "called_operations": 5,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 1,
+        "failed": 5
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "operations": 6,
+      "called_operations": 5,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 1,
+        "failed": 5
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "groq",
+      "model": "meta-llama/llama-prompt-guard-2-22m",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "partial_validity": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "groq",
+      "model": "meta-llama/llama-prompt-guard-2-86m",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "partial_validity": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "groq",
+      "model": "minimaxai/minimax-m2.7",
+      "operations": 6,
+      "called_operations": 5,
+      "valid_operations": [],
+      "states": {
+        "not_tested": 1,
+        "failed": 5
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "operations": 6,
+      "called_operations": 5,
+      "valid_operations": [
+        "code",
+        "documents",
+        "json",
+        "text"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 4,
+        "inconclusive": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "operations": 6,
+      "called_operations": 5,
+      "valid_operations": [
+        "code",
+        "json",
+        "text"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 3,
+        "failed": 1,
+        "inconclusive": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-safeguard-20b",
+      "operations": 1,
+      "called_operations": 1,
+      "valid_operations": [],
+      "states": {
+        "partial_validity": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "operations": 6,
+      "called_operations": 5,
+      "valid_operations": [
+        "code",
+        "documents",
+        "json",
+        "text",
+        "tools"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 5
+      },
+      "not_tested_operations": [
+        {
+          "operation": "batch",
+          "reason": "Não chamada: infraestrutura/batch/cache/contagem ou pesquisa completa fora desta verificação funcional delimitada."
+        }
+      ]
+    },
+    {
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "operations": 2,
+      "called_operations": 2,
+      "valid_operations": [
+        "transcribe"
+      ],
+      "states": {
+        "failed": 1,
+        "valid": 1
+      },
+      "not_tested_operations": []
+    },
+    {
+      "provider": "groq",
+      "model": "whisper-large-v3-turbo",
+      "operations": 2,
+      "called_operations": 1,
+      "valid_operations": [
+        "transcribe"
+      ],
+      "states": {
+        "not_tested": 1,
+        "valid": 1
+      },
+      "not_tested_operations": [
+        {
+          "operation": "audio_translation",
+          "reason": "Não chamada: Whisper Turbo não oferece tradução de áudio segundo a documentação oficial."
+        }
+      ]
+    }
+  ]
+}

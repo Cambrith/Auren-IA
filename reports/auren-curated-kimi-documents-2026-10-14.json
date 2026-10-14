@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-14T16:16:35.704573+00:00",
+  "id": "cavren:nvidia:moonshotai/kimi-k3",
+  "task": "documents",
+  "safety": "configured_trial",
+  "reported_cost_usd": null,
+  "ok": true,
+  "code": "ok",
+  "public_synthetic_response": "Identificação: **AUREN_DOC_731**. Projetos: **7**. Custo: **não informado** no documento; não há valor textual para citar.",
+  "seconds": 34.341
+}

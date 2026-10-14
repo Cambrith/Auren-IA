@@ -1,0 +1,15 @@
+{
+  "engine_and_harness_tests": 99,
+  "backend_tests_temporary_db": {
+    "api": 4,
+    "events": 4,
+    "profile_config": 3
+  },
+  "harness_unit_tests_included_in_engine_count": 15,
+  "all_final_checks_passed": true,
+  "frontend_changed": false,
+  "production_adapters_changed": false,
+  "build_required": false,
+  "new_dependencies": false,
+  "initial_wrong_environment_attempt": "3 import errors; later rerun individually using correct existing runtime and temporary databases passed. Initial async DB URL caused MissingGreenlet and was corrected to synchronous import DB plus tests own async temporary DB."
+}

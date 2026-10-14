@@ -1,0 +1,964 @@
+{
+  "at": "2026-10-13T18:40:09.681981-03:00",
+  "source": "https://openrouter.ai/api/v1/models?output_modalities=speech",
+  "http_status": 200,
+  "models": [
+    {
+      "id": "fish-audio/drama-3",
+      "name": "Fish Audio: Drama 3",
+      "description": "Drama 3 is a text-to-speech model from Fish Audio built for directed voice performances. You write the direction in plain language in square brackets before a line, such as `[nervous,...",
+      "created": 1791910176,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000002",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-v4",
+      "name": "ElevenLabs: Eleven v4",
+      "description": "Eleven v4 is a text-to-speech model from ElevenLabs. It is ElevenLabs' most expressive model, with inline audio tags for emotional and delivery control, support for 90+ languages, and a 10,000-character...",
+      "created": 1791386285,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00004",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-v4-turbo",
+      "name": "ElevenLabs: Eleven v4 Turbo",
+      "description": "Eleven v4 Turbo is a low-latency text-to-speech model from ElevenLabs. It keeps Eleven v4's expressive delivery and audio tags while being tuned for faster generation, with support for 90+ languages...",
+      "created": 1791386280,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00002",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-v3",
+      "name": "ElevenLabs: Eleven v3",
+      "description": "Eleven v3 is a text-to-speech model from ElevenLabs. It produces emotionally rich, highly expressive speech with inline audio tags, supports 70+ languages, and has a 5,000-character request limit.",
+      "created": 1791386272,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00004",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-v3-conversational",
+      "name": "ElevenLabs: Eleven v3 Conversational",
+      "description": "Eleven v3 Conversational is a text-to-speech model from ElevenLabs, a variant of Eleven v3 optimized for natural dialogue in conversational agents. It supports 70+ languages and has a 5,000-character request...",
+      "created": 1791386266,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00002",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-flash-v2.5",
+      "name": "ElevenLabs: Eleven Flash v2.5",
+      "description": "Eleven Flash v2.5 is an ultra-low-latency text-to-speech model from ElevenLabs. It is suited for conversational and real-time use cases, supports 32 languages, and has a 40,000-character request limit.",
+      "created": 1791386250,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00002",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-turbo-v2",
+      "name": "ElevenLabs: Eleven Turbo v2",
+      "description": "Eleven Turbo v2 is an English-only, low-latency text-to-speech model from ElevenLabs. It is suited for developer use cases where speed matters and only English is needed, and has a 30,000-character...",
+      "created": 1791386238,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00002",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-multilingual-v2",
+      "name": "ElevenLabs: Eleven Multilingual v2",
+      "description": "Eleven Multilingual v2 is a text-to-speech model from ElevenLabs. It is suited for lifelike, consistent long-form narration such as voice-overs and audiobooks, supports 29 languages, and has a 10,000-character request...",
+      "created": 1791386232,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00004",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-turbo-v2.5",
+      "name": "ElevenLabs: Eleven Turbo v2.5",
+      "description": "Eleven Turbo v2.5 is a low-latency text-to-speech model from ElevenLabs. It balances quality and speed for developer use cases that need non-English languages, supports 32 languages, and has a 40,000-character...",
+      "created": 1791386218,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00002",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "elevenlabs/eleven-flash-v2",
+      "name": "ElevenLabs: Eleven Flash v2",
+      "description": "Eleven Flash v2 is an English-only, ultra-low-latency text-to-speech model from ElevenLabs. It is suited for conversational and real-time English use cases, and has a 30,000-character request limit.",
+      "created": 1791386207,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00002",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "microsoft/mai-voice-2.1-flash",
+      "name": "Microsoft AI: MAI-Voice-2.1-Flash",
+      "description": "MAI-Voice-2.1-Flash is a low-latency text-to-speech model from Microsoft AI, optimized for real-time responsiveness. It produces natural, expressive speech across 23 languages, with human-like intonation, rhythm, and emotional nuance. It is...",
+      "created": 1790870485,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000015",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "microsoft/mai-voice-2.1",
+      "name": "Microsoft AI: MAI-Voice-2.1",
+      "description": "MAI-Voice-2.1 is Microsoft AI's highest-fidelity, most expressive text-to-speech model. It produces natural, studio-grade speech across 23 languages, with detailed prosody, nuanced expressiveness, and speaker consistency over long-form content. It is...",
+      "created": 1790870467,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000022",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "bytedance-seed/seed-audio-1-0",
+      "name": "ByteDance Seed: Seed Audio 1.0",
+      "description": "Seed Audio 1.0 is ByteDance Seed's non-streaming audio generation model. It produces speech and other audio from a natural-language text prompt that can describe the desired voice, tone, and sound...",
+      "created": 1790372476,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0",
+        "completion": "0.0025"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "google/gemini-3.8-flash-lite-tts",
+      "name": "Google: Gemini 3.8 Flash Lite TTS",
+      "description": "Gemini 3.8 Flash Lite TTS is a text-to-speech model from Google and the fast, high-throughput member of the 3.8 TTS family alongside [Gemini 3.8 Flash TTS](https://openrouter.ai/google/gemini-3.8-flash-tts). It is suited for...",
+      "created": 1790200276,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Gemini",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.0000005",
+        "completion": "0.000006"
+      },
+      "supported_parameters": [],
+      "context_length": 32768,
+      "top_provider": {
+        "context_length": 32768,
+        "max_completion_tokens": 16384,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "google/gemini-3.8-flash-tts",
+      "name": "Google: Gemini 3.8 Flash TTS",
+      "description": "Gemini 3.8 Flash TTS is a text-to-speech model from Google and the successor to [Gemini 3.1 Flash TTS Preview](https://openrouter.ai/google/gemini-3.1-flash-tts-preview). It is the creative tier of the 3.8 TTS family, suited...",
+      "created": 1790200266,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Gemini",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.0000005",
+        "completion": "0.000009"
+      },
+      "supported_parameters": [],
+      "context_length": 32768,
+      "top_provider": {
+        "context_length": 32768,
+        "max_completion_tokens": 16384,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "deepgram/flux-tts",
+      "name": "Deepgram: Flux TTS",
+      "description": "Flux TTS is a text-to-speech model from Deepgram. It is suited for natural, expressive English speech synthesis across Deepgram's Flux voice catalog.",
+      "created": 1786574888,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000045",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "fish-audio/s1",
+      "name": "Fish Audio: S1",
+      "description": "S1 is a multilingual text-to-speech model from Fish Audio. It is suited for voice applications that need broad emotional expression, using parenthetical controls to guide speaking style across its supported...",
+      "created": 1785353734,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000015",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "fish-audio/s2-pro",
+      "name": "Fish Audio: S2 Pro",
+      "description": "S2 Pro is a multilingual text-to-speech model from Fish Audio. It is suited for expressive narration and multi-speaker dialogue, with natural-language controls for speaking style and emotion.",
+      "created": 1785353734,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000015",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "fish-audio/s2.1-pro-free:free",
+      "name": "Fish Audio: S2.1 Pro Free (free)",
+      "description": "S2.1 Pro Free is the no-cost variant of Fish Audio S2.1 Pro, intended for testing, prototyping, and low-volume applications. It provides the same synthesis capabilities without production latency or availability...",
+      "created": 1785353733,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "fish-audio/s2.1-pro",
+      "name": "Fish Audio: S2.1 Pro",
+      "description": "S2.1 Pro is a production-oriented text-to-speech model from Fish Audio. It is suited for multilingual voice applications, expressive narration, and dialogue synthesis, with open-ended natural-language controls for speaking style and...",
+      "created": 1785353732,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000015",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "microsoft/mai-voice-2-flash",
+      "name": "Microsoft AI: MAI-Voice-2-Flash",
+      "description": "MAI-Voice-2-Flash is a low-latency text-to-speech model from Microsoft AI for voice agents, assistants, call centers, accessibility, narration, and other interactive applications. It generates expressive 24 kHz mono speech across 15...",
+      "created": 1784822080,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000015",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "qwen/qwen-audio-3.0-tts-flash",
+      "name": "Qwen: Qwen-Audio-3.0-TTS Flash",
+      "description": "Qwen-Audio-3.0-TTS Flash is Alibaba's fast, cost-efficient text-to-speech model, generating spoken audio from text via the DashScope Speech Synthesizer API.",
+      "created": 1784817207,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000015",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "qwen/qwen-audio-3.0-tts-plus",
+      "name": "Qwen: Qwen-Audio-3.0-TTS Plus",
+      "description": "Qwen-Audio-3.0-TTS Plus is Alibaba's higher-quality text-to-speech model, generating spoken audio from text via the DashScope Speech Synthesizer API.",
+      "created": 1784817207,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00002",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "deepgram/aura-2",
+      "name": "Deepgram: Aura-2",
+      "description": "Aura-2 is a multilingual text-to-speech model from Deepgram. It supports Deepgram’s canonical Aura-2 voice catalog for speech synthesis across multiple languages.",
+      "created": 1784237167,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00003",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "minimax/speech-2.8-hd",
+      "name": "MiniMax: Speech 2.8 HD",
+      "description": "MiniMax Speech 2.8 HD is a text-to-speech model from MiniMax. It is suited for applications that generate spoken audio from text and accepts arbitrary MiniMax voice IDs.",
+      "created": 1784164001,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.0001",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "minimax/speech-2.8-turbo",
+      "name": "MiniMax: Speech 2.8 Turbo",
+      "description": "MiniMax Speech 2.8 Turbo is a text-to-speech model from MiniMax. It is suited for applications that generate spoken audio from text and accepts arbitrary MiniMax voice IDs.",
+      "created": 1784164000,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00006",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "microsoft/mai-voice-2",
+      "name": "Microsoft AI: MAI-Voice-2",
+      "description": "MAI-Voice-2 is an expressive text-to-speech model from Microsoft AI. It is suited for conversational assistants, media narration, accessibility, education, and other long-form voice applications. It supports 15 languages across 18...",
+      "created": 1780425097,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000022",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 0,
+      "top_provider": {
+        "context_length": 0,
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "x-ai/grok-voice-tts-1.0",
+      "name": "SpaceXAI: Grok Voice TTS 1.0",
+      "description": "Grok Voice TTS 1.0 is a text-to-speech model from SpaceXAI. It converts text into spoken audio across 20+ languages with automatic language detection, and offers five built-in voices (Eve, Ara,...",
+      "created": 1778805456,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Grok",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000015",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 15000,
+      "top_provider": {
+        "context_length": 15000,
+        "max_completion_tokens": 13500,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "google/gemini-3.1-flash-tts-preview",
+      "name": "Google: Gemini 3.1 Flash TTS Preview",
+      "description": "Gemini 3.1 Flash TTS Preview is a text-to-speech model from Google, and a substantial generational step up from Gemini 2.5 Flash TTS. It takes text input and produces audio output...",
+      "created": 1776999308,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Gemini",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000001",
+        "completion": "0.00002"
+      },
+      "supported_parameters": [],
+      "context_length": 32768,
+      "top_provider": {
+        "context_length": 32768,
+        "max_completion_tokens": 16384,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "canopylabs/orpheus-3b-0.1-ft",
+      "name": "Canopy Labs: Orpheus 3B",
+      "description": "Orpheus 3B is an English text-to-speech model from Canopy Labs, fine-tuned for natural prosody and expressive delivery. It offers 7 preset voices and is suited for narration, voice assistants, and...",
+      "created": 1776983168,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000007",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 4096,
+      "top_provider": {
+        "context_length": 4096,
+        "max_completion_tokens": 3686,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "sesame/csm-1b",
+      "name": "Sesame: CSM 1B",
+      "description": "CSM 1B is a conversational speech model from Sesame. It accepts text input and produces English speech output, with voice options spanning conversational and read-speech styles. At 1B parameters, it...",
+      "created": 1776983168,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000007",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 4096,
+      "top_provider": {
+        "context_length": 4096,
+        "max_completion_tokens": 3686,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "hexgrad/kokoro-82m",
+      "name": "hexgrad: Kokoro 82M",
+      "description": "Kokoro 82M is a lightweight, open-weight text-to-speech model from hexgrad. It converts text to speech across 8 languages (American and British English, Spanish, French, Hindi, Italian, Japanese, Portuguese, and Chinese)...",
+      "created": 1776983167,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000062",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 4096,
+      "top_provider": {
+        "context_length": 4096,
+        "max_completion_tokens": 3686,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
+      "id": "mistralai/voxtral-mini-tts-2603",
+      "name": "Mistral: Voxtral Mini TTS",
+      "description": "Voxtral Mini TTS is Mistral's text-to-speech model featuring zero-shot voice cloning and multilingual support. It converts text input into natural-sounding audio output.",
+      "created": 1776571337,
+      "architecture": {
+        "modality": "text->speech",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "speech"
+        ],
+        "tokenizer": "Mistral",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000016",
+        "completion": "0"
+      },
+      "supported_parameters": [],
+      "context_length": 4096,
+      "top_provider": {
+        "context_length": 4096,
+        "max_completion_tokens": 3276,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    }
+  ]
+}

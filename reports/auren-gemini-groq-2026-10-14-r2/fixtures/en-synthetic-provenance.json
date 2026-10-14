@@ -1,0 +1,14 @@
+{
+  "operation": "speech_fixture_generation",
+  "provider": "nvidia",
+  "model": "magpie-tts-multilingual",
+  "http_status": 200,
+  "reported_cost_usd": null,
+  "cost_class": "unknown",
+  "synthetic_text": "Auren is ready. Good morning.",
+  "language": "en-US",
+  "semantic_listening_pending": true,
+  "duration_seconds": 1.5325170068027212,
+  "valid_wav": true,
+  "sha256": "fdb742a80c7484bc8be17014afbce3baa8a72b1be76f0a90e682f87415ab56f2"
+}

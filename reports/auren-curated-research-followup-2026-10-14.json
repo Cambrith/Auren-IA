@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-14T16:13:12.922867+00:00",
+  "reason": "Initial harness checked explicit URLs only, while Auren context also supports numbered source cards; original failed result preserved.",
+  "ok": false,
+  "provider": null,
+  "model": null,
+  "fallback_index": null,
+  "source_urls": [],
+  "public_synthetic_response": "",
+  "seconds": 1.533,
+  "reported_cost_usd": null
+}

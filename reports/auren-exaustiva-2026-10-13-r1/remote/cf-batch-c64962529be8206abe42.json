@@ -1,0 +1,7 @@
+{
+  "remote_id": "af94b814-d97c-4c91-8c08-2bb88e63d7fd",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/baai/bge-small-en-v1.5::batch",
+  "at": "2026-10-14T07:35:23.492530-03:00",
+  "result": "remote_poll_denied"
+}

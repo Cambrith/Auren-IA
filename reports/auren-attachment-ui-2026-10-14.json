@@ -1,0 +1,24 @@
+{
+  "selected_model_kept": "GPT OSS 120B",
+  "accepted_uploads": [
+    {
+      "name": "vision.png",
+      "type": "image/png"
+    },
+    {
+      "name": "document.pdf",
+      "type": "application/pdf"
+    },
+    {
+      "name": "pt.wav",
+      "type": "audio/wav"
+    },
+    {
+      "name": "video.mp4",
+      "type": "video/mp4"
+    }
+  ],
+  "all_uploads_mocked": true,
+  "generation_not_called": true,
+  "narrow_no_overflow": true
+}

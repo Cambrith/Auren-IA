@@ -22,11 +22,22 @@ from integration.lunvri_connections import connection_settings, cached_model
 
 
 class PreparedChatProvider(ChatCompletionsProvider):
-    """OpenAI chat limit adapter; Anthropic uses its documented compatibility API."""
+    """Current chat limits and model-specific Groq reasoning contracts."""
+    def __init__(self, *args, free_only=False, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.free_only = free_only
+
     def _payload(self, messages, *, stream):
         payload = super()._payload(messages, stream=stream)
-        if self.config.name == 'openai':
+        if self.config.name == 'openrouter' and self.free_only:
+            # Official server-side price cap, including provider fallback selection.
+            payload['provider'] = {'max_price': {'prompt': 0, 'completion': 0, 'request': 0, 'image': 0}}
+        if self.config.name in ('openai', 'groq'):
             payload['max_completion_tokens'] = payload.pop('max_tokens')
+        if self.config.name == 'groq' and self.config.model in ('openai/gpt-oss-120b','openai/gpt-oss-20b'):
+            # GPT-OSS does not use Qwen's reasoning_format contract.
+            payload.pop('reasoning_format',None)
+            payload['include_reasoning'] = False
         return payload
 
 
@@ -63,6 +74,7 @@ def image_files(provider, payload):
 
 def generate_images(client, config, messages, prompt, *, progress=None, job=None):
     job = job or {}
+    started_at = time.time()
     global_deadline = job.get('auren_deadline', time.monotonic() + 480)
     def remaining(limit):
         budget = global_deadline - time.monotonic()
@@ -73,7 +85,7 @@ def generate_images(client, config, messages, prompt, *, progress=None, job=None
         if progress:
             progress({'type': 'generation.image_status', 'description': config.model + ' · ' + config.name + ' · ' + description,
                       'generation_id': job.get('generation_id'), 'attempt_id': job.get('auren_attempt_id'),
-                      'provider': config.name, 'effective_model': config.model, **data})
+                      'provider': config.name, 'effective_model': config.model, 'started_at':started_at, **data})
     report('Preparando geração.', state='preparing')
     if config.name == 'gemini':
         contents, systems = GeminiPromptAdapter().adapt(messages)
@@ -84,6 +96,8 @@ def generate_images(client, config, messages, prompt, *, progress=None, job=None
         headers = {'x-goog-api-key': config.api_key}
     elif config.name == 'openrouter':
         body = {'model': config.model, 'prompt': prompt, 'n': 1}
+        if not job.get('mode_options',{}).get('billing_confirmed'):
+            body['provider'] = {'max_price': {'prompt':0,'completion':0,'request':0,'image':0}}
         references = [
             part
             for m in messages
@@ -99,13 +113,8 @@ def generate_images(client, config, messages, prompt, *, progress=None, job=None
         headers = {'apikey': config.api_key, 'Client-Agent': 'Auren:1.0:local'}
         from integration.auren_settings import preferences
         params = job.get('auren_image_preferences') or preferences()
-        image_params = {'n': 1, 'width': params.get('image_width',512), 'height': params.get('image_height',512), 'steps': params.get('image_steps',20)}
-        # Only the established SD route has curated profile presets. Other models retain configured defaults.
-        if config.model == 'stable_diffusion':
-            profile = job.get('auren_image_profile', 'balanced')
-            if profile == 'rapid': image_params['steps'] = min(image_params['steps'], 12)
-            if profile == 'detailed': image_params['steps'] = 30
-        image_params.update(job.get('auren_image_parameters', {}))
+        from integration.auren_images import profile_parameters
+        image_params = profile_parameters(params, job.get('auren_image_profile', 'balanced'), job.get('auren_image_parameters'))
         response = client.post(config.base_url + '/generate/async', headers=headers,
                                json={'prompt': prompt, 'models': [config.model], 'params': image_params, 'r2': False, 'shared': False}, timeout=remaining(30))
         if response.status_code != 202:
@@ -202,7 +211,11 @@ def run(job, normalize_messages, *, output=emit):
     messages = [Message(m['role'], m['content']) for m in job['messages']]
     from cavren.modes import routes_for
     route = None if job.get('lunvri_image_generation') else next((r for r in routes_for(job['mode_id']) if r.route_id == info['route_id']), None)
-    if route:
+    from integration.auren_routing import effort_for
+    curated_effort = effort_for(info['route_id'],job['mode_id'])
+    if curated_effort is not None:
+        settings = replace(settings,reasoning_effort=curated_effort)
+    elif route:
         effort = route.effort if route.effort in route.model.reasoning_levels else 'default'
         settings = replace(settings, reasoning_effort=effort)
     context = None if job.get('lunvri_image_generation') else job.get('auren_context') or build_generation_context(job, messages, max_output_tokens=settings.max_tokens, settings=settings, budget=ContextBudget(int(info.get('context_window') or 32000) - settings.max_tokens - 4096))
@@ -256,8 +269,9 @@ def run(job, normalize_messages, *, output=emit):
             messages = normalize_messages(context.messages)
             provider = (
                 GeminiNativeProvider(config, settings, client)
-                if config.name == 'gemini' and needs_native_gemini(messages)
-                else PreparedChatProvider(config, settings, client, reasoning_hidden=bool(route and route.reasoning_hidden))
+                if config.name == 'gemini' and (needs_native_gemini(messages) or any(
+                    isinstance(m.content, list) and any(p.get('type') == 'image_url' for p in m.content) for m in messages))
+                else PreparedChatProvider(config, settings, client, reasoning_hidden=bool(route and route.reasoning_hidden), free_only=info['price_kind']=='free')
             )
             for item in provider.stream(messages, trace_id=id, generation_id=id):
                 sequence += 1

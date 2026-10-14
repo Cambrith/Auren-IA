@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-14T09:00:38.777873-03:00",
+  "source": "https://ai.google.dev/gemini-api/docs/antigravity-agent",
+  "added_operations": [
+    "gemini:antigravity-preview-05-2026::agent_text",
+    "gemini:antigravity-preview-05-2026::agent_vision",
+    "gemini:antigravity-preview-05-2026::agent_tools",
+    "gemini:antigravity-preview-09-2026::agent_text",
+    "gemini:antigravity-preview-09-2026::agent_vision",
+    "gemini:antigravity-preview-09-2026::agent_tools",
+    "gemini:antigravity-preview-latest::agent_text",
+    "gemini:antigravity-preview-latest::agent_vision",
+    "gemini:antigravity-preview-latest::agent_tools"
+  ],
+  "token_limit_is_best_effort": true,
+  "no_environment": true,
+  "custom_function_only": true,
+  "research_reclassification": true
+}

@@ -43,6 +43,7 @@
 
 	// Interface
 	let showUsername = false;
+	let aurenShowDetails = false;
 
 	let highContrastMode = false;
 
@@ -350,6 +351,7 @@
 		renderMarkdownInUserMessages = currentSettings?.renderMarkdownInUserMessages ?? true;
 		renderMarkdownInAssistantMessages = currentSettings?.renderMarkdownInAssistantMessages ?? true;
 		expandDetails = currentSettings?.expandDetails ?? false;
+		aurenShowDetails = currentSettings?.aurenShowDetails === true;
 		chatHoverPreview = currentSettings?.chatHoverPreview ?? true;
 		renderMarkdownInPreviews = currentSettings?.renderMarkdownInPreviews ?? true;
 
@@ -422,6 +424,13 @@
 		saveSettings({ imageCompressionSize });
 	}}
 />
+
+{#if $config?.auren?.local}
+	<div class="flex items-center justify-between gap-4 py-3 mb-3 border-b border-gray-200 dark:border-gray-800">
+		<div><div class="font-medium">Mostrar detalhes da resposta</div><p class="text-xs text-gray-500 mt-1">Exibe o modelo, o modo e a tarefa usados pela Auren. Oculto por padrão.</p></div>
+		<Switch bind:state={aurenShowDetails} on:change={() => saveSettings({ aurenShowDetails })} />
+	</div>
+{/if}
 
 <input
 	bind:this={filesInputElement}

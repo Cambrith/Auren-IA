@@ -1,0 +1,19 @@
+{
+  "provider": "deepseek",
+  "credential_available": true,
+  "http_status": 200,
+  "source": "https://api.deepseek.com/models",
+  "credential_source": "Existing system vault; app historically filters this provider.",
+  "models": [
+    {
+      "id": "deepseek-flash",
+      "object": "model",
+      "owned_by": "deepseek"
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "object": "model",
+      "owned_by": "deepseek"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source": "https://build.nvidia.com/nvidia/magpie-tts-multilingual/api",
+  "at": "2026-10-14T08:20:03.635387-03:00",
+  "call": {
+    "real_call": true,
+    "success": false,
+    "cost_class": "unknown",
+    "transport": "grpc",
+    "seconds": 1.835,
+    "audio_seconds": 2.36843537414966,
+    "result": "native_speech_received",
+    "semantic_asr": {
+      "provider": "mistral",
+      "model": "voxtral-mini-latest",
+      "operation": "audio/transcriptions",
+      "real_call": true,
+      "reported_cost_usd": null,
+      "cost_class": "unknown",
+      "http_status": 400,
+      "result": "semantic_asr_unavailable",
+      "seconds": 0.819
+    },
+    "expected": "xin chao buoi sang",
+    "fixture": "vi-synthetic.wav",
+    "language": "vi-VN",
+    "sha256": "a2612d630090a78130932aecd8d5c33bd1e76eeb45938ffeb18d0af8250740de"
+  }
+}

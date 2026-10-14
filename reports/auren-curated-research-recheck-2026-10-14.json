@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-14T16:14:56.726311+00:00",
+  "criterion": "Public final answer, exact model ID and either retrieved URL or valid source-card index.",
+  "ok": true,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "returncode": 0,
+  "errors": [],
+  "source_urls": [
+    "https://console.groq.com/docs/model/openai/gpt-oss-120b",
+    "https://console.groq.com/docs/models?erid=2W5zFJmrUKT"
+  ],
+  "public_synthetic_response": "O ID oficial que identifica o modelo GPT‑OSS 120B na documentação da Groq é **`openai/gpt-oss-120b`**.  \nFonte: https://console.groq.com/docs/model/openai/gpt-oss-120b",
+  "seconds": 2.703,
+  "reported_cost_usd": null
+}
