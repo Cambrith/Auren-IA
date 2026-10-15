@@ -1,5 +1,34 @@
 # Auren — prévia da interface baseada no Open WebUI
 
+## Atualização para o GitHub — 15/10/2026
+
+As correções locais de progresso único e do fundo da primeira abertura foram
+reunidas com seus testes e evidências. O registro da atualização está em
+`reports/AUREN-PUBLICACAO-2026-10-15.md`. Dados pessoais e credenciais continuam
+fora do versionamento.
+
+## Fundo da primeira abertura — 15/10/2026
+
+A tela nativa que aguarda o serviço usa `#080D17`, assim como o splash da
+interface. A janela, o WebEngineView e a página também recebem esse azul antes
+do HTML. O logo, seu pulso e a continuidade da animação foram preservados.
+`tests/check_auren_cold_start_ui.py` verifica o HTML real de espera, uma página
+com cache vazio e espera artificial da API, sem reiniciar o computador ou
+interromper o serviço existente. Evidências em
+`reports/AUREN-PRIMEIRA-ABERTURA-2026-10-15.md`.
+
+## Progresso único na resposta — 14/10/2026
+
+Durante uma resposta da Auren, somente o indicador animado apresenta a etapa
+atual da pesquisa ou geração. O histórico de status continua nos dados da
+conversa, e os resultados de pesquisa podem ser abertos pelo próprio indicador.
+Ao concluir, o progresso desaparece e a resposta mantém a apresentação normal;
+o histórico técnico fica disponível depois da conclusão se a opção de detalhes
+estiver ativada. Na geração de imagens, etapa, tempo decorrido, fila e estimativa
+recebida do provedor compartilham o mesmo indicador.
+
+Verificação e limites em `reports/AUREN-PROGRESSO-UNICO-2026-10-14.md`.
+
 ## Menu + e ícones dos seletores — 14/10/2026
 
 “Pesquisar na web” é um item direto do menu +, com a mesma altura, tipografia,

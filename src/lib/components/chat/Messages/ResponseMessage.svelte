@@ -42,7 +42,7 @@
 	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
 	import { resolveLocalizedModelName } from '$lib/utils/localizedContent';
 	import equal from 'fast-deep-equal';
-	import { aurenStatuses, aurenFiles } from '$lib/utils/aurenPresentation';
+	import { aurenStatuses, aurenFiles, aurenActivity } from '$lib/utils/aurenPresentation';
 
 	import Name from './Name.svelte';
 	import ProfileImage from './ProfileImage.svelte';
@@ -223,6 +223,7 @@
 	$: visibleResponseContent =
 		getOutputText(message.output) || removeAllDetails(message.content ?? '');
 	$: hasResponseContent = Boolean((message.content ?? '').trim() || message.output?.length);
+	$: activity = aurenActivity(statusEntries, hasResponseContent, imageElapsedSeconds);
 
 	let edit = false;
 	let editedContent = '';
@@ -731,7 +732,7 @@
 			<div>
 				<div class="chat-{message.role} w-full min-w-full">
 					<div>
-						{#if model?.info?.meta?.capabilities?.status_updates ?? true}
+						{#if (model?.info?.meta?.capabilities?.status_updates ?? true) && (!isAuren || (message.done && $settings?.aurenShowDetails === true))}
 							<StatusHistory statusHistory={statusEntries} />
 						{/if}
 						{#if message.aurenCancelled && message.model?.startsWith('cavren:')}
@@ -947,17 +948,9 @@
 
 							{#if !message.done && !message.error && (model?.id ?? message.model)?.startsWith('cavren:')}
 								<AurenActivity
-									description={rawStatuses.filter((s) => s.action === 'image_generation').at(-1)?.state === 'queued' ? 'Aguardando a geração…' : 'Gerando a imagem…'}
-									phase={statusEntries.some((s) => s.action === 'image_generation' && !s.done)
-										? 'image'
-										: hasResponseContent
-											? 'streaming'
-											: statusEntries.some((s) => s.action === 'web_search' && !s.done) &&
-												  !statusEntries.some((s) => s.action === 'web_search' && s.done)
-												? 'searching'
-												: statusEntries.some((s) => s.action === 'web_search' && s.done)
-													? 'organizing'
-													: 'waiting'}
+									phase={activity.phase}
+									description={activity.description}
+									status={activity.status}
 								/>
 							{:else if !message.done && !message.error && (hasResponseContent || !hasVisibleStatus)}
 								<div class="text-[0.9375rem] leading-relaxed">

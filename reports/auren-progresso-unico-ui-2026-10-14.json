@@ -1,0 +1,11 @@
+{
+  "single_search_status": true,
+  "animated_mark": true,
+  "current_step_replaces_previous": true,
+  "search_results_preserved": true,
+  "single_image_status": true,
+  "narrow_no_overflow": true,
+  "ordinary_response_after_completion": true,
+  "no_chat_writes": true,
+  "provider_calls_mocked": true
+}

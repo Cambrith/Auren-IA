@@ -11,11 +11,27 @@ from PySide6.QtNetwork import QLocalServer, QLocalSocket, QNetworkAccessManager,
 from PySide6.QtWebEngineCore import QWebEnginePage, QWebEngineProfile
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QApplication, QFileDialog, QMessageBox
-from auren_window import AurenWindow
+from auren_window import AurenWindow, AUREN_BACKGROUND
 from auren_identity import DESKTOP_ID, ensure_icons, update_launcher
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = 'http://127.0.0.1:8175'
+
+
+def startup_html():
+    """The service-wait screen paints the same blue before any HTTP request."""
+    import base64
+    icon = base64.b64encode((ROOT / 'static/lunvri-logo.png').read_bytes()).decode()
+    return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+    <meta name="color-scheme" content="dark">
+    <style>
+    html,body{{margin:0;width:100%;height:100%;background:{AUREN_BACKGROUND};overflow:hidden}}
+    body{{display:grid;place-items:center}}
+    @keyframes pulse{{0%,100%{{opacity:.58;transform:scale(.985)}}50%{{opacity:.92;transform:scale(1.015)}}}}
+    @media(prefers-reduced-motion:reduce){{img{{animation:none!important}}}}
+    </style></head><body>
+    <script>document.documentElement.style.setProperty('--auren-pulse-delay', -((Date.now()-window.__aurenLoadStarted)%2600)+'ms');</script>
+    <img alt="Carregando Auren" src="data:image/png;base64,{icon}" style="width:104px;height:104px;object-fit:contain;filter:grayscale(1) brightness(.74);animation:pulse 2.6s ease-in-out infinite;animation-delay:var(--auren-pulse-delay,0ms);will-change:transform,opacity"/></body></html>"""
 
 
 def main():
@@ -56,13 +72,7 @@ def main():
     view.setPage(Page(profile, view))
     view.setWindowTitle('Auren')
     # The window is visible during service startup and frontend hydration.
-    import base64
-    icon = base64.b64encode((Path(__file__).resolve().parents[1] / 'static/lunvri-logo.png').read_bytes()).decode()
-    view.setHtml(f"""<html><body style="margin:0;background:#111214;display:grid;place-items:center;height:100vh">
-    <script>document.documentElement.style.setProperty('--auren-pulse-delay', -((Date.now()-window.__aurenLoadStarted)%2600)+'ms');</script>
-    <style>@keyframes pulse{{0%,100%{{opacity:.58;transform:scale(.985)}}50%{{opacity:.92;transform:scale(1.015)}}}}
-    @media(prefers-reduced-motion:reduce){{img{{animation:none!important}}}}</style>
-    <img alt="Carregando Auren" src="data:image/png;base64,{icon}" style="width:104px;filter:grayscale(1) brightness(.74);animation:pulse 2.6s ease-in-out infinite;animation-delay:var(--auren-pulse-delay,0ms);will-change:transform,opacity"/></body></html>""")
+    view.setHtml(startup_html())
     view.showMaximized()
     view.web.setFocus()
     server = QLocalServer(app)

@@ -1,0 +1,18 @@
+{
+  "native_window_blue": true,
+  "native_view_blue": true,
+  "native_page_blue": true,
+  "isolated_empty_cache": true,
+  "before_html_blue": true,
+  "service_wait_html_blue": true,
+  "service_wait_frames_blue": true,
+  "fresh_frontend_wait_blue": true,
+  "frontend_splash_blue": true,
+  "frontend_reaches_conversation": true,
+  "no_chat_writes": true,
+  "sample_counts": {
+    "before_html": 5,
+    "service_wait": 30,
+    "frontend_wait": 31
+  }
+}

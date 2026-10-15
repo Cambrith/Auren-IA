@@ -4,10 +4,12 @@ import shutil
 import time
 
 from PySide6.QtCore import QEvent, QProcess, QRect, Qt, QTimer, QSettings
-from PySide6.QtGui import QColor, QIcon, QKeySequence, QPainter, QPen, QPixmap, QShortcut
+from PySide6.QtGui import QColor, QIcon, QKeySequence, QPainter, QPalette, QPen, QPixmap, QShortcut
 from PySide6.QtWidgets import QApplication, QHBoxLayout, QMenu, QToolButton, QVBoxLayout, QWidget
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWebEngineCore import QWebEnginePage, QWebEngineScript
+
+AUREN_BACKGROUND = '#080d17'
 
 
 def toolbar_icon(kind):
@@ -76,6 +78,11 @@ class AurenWindow(QWidget):
         self.setWindowFlags(Qt.Window | Qt.FramelessWindowHint | Qt.WindowMinimizeButtonHint
                             | Qt.WindowMaximizeButtonHint | Qt.WindowCloseButtonHint)
         self.setWindowTitle('Auren')
+        palette = self.palette()
+        palette.setColor(QPalette.ColorRole.Window, QColor(AUREN_BACKGROUND))
+        palette.setColor(QPalette.ColorRole.Base, QColor(AUREN_BACKGROUND))
+        self.setPalette(palette)
+        self.setAutoFillBackground(True)
         self.loading_started = int(time.time() * 1000)
         self.setMinimumSize(420, 360)
         # Keep a centered normal geometry underneath the maximized state. This
@@ -102,6 +109,9 @@ class AurenWindow(QWidget):
         self.normal_geometry_timer.timeout.connect(self.apply_restore_geometry)
         self.kwin_geometry_process = QProcess(self)
         self.web = QWebEngineView(self)
+        self.web.setPalette(palette)
+        self.web.setAutoFillBackground(True)
+        self.web.page().setBackgroundColor(QColor(AUREN_BACKGROUND))
         # The content receives initial focus, while menus remain keyboard reachable.
         self.setFocusProxy(self.web)
         self.loadFinished = self.web.loadFinished
@@ -256,7 +266,7 @@ class AurenWindow(QWidget):
         return self.web.page()
 
     def setPage(self, page):
-        page.setBackgroundColor(QColor('#080d17'))
+        page.setBackgroundColor(QColor(AUREN_BACKGROUND))
         self.web.setPage(page)
         script = QWebEngineScript()
         script.setName('auren-native-layout')

@@ -22,3 +22,29 @@ export function aurenStatuses(statuses: any[], showDetails: boolean, done = fals
 export function aurenFiles(files: any[], isAuren: boolean, done: boolean | undefined) {
 	return files.filter((f) => !(isAuren && done === false && (f.type === 'image' || f.content_type?.startsWith('image/'))));
 }
+
+/** One live indicator owns the current step; the stored history remains intact. */
+export function aurenActivity(statuses: any[], hasContent = false, elapsedSeconds = 0): {
+	phase: 'waiting' | 'searching' | 'organizing' | 'streaming' | 'image';
+	description: string;
+	status: any;
+} {
+	if (hasContent) return { phase: 'streaming', description: '', status: null };
+	const status = statuses.filter((entry) => !entry.hidden).at(-1);
+	if (!status) return { phase: 'waiting', description: '', status: null };
+	if (status.action === 'image_generation') {
+		return {
+			phase: 'image', status: null,
+			description: status.done ? 'Finalizando a imagem…' :
+				`${status.state === 'queued' ? 'Aguardando a geração…' : 'Gerando a imagem…'} · ${imageProgress(status, elapsedSeconds)}`
+		};
+	}
+	const search = ['web_search', 'web_search_queries_generated', 'knowledge_search', 'queries_generated', 'sources_retrieved'].includes(status.action);
+	return {
+		phase: search ? (status.done ? 'organizing' : 'searching') : 'waiting',
+		description: '',
+		status: status.action === 'web_search' && status.done
+			? { ...status, description: `${status.description || 'Pesquisa concluída'} · Organizando as informações…` }
+			: status
+	};
+}
