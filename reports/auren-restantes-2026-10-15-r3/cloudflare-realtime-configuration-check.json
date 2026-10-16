@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-13T19:01:03.564279-03:00",
+  "source": "https://developers.cloudflare.com/ai-gateway/usage/websockets-api/realtime-api/",
+  "endpoint": "https://api.cloudflare.com/client/v4/accounts/<account>/ai-gateway/gateways",
+  "read_only": true,
+  "http_status": 403,
+  "limits": {
+    "ratelimit-policy": "\"default\";q=1200;w=300"
+  },
+  "usage": {},
+  "reported_cost_usd": null,
+  "resolved_model": null,
+  "provider_error": "[{\"code\": 10000, \"message\": \"Authentication error\", \"documentation_url\": \"https://developers.cloudflare.com/api/resources/ai_gateway\"}]",
+  "gateway_count": null,
+  "success": false
+}

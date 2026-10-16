@@ -38,12 +38,15 @@ async def preferences(data:dict,user=Depends(get_admin_user)):
 
 class CredentialForm(BaseModel):
     provider:str
-    key:SecretStr
+    key:SecretStr | None = None
+    fields:dict[str,SecretStr] | None = None
     free_trial:bool=False
 
 @router.post('/provider')
 async def provider(data:CredentialForm,user=Depends(get_admin_user)):
-    return await bridge_request('POST','/auren/provider',{'provider':data.provider,'key':data.key.get_secret_value(),'free_trial':data.free_trial})
+    values = {k:v.get_secret_value() for k,v in (data.fields or {}).items()}
+    if data.key is not None: values['key'] = data.key.get_secret_value()
+    return await bridge_request('POST','/auren/provider',{'provider':data.provider,'fields':values,'free_trial':data.free_trial})
 
 class ImageForm(BaseModel):
     model:str
@@ -56,3 +59,15 @@ async def generate_image(data:ImageForm,user=Depends(get_admin_user)):
     return await bridge_request('POST','/chat/completions',{'model':data.model,'stream':False,
         'lunvri_image_generation':True,'cavren_billing_confirmed':data.billing_confirmed,
         'messages':[{'role':'user','content':data.prompt}]})
+
+
+class ConnectionForm(BaseModel):
+    provider:str
+
+@router.post('/connections/validate')
+async def validate_connection(data:ConnectionForm,user=Depends(get_admin_user)):
+    return await bridge_request('POST','/auren/connections/validate',{'provider':data.provider})
+
+@router.post('/oauth/canva/start')
+async def start_canva(user=Depends(get_admin_user)):
+    return await bridge_request('POST','/auren/oauth/canva/start',{})

@@ -20,6 +20,14 @@ from cavren.nextchat_server import CavrenHandler, worker_env
 
 KEY_LABELS = {
     'openai': 'OPENAI_API_KEY',
+    'chatgpt': 'OPENAI_API_KEY',
+    'deepseek': 'DEEPSEEK_API_KEY',
+    'huggingface': 'HUGGINGFACE_API_KEY',
+    'hugging face': 'HUGGINGFACE_API_KEY',
+    'x.ai': 'XAI_API_KEY',
+    'xai': 'XAI_API_KEY',
+    'grok': 'XAI_API_KEY',
+    'claude': 'ANTHROPIC_API_KEY',
     'anthropic': 'ANTHROPIC_API_KEY',
     'gemini': 'GEMINI_API_KEY',
     'groq': 'GROQ_API_KEY',
@@ -70,20 +78,23 @@ def parse_credentials(text: str) -> dict[str, str]:
 def credentials_env() -> dict[str, str]:
     from integration.auren_credentials import AurenVault, remember_credentials
     vault = AurenVault()
-    env = {name: value for name, value in worker_env().items() if not name.startswith('DEEPSEEK_')}
-    # These two providers remain dormant until explicitly configured in Auren.
-    for key in ('OPENAI_API_KEY','ANTHROPIC_API_KEY'):
+    env = {name: value for name, value in worker_env().items() if name not in ('DEEPSEEK_API_KEY',)}
+    # Optional direct providers remain dormant until explicitly configured in Auren.
+    for key in ('OPENAI_API_KEY','ANTHROPIC_API_KEY','DEEPSEEK_API_KEY','XAI_API_KEY','HUGGINGFACE_API_KEY'):
         env.pop(key,None)
     from cavren.credentials import KEY_NAMES
     try: optional_policy=json.loads((STATE/'provider_policy.json').read_text())
     except (OSError,ValueError): optional_policy={}
-    for name in set(KEY_LABELS.values()) - set(KEY_NAMES):
-        optional={'OPENAI_API_KEY':'openai','ANTHROPIC_API_KEY':'anthropic'}.get(name)
+    for name in (set(KEY_LABELS.values()) - set(KEY_NAMES)) | {'DEEPSEEK_API_KEY'}:
+        optional={'OPENAI_API_KEY':'openai','ANTHROPIC_API_KEY':'anthropic','DEEPSEEK_API_KEY':'deepseek','XAI_API_KEY':'xai','HUGGINGFACE_API_KEY':'huggingface'}.get(name)
         if optional and optional_policy.get(optional+'_configured') is not True: continue
         stored = vault.get(name)
         if stored: env[name] = stored
     # User documents are import sources only, never a runtime credential store.
     remember_credentials(env)
+    for name in ('CEREBRAS_API_KEY','DEEPINFRA_API_KEY','NOVITA_API_KEY','FIREWORKS_API_KEY','AWS_BEARER_TOKEN_BEDROCK','AWS_REGION','AUREN_BEDROCK_BASE_URL'):
+        value=vault.get(name)
+        if value:env[name]=value
     return env
 
 
@@ -92,22 +103,40 @@ def connection_settings(env=None):
     settings = load_settings(env)
     additions = {
         'openai': ('https://api.openai.com/v1', 'OPENAI_API_KEY'),
+        'deepseek': ('https://api.deepseek.com/v1', 'DEEPSEEK_API_KEY'),
+        'huggingface': ('https://router.huggingface.co/v1', 'HUGGINGFACE_API_KEY'),
+        'xai': ('https://api.x.ai/v1', 'XAI_API_KEY'),
         'anthropic': ('https://api.anthropic.com/v1', 'ANTHROPIC_API_KEY'),
         'cohere': ('https://api.cohere.ai/compatibility/v1', 'COHERE_API_KEY'),
         'nvidia': ('https://integrate.api.nvidia.com/v1', 'NVIDIA_API_KEY'),
         'ollama': ('https://ollama.com/v1', 'OLLAMA_API_KEY'),
         'zai': ('https://api.z.ai/api/paas/v4', 'ZAI_API_KEY'),
         'aihorde': ('https://aihorde.net/api/v2', 'AI_HORDE_API_KEY'),
+        'cerebras': ('https://api.cerebras.ai/v1','CEREBRAS_API_KEY'),
+        'deepinfra': ('https://api.deepinfra.com/v1/openai','DEEPINFRA_API_KEY'),
+        'novita': ('https://api.novita.ai/v3/openai','NOVITA_API_KEY'),
+        'fireworks': ('https://api.fireworks.ai/inference/v1','FIREWORKS_API_KEY'),
     }
     providers = dict(settings.providers)
     for name, (url, key) in additions.items():
         providers[name] = ProviderConfig(name=name, model='', base_url=url, key_env=key, api_key=env.get(key, ''))
+    if env.get('AWS_REGION') and env.get('AUREN_BEDROCK_BASE_URL'):
+        from integration.auren_bedrock import validate_base_url
+        base=validate_base_url(env['AUREN_BEDROCK_BASE_URL'],env['AWS_REGION'])
+        providers['bedrock']=ProviderConfig(name='bedrock',model='',base_url=base,key_env='AWS_BEARER_TOKEN_BEDROCK',api_key=env.get('AWS_BEARER_TOKEN_BEDROCK',''))
+    try: availability=json.loads((STATE/'provider_policy.json').read_text()).get('provider_availability',{})
+    except (OSError,ValueError,AttributeError):availability={}
+    for name,rule in availability.items():
+        if name in providers and rule.get('disabled') is True:providers[name]=replace(providers[name],api_key='')
     return replace(settings, providers=providers)
 
 
-PROVIDER_NAMES = {'openai':'OpenAI', 'anthropic':'Anthropic', 'gemini': 'Google Gemini', 'groq': 'Groq', 'mistral': 'Mistral AI',
+PAID_PROVIDERS = frozenset(('openai', 'anthropic', 'deepseek', 'xai','bedrock','cerebras','deepinfra','novita','fireworks'))
+
+PROVIDER_NAMES = {'openai':'OpenAI', 'anthropic':'Anthropic', 'deepseek':'DeepSeek', 'huggingface':'Hugging Face', 'xai':'xAI', 'gemini': 'Google Gemini', 'groq': 'Groq', 'mistral': 'Mistral AI',
                   'openrouter': 'OpenRouter', 'cloudflare': 'Cloudflare', 'cohere': 'Cohere',
                   'nvidia': 'NVIDIA NIM', 'ollama': 'Ollama Cloud', 'zai': 'Z.ai', 'aihorde': 'AI Horde'}
+PROVIDER_NAMES.update({'bedrock':'Amazon Bedrock','cerebras':'Cerebras Inference API','deepinfra':'DeepInfra API','novita':'Novita AI API','fireworks':'Fireworks AI API'})
 
 
 def display_name(value):
@@ -157,6 +186,8 @@ def cloudflare_free_plan():
 
 
 def deepseek_allowed(provider, model_id, free):
+    if provider in ('deepseek', 'huggingface'):
+        return True  # Manual paid/unknown routes still require the billing gate.
     if 'deepseek' not in (provider + ':' + model_id).casefold():
         return True
     if provider == 'openrouter':
@@ -177,6 +208,10 @@ def public_model(provider, raw):
     if provider == 'openai' and (not model_id.startswith(('gpt-','chatgpt-','o1','o3','o4')) or any(w in model_id for w in ('image','audio','realtime','transcribe','search','codex','deep-research','-pro'))):
         return None
     if provider == 'anthropic' and (not model_id.startswith('claude-') or raw.get('lifecycle') in ('retired','deprecated')):
+        return None
+    if provider == 'xai' and not model_id.startswith('grok-'):
+        return None
+    if provider == 'xai' and any(w in model_id for w in ('image', 'video', 'imagine')):
         return None
     if provider == 'cohere' and (raw.get('is_deprecated') or 'chat' not in raw.get('endpoints', [])):
         return None
@@ -246,7 +281,7 @@ def public_model(provider, raw):
         'usage_label': 'Teste gratuito / créditos' if free and provider in ('cohere', 'nvidia') else '',
         'provider_name': PROVIDER_NAMES.get(provider, provider),
         'available': True,
-        'price_kind': 'free' if free else 'unknown',
+        'price_kind': 'paid' if provider in PAID_PROVIDERS else 'free' if free else 'unknown',
         'integrated': False,
         'context_window': raw.get('inputTokenLimit') or raw.get('max_input_tokens') or raw.get('context_length') or 32000,
         'output_limit': raw.get('outputTokenLimit') or raw.get('max_tokens')
@@ -280,6 +315,20 @@ def model_entry(id, info):
 
 
 def discover(provider, config):
+    if provider=='bedrock':
+        from integration.auren_bedrock import discover as aws_discover
+        from urllib.parse import urlsplit
+        region=urlsplit(config.base_url).hostname.split('.')[1]
+        try:
+            with httpx.Client(trust_env=False,timeout=20) as client:
+                rows,error=aws_discover({'key':config.api_key,'region':region,'base_url':config.base_url},client)
+            if error:return [],{'connected':False,'status':error[1]}
+            try:support=json.loads((STATE/'bedrock_model_support.json').read_text())
+            except (OSError,ValueError):support={}
+            allowed=set(support.get('runtime_chat_models',[])) if support.get('region')==region else set()
+            models=[model for r in rows if r['id'] in allowed and (model:=public_model(provider,{'id':r['id'],'name':r['name']}))]
+            return models,{'connected':True,'count':len(models),'regional_catalogue_count':len(rows),'inference_tested':False}
+        except (httpx.HTTPError,ValueError,KeyError,TypeError):return [],{'connected':False,'status':'unavailable'}
     headers = {'Authorization': 'Bearer ' + config.api_key}
     url = config.base_url + '/models'
     params = {}
@@ -335,6 +384,12 @@ def discover(provider, config):
 
 
 def validated_catalog(models):
+    try: availability=json.loads((STATE/'provider_policy.json').read_text()).get('provider_availability',{})
+    except (OSError,ValueError,AttributeError):availability={}
+    for model in models:
+        rule=availability.get(model.get('cavren',{}).get('provider'),{})
+        if rule.get('disabled') is True:
+            model['cavren'].update(available=False,usage_label='Reservado para ativação futura' if rule.get('reason')=='future_credentials' else 'Indisponível: conta bloqueada no provedor')
     from integration.auren_validation import model_evidence, verified
     from integration.auren_media import TESTED_INPUTS
     from integration.auren_tasks import task_evidence
@@ -354,8 +409,25 @@ def validated_catalog(models):
         record=model_evidence(model['id'],kind)
         info['validation']={'status':record.get('status','not_tested'),'free_verified':verified(model['id'],kind),
                             'mean_seconds':record.get('mean_seconds'),'date':record.get('verified_at')}
-        if info['validation']['free_verified'] and record.get('safety') in ('community_kudos','configured_trial','configured_free_plan','documented_free_model','zero_price_cap'):
+        if info.get('provider') in PAID_PROVIDERS:
+            info['price_kind'] = 'paid'
+        elif info['validation']['free_verified'] and record.get('safety') in ('community_kudos','configured_trial','configured_free_plan','documented_free_model','zero_price_cap'):
             info['price_kind']='free'
+    # Documented future choices remain visible even without an account catalogue.
+    # They cannot generate until live discovery replaces them with accessible entries.
+    reserved = {
+        'anthropic': (('claude-fable-5-1', 'claude-opus-5-5', 'claude-sonnet-5-5', 'claude-haiku-5-5'),
+                      'https://platform.claude.com/docs/en/models/overview'),
+        'xai': (('grok-4.7',), 'https://docs.x.ai/developers/models'),
+    }
+    for provider, (names, source) in reserved.items():
+        if any(m['cavren'].get('provider') == provider for m in models):
+            continue
+        for name in names:
+            model = public_model(provider, {'id': name})
+            model['cavren'].update(available=False, catalog_source='documentation', documentation_url=source,
+                                  usage_label='Reservado · configure a chave e o saldo para consultar o catálogo')
+            models.append(model)
     auto=next((m for m in models if m['id']=='cavren:auto'),None)
     if auto:
         caps = auto['cavren'].setdefault('capabilities', {})
@@ -417,7 +489,7 @@ def _refresh_catalog():
         providers = {
             name: config
             for name, config in settings.providers.items()
-            if name != 'deepseek' and config.api_key and (name != 'cloudflare' or config.account_id)
+            if config.api_key and (name != 'cloudflare' or config.account_id)
         }
         statuses = {}
         with ThreadPoolExecutor(max_workers=5) as pool:

@@ -15,7 +15,7 @@ from cavren.models import Message, ModelResponse, Usage
 from cavren.prompt_adapter import GeminiPromptAdapter
 from cavren.providers import ChatCompletionsProvider, http_error
 from cavren.effort import EFFORTS
-for _provider in ('cohere', 'nvidia', 'ollama', 'zai', 'openai', 'anthropic'):
+for _provider in ('cohere', 'nvidia', 'ollama', 'zai', 'openai', 'anthropic', 'deepseek', 'xai', 'huggingface','bedrock','cerebras','deepinfra','novita','fireworks'):
     EFFORTS.setdefault(_provider, ('default',))
 from cavren.web_search import WebSearchService, DEFAULT_SEARCH_URL
 from integration.lunvri_connections import connection_settings, cached_model

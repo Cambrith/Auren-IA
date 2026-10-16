@@ -1,0 +1,47 @@
+{
+  "remote_id": "batch-1791914944-gCYVEkE9f89O0YwwO5wj",
+  "provider": "openrouter",
+  "row": "openrouter:anthropic/claude-haiku-5.5:batch::batch",
+  "updated_at": "2026-10-14T07:35:45.658465-03:00",
+  "states": [
+    {
+      "at": "2026-10-14T07:34:59.214286-03:00",
+      "state": "in_progress"
+    },
+    {
+      "at": "2026-10-14T07:35:04.258256-03:00",
+      "state": "in_progress"
+    },
+    {
+      "at": "2026-10-14T07:35:09.493081-03:00",
+      "state": "in_progress"
+    },
+    {
+      "at": "2026-10-14T07:35:14.523734-03:00",
+      "state": "in_progress"
+    },
+    {
+      "at": "2026-10-14T07:35:19.780745-03:00",
+      "state": "in_progress"
+    },
+    {
+      "at": "2026-10-14T07:35:25.044288-03:00",
+      "state": "in_progress"
+    },
+    {
+      "at": "2026-10-14T07:35:30.254871-03:00",
+      "state": "in_progress"
+    },
+    {
+      "at": "2026-10-14T07:35:35.444859-03:00",
+      "state": "in_progress"
+    },
+    {
+      "at": "2026-10-14T07:35:40.658305-03:00",
+      "state": "in_progress"
+    }
+  ],
+  "result": "accepted_pending_completion",
+  "cancel_http_status": null,
+  "input_file_id": null
+}

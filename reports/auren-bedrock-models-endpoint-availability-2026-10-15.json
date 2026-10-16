@@ -1,0 +1,827 @@
+{
+  "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-endpoint-availability.html",
+  "models": {
+    "bedrock-runtime. { region}.amazonaws.com (recommended)": {
+      "name": "bedrock-runtime. { region}.amazonaws.com (recommended)",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-endpoint-availability.html",
+      "runtime": null,
+      "mantle": null
+    },
+    "bedrock-mantle. { region}.api.aws": {
+      "name": "bedrock-mantle. { region}.api.aws",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-endpoint-availability.html",
+      "runtime": null,
+      "mantle": null
+    },
+    "Jamba 1.5 Large": {
+      "name": "Jamba 1.5 Large",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-ai21-labs-jamba-1-5-large.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Jamba 1.5 Mini": {
+      "name": "Jamba 1.5 Mini",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-ai21-labs-jamba-1-5-mini.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Amazon Nova Multimodal Embeddings": {
+      "name": "Amazon Nova Multimodal Embeddings",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-amazon-nova-multimodal-embeddings.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Nova 2 Lite": {
+      "name": "Nova 2 Lite",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-nova-2-lite.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Nova 2 Sonic": {
+      "name": "Nova 2 Sonic",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-nova-2-sonic.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Nova Canvas": {
+      "name": "Nova Canvas",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-nova-canvas.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Nova Lite": {
+      "name": "Nova Lite",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-nova-lite.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Nova Micro": {
+      "name": "Nova Micro",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-nova-micro.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Nova Pro": {
+      "name": "Nova Pro",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-nova-pro.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Nova Reel": {
+      "name": "Nova Reel",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-nova-reel.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Titan Embeddings G1 - Text": {
+      "name": "Titan Embeddings G1 - Text",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-titan-embeddings-g1---text.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Titan Multimodal Embeddings G1": {
+      "name": "Titan Multimodal Embeddings G1",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-titan-multimodal-embeddings-g1.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Titan Text Embeddings V2": {
+      "name": "Titan Text Embeddings V2",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-titan-text-embeddings-v2.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Titan Embeddings G1 - Text v2": {
+      "name": "Titan Embeddings G1 - Text v2",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-amazon-titan-text-embeddings-v2-2.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Claude Haiku 5.5": {
+      "name": "Claude Haiku 5.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-haiku-5-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Sonnet 5.5": {
+      "name": "Claude Sonnet 5.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-sonnet-5-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Opus 5.5": {
+      "name": "Claude Opus 5.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-opus-5-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Fable 5.1": {
+      "name": "Claude Fable 5.1",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-fable-5-1.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Mythos 5.1": {
+      "name": "Claude Mythos 5.1",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-mythos-5-1.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Claude Opus 5": {
+      "name": "Claude Opus 5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-opus-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Sonnet 5": {
+      "name": "Claude Sonnet 5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-sonnet-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Mythos 5": {
+      "name": "Claude Mythos 5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-mythos-5.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "Claude Fable 5": {
+      "name": "Claude Fable 5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-fable-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude 3 Haiku": {
+      "name": "Claude 3 Haiku",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-3-haiku.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Claude Haiku 4.5": {
+      "name": "Claude Haiku 4.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-haiku-4-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Opus 4.1": {
+      "name": "Claude Opus 4.1",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-opus-4-1.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Claude Opus 4.5": {
+      "name": "Claude Opus 4.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-opus-4-5.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Claude Opus 4.6": {
+      "name": "Claude Opus 4.6",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-opus-4-6.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Claude Opus 4.7": {
+      "name": "Claude Opus 4.7",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-opus-4-7.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Opus 4.8": {
+      "name": "Claude Opus 4.8",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-opus-4-8.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Claude Sonnet 4": {
+      "name": "Claude Sonnet 4",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-sonnet-4.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Claude Sonnet 4.5": {
+      "name": "Claude Sonnet 4.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-sonnet-4-5.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Claude Sonnet 4.6": {
+      "name": "Claude Sonnet 4.6",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-anthropic-claude-sonnet-4-6.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Command R": {
+      "name": "Command R",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-cohere-command-r.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Command R+": {
+      "name": "Command R+",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-cohere-command-r-plus.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Embed English": {
+      "name": "Embed English",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-cohere-embed-english.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Embed Multilingual": {
+      "name": "Embed Multilingual",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-cohere-embed-multilingual.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Embed v4": {
+      "name": "Embed v4",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-cohere-embed-v4.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Rerank 3.5": {
+      "name": "Rerank 3.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-cohere-rerank-3-5.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "DeepSeek V3.2": {
+      "name": "DeepSeek V3.2",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-deepseek-deepseek-v3-2.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "DeepSeek-R1": {
+      "name": "DeepSeek-R1",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-deepseek-deepseek-r1.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "DeepSeek-V3.1": {
+      "name": "DeepSeek-V3.1",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-deepseek-deepseek-v3-1.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Gemma 4 31B": {
+      "name": "Gemma 4 31B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-google-gemma-4-31b.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "Gemma 4 26B-A4B": {
+      "name": "Gemma 4 26B-A4B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-google-gemma-4-26b-a4b.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "Gemma 4 E2B": {
+      "name": "Gemma 4 E2B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-google-gemma-4-e2b.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "Gemma 3 12B IT": {
+      "name": "Gemma 3 12B IT",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-google-gemma-3-12b-it.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Gemma 3 27B PT": {
+      "name": "Gemma 3 27B PT",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-google-gemma-3-27b-pt.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Gemma 3 4B IT": {
+      "name": "Gemma 3 4B IT",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-google-gemma-3-4b-it.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Ray2": {
+      "name": "Ray2",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-luma-ai-ray2.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3 70B Instruct": {
+      "name": "Llama 3 70B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-70b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3 8B Instruct": {
+      "name": "Llama 3 8B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-8b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3.1 405B Instruct": {
+      "name": "Llama 3.1 405B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-1-405b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3.1 70B Instruct": {
+      "name": "Llama 3.1 70B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-1-70b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3.1 8B Instruct": {
+      "name": "Llama 3.1 8B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-1-8b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3.2 11B Instruct": {
+      "name": "Llama 3.2 11B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-2-11b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3.2 1B Instruct": {
+      "name": "Llama 3.2 1B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-2-1b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3.2 3B Instruct": {
+      "name": "Llama 3.2 3B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-2-3b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3.2 90B Instruct": {
+      "name": "Llama 3.2 90B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-2-90b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 3.3 70B Instruct": {
+      "name": "Llama 3.3 70B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-3-3-70b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 4 Maverick 17B Instruct": {
+      "name": "Llama 4 Maverick 17B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-4-maverick-17b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Llama 4 Scout 17B Instruct": {
+      "name": "Llama 4 Scout 17B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-meta-llama-4-scout-17b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "MiniMax M2": {
+      "name": "MiniMax M2",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-minimax-minimax-m2.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "MiniMax M2.1": {
+      "name": "MiniMax M2.1",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-minimax-minimax-m2-1.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "MiniMax M2.5": {
+      "name": "MiniMax M2.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-minimax-minimax-m2-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Devstral 2 123B": {
+      "name": "Devstral 2 123B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-devstral-2-123b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Magistral Small 2509": {
+      "name": "Magistral Small 2509",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-magistral-small-2509.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Ministral 14B 3.0": {
+      "name": "Ministral 14B 3.0",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-ministral-14b-3-0.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Ministral 3 8B": {
+      "name": "Ministral 3 8B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-ministral-3-8b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Ministral 3B": {
+      "name": "Ministral 3B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-ministral-3b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Mistral 7B Instruct": {
+      "name": "Mistral 7B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-mistral-7b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Mistral Large": {
+      "name": "Mistral Large",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-mistral-large.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Mistral Large 3": {
+      "name": "Mistral Large 3",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-mistral-large-3.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Mistral Small": {
+      "name": "Mistral Small",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-mistral-small.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Mixtral 8x7B Instruct": {
+      "name": "Mixtral 8x7B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-mixtral-8x7b-instruct.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Pixtral Large": {
+      "name": "Pixtral Large",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-pixtral-large.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Voxtral Mini 3B 2507": {
+      "name": "Voxtral Mini 3B 2507",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-voxtral-mini-3b-2507.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Voxtral Small 24B 2507": {
+      "name": "Voxtral Small 24B 2507",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-mistral-ai-voxtral-small-24b-2507.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Kimi K3": {
+      "name": "Kimi K3",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-moonshot-ai-kimi-k3.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Kimi K2 Thinking": {
+      "name": "Kimi K2 Thinking",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-moonshot-ai-kimi-k2-thinking.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Kimi K2.5": {
+      "name": "Kimi K2.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-moonshot-ai-kimi-k2-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "NVIDIA Nemotron Nano 9B v2": {
+      "name": "NVIDIA Nemotron Nano 9B v2",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-nvidia-nvidia-nemotron-nano-9b-v2.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "NVIDIA Nemotron Nano 12B v2 VL BF16": {
+      "name": "NVIDIA Nemotron Nano 12B v2 VL BF16",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-nvidia-nvidia-nemotron-nano-12b-v2-vl-bf16.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Nemotron Nano 3 30B": {
+      "name": "Nemotron Nano 3 30B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-nvidia-nemotron-nano-3-30b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "NVIDIA Nemotron 3 Super 120B": {
+      "name": "NVIDIA Nemotron 3 Super 120B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-nvidia-nemotron-super-3-120b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GPT-6.1 Sol": {
+      "name": "GPT-6.1 Sol",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-6-1-sol.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GPT-6 Astra": {
+      "name": "GPT-6 Astra",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-6-astra.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GPT-6 Sol": {
+      "name": "GPT-6 Sol",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-6-sol.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GPT-6 Luna": {
+      "name": "GPT-6 Luna",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-6-luna.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GPT-5.6 Sol": {
+      "name": "GPT-5.6 Sol",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-56-sol.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Daybreak Red: GPT-5.6 Cyber": {
+      "name": "Daybreak Red: GPT-5.6 Cyber",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-56-cyber.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "Daybreak Blue: GPT-5.6 Sol": {
+      "name": "Daybreak Blue: GPT-5.6 Sol",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-daybreak-blue-56-sol.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "GPT-5.6 Terra": {
+      "name": "GPT-5.6 Terra",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-56-terra.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GPT-5.6 Luna": {
+      "name": "GPT-5.6 Luna",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-56-luna.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GPT-5.5": {
+      "name": "GPT-5.5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-55.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "GPT-5.4": {
+      "name": "GPT-5.4",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-54.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "GPT OSS Safeguard 120B": {
+      "name": "GPT OSS Safeguard 120B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-oss-safeguard-120b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GPT OSS Safeguard 20B": {
+      "name": "GPT OSS Safeguard 20B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-oss-safeguard-20b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "gpt-oss-120b": {
+      "name": "gpt-oss-120b",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-oss-120b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "gpt-oss-20b": {
+      "name": "gpt-oss-20b",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-openai-gpt-oss-20b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Qwen3 235B A22B 2507": {
+      "name": "Qwen3 235B A22B 2507",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-qwen-qwen3-235b-a22b-2507.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Qwen3 32B": {
+      "name": "Qwen3 32B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-qwen-qwen3-32b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Qwen3 Coder 480B A35B Instruct": {
+      "name": "Qwen3 Coder 480B A35B Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-qwen-qwen3-coder-480b-a35b-instruct.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Qwen3 Coder Next": {
+      "name": "Qwen3 Coder Next",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-qwen-qwen3-coder-next.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Qwen3 Next 80B A3B": {
+      "name": "Qwen3 Next 80B A3B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-qwen-qwen3-next-80b-a3b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Qwen3 VL 235B A22B": {
+      "name": "Qwen3 VL 235B A22B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-qwen-qwen3-vl-235b-a22b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Qwen3-Coder-30B-A3B-Instruct": {
+      "name": "Qwen3-Coder-30B-A3B-Instruct",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-qwen-qwen3-coder-30b-a3b-instruct.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Stable Image Ultra 1.0": {
+      "name": "Stable Image Ultra 1.0",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-ultra-1-0.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Core 1.0": {
+      "name": "Stable Image Core 1.0",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-core-1-0.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Diffusion 3.5 Large": {
+      "name": "Stable Diffusion 3.5 Large",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-diffusion-3-5-large.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Conservative Upscale": {
+      "name": "Stable Image Conservative Upscale",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-conservative-upscale.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Control Sketch": {
+      "name": "Stable Image Control Sketch",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-control-sketch.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Control Structure": {
+      "name": "Stable Image Control Structure",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-control-structure.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Creative Upscale": {
+      "name": "Stable Image Creative Upscale",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-creative-upscale.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Erase Object": {
+      "name": "Stable Image Erase Object",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-erase-object.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Fast Upscale": {
+      "name": "Stable Image Fast Upscale",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-fast-upscale.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Inpaint": {
+      "name": "Stable Image Inpaint",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-inpaint.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Outpaint": {
+      "name": "Stable Image Outpaint",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-outpaint.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Remove Background": {
+      "name": "Stable Image Remove Background",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-remove-background.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Search and Recolor": {
+      "name": "Stable Image Search and Recolor",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-search-and-recolor.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Search and Replace": {
+      "name": "Stable Image Search and Replace",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-search-and-replace.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Style Guide": {
+      "name": "Stable Image Style Guide",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-style-guide.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Stable Image Style Transfer": {
+      "name": "Stable Image Style Transfer",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-stability-ai-stable-image-style-transfer.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Marengo Embed 3.0": {
+      "name": "Marengo Embed 3.0",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-twelvelabs-marengo-embed-3-0.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Marengo Embed v2.7": {
+      "name": "Marengo Embed v2.7",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-twelvelabs-marengo-embed-v2-7.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Pegasus v1.2": {
+      "name": "Pegasus v1.2",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-twelvelabs-pegasus-v1-2.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Palmyra Vision 7B": {
+      "name": "Palmyra Vision 7B",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-writer-palmyra-vision-7b.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Palmyra X4": {
+      "name": "Palmyra X4",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-writer-palmyra-x4.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Palmyra X5": {
+      "name": "Palmyra X5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-writer-palmyra-x5.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Grok 4.7": {
+      "name": "Grok 4.7",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-xai-grok-4-7.html",
+      "runtime": true,
+      "mantle": false
+    },
+    "Grok 4.6": {
+      "name": "Grok 4.6",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-xai-grok-4-6.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "Grok 4.3": {
+      "name": "Grok 4.3",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-xai-grok-4-3.html",
+      "runtime": false,
+      "mantle": true
+    },
+    "GLM 4.7": {
+      "name": "GLM 4.7",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-zai-glm-4-7.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GLM 4.7 Flash": {
+      "name": "GLM 4.7 Flash",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-zai-glm-4-7-flash.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GLM 5": {
+      "name": "GLM 5",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-zai-glm-5.html",
+      "runtime": true,
+      "mantle": true
+    },
+    "GLM 5.3": {
+      "name": "GLM 5.3",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/./model-card-zai-glm-5-3.html",
+      "runtime": true,
+      "mantle": false
+    }
+  }
+}

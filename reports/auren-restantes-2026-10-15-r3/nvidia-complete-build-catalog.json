@@ -1,0 +1,796 @@
+{
+  "catalog_calls": [
+    {
+      "source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "http_status": 200,
+      "at": "2026-10-13T22:26:59.449834+00:00",
+      "sha256": "4bcfcddd89dc6ac8da60557ddbb73b28836794271d9458d28a9e2799e9d1a12d",
+      "card_count": 96
+    },
+    {
+      "source": "https://build.nvidia.com/models?pageSize=96&page=2",
+      "http_status": 200,
+      "at": "2026-10-13T22:27:09.922075+00:00",
+      "sha256": "3a6a7e9eb5ea4a69e5b37777c3be9c31ceddde7b231bc951eef4384261c68079",
+      "card_count": 1
+    }
+  ],
+  "models": [
+    {
+      "card_slug": "nvidia/kumo-tabular",
+      "card_url": "https://build.nvidia.com/nvidia/kumo-tabular",
+      "card_name": "Kumo Tabular",
+      "card_metadata_text": "Kumo Tabular",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/body-pose",
+      "card_url": "https://build.nvidia.com/nvidia/body-pose",
+      "card_name": "3D Body Pose",
+      "card_metadata_text": "3D Body Pose",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "deepseek-ai/deepseek-v4.1-flash",
+      "card_url": "https://build.nvidia.com/deepseek-ai/deepseek-v4.1-flash",
+      "card_name": "deepseek-v4.1-flash",
+      "card_metadata_text": "deepseek-v4.1-flash",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/kumo-relational",
+      "card_url": "https://build.nvidia.com/nvidia/kumo-relational",
+      "card_name": "Kumo Relational",
+      "card_metadata_text": "Kumo Relational",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "z-ai/glm-5-3",
+      "card_url": "https://build.nvidia.com/z-ai/glm-5-3",
+      "card_name": "glm-5-3",
+      "card_metadata_text": "glm-5-3",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "z-ai/glm-5-3-flash",
+      "card_url": "https://build.nvidia.com/z-ai/glm-5-3-flash",
+      "card_name": "glm-5-3-flash",
+      "card_metadata_text": "glm-5-3-flash",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-parse-2.0",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-parse-2.0",
+      "card_name": "nemotron-parse-2.0",
+      "card_metadata_text": "nemotron-parse-2.0",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-tdt-0_6b",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-tdt-0_6b",
+      "card_name": "parakeet-tdt-0.6b",
+      "card_metadata_text": "parakeet-tdt-0.6b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "moonshotai/kimi-k3",
+      "card_url": "https://build.nvidia.com/moonshotai/kimi-k3",
+      "card_name": "kimi-k3",
+      "card_metadata_text": "kimi-k3",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "wan-ai/wan2.2-animate-2-14b",
+      "card_url": "https://build.nvidia.com/wan-ai/wan2.2-animate-2-14b",
+      "card_name": "wan2.2-animate-2-14b",
+      "card_metadata_text": "wan2.2-animate-2-14b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-3.5-lightning-30b-a3b",
+      "card_name": "nemotron-3.5-lightning-30b-a3b",
+      "card_metadata_text": "nemotron-3.5-lightning-30b-a3b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "meta/muse-glimmer-30b",
+      "card_url": "https://build.nvidia.com/meta/muse-glimmer-30b",
+      "card_name": "muse-glimmer-30b",
+      "card_metadata_text": "muse-glimmer-30b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/riva-translate-4b-instruct-v2",
+      "card_url": "https://build.nvidia.com/nvidia/riva-translate-4b-instruct-v2",
+      "card_name": "riva-translate-4b-instruct-v2",
+      "card_metadata_text": "riva-translate-4b-instruct-v2",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/ising-calibration-1.5-31b",
+      "card_url": "https://build.nvidia.com/nvidia/ising-calibration-1.5-31b",
+      "card_name": "ising-calibration-1.5-31b",
+      "card_metadata_text": "ising-calibration-1.5-31b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/vsr",
+      "card_url": "https://build.nvidia.com/nvidia/vsr",
+      "card_name": "Video Super Resolution NIM",
+      "card_metadata_text": "Video Super Resolution NIM",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-3-embed-1b",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-3-embed-1b",
+      "card_name": "nemotron-3-embed-1b",
+      "card_metadata_text": "nemotron-3-embed-1b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "poolside/laguna-xs-2.1",
+      "card_url": "https://build.nvidia.com/poolside/laguna-xs-2.1",
+      "card_name": "laguna-xs-2.1",
+      "card_metadata_text": "laguna-xs-2.1",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/qwen-image-edit-nvpcb-ovsl2sl",
+      "card_url": "https://build.nvidia.com/nvidia/qwen-image-edit-nvpcb-ovsl2sl",
+      "card_name": "qwen-image-edit-nvpcb-ovsl2sl",
+      "card_metadata_text": "qwen-image-edit-nvpcb-ovsl2sl",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-ocr-v2",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-ocr-v2",
+      "card_name": "nemotron-ocr-v2",
+      "card_metadata_text": "nemotron-ocr-v2",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "google/diffusiongemma-26b-a4b-it",
+      "card_url": "https://build.nvidia.com/google/diffusiongemma-26b-a4b-it",
+      "card_name": "diffusiongemma-26b-a4b-it",
+      "card_metadata_text": "diffusiongemma-26b-a4b-it",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-3-ultra-550b-a55b",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-3-ultra-550b-a55b",
+      "card_name": "nemotron-3-ultra-550b-a55b",
+      "card_metadata_text": "nemotron-3-ultra-550b-a55b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "resembleai/chatterbox-multilingual-tts",
+      "card_url": "https://build.nvidia.com/resembleai/chatterbox-multilingual-tts",
+      "card_name": "chatterbox-multilingual-tts",
+      "card_metadata_text": "chatterbox-multilingual-tts",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-3.5-content-safety",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-3.5-content-safety",
+      "card_name": "nemotron-3.5-content-safety",
+      "card_metadata_text": "nemotron-3.5-content-safety",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/cosmos3-nano",
+      "card_url": "https://build.nvidia.com/nvidia/cosmos3-nano",
+      "card_name": "cosmos3-nano",
+      "card_metadata_text": "cosmos3-nano",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/cosmos3-nano-reasoner",
+      "card_url": "https://build.nvidia.com/nvidia/cosmos3-nano-reasoner",
+      "card_name": "cosmos3-nano-reasoner",
+      "card_metadata_text": "cosmos3-nano-reasoner",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "qwen/qwen-image",
+      "card_url": "https://build.nvidia.com/qwen/qwen-image",
+      "card_name": "qwen-image",
+      "card_metadata_text": "qwen-image",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "qwen/qwen-image-edit",
+      "card_url": "https://build.nvidia.com/qwen/qwen-image-edit",
+      "card_name": "qwen-image-edit",
+      "card_metadata_text": "qwen-image-edit",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "card_name": "nemotron-3-nano-omni-30b-a3b-reasoning",
+      "card_metadata_text": "nemotron-3-nano-omni-30b-a3b-reasoning",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/relighting",
+      "card_url": "https://build.nvidia.com/nvidia/relighting",
+      "card_name": "Relighting",
+      "card_metadata_text": "Relighting",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/synthetic-video-detector",
+      "card_url": "https://build.nvidia.com/nvidia/synthetic-video-detector",
+      "card_name": "synthetic-video-detector",
+      "card_metadata_text": "synthetic-video-detector",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/active-speaker-detection",
+      "card_url": "https://build.nvidia.com/nvidia/active-speaker-detection",
+      "card_name": "Active Speaker Detection",
+      "card_metadata_text": "Active Speaker Detection",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/lipsync",
+      "card_url": "https://build.nvidia.com/nvidia/lipsync",
+      "card_name": "LipSync",
+      "card_metadata_text": "LipSync",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/ising-calibration-1-35b-a3b",
+      "card_url": "https://build.nvidia.com/nvidia/ising-calibration-1-35b-a3b",
+      "card_name": "ising-calibration-1-35b-a3b",
+      "card_metadata_text": "ising-calibration-1-35b-a3b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "google/gemma-4-31b-it",
+      "card_url": "https://build.nvidia.com/google/gemma-4-31b-it",
+      "card_name": "gemma-4-31b-it",
+      "card_metadata_text": "gemma-4-31b-it",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/llama-nemotron-rerank-vl-1b-v2",
+      "card_url": "https://build.nvidia.com/nvidia/llama-nemotron-rerank-vl-1b-v2",
+      "card_name": "llama-nemotron-rerank-vl-1b-v2",
+      "card_metadata_text": "llama-nemotron-rerank-vl-1b-v2",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-voicechat",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-voicechat",
+      "card_name": "nemotron-voicechat",
+      "card_metadata_text": "nemotron-voicechat",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-asr-streaming",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-asr-streaming",
+      "card_name": "nemotron-asr-streaming",
+      "card_metadata_text": "nemotron-asr-streaming",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "black-forest-labs/flux_2-klein-4b",
+      "card_url": "https://build.nvidia.com/black-forest-labs/flux_2-klein-4b",
+      "card_name": "flux.2-klein-4b",
+      "card_metadata_text": "flux.2-klein-4b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-ocr-v1",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-ocr-v1",
+      "card_name": "nemotron-ocr-v1",
+      "card_metadata_text": "nemotron-ocr-v1",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-3-super-120b-a12b",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b",
+      "card_name": "nemotron-3-super-120b-a12b",
+      "card_metadata_text": "nemotron-3-super-120b-a12b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-table-structure-v1",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-table-structure-v1",
+      "card_name": "nemotron-table-structure-v1",
+      "card_metadata_text": "nemotron-table-structure-v1",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-page-elements-v3",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-page-elements-v3",
+      "card_name": "nemotron-page-elements-v3",
+      "card_metadata_text": "nemotron-page-elements-v3",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-graphic-elements-v1",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-graphic-elements-v1",
+      "card_name": "nemotron-graphic-elements-v1",
+      "card_metadata_text": "nemotron-graphic-elements-v1",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/cosmos-transfer2_5-2b",
+      "card_url": "https://build.nvidia.com/nvidia/cosmos-transfer2_5-2b",
+      "card_name": "cosmos-transfer2.5-2b",
+      "card_metadata_text": "cosmos-transfer2.5-2b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/llama-nemotron-embed-vl-1b-v2",
+      "card_url": "https://build.nvidia.com/nvidia/llama-nemotron-embed-vl-1b-v2",
+      "card_name": "llama-nemotron-embed-vl-1b-v2",
+      "card_metadata_text": "llama-nemotron-embed-vl-1b-v2",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "arc/evo2-40b-forward",
+      "card_url": "https://build.nvidia.com/arc/evo2-40b-forward",
+      "card_name": "evo2-40b-forward",
+      "card_metadata_text": "evo2-40b-forward",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "arc/evo2-7b-forward",
+      "card_url": "https://build.nvidia.com/arc/evo2-7b-forward",
+      "card_name": "evo2-7b-forward",
+      "card_metadata_text": "evo2-7b-forward",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/streampetr",
+      "card_url": "https://build.nvidia.com/nvidia/streampetr",
+      "card_name": "streampetr",
+      "card_metadata_text": "streampetr",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemotron-parse",
+      "card_url": "https://build.nvidia.com/nvidia/nemotron-parse",
+      "card_name": "nemotron-parse",
+      "card_metadata_text": "nemotron-parse",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/llama-3_1-nemotron-safety-guard-8b-v3",
+      "card_url": "https://build.nvidia.com/nvidia/llama-3_1-nemotron-safety-guard-8b-v3",
+      "card_name": "llama-3.1-nemotron-safety-guard-8b-v3",
+      "card_metadata_text": "llama-3.1-nemotron-safety-guard-8b-v3",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "openfold/openfold3",
+      "card_url": "https://build.nvidia.com/openfold/openfold3",
+      "card_name": "openfold3",
+      "card_metadata_text": "openfold3",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-zh-tw",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-zh-tw",
+      "card_name": "parakeet-ctc-0.6b-zh-tw",
+      "card_metadata_text": "parakeet-ctc-0.6b-zh-tw",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-zh-cn",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-zh-cn",
+      "card_name": "parakeet-ctc-0.6b-zh-cn",
+      "card_metadata_text": "parakeet-ctc-0.6b-zh-cn",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-es",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-es",
+      "card_name": "parakeet-ctc-0.6b-es",
+      "card_metadata_text": "parakeet-ctc-0.6b-es",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-vi",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-vi",
+      "card_name": "parakeet-ctc-0.6b-vi",
+      "card_metadata_text": "parakeet-ctc-0.6b-vi",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "microsoft/trellis",
+      "card_url": "https://build.nvidia.com/microsoft/trellis",
+      "card_name": "TRELLIS",
+      "card_metadata_text": "TRELLIS",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "stabilityai/stable-diffusion-3_5-large",
+      "card_url": "https://build.nvidia.com/stabilityai/stable-diffusion-3_5-large",
+      "card_name": "stable-diffusion-3.5-large",
+      "card_metadata_text": "stable-diffusion-3.5-large",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "black-forest-labs/flux_1-kontext-dev",
+      "card_url": "https://build.nvidia.com/black-forest-labs/flux_1-kontext-dev",
+      "card_name": "FLUX.1-Kontext-dev",
+      "card_metadata_text": "FLUX.1-Kontext-dev",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "openai/gpt-oss-20b",
+      "card_url": "https://build.nvidia.com/openai/gpt-oss-20b",
+      "card_name": "gpt-oss-20b",
+      "card_metadata_text": "gpt-oss-20b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-tdt-0_6b-v2",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-tdt-0_6b-v2",
+      "card_name": "parakeet-tdt-0.6b-v2",
+      "card_metadata_text": "parakeet-tdt-0.6b-v2",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemoretriever-ocr",
+      "card_url": "https://build.nvidia.com/nvidia/nemoretriever-ocr",
+      "card_name": "nemoretriever-ocr",
+      "card_metadata_text": "nemoretriever-ocr",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "meta/llama-guard-4-12b",
+      "card_url": "https://build.nvidia.com/meta/llama-guard-4-12b",
+      "card_name": "llama-guard-4-12b",
+      "card_metadata_text": "llama-guard-4-12b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/riva-translate-1_6b",
+      "card_url": "https://build.nvidia.com/nvidia/riva-translate-1_6b",
+      "card_name": "riva-translate-1.6b",
+      "card_metadata_text": "riva-translate-1.6b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/bnr",
+      "card_url": "https://build.nvidia.com/nvidia/bnr",
+      "card_name": "Background Noise Removal",
+      "card_metadata_text": "Background Noise Removal",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "mit/boltz2",
+      "card_url": "https://build.nvidia.com/mit/boltz2",
+      "card_name": "Boltz-2",
+      "card_metadata_text": "Boltz-2",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/magpie-tts-zeroshot",
+      "card_url": "https://build.nvidia.com/nvidia/magpie-tts-zeroshot",
+      "card_name": "magpie-tts-zeroshot",
+      "card_metadata_text": "magpie-tts-zeroshot",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "black-forest-labs/flux_1-schnell",
+      "card_url": "https://build.nvidia.com/black-forest-labs/flux_1-schnell",
+      "card_name": "FLUX.1-schnell",
+      "card_metadata_text": "FLUX.1-schnell",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-1_1b-rnnt-multilingual-asr",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-1_1b-rnnt-multilingual-asr",
+      "card_name": "parakeet-1.1b-rnnt-multilingual-asr",
+      "card_metadata_text": "parakeet-1.1b-rnnt-multilingual-asr",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "black-forest-labs/flux_1-dev",
+      "card_url": "https://build.nvidia.com/black-forest-labs/flux_1-dev",
+      "card_name": "FLUX.1-dev",
+      "card_metadata_text": "FLUX.1-dev",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/sparsedrive",
+      "card_url": "https://build.nvidia.com/nvidia/sparsedrive",
+      "card_name": "sparsedrive",
+      "card_metadata_text": "sparsedrive",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/bevformer",
+      "card_url": "https://build.nvidia.com/nvidia/bevformer",
+      "card_name": "bevformer",
+      "card_metadata_text": "bevformer",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/magpie-tts-multilingual",
+      "card_url": "https://build.nvidia.com/nvidia/magpie-tts-multilingual",
+      "card_name": "magpie-tts-multilingual",
+      "card_metadata_text": "magpie-tts-multilingual",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "colabfold/msa-search",
+      "card_url": "https://build.nvidia.com/colabfold/msa-search",
+      "card_name": "msa-search",
+      "card_metadata_text": "msa-search",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "openfold/openfold2",
+      "card_url": "https://build.nvidia.com/openfold/openfold2",
+      "card_name": "openfold2",
+      "card_metadata_text": "openfold2",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "arc/evo2-40b",
+      "card_url": "https://build.nvidia.com/arc/evo2-40b",
+      "card_name": "evo2-40b",
+      "card_metadata_text": "evo2-40b",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "openai/whisper-large-v3",
+      "card_url": "https://build.nvidia.com/openai/whisper-large-v3",
+      "card_name": "whisper-large-v3",
+      "card_metadata_text": "whisper-large-v3",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/canary-1b-asr",
+      "card_url": "https://build.nvidia.com/nvidia/canary-1b-asr",
+      "card_name": "canary-1b-asr",
+      "card_metadata_text": "canary-1b-asr",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/llama-3_1-nemoguard-8b-topic-control",
+      "card_url": "https://build.nvidia.com/nvidia/llama-3_1-nemoguard-8b-topic-control",
+      "card_name": "llama-3.1-nemoguard-8b-topic-control",
+      "card_metadata_text": "llama-3.1-nemoguard-8b-topic-control",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nemoguard-jailbreak-detect",
+      "card_url": "https://build.nvidia.com/nvidia/nemoguard-jailbreak-detect",
+      "card_name": "nemoguard-jailbreak-detect",
+      "card_metadata_text": "nemoguard-jailbreak-detect",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/llama-3_1-nemoguard-8b-content-safety",
+      "card_url": "https://build.nvidia.com/nvidia/llama-3_1-nemoguard-8b-content-safety",
+      "card_name": "llama-3.1-nemoguard-8b-content-safety",
+      "card_metadata_text": "llama-3.1-nemoguard-8b-content-safety",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/genmol-generate",
+      "card_url": "https://build.nvidia.com/nvidia/genmol-generate",
+      "card_name": "genmol",
+      "card_metadata_text": "genmol",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "baidu/paddleocr",
+      "card_url": "https://build.nvidia.com/baidu/paddleocr",
+      "card_name": "paddleocr",
+      "card_metadata_text": "paddleocr",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/conformer-ctc-asr",
+      "card_url": "https://build.nvidia.com/nvidia/conformer-ctc-asr",
+      "card_name": "conformer-ctc-asr",
+      "card_metadata_text": "conformer-ctc-asr",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/fourcastnet",
+      "card_url": "https://build.nvidia.com/nvidia/fourcastnet",
+      "card_name": "fourcastnet",
+      "card_metadata_text": "fourcastnet",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/studiovoice",
+      "card_url": "https://build.nvidia.com/nvidia/studiovoice",
+      "card_name": "Studio Voice",
+      "card_metadata_text": "Studio Voice",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "meta/llama-3.2-11b-vision-instruct",
+      "card_url": "https://build.nvidia.com/meta/llama-3.2-11b-vision-instruct",
+      "card_name": "llama-3.2-11b-vision-instruct",
+      "card_metadata_text": "llama-3.2-11b-vision-instruct",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "meta/llama-3.2-90b-vision-instruct",
+      "card_url": "https://build.nvidia.com/meta/llama-3.2-90b-vision-instruct",
+      "card_name": "llama-3.2-90b-vision-instruct",
+      "card_metadata_text": "llama-3.2-90b-vision-instruct",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/megatron-1b-nmt",
+      "card_url": "https://build.nvidia.com/nvidia/megatron-1b-nmt",
+      "card_name": "megatron-1b-nmt",
+      "card_metadata_text": "megatron-1b-nmt",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-1_1b-asr",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-ctc-1_1b-asr",
+      "card_name": "parakeet-ctc-1.1b-asr",
+      "card_metadata_text": "parakeet-ctc-1.1b-asr",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/parakeet-ctc-0_6b-asr",
+      "card_url": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-asr",
+      "card_name": "parakeet-ctc-0.6b-asr",
+      "card_metadata_text": "parakeet-ctc-0.6b-asr",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "ipd/proteinmpnn",
+      "card_url": "https://build.nvidia.com/ipd/proteinmpnn",
+      "card_name": "proteinmpnn",
+      "card_metadata_text": "proteinmpnn",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/eyecontact",
+      "card_url": "https://build.nvidia.com/nvidia/eyecontact",
+      "card_name": "eyecontact",
+      "card_metadata_text": "eyecontact",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "ipd/rfdiffusion",
+      "card_url": "https://build.nvidia.com/ipd/rfdiffusion",
+      "card_name": "rfdiffusion",
+      "card_metadata_text": "rfdiffusion",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "google/google-paligemma",
+      "card_url": "https://build.nvidia.com/google/google-paligemma",
+      "card_name": "paligemma",
+      "card_metadata_text": "paligemma",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/molmim-generate",
+      "card_url": "https://build.nvidia.com/nvidia/molmim-generate",
+      "card_name": "molmim",
+      "card_metadata_text": "molmim",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "mit/diffdock",
+      "card_url": "https://build.nvidia.com/mit/diffdock",
+      "card_name": "diffdock",
+      "card_metadata_text": "diffdock",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=1",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    },
+    {
+      "card_slug": "nvidia/nvidia-cuopt",
+      "card_url": "https://build.nvidia.com/nvidia/nvidia-cuopt",
+      "card_name": "cuopt",
+      "card_metadata_text": "cuopt",
+      "catalog_source": "https://build.nvidia.com/models?pageSize=96&page=2",
+      "native_wire_id_status": "Unverified; card URL slug is not automatically an inference identifier."
+    }
+  ]
+}

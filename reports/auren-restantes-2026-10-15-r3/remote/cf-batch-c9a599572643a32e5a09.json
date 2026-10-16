@@ -1,0 +1,9 @@
+{
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/openai/gpt-oss-120b::batch",
+  "previous_job_http_status": 410,
+  "new_submission_reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+  "remote_id": "f42dd331-d16b-414a-9b6a-b014da032083",
+  "at": "2026-10-15T08:33:36.972223-03:00",
+  "result": "accepted_pending_completion"
+}

@@ -1,0 +1,2041 @@
+{
+  "at": "2026-10-14T07:48:00.559430-03:00",
+  "source": "https://api.nvcf.nvidia.com/v2/nvcf/functions",
+  "http_status": 200,
+  "functions": [
+    {
+      "id": "6848e171-4af2-4621-939c-b7b61e3260fe",
+      "versionId": "81ebe8f4-98d1-4df5-8704-a9758421716f",
+      "name": "nvcf-dynamo-proxy-lightning-default",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "Default proxy NVCF requests to the GB300 Dynamo Lightning frontend with model rewrite for gateway shadow traffic"
+    },
+    {
+      "id": "6848e171-4af2-4621-939c-b7b61e3260fe",
+      "versionId": "de9fbb1c-4306-45e2-b842-77644cd9200f",
+      "name": "nvcf-dynamo-proxy-lightning-default",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "Default proxy NVCF requests to the GB300 Dynamo Kimi K3 frontend with model rewrite for gateway shadow traffic"
+    },
+    {
+      "id": "1e006b75-c292-4cde-8201-ffaab26c5a88",
+      "versionId": "ba2339a0-b04d-4731-bf45-2768c982d2c5",
+      "name": "ai-usdsearch-v1",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-usdsearch-v1"
+    },
+    {
+      "id": "1e006b75-c292-4cde-8201-ffaab26c5a88",
+      "versionId": "fb8c673e-cf79-49f5-be89-c0306be8de56",
+      "name": "ai-usdsearch",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-usdsearch"
+    },
+    {
+      "id": "6848e171-4af2-4621-939c-b7b61e3260fe",
+      "versionId": "be1e57af-5dbc-4293-90ce-ab10c82f16fd",
+      "name": "nvcf-dynamo-proxy-lightning-default",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "Default proxy NVCF requests to the GB300 Dynamo Lightning frontend"
+    },
+    {
+      "id": "1e006b75-c292-4cde-8201-ffaab26c5a88",
+      "versionId": "1d7c6d78-1fc8-4b66-a4db-e6abcec4cd1b",
+      "name": "deepsearch-demo-nvcf-0-2-4",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "deepsearch-demo-nvcf-0-2-4"
+    },
+    {
+      "id": "3856e52c-2635-4fb9-bb2b-3643d67eb9fe",
+      "versionId": "90240772-e222-4baf-bec0-b3c76eddeabe",
+      "name": "ai-orangina-20b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-orangina-20b"
+    },
+    {
+      "id": "0778f2eb-b64d-45e7-acae-7dd9b9b35b4d",
+      "versionId": "d235ecf2-dcff-4ef7-ba87-78ffbea2eb10",
+      "name": "ai-riva-translate-1_6b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-riva-translate-1_6b"
+    },
+    {
+      "id": "befc93f6-061b-451b-b307-d7b90222d916",
+      "versionId": "a0d5ebfe-09a3-4b01-b40c-795b8c1cac73",
+      "name": "dyn14trace-deepseek-v4-flash-0731",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dyn14trace-deepseek-v4-flash-0731"
+    },
+    {
+      "id": "24d90582-d41c-4fc6-adc0-53c97f5a710f",
+      "versionId": "4eaf8010-614e-4f95-ae24-1e2834a63e60",
+      "name": "ai-gpt-oss-20b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-gpt-oss-20b"
+    },
+    {
+      "id": "5d032fec-1591-48e1-aa0e-ad59d7075a32",
+      "versionId": "d440f28a-ee2b-4ad0-a340-4a5660310937",
+      "name": "dynamo-shadow-2w-no50493-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-shadow-2w-no50493-kimi-k3"
+    },
+    {
+      "id": "60eb6443-f7fa-464b-8a38-60b41db269f4",
+      "versionId": "3644564f-f19f-461b-86af-d613e42fd17f",
+      "name": "ai-visual-changenet",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-visual-changenet"
+    },
+    {
+      "id": "32663475-e14b-4008-a881-97054c7b2d4f",
+      "versionId": "0853f72e-9b2b-4fa8-83c6-272588e8910b",
+      "name": "private-deepseek-v4-flash",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "private-deepseek-v4-flash"
+    },
+    {
+      "id": "c8bf7301-6433-4043-a427-57633c6ac335",
+      "versionId": "6db1c079-4ef2-4bce-b99d-1f99bafefb64",
+      "name": "ai-llama-guard-4-12b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-guard-4-12b"
+    },
+    {
+      "id": "ec5017ef-c6f1-4ada-9841-4d6d00306dbc",
+      "versionId": "a16a3e68-0d8c-4647-b315-b73b8ae53dad",
+      "name": "ai-nemotron-ocr-v2",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-ocr-v2"
+    },
+    {
+      "id": "640968d9-a2e2-4761-a9a4-0422be2e8d7a",
+      "versionId": "905a09de-ecc1-4203-95c2-dffb99d4a356",
+      "name": "dynamo-sglab-vllm-kimi-k3",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-sglab-vllm-kimi-k3"
+    },
+    {
+      "id": "a9eeee8f-b509-4712-b19d-194361fa5f31",
+      "versionId": "048e42ab-3592-43bf-a447-48e42b9660d2",
+      "name": "ai-parakeet-ctc-0_6b-es",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-ctc-0_6b-es"
+    },
+    {
+      "id": "e90df751-db24-47cd-a535-0264c76e91ba",
+      "versionId": "93444b9b-51cf-4e56-9138-787b38ad1b6a",
+      "name": "mooncake-p2p-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mooncake-p2p-deepseek-v4-pro"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "b07c18e8-61d9-4016-a5e7-5fe25f4133ee",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "642dbb86-d6ad-463b-bb62-4cbf57648758",
+      "versionId": "1399cddd-1616-4983-9019-79796c183eab",
+      "name": "tinytrace-llama-3_2-1b-instruct",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "tinytrace-llama-3_2-1b-instruct"
+    },
+    {
+      "id": "deb120d0-a306-4c97-9538-0d9a23081047",
+      "versionId": "e89fe353-0e27-4cd2-aafd-09b8c9645c7f",
+      "name": "ai-boltz2",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-boltz2"
+    },
+    {
+      "id": "88eb02f5-2b16-4ce4-8676-e39f05073297",
+      "versionId": "7c0542c4-d77d-4c8e-a0cd-7c703a59359f",
+      "name": "mega-vila-ep",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mega-vila-ep"
+    },
+    {
+      "id": "1d269397-c16e-4906-a591-bf93f0e44ef7",
+      "versionId": "edc087be-9ad0-4f11-9a3b-bfa16ce8b411",
+      "name": "ai-llama-3_1-nemotron-ultra-253b-v1",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-3_1-nemotron-ultra-253b-v1"
+    },
+    {
+      "id": "2ecba7cb-7df2-47ee-a3ad-87f0ffff93bb",
+      "versionId": "44060b25-548d-4368-aa37-5a030d82b94f",
+      "name": "dspark-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dspark-deepseek-v4-pro"
+    },
+    {
+      "id": "ebc385fa-5d04-4d18-b8fc-f6067bce2b5f",
+      "versionId": "643c8918-34c1-40fa-b8f5-d37faefff3ec",
+      "name": "dynamo-offload-2w-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-offload-2w-kimi-k3"
+    },
+    {
+      "id": "847b6e53-0133-452d-ab85-d7acf3ace723",
+      "versionId": "0c8eb313-8546-4a8b-970e-92326cc9cf39",
+      "name": "ai-synthetic-video-detector",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-synthetic-video-detector"
+    },
+    {
+      "id": "8473f56d-51ef-473c-bb26-efd4f5def2bf",
+      "versionId": "aeacdf49-cd05-4184-b5c5-0c5cc001ed75",
+      "name": "ai-parakeet-ctc-0_6b-zh-tw",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-ctc-0_6b-zh-tw"
+    },
+    {
+      "id": "5e00a713-f390-41c6-8561-7a0345c93355",
+      "versionId": "cd1058a9-9f2b-47ee-89e9-0732759085d6",
+      "name": "ai-ising-calibration-1-35b-a3b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-ising-calibration-1-35b-a3b"
+    },
+    {
+      "id": "4e533b45-dc54-4e3a-a69a-6ff24e048cb5",
+      "versionId": "e44ba2b1-8154-458d-872d-62147085b5dd",
+      "name": "orion-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "orion-deepseek-v4-pro"
+    },
+    {
+      "id": "9add5ef7-322e-47e0-ad7a-5653fb8d259b",
+      "versionId": "f120632c-a987-41e0-a1d4-f61c3bec378e",
+      "name": "ai-parakeet-ctc-0_6b-zh-cn",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-ctc-0_6b-zh-cn"
+    },
+    {
+      "id": "5d0999d3-7f9c-49d3-9650-0f67468c8413",
+      "versionId": "5ea67097-7bcc-4205-81f9-49d6dd0bd65e",
+      "name": "dynamo-v45-kvcr-p2p-shadow-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-v45-kvcr-p2p-shadow-kimi-k3"
+    },
+    {
+      "id": "3448c214-4b83-4cea-88c8-dd3e7f27381e",
+      "versionId": "de770af8-66b3-4a92-a73a-a6c012174367",
+      "name": "dynsrc-nemotron-3-nano-30b-a3b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynsrc-nemotron-3-nano-30b-a3b"
+    },
+    {
+      "id": "ddacc747-1269-4fab-bfd9-8f593dead106",
+      "versionId": "a92bb61e-79d2-492b-90b1-c0f1147cd94d",
+      "name": "ai-chatterbox-multilingual-tts",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-chatterbox-multilingual-tts"
+    },
+    {
+      "id": "bb0837de-8c7b-481f-9ec8-ef5663e9c1fa",
+      "versionId": "6a9c3eb1-3fdd-4689-a33c-216495997381",
+      "name": "ai-nemotron-asr-streaming",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-asr-streaming"
+    },
+    {
+      "id": "8dd66e99-92e7-4e70-a7c0-ac88107d8d22",
+      "versionId": "de7bc23e-bf21-414f-b7c6-1990dfdd5c85",
+      "name": "dynamo-ckptgate-2w-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-ckptgate-2w-kimi-k3"
+    },
+    {
+      "id": "2b940e91-a70e-4483-a958-d50408b96589",
+      "versionId": "0ac094c3-e52a-4f49-94e8-a0d153293556",
+      "name": "ai-parakeet-tdt-0_6b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-tdt-0_6b"
+    },
+    {
+      "id": "b6029a96-0ead-457b-a732-bbfb251486cb",
+      "versionId": "8f4bb5fb-1a8c-464b-8f9b-1c4c4e4a714b",
+      "name": "mn-tp8dp1-glm-5_2",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mn-tp8dp1-glm-5_2"
+    },
+    {
+      "id": "4daabed2-5fce-4f44-aabc-7769d7fee6d5",
+      "versionId": "ee25e14a-523f-47c5-b495-93e26136d41e",
+      "name": "temp-llama-3_1-8b-instruct",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "temp-llama-3_1-8b-instruct"
+    },
+    {
+      "id": "ab5a332e-2661-4bf3-91a2-7181a426d680",
+      "versionId": "6ceed171-09ee-4e34-9c8c-d8ad1997571a",
+      "name": "dynamo-offload-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-offload-deepseek-v4-pro"
+    },
+    {
+      "id": "877104f7-e885-42b9-8de8-f6e4c6303969",
+      "versionId": "ae73d297-743f-4ca9-8cfe-2b4a68aae369",
+      "name": "ai-magpie-tts-multilingual",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-magpie-tts-multilingual"
+    },
+    {
+      "id": "92798bfb-becc-4e8a-8eed-ed21867c9114",
+      "versionId": "1048d7ac-dbf6-4777-a67c-ddda69c6c4f3",
+      "name": "oakhaven-mn-tp16-oakhaven-multinode",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "oakhaven-mn-tp16-oakhaven-multinode"
+    },
+    {
+      "id": "83e0a910-5601-422a-adb6-ce82a8237212",
+      "versionId": "8ea15442-2536-4f40-ad38-a83a6dc259c2",
+      "name": "shadow-qwen3-coder-480b-a35b-instruct-disagg-experimental",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "shadow-qwen3-coder-480b-a35b-instruct-disagg-experimental"
+    },
+    {
+      "id": "b1b22d03-1ac7-4204-be9b-84ebb009e1a2",
+      "versionId": "9438ec35-4efd-4d2a-9c01-a402a2b2872f",
+      "name": "mn-tp8-b200-glm-5_2",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mn-tp8-b200-glm-5_2"
+    },
+    {
+      "id": "96ebdb7f-4a69-49d6-9151-531b52e507e0",
+      "versionId": "9f3bdd52-d56e-4fff-bd81-800433095269",
+      "name": "ai-cosmos-nemotron-34b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-cosmos-nemotron-34b"
+    },
+    {
+      "id": "7df98bda-5608-408c-b520-d6deff3c868b",
+      "versionId": "75216ff4-8ec5-49ef-a4e2-b55e09760d81",
+      "name": "dynamo-readiness-2w-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-readiness-2w-kimi-k3"
+    },
+    {
+      "id": "49ef19c0-88e3-4115-af46-5d85cadbc901",
+      "versionId": "d9116b21-da02-4244-ab22-6aba36a134d5",
+      "name": "dynamo-bench-v44-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-bench-v44-kimi-k3"
+    },
+    {
+      "id": "6166b605-230c-4733-9a95-1fba214c5484",
+      "versionId": "6b3f18c3-d114-4937-8869-684b0e7a81eb",
+      "name": "0731-deepseek-v4-flash",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "0731-deepseek-v4-flash"
+    },
+    {
+      "id": "b0e8b4a5-217c-40b7-9b96-17d84e666317",
+      "versionId": "ecc02923-ebe1-4dbd-97c7-a156d193e324",
+      "name": "ai-canary-1b-asr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-canary-1b-asr"
+    },
+    {
+      "id": "9fa6fd04-ba2c-4bb3-90b7-ede407a9290f",
+      "versionId": "86ee1e94-e54f-4767-a9ef-9731dda68a6a",
+      "name": "ai-llama-3_2-11b-vision-instruct",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-3_2-11b-vision-instruct"
+    },
+    {
+      "id": "af904f0c-594b-4fdf-af57-dbe5946868d5",
+      "versionId": "220f0ad2-612c-4f19-ab9d-d90d7ad6a5b0",
+      "name": "dynamo-glm-5_1",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-glm-5_1"
+    },
+    {
+      "id": "ac04dbc6-29f9-4be5-bf32-010f01c4669b",
+      "versionId": "4cd94c05-52b8-4274-8e14-2550cd433680",
+      "name": "ai-parakeet-ctc-1_1b-asr-inworld",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-ctc-1_1b-asr-inworld"
+    },
+    {
+      "id": "9b12b22f-f97f-4141-86af-a7deb04a21a5",
+      "versionId": "977b5e47-33d9-4c14-b9ff-c3280876440e",
+      "name": "ai-bevformer",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-bevformer"
+    },
+    {
+      "id": "ac74040f-9fc9-4c5e-ac74-279ba5161d69",
+      "versionId": "2c94aa8a-696f-4b41-a07c-d6cada876675",
+      "name": "ai-nemotron-3-super-120b-a12b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-3-super-120b-a12b"
+    },
+    {
+      "id": "46f4fb53-0b89-4970-8c4b-6959d0e6ecb4",
+      "versionId": "cdd3899f-23bc-45ec-b5b6-bb98da2b3f44",
+      "name": "dynamo-hicache-glm-5_1",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-hicache-glm-5_1"
+    },
+    {
+      "id": "46b9cfe1-4538-4f95-accd-9613ea653b51",
+      "versionId": "5adb1316-8354-4c43-8c57-b3e40e598615",
+      "name": "dynamo-bench-v31-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-bench-v31-kimi-k3"
+    },
+    {
+      "id": "fe56fcc6-d2a0-4507-bcf1-fd4129ec18da",
+      "versionId": "f0ae726f-e05e-4707-9c26-49a989dea5b0",
+      "name": "mx-prd11-deepseek-v4-pro-0813",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mx-prd11-deepseek-v4-pro-0813"
+    },
+    {
+      "id": "3f0aeba3-6d91-4465-b8cc-cc2aef355186",
+      "versionId": "637857de-d291-4a7d-821b-2332d81b2c28",
+      "name": "ai-studiovoice",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-studiovoice"
+    },
+    {
+      "id": "b7c8922d-d9f8-4828-a7cb-33d8073968c0",
+      "versionId": "a6168adb-0bc0-423a-8139-b89501e883e3",
+      "name": "dyn130-nemotron-3-nano-30b-a3b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dyn130-nemotron-3-nano-30b-a3b"
+    },
+    {
+      "id": "dae7c6c0-e546-49c7-b94d-d6c810cb04c7",
+      "versionId": "d55c4b2a-804c-4af5-a026-5c354fdf5879",
+      "name": "kumo-kumo-tabular",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "kumo-kumo-tabular"
+    },
+    {
+      "id": "6a6d2683-60ba-477c-918d-66e9eeb900cd",
+      "versionId": "d340cc15-2048-412a-8995-5f42970f0683",
+      "name": "ai-llama-nemotron-embed-vl-1b-v2",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-nemotron-embed-vl-1b-v2"
+    },
+    {
+      "id": "254b3621-bb66-4b7b-9c89-621c352b4d91",
+      "versionId": "ceef1012-3f35-4797-b0d2-ebb4f91feb3f",
+      "name": "ai4m-body-pose",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai4m-body-pose"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "61ad3529-6ad0-44b3-a1ba-6e57e0bd58a4",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "f356cb3a-c069-470c-8e25-2291ba64fde0",
+      "versionId": "8daa4e36-b465-40cf-b794-2fe8dcf529a5",
+      "name": "xferoppa-deepseek-v4-flash-0731",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "xferoppa-deepseek-v4-flash-0731"
+    },
+    {
+      "id": "533322df-76f7-4bae-a0f2-9b3763052492",
+      "versionId": "606b0a11-bdd3-477b-81df-d62ff5fe6e4d",
+      "name": "glmab-d-glm-5-3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "glmab-d-glm-5-3"
+    },
+    {
+      "id": "cda6f7ab-90d6-470b-b15f-a97541e7c4c3",
+      "versionId": "6b610dde-90e8-4a85-8af5-2049c62d2965",
+      "name": "mtp-on-nemotron-3-ultra-550b-a55b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mtp-on-nemotron-3-ultra-550b-a55b"
+    },
+    {
+      "id": "c4206bad-1514-402e-9487-a3ea871f7589",
+      "versionId": "13aeef69-9be0-498c-b0dd-398b7ddab587",
+      "name": "vllm-1m-deepseek-v4-pro-0813",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "vllm-1m-deepseek-v4-pro-0813"
+    },
+    {
+      "id": "ce0b1e30-1471-4fd4-9dde-c6a28ef6c68a",
+      "versionId": "f092a622-1762-42f5-a69c-30eacd393181",
+      "name": "ai-nemotron-ocr-v1",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-ocr-v1"
+    },
+    {
+      "id": "32343a76-6399-4b7f-964a-79e16d62ec32",
+      "versionId": "bcc7ebff-6a0b-4cef-b7f8-d7e4b3b1fe09",
+      "name": "ai-evo2-7b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-evo2-7b"
+    },
+    {
+      "id": "d9759083-3db5-43b6-9b73-f2f5b3ce704b",
+      "versionId": "29211edf-6d0e-4c59-a030-3fb1ba93c094",
+      "name": "glmab-c-glm-5-3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "glmab-c-glm-5-3"
+    },
+    {
+      "id": "48c619ec-c254-48da-8fcc-6ef8a04fed6e",
+      "versionId": "c47c3f79-32ad-4125-be87-4600b5bd25bf",
+      "name": "ai-gemma-4-31b-it",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-gemma-4-31b-it"
+    },
+    {
+      "id": "480bffcb-6fea-4571-9741-eb50212c9c0f",
+      "versionId": "d804bd94-f1b5-42f8-ae86-0f889dc25ac7",
+      "name": "ai-eyecontact",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-eyecontact"
+    },
+    {
+      "id": "afe16339-7ea9-4d26-8457-aac01af9f715",
+      "versionId": "0e5cf501-9d45-49e0-8966-3ad6d4b3a405",
+      "name": "dynamo-scale9-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-scale9-kimi-k3"
+    },
+    {
+      "id": "2a5ab2b3-a331-4544-847c-91f102feba64",
+      "versionId": "840bd0ff-3d1d-48b3-97fd-9cd0f5feae48",
+      "name": "ai-evo2-7b-forward",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-evo2-7b-forward"
+    },
+    {
+      "id": "6dac0f3d-28ce-4c0c-bc26-b1cb9d22d9c7",
+      "versionId": "d7b1daea-689b-4b15-a423-348d8f21f4e9",
+      "name": "ai-nemotron-parse",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-parse"
+    },
+    {
+      "id": "de1e6653-6ccc-48c8-ab08-00e9cd6e93e8",
+      "versionId": "407b8a24-d0ba-41f4-8077-57f1f64c01ae",
+      "name": "ai-nemoguard-jailbreak-detect",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemoguard-jailbreak-detect"
+    },
+    {
+      "id": "dc056629-ffdf-4b5a-aafe-23df96750af5",
+      "versionId": "3d36d8cf-d1f8-4a80-a9db-70d389e99786",
+      "name": "dspark-test-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dspark-test-deepseek-v4-pro"
+    },
+    {
+      "id": "39da92fb-4658-4a25-88c7-87432a33c024",
+      "versionId": "8285cf31-255c-4980-8e21-a1ed311fa798",
+      "name": "glmab-c-no-overlap-glm-5-3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "glmab-c-no-overlap-glm-5-3"
+    },
+    {
+      "id": "3aa9f663-5c61-43c5-9ca6-fcddf6ce1511",
+      "versionId": "6144e2ac-7b19-46cf-8739-557e77a2655e",
+      "name": "ai-llama-3_1-nemoguard-8b-content-safety",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-3_1-nemoguard-8b-content-safety"
+    },
+    {
+      "id": "095dc3cd-16d3-4f22-9007-922bcf9471d5",
+      "versionId": "bfe0adde-8610-458a-b9a4-449c7ffee43a",
+      "name": "blueprint-nv-embedqa-e5-v5",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "blueprint-nv-embedqa-e5-v5"
+    },
+    {
+      "id": "f7e3a881-2cde-455d-bbfd-fb8eb1bd1520",
+      "versionId": "db357a2c-4d72-437b-a5bf-0b59472d0680",
+      "name": "ai-glm-5-3-flash",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-glm-5-3-flash"
+    },
+    {
+      "id": "4a8f921c-c99d-4cde-92c1-c92ba9e4c50f",
+      "versionId": "23cbb324-083e-46ca-912d-36de30fa41fe",
+      "name": "ai-laguna-xs-2-1",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-laguna-xs-2-1"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "336695af-d326-4f43-a9f0-7321add07e60",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "80154d11-15e7-44b7-8b09-0a9085e9bd17",
+      "versionId": "6cf6bcb1-19aa-4c2c-ad62-26701bffe611",
+      "name": "prd11-pin-7ff-glm-5_2",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "prd11-pin-7ff-glm-5_2"
+    },
+    {
+      "id": "3e84ff75-527b-4491-8647-530406876074",
+      "versionId": "e359beac-ef9f-4f01-a7b8-3ad1898d306f",
+      "name": "ai-nemotron-3_5-content-safety",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-3_5-content-safety"
+    },
+    {
+      "id": "9a3e26a7-1d3d-403e-85d3-60b24ac9ebbd",
+      "versionId": "f8a3f9e2-4e21-4137-9610-780d88619f09",
+      "name": "dynamo-mn-tp8ep8-qwen3_5-397b-multinode",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-mn-tp8ep8-qwen3_5-397b-multinode"
+    },
+    {
+      "id": "fb8a1686-a8c7-4302-a898-b9e150d9f0f6",
+      "versionId": "9e11d56d-2584-47a0-b9b3-dc9c8da2fcba",
+      "name": "ai-openfold2",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-openfold2"
+    },
+    {
+      "id": "ec6a02a5-d259-44c8-8425-e72bfefcf2f9",
+      "versionId": "b4bc200e-0d71-4ac6-9c38-135e1f8ab7d9",
+      "name": "ai-llama-3_1-nemotron-safety-guard-8b-v3",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-3_1-nemotron-safety-guard-8b-v3"
+    },
+    {
+      "id": "fdfff852-18da-40f6-a674-0c09a5f60ec6",
+      "versionId": "a7b91773-261f-4923-bb10-d1f6cc970dc7",
+      "name": "dynamo-shadow-2w-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-shadow-2w-kimi-k3"
+    },
+    {
+      "id": "f286f937-05c4-454b-8312-fba67a2a6fa7",
+      "versionId": "7ca52a92-3861-4817-b25d-ec8ee8f6f258",
+      "name": "ai-active-speaker-detection",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-active-speaker-detection"
+    },
+    {
+      "id": "310d70d2-bb85-4085-88af-1847764defe2",
+      "versionId": "455a6e1a-db06-4da4-8bc4-9e6e6c02acc9",
+      "name": "ai-molmim-generate",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-molmim-generate"
+    },
+    {
+      "id": "59978109-0fdc-4fc3-8e79-3fda0fc2981d",
+      "versionId": "c03d3d82-86a8-4c61-bbd8-f150a7aae2b5",
+      "name": "ai-msa-search",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-msa-search"
+    },
+    {
+      "id": "a70e7356-c643-41b3-9a7e-b89ea1e7dea1",
+      "versionId": "85a8da7b-6826-4c04-8dff-76c29cc31d56",
+      "name": "ai-google-paligemma",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-google-paligemma"
+    },
+    {
+      "id": "37435562-12fb-488b-8257-90693025981c",
+      "versionId": "8b65a2b3-7cff-4254-b866-b83f8dd612bf",
+      "name": "ai-digital-twins-for-fluid-simulation",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "STREAMING",
+      "description": "ai-digital-twins-for-fluid-simulation"
+    },
+    {
+      "id": "d3fe9151-442b-4204-a70d-5fcc597fd610",
+      "versionId": "5037d83d-8861-4ce6-be4f-5e64556d073f",
+      "name": "ai-parakeet-tdt-0_6b-v2",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-tdt-0_6b-v2"
+    },
+    {
+      "id": "71203149-d3b7-4460-8231-1be2543a1fca",
+      "versionId": "855caece-aba6-4c33-97de-f5f0bc1606e4",
+      "name": "ai-parakeet-1_1b-rnnt-multilingual-asr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-1_1b-rnnt-multilingual-asr"
+    },
+    {
+      "id": "5a934c89-7cfc-41f4-8453-9ce045aec917",
+      "versionId": "f5a5882f-4f9f-40ff-bdca-3a5cc6560e28",
+      "name": "prd11-pin-1450-glm-5_2",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "prd11-pin-1450-glm-5_2"
+    },
+    {
+      "id": "3736b0a8-bbeb-417c-94b2-5269f813b5b3",
+      "versionId": "57cdf7cd-438c-4b3e-94f1-fb0cf2de4c12",
+      "name": "prd11-pin-57df-glm-5_2",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "prd11-pin-57df-glm-5_2"
+    },
+    {
+      "id": "28d4430a-290a-4b18-9964-8dc8d805119b",
+      "versionId": "014c2d8f-8145-4428-b66d-cbea93367a3a",
+      "name": "shadow-qwen3-coder-480b-a35b-instruct-disagg-4p2d",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "shadow-qwen3-coder-480b-a35b-instruct-disagg-4p2d"
+    },
+    {
+      "id": "380aea97-e004-4f73-81b7-2ad4d26f4b24",
+      "versionId": "72d5f548-6e24-4f18-89a4-bceea8fdff40",
+      "name": "ai-deepseek-v4_1-flash",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-deepseek-v4_1-flash"
+    },
+    {
+      "id": "3f01fa04-ae56-405c-9ba6-55c434fd88c5",
+      "versionId": "a4ad32b0-0922-4cc1-ae43-f9acbf048172",
+      "name": "scaleup-glm-5-3-flash",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "scaleup-glm-5-3-flash"
+    },
+    {
+      "id": "945ed566-a023-4677-9a49-61ede107fd5a",
+      "versionId": "0faf2656-44c2-4ef8-b734-e4f5d9dba447",
+      "name": "ai-a2x-service",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-a2x-service"
+    },
+    {
+      "id": "105fe02c-924b-4dfa-9797-92d89c3936ad",
+      "versionId": "66d167b9-cd13-46e2-a42d-507f23f3669f",
+      "name": "ai-flux_1-schnell",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-flux_1-schnell"
+    },
+    {
+      "id": "d8dd4e9b-fbf5-4fb0-9dba-8cf436c8d965",
+      "versionId": "81116c50-d417-4be3-9bee-24df781aa0ba",
+      "name": "ai-parakeet-ctc-0_6b-asr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-ctc-0_6b-asr"
+    },
+    {
+      "id": "ee2b0de2-dba5-4a21-993d-d393bacfb853",
+      "versionId": "2cb70c02-c258-4ed0-9608-ea2af1a2ff7f",
+      "name": "dynamo-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-deepseek-v4-pro"
+    },
+    {
+      "id": "8f9bf1ed-0edd-449d-b756-1a2793edfb73",
+      "versionId": "8d7b1bfe-cd18-42d1-b905-c7202ca5e08e",
+      "name": "kvoff-baseline-glm-5-3-flash",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "kvoff-baseline-glm-5-3-flash"
+    },
+    {
+      "id": "2b004404-8b0b-4ee5-a06c-3002383f3cff",
+      "versionId": "95b00f22-878c-43a9-8012-f51202b3b940",
+      "name": "ai-riva-translate-4b-instruct-v2",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-riva-translate-4b-instruct-v2"
+    },
+    {
+      "id": "54c3183c-c509-44d5-9605-2e8a098d68af",
+      "versionId": "908fd9d4-2fde-47c8-9845-bd47385282bd",
+      "name": "mega-llama-3_1-70b-instruct",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mega-llama-3_1-70b-instruct"
+    },
+    {
+      "id": "fb87651c-f7e4-430f-8f2e-dffcb6de1d4c",
+      "versionId": "81630361-ed24-4f1e-9b59-629893643e27",
+      "name": "ai-llama-3_1-nemoguard-8b-topic-control",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-3_1-nemoguard-8b-topic-control"
+    },
+    {
+      "id": "c173de37-785b-4487-8db5-b0ea0013fa6d",
+      "versionId": "4557bb01-ccaa-4ad7-a2ff-96081e7c817d",
+      "name": "ai-flux_1-kontext-dev",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-flux_1-kontext-dev"
+    },
+    {
+      "id": "5ad15d19-857e-438c-9fba-b4afbf210d7d",
+      "versionId": "31c428ce-fcf5-4886-9cd6-fea01f8a4195",
+      "name": "hicache-mooncake-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "hicache-mooncake-deepseek-v4-pro"
+    },
+    {
+      "id": "8f0cc930-e430-4a29-be01-c2c0c010c28a",
+      "versionId": "12d0a331-adb0-4791-b534-8961d28f5d08",
+      "name": "gb300-vllm-prd12-deepseek-v4-pro-0813",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "gb300-vllm-prd12-deepseek-v4-pro-0813"
+    },
+    {
+      "id": "43ace38a-357d-4440-9385-10a9d4c9a581",
+      "versionId": "c2cd5fff-1179-45fb-9149-b6bb8c502d5d",
+      "name": "ai-paddleocr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-paddleocr"
+    },
+    {
+      "id": "55cf67bf-600f-4b04-8eac-12ed39537a08",
+      "versionId": "337e7e27-3bdb-4004-8126-fd9711d1c43f",
+      "name": "ai-magpie-tts-zeroshot",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-magpie-tts-zeroshot"
+    },
+    {
+      "id": "3f87fa1a-b797-4fd1-a98a-3a0a784ecda9",
+      "versionId": "e6511f00-8042-4c54-a61c-7028e7816232",
+      "name": "xferoppb-deepseek-v4-flash-0731",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "xferoppb-deepseek-v4-flash-0731"
+    },
+    {
+      "id": "2e00146e-f208-4034-937c-e3a9d4190490",
+      "versionId": "0aaeb50f-fd0e-466c-a58c-65910c269538",
+      "name": "ai-nemotron-graphic-elements-v1",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-graphic-elements-v1"
+    },
+    {
+      "id": "cc52a9c0-37f1-4d68-9860-156fed32c33f",
+      "versionId": "755cf880-14cb-43fa-b3ac-327a5918d761",
+      "name": "gb300-vllm-deepseek-v4-pro-0813",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "gb300-vllm-deepseek-v4-pro-0813"
+    },
+    {
+      "id": "548bb3f9-cddb-4f75-b4f0-b4a3f4f271e1",
+      "versionId": "2f6c186a-e778-4324-8254-76074064bb65",
+      "name": "dynamo-v2-dspark-qual-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-v2-dspark-qual-kimi-k3"
+    },
+    {
+      "id": "b0ac1378-3d00-43cb-a8d9-0f0c37ef36c0",
+      "versionId": "ca02c97c-4fe6-4370-92dd-96738734c16f",
+      "name": "ai-nvidia-cuopt",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nvidia-cuopt"
+    },
+    {
+      "id": "22164014-a6cc-4a6f-b048-f3a303e745bb",
+      "versionId": "550730ce-a9a3-48bb-b205-66eb8faae29f",
+      "name": "ai-parakeet-ctc-riva",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-ctc-riva"
+    },
+    {
+      "id": "8915fd28-fe8f-47d6-a35d-d745d78b35d5",
+      "versionId": "6db41ff7-0971-49a1-a8fe-350ec47eddb1",
+      "name": "sglang-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "sglang-deepseek-v4-pro"
+    },
+    {
+      "id": "85c26031-3687-49bd-b427-3d5ab0f9009a",
+      "versionId": "82dafc5a-0600-43af-bcdb-b32fe72ae403",
+      "name": "mtp-off-nemotron-3-ultra-550b-a55b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mtp-off-nemotron-3-ultra-550b-a55b"
+    },
+    {
+      "id": "99ee0a90-734a-4e3a-8777-9381cd8c2914",
+      "versionId": "ebe5a05f-6457-42c4-8784-b4fe984718f0",
+      "name": "dynamo-softaff-b-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-softaff-b-kimi-k3"
+    },
+    {
+      "id": "89f42212-053c-4b90-8356-9c27ce7dd144",
+      "versionId": "1c8e27a8-dc5d-4cd3-bbd4-edd16281fe9a",
+      "name": "dynamo-dgd-mn-trace-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-dgd-mn-trace-kimi-k3"
+    },
+    {
+      "id": "3ace7b49-e82c-4cc6-93b2-bce512c6c4d5",
+      "versionId": "fe27d997-39db-456b-bf38-929c34e07150",
+      "name": "ai-oakhaven-multinode",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-oakhaven-multinode"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "6df47db3-be1d-44f6-be18-25f280be62a3",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "1c088c66-3a7a-4b96-992d-c495989bfaa7",
+      "versionId": "9d6dd659-b64e-4173-8a1a-1bbfc3d1a071",
+      "name": "sglang-deepseek-v4-pro-0813",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "sglang-deepseek-v4-pro-0813"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "ddc6d05b-767b-472b-99ff-d3f522ff4520",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "1c6b94fa-20a8-48c6-b61f-b4ba3abe4122",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "948fe171-ce7a-4332-8bc0-5e14e90259f9",
+      "versionId": "75ddb0d0-1a87-4352-8693-eff4f1300707",
+      "name": "ai-nemotron-3-ultra-550b-a55b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-3-ultra-550b-a55b"
+    },
+    {
+      "id": "a0493bbc-5955-4482-a0e3-38865070994c",
+      "versionId": "0a03dff0-cdc1-442c-9796-90f47ed06a6d",
+      "name": "glmab-a-glm-5-3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "glmab-a-glm-5-3"
+    },
+    {
+      "id": "52b6462b-b11f-4000-ad68-ec0491866249",
+      "versionId": "f549ab96-e0de-4f1c-a4bf-f8760cfc2b7b",
+      "name": "logging-nemotron-3-ultra-550b-a55b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "logging-nemotron-3-ultra-550b-a55b"
+    },
+    {
+      "id": "9a0036bd-9486-4d12-a8a4-14699058e829",
+      "versionId": "7fac5697-f70e-4425-9a28-db12569ac006",
+      "name": "blueprint-llama-3_2-nv-embedqa-1b-v2",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "blueprint-llama-3_2-nv-embedqa-1b-v2"
+    },
+    {
+      "id": "9cfa4a89-6233-4f93-94f8-4f6e13998185",
+      "versionId": "19692e03-1bdf-4fe1-891b-61f19cfd3c70",
+      "name": "ai-genmol-generate",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-genmol-generate"
+    },
+    {
+      "id": "c95bfe76-c553-4975-bc18-8ef9d6e2666b",
+      "versionId": "5bb7e4b8-c3b5-4062-a131-bd5c46764fa8",
+      "name": "ai-bnr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-bnr"
+    },
+    {
+      "id": "f3dda972-561a-4772-8c09-873594b6fb72",
+      "versionId": "ba818f6c-a778-46f9-9a15-b12b7449d053",
+      "name": "ai-diffdock",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-diffdock"
+    },
+    {
+      "id": "39288625-688f-4d41-af2c-5bbdf6ba11e4",
+      "versionId": "399204a4-4096-4539-91b6-e95ac19fb2ba",
+      "name": "dynamo-offload-c32-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-offload-c32-kimi-k3"
+    },
+    {
+      "id": "cbde15a8-be73-4b37-ad1b-4e54173ea349",
+      "versionId": "24c8f3bc-cf1d-4ddc-b918-8065c76ac83a",
+      "name": "kvlab-deepseek-v4-flash",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "kvlab-deepseek-v4-flash"
+    },
+    {
+      "id": "5532e90c-cb90-49bd-b0d6-42729b667532",
+      "versionId": "c5d409b6-33dd-418f-a92d-a6e2262c39ac",
+      "name": "mn-baseline-wb-glm-5_2",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mn-baseline-wb-glm-5_2"
+    },
+    {
+      "id": "e81c76a4-3b2f-4d07-adf3-d3d3802dcfcf",
+      "versionId": "591d3609-a72d-4745-ac68-66bcb935434a",
+      "name": "dyn14nondgd-deepseek-v4-flash-0731",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dyn14nondgd-deepseek-v4-flash-0731"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "8c437fc6-6988-473f-9a81-b6c1dbd4a492",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "961a5dfa-308e-4d84-b491-24fb649e0273",
+      "versionId": "d054770a-c062-4514-96ad-58e0f948ff72",
+      "name": "gb300-baseline-deepseek-v4-pro-0813",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "gb300-baseline-deepseek-v4-pro-0813"
+    },
+    {
+      "id": "253bc77f-2d6c-4b9d-86c6-c6fb0f9e239c",
+      "versionId": "5bf96341-612f-4aff-a1cb-269b4ddf32f5",
+      "name": "ai-relighting",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-relighting"
+    },
+    {
+      "id": "afea170f-7cee-4b0a-862c-24b237af51cb",
+      "versionId": "cf5a1acf-1aaf-4626-a61f-63e60b98516d",
+      "name": "dynamo-baseline-c32-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-baseline-c32-kimi-k3"
+    },
+    {
+      "id": "034cae7a-7eb5-4f9d-bad2-80c9376d503f",
+      "versionId": "ddb90b51-035b-476e-a0b7-2e8ffb65e62b",
+      "name": "dspark-deepseek-v4-flash",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dspark-deepseek-v4-flash"
+    },
+    {
+      "id": "1248c14b-7b86-4dd4-a910-93b7a17d713c",
+      "versionId": "9a218d7d-16d4-4f6b-8411-0db3abe4a160",
+      "name": "dynamo-tp8ep8-2w-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-tp8ep8-2w-kimi-k3"
+    },
+    {
+      "id": "f3dff2bb-99f9-403d-a5f1-f574a757deb0",
+      "versionId": "94169e3d-d638-4eac-a35e-5a2a5ca2c811",
+      "name": "ai-parakeet-ctc-0_6b-vi",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-ctc-0_6b-vi"
+    },
+    {
+      "id": "f2e7f8d1-4c25-4415-b3b8-01d871417774",
+      "versionId": "3c291b7a-e956-4acd-acb1-588947753bc7",
+      "name": "dynamo-inplace-test-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-inplace-test-kimi-k3"
+    },
+    {
+      "id": "462f7853-60e8-474a-9728-7b598e58472c",
+      "versionId": "495c8c48-ce3c-4709-aa11-2f8ddb96096e",
+      "name": "ai-a2x-service",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-a2x-service"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "288bc9d8-6d2a-4ace-938f-9bdb50d2af64",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "12acbc62-3a9e-461f-8139-142e914b6f16",
+      "versionId": "fe866ed2-6c03-40ee-b3fa-59a300061c29",
+      "name": "dynamo-mn-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-mn-deepseek-v4-pro"
+    },
+    {
+      "id": "14b64d76-3172-43fb-9f75-5922899e32c1",
+      "versionId": "5edae145-3aaf-48b0-bc1b-5e6bc89325bf",
+      "name": "dynsrc-laguna-xs-2-1",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynsrc-laguna-xs-2-1"
+    },
+    {
+      "id": "8d93d27e-f6ef-4549-b915-2b205fa7152c",
+      "versionId": "b01dda07-3f96-4e06-86e2-a6c7276b210c",
+      "name": "ai-moflow-generate",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-moflow-generate"
+    },
+    {
+      "id": "dee9b9f9-5ff7-4959-b4f5-c4cc878c6c61",
+      "versionId": "f23c645d-4f92-44b4-9bfc-7245905be572",
+      "name": "0813-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "0813-deepseek-v4-pro"
+    },
+    {
+      "id": "0e106c54-6d27-482d-a34f-6b2cbd876c03",
+      "versionId": "f2e98a9a-f6dc-4b1f-b85c-a05b6d12b18b",
+      "name": "pckey-muse-glimmer-30b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "pckey-muse-glimmer-30b"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "c3739db2-2f89-46e5-b9d8-8ba0813281a1",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "77598af7-e712-44a2-8e91-d3522725740c",
+      "versionId": "03fd189d-eaa3-4e75-9f73-51d4f9b18637",
+      "name": "ai-proteinmpnn",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-proteinmpnn"
+    },
+    {
+      "id": "de6db475-6013-4145-84ee-81acf470fc91",
+      "versionId": "eeb45a1c-79a8-4834-80ff-254de89c4d77",
+      "name": "ai-nemoretriever-ocr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemoretriever-ocr"
+    },
+    {
+      "id": "2a11df34-a454-4d98-b072-4f8dd7b3c6a2",
+      "versionId": "8f40f25c-1dc6-4a08-9965-32bc4b57331f",
+      "name": "ai-nemotron-page-elements-v3",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-page-elements-v3"
+    },
+    {
+      "id": "df727967-5a01-445f-ba36-fdfb1974c359",
+      "versionId": "8018d878-6d5b-480a-966e-2e4010ab1903",
+      "name": "ai-nemotron-3-embed-1b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-3-embed-1b"
+    },
+    {
+      "id": "42c86b5f-545a-4b2f-a83b-90fd71da9912",
+      "versionId": "0a920d81-6c96-453c-924a-7e0ae38c9a47",
+      "name": "ai-nemotron-voicechat",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-voicechat"
+    },
+    {
+      "id": "65e3f78d-2f5a-48fe-adca-1aef2d525c68",
+      "versionId": "7728d050-d0aa-4fd6-9b08-4402c1e8ed92",
+      "name": "mtp-inkling",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mtp-inkling"
+    },
+    {
+      "id": "5bdd622c-14f1-4783-854c-d9d310e4fab0",
+      "versionId": "9a8cdb2e-284f-4cfa-8bde-07d8b91f5504",
+      "name": "ai-fourcastnet",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-fourcastnet"
+    },
+    {
+      "id": "2506513d-9690-45c3-aff4-f8a74cea4faa",
+      "versionId": "b79a78bf-0fde-4c28-8912-28492496a0f2",
+      "name": "dynamo-dcp-2w-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-dcp-2w-kimi-k3"
+    },
+    {
+      "id": "95200a44-7d2d-40bd-9d3e-086faf2f3fcb",
+      "versionId": "85e60dbf-5665-4aef-a46f-47a5e2aafb3d",
+      "name": "dynamo-bench-v44-flashinfer-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-bench-v44-flashinfer-kimi-k3"
+    },
+    {
+      "id": "ffd13b18-1c55-4a7a-b71a-acbfde9ce8a0",
+      "versionId": "d8c55919-958b-496a-b042-81ff1a999e0e",
+      "name": "ai-diffusiongemma-26b-a4b-it",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-diffusiongemma-26b-a4b-it"
+    },
+    {
+      "id": "b702f636-f60c-4a3d-a6f4-f3568c13bd7d",
+      "versionId": "a37ce169-8352-48ab-b197-f7c5b02448ff",
+      "name": "ai-whisper-large-v3",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-whisper-large-v3"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "201156d5-1585-40ee-b748-7af5cb65537f",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "50124cf2-fb60-4a8c-9d25-d85b85199526",
+      "versionId": "35045224-985b-47c7-a0cd-2db7fe9574bc",
+      "name": "ai-conformer-ctc-asr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-conformer-ctc-asr"
+    },
+    {
+      "id": "f67e96d8-1c4e-422e-a913-90f00e19aa9a",
+      "versionId": "bf573046-9556-49b4-bbed-4dde0bb3b9d1",
+      "name": "ai-flux_2-klein-4b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-flux_2-klein-4b"
+    },
+    {
+      "id": "0a213807-640b-43fb-bfbf-2919f9b666ad",
+      "versionId": "68636f32-1e8a-47d8-9973-563ed2935188",
+      "name": "ai-nemotron-3_5-nano-30b-a3b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-3_5-nano-30b-a3b"
+    },
+    {
+      "id": "352a6988-dc31-4a62-b4a6-9a742561e605",
+      "versionId": "eeb25691-b8f2-48ca-84c6-01c34b61bab2",
+      "name": "ai-nemotron-3-nano-30b-a3b-dynamo-shadow",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-3-nano-30b-a3b-dynamo-shadow"
+    },
+    {
+      "id": "d9759083-3db5-43b6-9b73-f2f5b3ce704b",
+      "versionId": "73676d90-c767-4526-b4c1-93807964afa4",
+      "name": "glmab-c-glm-5-3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "glmab-c-glm-5-3"
+    },
+    {
+      "id": "0066060d-445b-40a7-8c89-9c7fe3b708f5",
+      "versionId": "dc53a963-b2ec-4945-acab-2c76c9a1c3a3",
+      "name": "openshell-nemotron-3-super-120b-a12b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "openshell-nemotron-3-super-120b-a12b"
+    },
+    {
+      "id": "dec4ebac-8fce-4716-bac3-7954b91959c4",
+      "versionId": "1d2f6ea5-0b87-4f61-bebd-12b6865b7459",
+      "name": "dynamo-softaff-a-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-softaff-a-kimi-k3"
+    },
+    {
+      "id": "fd21cc19-b4ff-4949-ba07-90dd663c416a",
+      "versionId": "bcb668ff-7814-4970-bebd-0fe44ba0dc69",
+      "name": "ai-muse-glimmer-30b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-muse-glimmer-30b"
+    },
+    {
+      "id": "9a995ffb-b7bb-4460-ad56-67594936709f",
+      "versionId": "f5fff957-6a19-405a-ab16-33150917aafa",
+      "name": "internal-deepseek-v4-pro-0813",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "internal-deepseek-v4-pro-0813"
+    },
+    {
+      "id": "de70b31d-cc9c-4b32-917f-e0d4cb49ce20",
+      "versionId": "57e5c29b-bc01-430c-ac27-1e7990098fc3",
+      "name": "ai-evo2-40b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-evo2-40b"
+    },
+    {
+      "id": "60d1e81e-3fcb-4b97-b597-43199016a4bb",
+      "versionId": "b6dad2a5-04bc-42d7-8651-f60aa9fb4759",
+      "name": "synthid-shadow-gemma-4-31b-it",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "synthid-shadow-gemma-4-31b-it"
+    },
+    {
+      "id": "4fb44cac-76ca-453a-9e8d-cccaf7ed680d",
+      "versionId": "7d2666a0-300e-4e4b-b5fe-34570b1b0846",
+      "name": "paired-msa-search",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "paired-msa-search"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "68a6e5c4-9738-4d4a-b161-6e59cf0b1c2d",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "f966661c-790d-4f71-b973-c525fb8eafd4",
+      "versionId": "0c533f8f-1304-4746-8b33-152eff215eb4",
+      "name": "nvquery-kimi-k2_6",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "nvquery-kimi-k2_6"
+    },
+    {
+      "id": "73eccb72-1933-484e-bb69-12fdeaf885c7",
+      "versionId": "f0d1ca36-19ec-4d10-ba2c-be7bc3c3ee89",
+      "name": "mn-tp8dp2-glm-5_2",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mn-tp8dp2-glm-5_2"
+    },
+    {
+      "id": "3ea2c6ee-b437-4f90-8268-bde4fbe85e18",
+      "versionId": "ef2bf15b-3bbe-4a35-bf17-56a950894bdb",
+      "name": "vllm-gb300-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "vllm-gb300-kimi-k3"
+    },
+    {
+      "id": "7a0655e9-0b6e-4741-a2a5-b6c2eeb96cca",
+      "versionId": "1829a983-2385-48fa-be10-eebd2f22d1be",
+      "name": "ai-nemotron-parse-2_0",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-parse-2_0"
+    },
+    {
+      "id": "1598d209-5e27-4d3c-8079-4751568b1081",
+      "versionId": "9da38954-e55d-454f-8ab0-b241362f5508",
+      "name": "ai-parakeet-ctc-1_1b-asr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-parakeet-ctc-1_1b-asr"
+    },
+    {
+      "id": "c4ed50ff-b5c3-409d-ab57-b79c33f5bb39",
+      "versionId": "5d05d8cf-24ef-4aff-a607-7644569b2e1e",
+      "name": "ai-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "1ab0d314-180b-4559-8e69-fec02fa87eb9",
+      "versionId": "a684ea34-c495-4013-b358-b57d6d342c30",
+      "name": "shadow-qwen3-coder-480b-a35b-instruct-disagg",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "shadow-qwen3-coder-480b-a35b-instruct-disagg"
+    },
+    {
+      "id": "a4b78833-5985-41d3-babc-1784bf475334",
+      "versionId": "3b9150e3-ed90-472a-b74a-9f8e5c85785c",
+      "name": "ai-llama-nemotron-rerank-vl-1b-v2",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-nemotron-rerank-vl-1b-v2"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "427e3527-86f3-4113-9e5a-6f0ce7f5132a",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "24e0c62b-f7d0-44ba-8012-012c2a1aaf31",
+      "versionId": "1fcb4d28-f57f-4585-b11c-ae5eb6b8f464",
+      "name": "ai-llama-3_2-90b-vision-instruct",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-3_2-90b-vision-instruct"
+    },
+    {
+      "id": "bee37f43-e998-4708-bbad-7c83fc0de71f",
+      "versionId": "dc905e69-2e02-4bd4-ace3-82887cd4fa14",
+      "name": "dyn14preloss-deepseek-v4-flash-0731",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dyn14preloss-deepseek-v4-flash-0731"
+    },
+    {
+      "id": "e469fc55-91c0-460d-a444-15d9921ac277",
+      "versionId": "b6d28a6a-3bef-4191-9684-2a4972ba2159",
+      "name": "ai-rfdiffusion",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-rfdiffusion"
+    },
+    {
+      "id": "0c474133-6fd2-42f6-be29-8ebbbaeaaeb2",
+      "versionId": "1967507e-2f22-49aa-a31e-e612aaa7cbad",
+      "name": "ai-flux_1-dev",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-flux_1-dev"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "77d47f6a-273e-4b71-8b17-ce8dc299a2cd",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "647147c1-9c23-496c-8304-2e29e7574510",
+      "versionId": "c34101bc-4ae0-41b5-b2c5-8d5a4cd2c16f",
+      "name": "ai-megatron-1b-nmt",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-megatron-1b-nmt"
+    },
+    {
+      "id": "d9759083-3db5-43b6-9b73-f2f5b3ce704b",
+      "versionId": "a646745f-7236-4e5f-bf8d-2ecbcd543db2",
+      "name": "glmab-c-glm-5-3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "glmab-c-glm-5-3"
+    },
+    {
+      "id": "8633485a-88b6-411c-846f-fc2300c6d419",
+      "versionId": "80652763-c18c-4ee8-ac0a-bd8aa3cb69a4",
+      "name": "funnel-nemotron-3_5-nano-30b-a3b",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "funnel-nemotron-3_5-nano-30b-a3b"
+    },
+    {
+      "id": "aa55eb71-2007-46a7-8bd9-430b568c8bb4",
+      "versionId": "ad14881f-8946-468c-8d36-36c702a7a1e1",
+      "name": "ai-sparsedrive",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-sparsedrive"
+    },
+    {
+      "id": "bfcf495b-2faf-4ce7-ba4f-bdd4214ff0df",
+      "versionId": "2c6d499b-a43e-45c4-88b1-836b6e9a614c",
+      "name": "mn-baseline-glm-5_2",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "mn-baseline-glm-5_2"
+    },
+    {
+      "id": "106c1207-eda3-49e5-af6a-83707c17efe7",
+      "versionId": "8ff1f232-bc54-405e-b90b-594b63157312",
+      "name": "ai-streampetr",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-streampetr"
+    },
+    {
+      "id": "7c3ba6c7-1664-4486-a611-bd4475c98d92",
+      "versionId": "97c611ec-31b4-4000-8e70-dec7fc219269",
+      "name": "ai-trellis",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-trellis"
+    },
+    {
+      "id": "1586112a-925c-48af-8631-7c815dbd749c",
+      "versionId": "46c74603-d063-4b02-a3bf-7aa1e4a93716",
+      "name": "ai-kimi-k3",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-kimi-k3"
+    },
+    {
+      "id": "0d490118-f744-466c-87ad-1e7d5802b533",
+      "versionId": "55315a67-f263-4585-9475-7aad5b6d18a5",
+      "name": "prod-baseline-deepseek-v4-pro",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "prod-baseline-deepseek-v4-pro"
+    },
+    {
+      "id": "c4341745-bff8-471e-a182-3cf7a1efe924",
+      "versionId": "30bbf6bf-f6e1-470f-920d-c3dd13994f6f",
+      "name": "vllm-deepseek-v4-pro-0813",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "vllm-deepseek-v4-pro-0813"
+    },
+    {
+      "id": "3dfee9d5-fe82-4a3b-a04e-a93fa01117c1",
+      "versionId": "d87ba741-6305-4542-a436-536a594079d7",
+      "name": "sglang-gemma-4-31b-it",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "sglang-gemma-4-31b-it"
+    },
+    {
+      "id": "499210d3-3bf7-44bf-88b5-9460edfa8a38",
+      "versionId": "81df3473-643f-4bbc-99b2-75dc1a09a9e6",
+      "name": "ai-ising-calibration-1_5-31b",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-ising-calibration-1_5-31b"
+    },
+    {
+      "id": "687a0220-2f7d-467e-ac91-60e89b40b358",
+      "versionId": "b22897eb-35f2-42f7-94a2-7a0b60b3a7b6",
+      "name": "dynamo-sglab-sglang-kimi-k3",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-sglab-sglang-kimi-k3"
+    },
+    {
+      "id": "046eaf31-6ad0-4785-96e6-f4ce302b18ec",
+      "versionId": "3db86b8f-d59c-42e3-a3d5-52f2b5efb5d4",
+      "name": "inv-ct1-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "inv-ct1-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "0cd5c583-435c-4649-a621-f4e421fa12a0",
+      "versionId": "4bd7bb06-58ac-4335-a620-5cf0ed34db50",
+      "name": "ai-glm-5-3",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-glm-5-3"
+    },
+    {
+      "id": "ca7e60ea-6b00-44c5-9364-3b0727a24919",
+      "versionId": "d9377c2c-61ea-4d3f-9909-db7b1ae15cd4",
+      "name": "xferoppc-deepseek-v4-flash-0731",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "xferoppc-deepseek-v4-flash-0731"
+    },
+    {
+      "id": "8aa452c2-b3c4-49ae-a3ee-81005090fbed",
+      "versionId": "60ebad2f-4360-4fe9-ac5c-aaa322aedf24",
+      "name": "kvoff-candidate-glm-5-3-flash",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "kvoff-candidate-glm-5-3-flash"
+    },
+    {
+      "id": "a06e4b8b-6b21-4221-8018-39d9da0ea45d",
+      "versionId": "6a3262a0-9267-45f7-8f8a-16cbe5a3dd43",
+      "name": "dynamo-dspark-offload-2w-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-dspark-offload-2w-kimi-k3"
+    },
+    {
+      "id": "19c208c3-cef4-4d11-bfe2-6491495fff67",
+      "versionId": "078a08aa-0721-425e-b260-09d04498a2fb",
+      "name": "ai-openfold3",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-openfold3"
+    },
+    {
+      "id": "475da3a9-515e-417e-8c4d-f847c271d2be",
+      "versionId": "1c818519-aae0-4afc-87ad-a17c9860a0b8",
+      "name": "ai-evo2-40b-forward",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-evo2-40b-forward"
+    },
+    {
+      "id": "8127ae70-82c3-4bba-abcb-bc64a26034c7",
+      "versionId": "6c79499c-1225-4a7d-b728-b6223f721f9e",
+      "name": "kumo-kumo-relational",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "kumo-kumo-relational"
+    },
+    {
+      "id": "7fdbc5e1-a2e5-4010-9bfa-daa378b4264d",
+      "versionId": "db13fee5-c7b4-4da3-9a66-1646891f2a0d",
+      "name": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "LLM",
+      "description": "llm-prod-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "1c947873-d41b-4f4b-9c59-ad7e708243b3",
+      "versionId": "c462a9bc-8f89-48e0-a6f5-0c10947d1255",
+      "name": "ai-nemotron-3-nano-30b-a3b-dynamo-proto",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-3-nano-30b-a3b-dynamo-proto"
+    },
+    {
+      "id": "0cd5c583-435c-4649-a621-f4e421fa12a0",
+      "versionId": "eca04af1-1917-4c7a-9373-4a9b0ff009c1",
+      "name": "ai-glm-5-3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-glm-5-3"
+    },
+    {
+      "id": "50d44005-547e-47e4-9b26-63472bfe35c2",
+      "versionId": "8409c543-86f5-4f78-b8eb-d537057b33b4",
+      "name": "dynamo-new-router-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-new-router-kimi-k3"
+    },
+    {
+      "id": "945ed566-a023-4677-9a49-61ede107fd5a",
+      "versionId": "afb21d68-7c97-43a2-a9cf-d8c2de307335",
+      "name": "ai-a2x-service",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-a2x-service"
+    },
+    {
+      "id": "e8cad756-9f99-4cad-a1a4-1afb5e340be3",
+      "versionId": "b5b88d31-c893-408f-8805-37a683555ef7",
+      "name": "ai-nemotron-table-structure-v1",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-nemotron-table-structure-v1"
+    },
+    {
+      "id": "d8879329-7521-44bb-9fb2-eba658ba10f9",
+      "versionId": "fe41177a-fd39-44f4-969d-ffc6a95d9662",
+      "name": "dynamo-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-nemotron-3-nano-omni-30b-a3b-reasoning"
+    },
+    {
+      "id": "1b09b3d7-a000-4d86-a919-e97439f6164b",
+      "versionId": "af2b6883-127c-49b9-9222-38d74482f3c4",
+      "name": "ai-llama-3_1-nemotron-safety-guard-multilingual-8b-v1",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-llama-3_1-nemotron-safety-guard-multilingual-8b-v1"
+    },
+    {
+      "id": "b34b386e-5623-4f13-b2ad-ea2eddcd64b1",
+      "versionId": "b60e1e96-ae6a-406e-a9d6-b3ade8051682",
+      "name": "dynamo-baseline-c32-debug-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-baseline-c32-debug-kimi-k3"
+    },
+    {
+      "id": "462f7853-60e8-474a-9728-7b598e58472c",
+      "versionId": "8c786472-39ad-4549-8f99-f6b97e68457f",
+      "name": "ai-a2x-service",
+      "status": "ACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "ai-a2x-service"
+    },
+    {
+      "id": "b6f1f691-7c3f-4c21-8b01-e5c767273670",
+      "versionId": "dfee26f8-4105-43ef-af89-70fee7f37a7f",
+      "name": "dynamo-dspark-2w-kimi-k3",
+      "status": "INACTIVE",
+      "apiBodyFormat": "CUSTOM",
+      "functionType": "DEFAULT",
+      "description": "dynamo-dspark-2w-kimi-k3"
+    }
+  ]
+}

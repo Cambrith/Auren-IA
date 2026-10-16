@@ -1,0 +1,8 @@
+{
+  "provider": "aihorde",
+  "row": "aihorde:Qwen-Image_fp8::image_mask",
+  "sample": 0,
+  "remote_id": "9229062d-b197-4c2b-844a-3cce3bbcca38",
+  "accepted_at": "2026-10-13T19:55:47.800597-03:00",
+  "status": "accepted"
+}

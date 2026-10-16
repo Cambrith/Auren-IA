@@ -81,8 +81,9 @@ def credential_inventory():
 
 
 def remember_credentials(env):
-    from integration.auren_settings import PROVIDER_KEYS, atomic_json
+    from integration.auren_settings import atomic_json
+    from integration.auren_connection_registry import VAULT_NAMES
     with LOCK:
-        names = credential_inventory() | {name for name in (*PROVIDER_KEYS.values(), 'CLOUDFLARE_ACCOUNT_ID') if env.get(name)}
+        names = credential_inventory() | {name for name in VAULT_NAMES if env.get(name)}
         if names != credential_inventory():
             atomic_json(STATE / 'credential_inventory.json', {'version': 1, 'names': sorted(names)})

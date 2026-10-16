@@ -1,0 +1,469 @@
+{
+  "date": "2026-10-15",
+  "registered_connections": 30,
+  "counts": {
+    "success": 19,
+    "pending": 8,
+    "failed": 3
+  },
+  "rotation_confirmation": "O usuário confirmou nesta conversa a rotação de todas as credenciais e a atualização do documento.",
+  "scope": "Validação mínima de autenticação/conectividade; não certifica todos os modelos, recursos, cotas ou saldo.",
+  "secrets_included": false,
+  "google_drive_sync": false,
+  "connections": [
+    {
+      "id": "aihorde",
+      "name": "AI Horde",
+      "auth_type": "apikey",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://aihorde.net/api/",
+      "probe_endpoint_template": "https://aihorde.net/api/v2/find_user",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:32.825432+00:00"
+    },
+    {
+      "id": "bedrock",
+      "name": "Amazon Bedrock",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key",
+        "region"
+      ],
+      "official_documentation": "https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html",
+      "probe_endpoint_template": "",
+      "status": "pending",
+      "reason": "missing_region",
+      "message": "Pendente: informe a região AWS em que a chave foi emitida.",
+      "checked_at": "2026-10-15T20:53:32.871916+00:00"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic API (Claude)",
+      "auth_type": "anthropic",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://platform.claude.com/docs/en/api/models/list",
+      "probe_endpoint_template": "https://api.anthropic.com/v1/models",
+      "status": "pending",
+      "reason": "missing_credential",
+      "message": "Pendente: credencial não cadastrada.",
+      "checked_at": "2026-10-15T20:53:32.879798+00:00"
+    },
+    {
+      "id": "assemblyai",
+      "name": "AssemblyAI API",
+      "auth_type": "raw",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://www.assemblyai.com/docs/pre-recorded-audio/api-reference/transcripts/list",
+      "probe_endpoint_template": "https://api.assemblyai.com/v2/transcript?limit=1",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:34.202611+00:00"
+    },
+    {
+      "id": "canva",
+      "name": "Canva Connect",
+      "auth_type": "oauth",
+      "kind": "oauth",
+      "required_fields": [
+        "client_secret",
+        "client_id",
+        "redirect_uri"
+      ],
+      "official_documentation": "https://www.canva.dev/docs/apps/rest-apis/authentication/",
+      "probe_endpoint_template": "https://api.canva.com/rest/v1/users/me",
+      "status": "pending",
+      "reason": "oauth_required",
+      "message": "Pendente: configure a Redirect URL e conclua a autorização OAuth no Canva.",
+      "checked_at": "2026-10-15T20:53:34.332604+00:00"
+    },
+    {
+      "id": "cartesia",
+      "name": "Cartesia API",
+      "auth_type": "cartesia",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.cartesia.ai/api-reference/voices/list",
+      "probe_endpoint_template": "https://api.cartesia.ai/voices?limit=1",
+      "status": "failed",
+      "reason": "auth_error",
+      "message": "Falha: credencial ou permissão recusada pelo serviço.",
+      "checked_at": "2026-10-15T20:53:34.847187+00:00"
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras Inference API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://inference-docs.cerebras.ai/api-reference/models/list-models",
+      "probe_endpoint_template": "https://api.cerebras.ai/v1/models",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:35.363175+00:00"
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare Workers AI",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key",
+        "account_id"
+      ],
+      "official_documentation": "https://developers.cloudflare.com/workers-ai/get-started/rest-api/",
+      "probe_endpoint_template": "https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/models/search?per_page=1",
+      "status": "pending",
+      "reason": "missing_account_id",
+      "message": "Pendente: informe o identificador da conta Cloudflare.",
+      "checked_at": "2026-10-15T20:53:35.428553+00:00"
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.cohere.com/v2/reference/list-models",
+      "probe_endpoint_template": "https://api.cohere.com/v1/models?page_size=1",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:35.943099+00:00"
+    },
+    {
+      "id": "deepgram",
+      "name": "Deepgram API",
+      "auth_type": "token",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://developers.deepgram.com/reference/manage/projects/list",
+      "probe_endpoint_template": "https://api.deepgram.com/v1/projects",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:37.082445+00:00"
+    },
+    {
+      "id": "deepinfra",
+      "name": "DeepInfra API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://deepinfra.com/docs/openai_api",
+      "probe_endpoint_template": "https://api.deepinfra.com/v1/openai/models",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:38.253383+00:00"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://api-docs.deepseek.com/api/list-models",
+      "probe_endpoint_template": "https://api.deepseek.com/models",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:39.229230+00:00"
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs API",
+      "auth_type": "xi-api-key",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://elevenlabs.io/docs/api-reference/user/get",
+      "probe_endpoint_template": "https://api.elevenlabs.io/v1/user",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:39.847629+00:00"
+    },
+    {
+      "id": "fal",
+      "name": "fal API (fal.ai)",
+      "auth_type": "Key",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://fal.ai/docs/platform-apis/v1/models",
+      "probe_endpoint_template": "https://api.fal.ai/v1/models?limit=1",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:40.907423+00:00"
+    },
+    {
+      "id": "fireworks",
+      "name": "Fireworks AI API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.fireworks.ai/api-reference/list-models",
+      "probe_endpoint_template": "https://api.fireworks.ai/inference/v1/models",
+      "status": "pending",
+      "reason": "missing_credential",
+      "message": "Pendente: credencial não cadastrada.",
+      "checked_at": "2026-10-15T20:53:40.915505+00:00"
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini API",
+      "auth_type": "x-goog-api-key",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://ai.google.dev/api/models",
+      "probe_endpoint_template": "https://generativelanguage.googleapis.com/v1beta/models?pageSize=1",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:41.991130+00:00"
+    },
+    {
+      "id": "groq",
+      "name": "GroqCloud API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://console.groq.com/docs/api-reference",
+      "probe_endpoint_template": "https://api.groq.com/openai/v1/models",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:42.718824+00:00"
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face Inference Providers",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://huggingface.co/docs/hub/api",
+      "probe_endpoint_template": "https://huggingface.co/api/whoami-v2",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:43.178618+00:00"
+    },
+    {
+      "id": "hyperbolic",
+      "name": "Hyperbolic API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://www.hyperbolic.ai/docs/overview/overview",
+      "probe_endpoint_template": "https://api.hyperbolic.xyz/v1/models",
+      "status": "failed",
+      "reason": "auth_error",
+      "message": "Falha: credencial ou permissão recusada pelo serviço.",
+      "checked_at": "2026-10-15T20:53:44.039637+00:00"
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.mistral.ai/api/endpoint/models",
+      "probe_endpoint_template": "https://api.mistral.ai/v1/models",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:44.469326+00:00"
+    },
+    {
+      "id": "novita",
+      "name": "Novita AI API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.novita.ai/api-reference/model-apis-llm-list-models",
+      "probe_endpoint_template": "https://api.novita.ai/v3/openai/models",
+      "status": "pending",
+      "reason": "public_catalog",
+      "message": "Pendente: catálogo público acessível; autenticação não confirmada.",
+      "checked_at": "2026-10-15T20:53:49.644571+00:00"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA NIM API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.api.nvidia.com/nim/reference/models-1",
+      "probe_endpoint_template": "https://integrate.api.nvidia.com/v1/models",
+      "status": "pending",
+      "reason": "public_catalog",
+      "message": "Pendente: catálogo público acessível; autenticação não confirmada.",
+      "checked_at": "2026-10-15T20:53:45.273587+00:00"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama Cloud API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.ollama.com/cloud",
+      "probe_endpoint_template": "https://ollama.com/api/tags",
+      "status": "pending",
+      "reason": "public_catalog",
+      "message": "Pendente: catálogo público acessível; autenticação não confirmada.",
+      "checked_at": "2026-10-15T20:53:50.155834+00:00"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://developers.openai.com/api/reference/resources/models/methods/list",
+      "probe_endpoint_template": "https://api.openai.com/v1/models",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:51.292611+00:00"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://openrouter.ai/docs/api-reference/authentication",
+      "probe_endpoint_template": "https://openrouter.ai/api/v1/key",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:51.661685+00:00"
+    },
+    {
+      "id": "replicate",
+      "name": "Replicate API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://replicate.com/docs/reference/http",
+      "probe_endpoint_template": "https://api.replicate.com/v1/account",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:52.386793+00:00"
+    },
+    {
+      "id": "stability",
+      "name": "Stability AI API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://platform.stability.ai/docs/api-reference",
+      "probe_endpoint_template": "https://api.stability.ai/v1/user/balance",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:53.886984+00:00"
+    },
+    {
+      "id": "voyage",
+      "name": "Voyage AI API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.voyageai.com/reference/embeddings-api",
+      "probe_endpoint_template": "https://api.voyageai.com/v1/embeddings",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:54.674569+00:00"
+    },
+    {
+      "id": "xai",
+      "name": "xAI API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.x.ai/developers/rest-api-reference/inference/models",
+      "probe_endpoint_template": "https://api.x.ai/v1/models",
+      "status": "failed",
+      "reason": "auth_error",
+      "message": "Falha: credencial ou permissão recusada pelo serviço.",
+      "checked_at": "2026-10-15T20:53:54.936486+00:00"
+    },
+    {
+      "id": "zai",
+      "name": "Z.ai API",
+      "auth_type": "bearer",
+      "kind": "api",
+      "required_fields": [
+        "api_key"
+      ],
+      "official_documentation": "https://docs.z.ai/guides/overview/quick-start",
+      "probe_endpoint_template": "https://api.z.ai/api/paas/v4/models",
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T20:53:56.953406+00:00"
+    }
+  ]
+}

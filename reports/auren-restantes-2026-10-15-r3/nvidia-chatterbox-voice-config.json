@@ -1,0 +1,20 @@
+{
+  "real_call": true,
+  "success": false,
+  "cost_class": "unknown",
+  "transport": "grpc",
+  "seconds": 1.492,
+  "result": "native_voice_configuration",
+  "configs": [
+    {
+      "name": "chatterbox-Chatterbox-Multilingual",
+      "parameters": {
+        "language_code": "ar-SA,da-DK,de-DE,el-GR,en-US,es-ES,fi-FI,fr-FR,he-IL,hi-IN,it-IT,ja-JP,ko-KR,ms-MY,nl-NL,nb-NO,pl-PL,pt-BR,ru-RU,sv-SE,sw-KE,tr-TR,zh-CN",
+        "voice_name": "Chatterbox-Multilingual",
+        "subvoices": "ar-SA.Male:0|0,da-DK.Male:1|0,de-DE.Male:2|0,el-GR.Male:3|0,en-US.Male:4|0,es-ES.Male:5|0,fi-FI.Male:6|0,fr-FR.Male:7|0,he-IL.Male:8|0,hi-IN.Male:9|0,it-IT.Male:10|0,ja-JP.Male:11|0,ko-KR.Male:12|0,ms-MY.Male:13|0,nl-NL.Male:14|0,nb-NO.Male:15|0,pl-PL.Male:16|0,pt-BR.Male:17|0,ru-RU.Male:18|0,sv-SE.Male:19|0,sw-KE.Male:20|0,tr-TR.Male:21|0,zh-CN.Male:22|0",
+        "sample_rate": "24000",
+        "max_input_length": "500"
+      }
+    }
+  ]
+}

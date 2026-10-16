@@ -1,0 +1,111 @@
+{
+  "names": [
+    "AI Horde",
+    "Anthropic (Claude)",
+    "Cloudflare",
+    "Cohere",
+    "DeepSeek",
+    "Google Gemini",
+    "Groq",
+    "Hugging Face",
+    "Mistral AI",
+    "NVIDIA NIM",
+    "Ollama Cloud",
+    "OpenAI (ChatGPT)",
+    "OpenRouter",
+    "xAI (Grok)",
+    "Z.ai"
+  ],
+  "alphabetical": true,
+  "logos": [
+    {
+      "name": "AI Horde",
+      "loaded": true
+    },
+    {
+      "name": "Anthropic (Claude)",
+      "loaded": true
+    },
+    {
+      "name": "Cloudflare",
+      "loaded": true
+    },
+    {
+      "name": "Cohere",
+      "loaded": true
+    },
+    {
+      "name": "DeepSeek",
+      "loaded": true
+    },
+    {
+      "name": "Google Gemini",
+      "loaded": true
+    },
+    {
+      "name": "Groq",
+      "loaded": true
+    },
+    {
+      "name": "Hugging Face",
+      "loaded": true
+    },
+    {
+      "name": "Mistral AI",
+      "loaded": true
+    },
+    {
+      "name": "NVIDIA NIM",
+      "loaded": true
+    },
+    {
+      "name": "Ollama Cloud",
+      "loaded": true
+    },
+    {
+      "name": "OpenAI (ChatGPT)",
+      "loaded": true
+    },
+    {
+      "name": "OpenRouter",
+      "loaded": true
+    },
+    {
+      "name": "xAI (Grok)",
+      "loaded": true
+    },
+    {
+      "name": "Z.ai",
+      "loaded": true
+    }
+  ],
+  "paidCards": [],
+  "clean_cards": true,
+  "models_page": {
+    "DeepSeek": "DeepSeek · Pago",
+    "Hugging Face": "Hugging Face · Custo a verificar",
+    "Claude": "Anthropic (Claude) · Reservado"
+  },
+  "model_search": {
+    "DeepSeek": {
+      "rows": 18,
+      "all_disabled": false
+    },
+    "Hugging Face": {
+      "rows": 130,
+      "all_disabled": false
+    },
+    "OpenAI (ChatGPT)": {
+      "rows": 56,
+      "all_disabled": false
+    },
+    "Grok": {
+      "rows": 1,
+      "all_disabled": true
+    },
+    "Claude": {
+      "rows": 4,
+      "all_disabled": true
+    }
+  }
+}

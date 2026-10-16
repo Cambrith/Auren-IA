@@ -32,7 +32,7 @@ class FallbackTests(unittest.TestCase):
         self.patch.stop();self.tmp.cleanup()
     def test_markdown_and_legacy_credentials_without_heading_leak(self):
         values=parse_credentials('### Cohere (julgamento)\n- Chave de API: `fake-one`\n### NVIDIA NIM\n- Chave de API: `fake-two`\n### DeepSeek\n- Chave de API: `removed`\nGEMINI_API_KEY=fake-three')
-        self.assertEqual(values,{'COHERE_API_KEY':'fake-one','NVIDIA_API_KEY':'fake-two','GEMINI_API_KEY':'fake-three'})
+        self.assertEqual(values,{'COHERE_API_KEY':'fake-one','NVIDIA_API_KEY':'fake-two','DEEPSEEK_API_KEY':'removed','GEMINI_API_KEY':'fake-three'})
     def test_clean_names_keep_model_size(self):
         self.assertEqual(display_name('qwen/qwen3-32b:free'),'Qwen3 32B')
     def test_all_modes_have_free_backup_and_preserve_mode(self):

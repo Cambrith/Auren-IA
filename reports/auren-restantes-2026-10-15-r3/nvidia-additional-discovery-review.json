@@ -1,0 +1,631 @@
+{
+  "at": "2026-10-14T07:31:36.040861-03:00",
+  "candidates": [
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/body-pose",
+      "source": "https://build.nvidia.com/nvidia/body-pose/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-tdt-0_6b",
+      "source": "https://build.nvidia.com/nvidia/parakeet-tdt-0_6b/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "2b940e91-a70e-4483-a958-d50408b96589"
+      ],
+      "native_operations": [
+        "transcribe"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "wan-ai/wan2.2-animate-2-14b",
+      "source": "https://build.nvidia.com/wan-ai/wan2.2-animate-2-14b/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/vsr",
+      "source": "https://build.nvidia.com/nvidia/vsr/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/qwen-image-edit-nvpcb-ovsl2sl",
+      "source": "https://build.nvidia.com/nvidia/qwen-image-edit-nvpcb-ovsl2sl/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nemotron-ocr-v2",
+      "source": "https://build.nvidia.com/nvidia/nemotron-ocr-v2/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "resembleai/chatterbox-multilingual-tts",
+      "source": "https://build.nvidia.com/resembleai/chatterbox-multilingual-tts/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "ddacc747-1269-4fab-bfd9-8f593dead106"
+      ],
+      "native_operations": [
+        "speech"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/cosmos3-nano",
+      "source": "https://build.nvidia.com/nvidia/cosmos3-nano/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/cosmos3-nano-reasoner",
+      "source": "https://build.nvidia.com/nvidia/cosmos3-nano-reasoner/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "qwen/qwen-image",
+      "source": "https://build.nvidia.com/qwen/qwen-image/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "qwen/qwen-image-edit",
+      "source": "https://build.nvidia.com/qwen/qwen-image-edit/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/relighting",
+      "source": "https://build.nvidia.com/nvidia/relighting/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/synthetic-video-detector",
+      "source": "https://build.nvidia.com/nvidia/synthetic-video-detector/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/active-speaker-detection",
+      "source": "https://build.nvidia.com/nvidia/active-speaker-detection/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/lipsync",
+      "source": "https://build.nvidia.com/nvidia/lipsync/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/ising-calibration-1-35b-a3b",
+      "source": "https://build.nvidia.com/nvidia/ising-calibration-1-35b-a3b/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nemotron-voicechat",
+      "source": "https://build.nvidia.com/nvidia/nemotron-voicechat/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nemotron-asr-streaming",
+      "source": "https://build.nvidia.com/nvidia/nemotron-asr-streaming/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "bb0837de-8c7b-481f-9ec8-ef5663e9c1fa"
+      ],
+      "native_operations": [
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nemotron-ocr-v1",
+      "source": "https://build.nvidia.com/nvidia/nemotron-ocr-v1/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nemotron-table-structure-v1",
+      "source": "https://build.nvidia.com/nvidia/nemotron-table-structure-v1/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nemotron-page-elements-v3",
+      "source": "https://build.nvidia.com/nvidia/nemotron-page-elements-v3/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nemotron-graphic-elements-v1",
+      "source": "https://build.nvidia.com/nvidia/nemotron-graphic-elements-v1/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/cosmos-transfer2_5-2b",
+      "source": "https://build.nvidia.com/nvidia/cosmos-transfer2_5-2b/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "arc/evo2-40b-forward",
+      "source": "https://build.nvidia.com/arc/evo2-40b-forward/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-ctc-0_6b-zh-tw",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-zh-tw/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "8473f56d-51ef-473c-bb26-efd4f5def2bf"
+      ],
+      "native_operations": [
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-ctc-0_6b-zh-cn",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-zh-cn/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "9add5ef7-322e-47e0-ad7a-5653fb8d259b"
+      ],
+      "native_operations": [
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-ctc-0_6b-es",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-es/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "a9eeee8f-b509-4712-b19d-194361fa5f31"
+      ],
+      "native_operations": [
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-ctc-0_6b-vi",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-vi/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "f3dff2bb-99f9-403d-a5f1-f574a757deb0"
+      ],
+      "native_operations": [
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "stabilityai/stable-diffusion-3_5-large",
+      "source": "https://build.nvidia.com/stabilityai/stable-diffusion-3_5-large/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-tdt-0_6b-v2",
+      "source": "https://build.nvidia.com/nvidia/parakeet-tdt-0_6b-v2/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "d3fe9151-442b-4204-a70d-5fcc597fd610"
+      ],
+      "native_operations": [
+        "transcribe"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nemoretriever-ocr",
+      "source": "https://build.nvidia.com/nvidia/nemoretriever-ocr/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/riva-translate-1_6b",
+      "source": "https://build.nvidia.com/nvidia/riva-translate-1_6b/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "0778f2eb-b64d-45e7-acae-7dd9b9b35b4d"
+      ],
+      "native_operations": [
+        "translation"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/bnr",
+      "source": "https://build.nvidia.com/nvidia/bnr/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "mit/boltz2",
+      "source": "https://build.nvidia.com/mit/boltz2/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/magpie-tts-zeroshot",
+      "source": "https://build.nvidia.com/nvidia/magpie-tts-zeroshot/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-1_1b-rnnt-multilingual-asr",
+      "source": "https://build.nvidia.com/nvidia/parakeet-1_1b-rnnt-multilingual-asr/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "71203149-d3b7-4460-8231-1be2543a1fca"
+      ],
+      "native_operations": [
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/magpie-tts-multilingual",
+      "source": "https://build.nvidia.com/nvidia/magpie-tts-multilingual/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "877104f7-e885-42b9-8de8-f6e4c6303969"
+      ],
+      "native_operations": [
+        "speech"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "openai/whisper-large-v3",
+      "source": "https://build.nvidia.com/openai/whisper-large-v3/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "b702f636-f60c-4a3d-a6f4-f3568c13bd7d"
+      ],
+      "native_operations": [
+        "transcribe"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/canary-1b-asr",
+      "source": "https://build.nvidia.com/nvidia/canary-1b-asr/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "b0e8b4a5-217c-40b7-9b96-17d84e666317"
+      ],
+      "native_operations": [
+        "transcribe"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/genmol-generate",
+      "source": "https://build.nvidia.com/nvidia/genmol-generate/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "baidu/paddleocr",
+      "source": "https://build.nvidia.com/baidu/paddleocr/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/conformer-ctc-asr",
+      "source": "https://build.nvidia.com/nvidia/conformer-ctc-asr/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "50124cf2-fb60-4a8c-9d25-d85b85199526"
+      ],
+      "native_operations": [
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/studiovoice",
+      "source": "https://build.nvidia.com/nvidia/studiovoice/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/megatron-1b-nmt",
+      "source": "https://build.nvidia.com/nvidia/megatron-1b-nmt/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-ctc-1_1b-asr",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-1_1b-asr/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "1598d209-5e27-4d3c-8079-4751568b1081"
+      ],
+      "native_operations": [
+        "transcribe",
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/parakeet-ctc-0_6b-asr",
+      "source": "https://build.nvidia.com/nvidia/parakeet-ctc-0_6b-asr/api",
+      "http_status": 200,
+      "native_function_ids": [
+        "d8dd4e9b-fbf5-4fb0-9dba-8cf436c8d965"
+      ],
+      "native_operations": [
+        "live"
+      ],
+      "operation_called": false,
+      "state": "native_operations_added",
+      "pending": null
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/eyecontact",
+      "source": "https://build.nvidia.com/nvidia/eyecontact/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "google/google-paligemma",
+      "source": "https://build.nvidia.com/google/google-paligemma/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/molmim-generate",
+      "source": "https://build.nvidia.com/nvidia/molmim-generate/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "mit/diffdock",
+      "source": "https://build.nvidia.com/mit/diffdock/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    },
+    {
+      "provider": "nvidia",
+      "advertised_card": "nvidia/nvidia-cuopt",
+      "source": "https://build.nvidia.com/nvidia/nvidia-cuopt/api",
+      "http_status": 200,
+      "native_function_ids": [],
+      "native_operations": [],
+      "operation_called": false,
+      "state": "native_contract_not_confirmed",
+      "pending": "Card does not yet have a confirmed bounded native transport in this audit. This is an explicit remaining discovery/implementation gap, not a model failure."
+    }
+  ]
+}

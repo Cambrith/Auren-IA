@@ -648,6 +648,14 @@ def probe(client,row,sample,cfg,asset,run):
     result['seconds']=round(time.monotonic()-start,3)
     return result
 
+def execution_groups(groups, overrides=None):
+    """Disjoint work queues; optional concurrency is bounded to two per provider."""
+    jobs=[]
+    for provider,rows in groups.items():
+        count=min(2,max(1,int((overrides or {}).get(provider,1))),len(rows))
+        for index in range(count):jobs.append((provider,rows[index::count]))
+    return jobs
+
 def execute(run,args):
     import threading,concurrent.futures,fcntl,signal
     # One writer/process for the whole run; avoid duplicated remote calls.
@@ -745,8 +753,9 @@ def execute(run,args):
                     time.sleep(min(max(pause,minimum),max(0,deadline-time.monotonic())))
                 with mutex:
                     if all(any(s.get('sample')==n for s in rec['samples']) for n in range(row['required_samples'])):rec['terminal']=True;save()
-    with concurrent.futures.ThreadPoolExecutor(max_workers=len(groups) or 1) as pool:
-        futures=[pool.submit(worker,p,rows) for p,rows in groups.items()]
+    jobs=execution_groups(groups,getattr(args,'provider_workers',None))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(jobs) or 1) as pool:
+        futures=[pool.submit(worker,p,rows) for p,rows in jobs]
         for f in concurrent.futures.as_completed(futures):
             try:f.result()
             except Exception as error:

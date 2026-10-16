@@ -1,0 +1,9 @@
+{
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/meta/llama-3.3-70b-instruct-fp8-fast::batch",
+  "previous_job_http_status": 410,
+  "new_submission_reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+  "remote_id": "f1dbf7ad-a323-42b1-a346-e81f8cd06ccb",
+  "at": "2026-10-15T08:33:47.140702-03:00",
+  "result": "accepted_pending_completion"
+}

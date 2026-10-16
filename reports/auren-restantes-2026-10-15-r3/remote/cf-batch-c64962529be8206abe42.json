@@ -1,0 +1,9 @@
+{
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/baai/bge-small-en-v1.5::batch",
+  "previous_job_http_status": 410,
+  "new_submission_reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+  "remote_id": "7331f9b8-bd08-4441-90f2-8cf3fc987ea5",
+  "at": "2026-10-15T08:33:58.127306-03:00",
+  "result": "accepted_pending_completion"
+}

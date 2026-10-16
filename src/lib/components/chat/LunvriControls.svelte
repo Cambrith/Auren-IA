@@ -4,7 +4,7 @@
 	import { canSelectImageWithoutPayment, compareProviders, matchesModelSearch } from '$lib/utils/imageSelection';
 	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
 	import Search from '$lib/components/icons/Search.svelte';
-	import { aurenRequest, type AurenState } from '$lib/apis/auren';
+	import { aurenRequest, type AurenState, type AurenModel } from '$lib/apis/auren';
 	let preferredImage = '';
 	import { taskProfiles, modelCardWidth } from '$lib/utils/aurenProfiles';
 	import { changeTask, changeAurenTask, activeTask, type AurenOptions } from '$lib/utils/aurenTask';
@@ -39,6 +39,9 @@
 
 	const providerNames: Record<string, string> = {
 		openai: 'OpenAI',
+		deepseek: 'DeepSeek',
+		huggingface: 'Hugging Face',
+		xai: 'xAI',
 		anthropic: 'Anthropic',
 		gemini: 'Google Gemini',
 		groq: 'Groq',
@@ -101,7 +104,9 @@
 				(!['code', 'documents', 'research', 'transcribe', 'speech'].includes(activeTask(options)) ||
 					task.model_ids?.includes(model.id)) &&
 				(kindFilter === 'all'
-					? (model as any).cavren?.validation?.free_verified &&
+					? ((model as any).cavren?.validation?.free_verified ||
+						(model as AurenModel).cavren?.price_kind === 'paid' ||
+						(model as AurenModel).cavren?.provider === 'huggingface') &&
 						(!(model as any).cavren?.image_only || canSelectImageWithoutPayment(model))
 					: kindFilter === 'chat'
 						? activeTask(options) === 'speech'
@@ -395,7 +400,7 @@
 						class:chosen={item.id === selectedModels[0]}
 						role="menuitemradio"
 						aria-checked={item.id === selectedModels[0]}
-						disabled={(item as any).cavren?.available === false}
+						disabled={(item as AurenModel).cavren?.available === false}
 						data-choice
 						on:click={() => chooseModel(item)}
 					>
@@ -412,7 +417,7 @@
 											: (item as any).cavren?.validation?.status === 'working'
 												? 'Validação incompleta'
 												: 'Gratuidade não testada'
-									: 'Custo a confirmar'}{(item as any).cavren?.capabilities?.vision
+									: (item as AurenModel).cavren?.available === false ? 'Reservado · chave e saldo necessários' : (item as AurenModel).cavren?.price_kind === 'paid' ? 'Pago · exige saldo e confirmação' : 'Custo a confirmar'}{(item as any).cavren?.capabilities?.vision
 									? ' · Visão'
 									: ''}{(item as any).cavren?.capabilities?.image_generation
 									? ' · Gera imagens'

@@ -1,0 +1,9 @@
+{
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/google/gemma-4-26b-a4b-it::batch",
+  "previous_job_http_status": 410,
+  "new_submission_reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+  "remote_id": "51f4ea17-3eaf-4e12-b7b2-6cfa1300e618",
+  "at": "2026-10-15T08:34:20.414195-03:00",
+  "result": "accepted_pending_completion"
+}

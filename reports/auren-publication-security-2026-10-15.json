@@ -1,0 +1,13 @@
+{
+  "files_scanned": 1169,
+  "current_secret_matches": [],
+  "pattern_candidates": [],
+  "runtime_and_private_inventory_excluded": true,
+  "minimal_inference_authorized": true,
+  "real_inference_providers": [
+    "nvidia",
+    "ollama"
+  ],
+  "billing_enabled": false,
+  "google_drive_upload": false
+}

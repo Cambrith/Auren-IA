@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-14T07:36:48.817086-03:00",
+  "provider": "cloudflare",
+  "model": "@cf/qwen/qwen3.8-27b",
+  "existing_remote_id": "7364f6cd-533f-41fe-83d6-184a9475f053",
+  "http_status": 200,
+  "result_keys": [
+    "results",
+    "usage"
+  ],
+  "results_structure": "list",
+  "real_generation_call": false,
+  "operation": "poll_existing_job",
+  "first_result_keys": [
+    "index",
+    "external_reference",
+    "result",
+    "success"
+  ],
+  "synthetic_response_content": "\n\nAZUL|VERDE",
+  "finish_reasons": [
+    "stop"
+  ],
+  "private_reasoning_omitted": true
+}

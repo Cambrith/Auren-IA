@@ -279,3 +279,25 @@ A lista de modelos usa logotipos locais por família, com a marca do provedor co
 O erro de salvar o perfil era validação da foto local mascarada pelo tratamento de autenticação. Datas usam DD/MM/AAAA na interface e ISO no banco. Perfil e preferências de imagem foram conferidos após reiniciar o serviço. Configurações administrativas persistem; endereço/token temporários da ponte permanecem específicos de cada execução.
 
 Geração real gratuita pelo AI Horde foi conferida pela API e pela interface; uma imagem 512×512 foi recebida, exibida e validada. O download dos bytes da imagem foi verificado no Qt WebEngine. Catálogo acessível não implica saldo/cota/permissão de geração. O relatório de verificação detalha a cobertura e as limitações em `AUREN-REFINEMENT.md`.
+
+
+## Conexões de provedores — 15/10/2026
+
+A lista contém 30 conexões, com credenciais no cofre Auren/KWallet, três colunas
+em telas largas e reordenação persistente por arraste ou teclado. Canva Connect
+é uma integração OAuth 2.0 com PKCE; seu callback local padrão é
+`http://127.0.0.1:8176/oauth/canva/callback`.
+
+O estado verificado mais recente é **27 conexões com autenticação comprovada e
+3 reservadas para ativação futura** (Anthropic, Fireworks e xAI). NVIDIA e Ollama
+também passaram em uma inferência mínima autorizada. Isso não garante saldo,
+acesso a todos os modelos ou suporte a todas as tarefas.
+
+Consulte o [registro atualizado de validação](reports/AUREN-PROVEDORES-STATUS-2026-10-15.md).
+O botão de validação usa consultas sem inferência por padrão. NVIDIA e Ollama
+têm catálogos públicos: uma consulta de catálogo isolada pode voltar a registrar
+pendência, pois ela não substitui a comprovação de inferência. O teste mínimo
+explícito fica separado por `allow_inference=True`; não é executado por padrão.
+
+Segredos, banco, preferências e resultados locais em `.cavren/` ficam fora do
+Git. Nunca versione o documento privado de credenciais nem o conteúdo do cofre.

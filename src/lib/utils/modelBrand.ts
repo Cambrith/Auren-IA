@@ -43,7 +43,6 @@ export const colorModelBrands = new Set([
 	'kimi',
 	'huggingface',
 	'google',
-	'xai',
 	'arcee',
 	'minimax',
 	'perplexity',

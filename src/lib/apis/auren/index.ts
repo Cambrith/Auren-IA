@@ -20,6 +20,7 @@ export type AurenPreferences = {
 	image_width: number;
 	image_height: number;
 	image_steps: number;
+	connection_order?: string[];
 };
 export type AurenTask = {
 	id: string;
@@ -32,7 +33,18 @@ export type AurenTask = {
 };
 export type AurenState = {
 	tasks?: AurenTask[];
-	connections: { id: string; name: string; state: string; count: number; image_count: number }[];
+	connections: {
+		id: string;
+		name: string;
+		state: string;
+		count: number;
+		image_count: number;
+		billing_required?: boolean;
+		auth_kind?: string;
+		service_type?: string;
+		fields?: { id: string; label: string; required: boolean }[];
+		check?: { status: string; reason: string; message: string; checked_at: string };
+	}[];
 	models: AurenModel[];
 	preferences: AurenPreferences;
 	version: string;

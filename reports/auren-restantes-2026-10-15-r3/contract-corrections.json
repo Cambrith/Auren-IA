@@ -1,0 +1,74 @@
+[
+  {
+    "key": "cloudflare:@cf/llava-hf/llava-1.5-7b-hf::vision",
+    "at": "2026-10-15T08:33:18.675580-03:00",
+    "reason": "Native schema requires image byte array and prompt, with description response.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/myshell-ai/melotts::speech",
+    "at": "2026-10-15T08:33:18.675596-03:00",
+    "reason": "Native schema requires prompt and returns MP3, not WAV.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/openai/gpt-oss-120b::batch",
+    "at": "2026-10-15T08:33:18.678032-03:00",
+    "reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/meta/llama-3.3-70b-instruct-fp8-fast::batch",
+    "at": "2026-10-15T08:33:18.680263-03:00",
+    "reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/baai/bge-small-en-v1.5::batch",
+    "at": "2026-10-15T08:33:18.682643-03:00",
+    "reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/qwen/qwen3-30b-a3b-fp8::batch",
+    "at": "2026-10-15T08:33:18.684761-03:00",
+    "reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/google/gemma-4-26b-a4b-it::batch",
+    "at": "2026-10-15T08:33:18.686916-03:00",
+    "reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/qwen/qwen3.8-27b::batch",
+    "at": "2026-10-15T08:33:18.688796-03:00",
+    "reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/meta/llama-4-scout-17b-16e-instruct::batch",
+    "at": "2026-10-15T08:33:18.690737-03:00",
+    "reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/deepseek-ai/deepseek-r1-distill-qwen-32b::json",
+    "at": "2026-10-15T08:33:18.690756-03:00",
+    "reason": "Parser must handle a native structured JSON object without str.strip.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "key": "cloudflare:@cf/qwen/qwen2.5-coder-32b-instruct::json",
+    "at": "2026-10-15T08:33:18.690761-03:00",
+    "reason": "Parser must handle a native structured JSON object without str.strip.",
+    "max_new_sample_slots": 1
+  },
+  {
+    "at": "2026-10-15T08:45:09.187950-03:00",
+    "key": "nvidia:google/paligemma::vision",
+    "reason": "Authoritative native HTTP 422 reports UserImageContent.image_url must be string. Fix only the image transport and retry once.",
+    "max_new_sample_slots": 1
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/qwen/qwen3.8-27b::batch",
+  "previous_job_http_status": 410,
+  "new_submission_reason": "Previous queue job is verifiably expired (HTTP 410); submit one new bounded item, retaining old ID and poll evidence.",
+  "remote_id": "eba729e7-7ae9-4e87-994b-52a7043e0da2",
+  "at": "2026-10-15T08:34:30.031536-03:00",
+  "result": "accepted_pending_completion"
+}

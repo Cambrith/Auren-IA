@@ -1,0 +1,1321 @@
+{
+  "sources": [
+    {
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "http_status": 200
+    },
+    {
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "http_status": 200
+    },
+    {
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "http_status": 200
+    },
+    {
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "http_status": 200
+    },
+    {
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "http_status": 200
+    },
+    {
+      "source": "https://docs.api.nvidia.com/nim/reference/route-optimization-apis",
+      "http_status": 200
+    },
+    {
+      "source": "https://docs.api.nvidia.com/nim/reference/climate-simulation-apis",
+      "http_status": 200
+    }
+  ],
+  "candidates": [
+    {
+      "provider": "nvidia",
+      "candidate_model": "deepseek-ai/deepseek-v4-flash",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/deepseek-ai-deepseek-v4-flash-infer",
+      "label": "deepseek-ai / deepseek-v4-flash",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "deepseek-ai/deepseek-v4-flash-0731",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/deepseek-ai-deepseek-v4-flash-0731-infer",
+      "label": "deepseek-ai / deepseek-v4-flash-0731",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "deepseek-ai/deepseek-v4-pro",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/deepseek-ai-deepseek-v4-pro-infer",
+      "label": "deepseek-ai / deepseek-v4-pro",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "google/codegemma-7b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/google-codegemma-7b-infer",
+      "label": "google / codegemma-7b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "google/gemma-7b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/google-gemma-7b-infer",
+      "label": "google / gemma-7b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama2-70b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama2-70b-infer",
+      "label": "meta / llama2-70b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.1-8b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_1-8b-infer",
+      "label": "meta / llama-3.1-8b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.1-70b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_1-70b-infer",
+      "label": "meta / llama-3.1-70b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.2-1b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-1b-instruct-infer",
+      "label": "meta / llama-3.2-1b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.2-3b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-3b-instruct-infer",
+      "label": "meta / llama-3.2-3b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.3-70b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_3-70b-instruct-infer",
+      "label": "meta / llama-3.3-70b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "microsoft/phi-4-mini-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/microsoft-phi-4-mini-instruct-infer",
+      "label": "microsoft / phi-4-mini-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "microsoft/phi-4-mini-flash-reasoning",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/microsoft-phi-4-mini-flash-reasoning-infer",
+      "label": "microsoft / phi-4-mini-flash-reasoning",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "minimaxai/minimax-m2.5",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/nim/reference/minimaxai-minimax-m2.5-infer",
+      "label": "minimaxai / minimax-m2.5",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "minimaxai/minimax-m2.7",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/nim/reference/minimaxai-minimax-m2.7-infer",
+      "label": "minimaxai / minimax-m2.7",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "mistralai/mistral-nemotron",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/mistralai-mistral-nemotron-infer",
+      "label": "mistralai / mistral-nemotron",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "mistralai/mixtral-8x7b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/mistralai-mixtral-8x7b-instruct-infer",
+      "label": "mistralai / mixtral-8x7b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "mistralai/mixtral-8x22b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/mistralai-mixtral-8x22b-instruct-infer",
+      "label": "mistralai / mixtral-8x22b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "moonshotai/kimi-k2-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-instruct-infer",
+      "label": "moonshotai / kimi-k2-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "moonshotai/kimi-k2-thinking",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-thinking-infer",
+      "label": "moonshotai / kimi-k2-thinking",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "moonshotai/kimi-k3",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k3-infer",
+      "label": "moonshotai / kimi-k3",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/gliner-pii",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-gliner-pii-infer",
+      "label": "nvidia / gliner-pii",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.1-nemoguard-8b-content-safety",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_1-nemoguard-8b-content-safety-infer",
+      "label": "nvidia / llama-3.1-nemoguard-8b-content-safety",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.1-nemoguard-8b-topic-control",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_1-nemoguard-8b-topic-control-infer",
+      "label": "nvidia / llama-3.1-nemoguard-8b-topic-control",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.1-nemotron-safety-guard-8b-v3",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_1-nemotron-safety-guard-8b-v3-infer",
+      "label": "nvidia / llama-3.1-nemotron-safety-guard-8b-v3",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.3-nemotron-super-49b-v1",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_3-nemotron-super-49b-v1-infer",
+      "label": "nvidia / llama-3.3-nemotron-super-49b-v1",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_3-nemotron-super-49b-v1_5-infer",
+      "label": "nvidia / llama-3.3-nemotron-super-49b-v1.5",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_1-nemotron-ultra-253b-v1-infer",
+      "label": "nvidia / llama-3.1-nemotron-ultra-253b-v1",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-ultra-550b-a55b-infer",
+      "label": "nvidia / nemotron-3-ultra-550b-a55b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-5-lightning-30b-a3b-infer",
+      "label": "nvidia / nemotron-3.5-lightning-30b-a3b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemoguard-jailbreak-detect",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemoguard-jailbreak-detect-infer",
+      "label": "nvidia / nemoguard-jailbreak-detect",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3-nano-30b-a3b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-nano-30b-a3b-infer",
+      "label": "nvidia / nemotron-3-nano-30b-a3b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3-super-120b-a12b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-super-120b-a12b-infer",
+      "label": "nvidia / nemotron-3-super-120b-a12b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-content-safety-reasoning-4b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-content-safety-reasoning-4b-infer",
+      "label": "nvidia / nemotron-content-safety-reasoning-4b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nvidia-nemotron-nano-9b-v2",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nvidia-nemotron-nano-9b-v2-infer",
+      "label": "nvidia / nvidia-nemotron-nano-9b-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/riva-translate-4b-instruct-v2",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-riva-translate-4b-instruct-v2-infer",
+      "label": "nvidia / riva-translate-4b-instruct-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/usdcode",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-usdcode-infer",
+      "label": "nvidia / usdcode",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "openai/gpt-oss-20b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/openai-gpt-oss-20b-infer",
+      "label": "openai / gpt-oss-20b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "openai/gpt-oss-120b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/openai-gpt-oss-120b-infer",
+      "label": "openai / gpt-oss-120b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "poolside/laguna-xs-2-1",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/poolside-laguna-xs-2-1-infer",
+      "label": "poolside / laguna-xs-2-1",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "qwen/qwen2.5-coder-32b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/qwen-qwen2_5-coder-32b-instruct-infer",
+      "label": "qwen / qwen2.5-coder-32b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "qwen/qwen3-next-80b-a3b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/qwen-qwen3-next-80b-a3b-instruct-infer",
+      "label": "qwen / qwen3-next-80b-a3b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "qwen/qwen3-next-80b-a3b-thinking",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/qwen-qwen3-next-80b-a3b-thinking-infer",
+      "label": "qwen / qwen3-next-80b-a3b-thinking",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "qwen/qwq-32b",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/qwen-qwq-32b-infer",
+      "label": "qwen / qwq-32b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "sarvamai/sarvam-m",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/sarvamai-sarvam-m-infer",
+      "label": "sarvamai / sarvam-m",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "stepfun-ai/step-3.5-flash",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/stepfun-ai-step-3-5-flash-infer",
+      "label": "stepfun-ai / step-3.5-flash",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "stockmark/stockmark-2-100b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/stockmark-stockmark-2-100b-instruct-infer",
+      "label": "stockmark / stockmark-2-100b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "thinking-machines/inkling",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/thinkingmachines-inkling-infer",
+      "label": "thinking machines / inkling",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "upstage/solar-10.7b-instruct",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/upstage-solar-10_7b-instruct-infer",
+      "label": "upstage / solar-10.7b-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "z-ai/glm4.7",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/z-ai-glm4-7-infer",
+      "label": "z-ai / glm4.7",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "z-ai/glm5.1",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/nim/reference/z-ai-glm5.1-infer",
+      "label": "z-ai / glm5.1",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "z-ai/glm-5.2",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/nim/reference/ref:z-ai-glm-5.2-infer",
+      "label": "z-ai / glm-5.2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "z-ai/glm-5.3",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/z-ai-glm-5-3-infer",
+      "label": "z-ai / glm-5.3",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "z-ai/glm-5.3-flash",
+      "operation": "text",
+      "source": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/z-ai-glm-5-3-flash-infer",
+      "label": "z-ai / glm-5.3-flash",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "baai/bge-m3",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/baai-bge-m3-invoke",
+      "label": "baai / bge-m3",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "baai/bge-m3",
+      "operation": "async_result",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/baai-bge-m3-statuspolling",
+      "label": "baai / bge-m3",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/embed-qa-4",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-embedding-2b-infer",
+      "label": "nvidia / embed-qa-4",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nemoretriever-1b-vlm-embed-v1-infer",
+      "label": "nvidia / llama-3.2-nemoretriever-1b-vlm-embed-v1",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.2-nemoretriever-300m-embed-v2",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nemoretriever-300m-embed-v2-infer",
+      "label": "nvidia / llama-3.2-nemoretriever-300m-embed-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.2-nemoretriever-500m-rerank-v2",
+      "operation": "rerank",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nemoretriever-500m-rerank-v2-infer",
+      "label": "nvidia / llama-3.2-nemoretriever-500m-rerank-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.2-nv-embedqa-1b-v2",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nv-embedqa-1b-v2-infer",
+      "label": "nvidia / llama-3.2-nv-embedqa-1b-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.2-nv-rerankqa-1b-v1",
+      "operation": "rerank",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nv-rerankqa-1b-v1-infer",
+      "label": "nvidia / llama-3.2-nv-rerankqa-1b-v1",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-3.2-nv-rerankqa-1b-v2",
+      "operation": "rerank",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-3_2-nv-rerankqa-1b-v2-infer",
+      "label": "nvidia / llama-3.2-nv-rerankqa-1b-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-nemotron-embed-1b-v2",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-nemotron-embed-1b-v2-infer",
+      "label": "nvidia / llama-nemotron-embed-1b-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-nemotron-embed-vl-1b-v2",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-nemotron-embed-vl-1b-v2-infer",
+      "label": "nvidia / llama-nemotron-embed-vl-1b-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-nemotron-rerank-1b-v2",
+      "operation": "rerank",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-nemotron-rerank-1b-v2-infer",
+      "label": "nvidia / llama-nemotron-rerank-1b-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/llama-nemotron-rerank-vl-1b-v2",
+      "operation": "rerank",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-llama-nemotron-rerank-vl-1b-v2-infer",
+      "label": "nvidia / llama-nemotron-rerank-vl-1b-v2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3-embed-1b",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-embed-1b-infer",
+      "label": "nvidia / nemotron-3-embed-1b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nvclip",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nvclip-infer",
+      "label": "nvidia / nvclip",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nv-embedqa-e5-v5",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nv-embedqa-e5-v5-infer",
+      "label": "nvidia / nv-embedqa-e5-v5",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nv-rerankqa-mistral-4b-v3",
+      "operation": "rerank",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nv-rerankqa-mistral-4b-v3-infer",
+      "label": "nvidia / nv-rerankqa-mistral-4b-v3",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "snowflake/arctic-embed-l",
+      "operation": "embeddings",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/snowflake-arctic-embed-l-invoke",
+      "label": "snowflake / arctic-embed-l",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "snowflake/arctic-embed-l",
+      "operation": "async_result",
+      "source": "https://docs.api.nvidia.com/nim/reference/retrieval-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/snowflake-arctic-embed-l-statuspolling",
+      "label": "snowflake / arctic-embed-l",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "black-forest-labs/flux.1-dev",
+      "operation": "image",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/black-forest-labs-flux_1-dev-infer",
+      "label": "black forest labs / flux.1-dev",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "black-forest-labs/flux.1-schnell",
+      "operation": "image",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/black-forest-labs-flux_1-schnell-infer",
+      "label": "black forest labs / flux.1-schnell",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "black-forest-labs/flux.2-klein-4b",
+      "operation": "image",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/black-forest-labs-flux_2-klein-4b-infer",
+      "label": "black forest labs / flux.2-klein-4b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "google/diffusiongemma-26b-a4b-it",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/diffusiongemma-26b-a4b-it-infer",
+      "label": "google / diffusiongemma-26b-a4b-it",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "google/gemma-3-27b-it",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/google-gemma-3-27b-it-infer",
+      "label": "google / gemma-3-27b-it",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "google/gemma-3n-e4b-it",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/google-gemma-3n-e4b-it-infer",
+      "label": "google / gemma-3n-e4b-it",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "google/gemma-4-31b-it",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/google-gemma-4-31b-it-infer",
+      "label": "google / gemma-4-31b-it",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "hive/ai-generated-image-detection",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/hive-ai-generated-image-detection-infer",
+      "label": "hive / ai-generated-image-detection",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "hive/deepfake-image-detection",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/hive-deepfake-image-detection-infer",
+      "label": "hive / deepfake-image-detection",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-guard-4-12b",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-guard-4-12b-infer",
+      "label": "meta / llama-guard-4-12b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "microsoft/phi-4-multimodal-instruct",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/microsoft-phi-4-multimodal-instruct-infer",
+      "label": "microsoft / phi-4-multimodal-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "microsoft/trellis",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/microsoft-trellis-infer",
+      "label": "microsoft / trellis",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "minimaxai/minimax-m3",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/minimaxai-minimax-m3-infer",
+      "label": "minimaxai / minimax-m3",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "mistralai/mistral-large-3-675b-instruct-2512",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/mistralai-mistral-large-3-675b-instruct-2512-infer",
+      "label": "mistralai / mistral-large-3-675b-instruct-2512",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "mistralai/ministral-14b-instruct-2512",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/mistralai-ministral-14b-instruct-2512-infer",
+      "label": "mistralai / ministral-14b-instruct-2512",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "mistralai/mistral-medium-3.5-128b",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/mistralai-mistral-medium-3-5-128b-infer",
+      "label": "mistralai / mistral-medium-3.5-128b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "mistralai/mistral-small-4-119b-2603",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/mistralai-mistral-small-4-119b-2603-infer",
+      "label": "mistralai / mistral-small-4-119b-2603",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "moonshotai/kimi-k2.6",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-6-infer",
+      "label": "moonshot ai / kimi-k2.6",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/bevformer",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-bevformer-infer",
+      "label": "nvidia / bevformer",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/cosmos-predict1-7b",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": null,
+      "label": "nvidia / cosmos-predict1-7b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/ising-calibration-1.5-31b",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-ising-calibration-1-5-31b-infer",
+      "label": "nvidia / ising-calibration-1.5-31b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemoretriever-parse",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemoretriever-parse-infer",
+      "label": "nvidia / nemoretriever-parse",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning",
+      "label": "nvidia / nemotron-3-nano-omni-30b-a3b-reasoning",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-nano-12b-v2-vl",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-nano-12b-v2-vl-infer",
+      "label": "nvidia / nemotron-nano-12b-v2-vl",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-parse",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-parse-infer",
+      "label": "nvidia / nemotron-parse",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-parse-2.0",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-parse-2_0-infer",
+      "label": "nvidia / nemotron-parse-2.0",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nv-dinov2",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nv-dinov2-infer",
+      "label": "nvidia / nv-dinov2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nv-grounding-dino",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nv-grounding-dino-infer",
+      "label": "nvidia / nv-grounding-dino",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/retail-object-detection",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-retail-object-detection-infer",
+      "label": "nvidia / retail-object-detection",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/sparsedrive",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-sparsedrive-infer",
+      "label": "nvidia / sparsedrive",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/streampetr",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-streampetr-infer",
+      "label": "nvidia / streampetr",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/vila",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-vila-infer",
+      "label": "nvidia / vila",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/visual-changenet",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-visual-changenet-infer",
+      "label": "nvidia / visual-changenet",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "stabilityai/stable-diffusion-3-medium",
+      "operation": "image",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/stabilityai-stable-diffusion-3-medium-infer",
+      "label": "stabilityai / stable-diffusion-3-medium",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "stabilityai/stable-diffusion-xl",
+      "operation": "image",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/stabilityai-stable-diffusion-xl-infer",
+      "label": "stabilityai / stable-diffusion-xl",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "stabilityai/stable-video-diffusion",
+      "operation": "video",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/stabilityai-stable-video-diffusion-infer",
+      "label": "stabilityai / stable-video-diffusion",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "stepfun-ai/step-3.7-flash",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/visual-models-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/stepfun-ai-step-3-7-flash-infer",
+      "label": "stepfun-ai / step-3.7-flash",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "black-forest-labs/flux.1-kontext-dev",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/black-forest-labs-flux_1-kontext-dev-infer",
+      "label": "black-forest-labs / flux.1-kontext-dev",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "google/paligemma",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/google-paligemma-infer",
+      "label": "google / paligemma",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "google/paligemma",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/google-paligemma-statuspolling",
+      "label": "google / paligemma",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.2-11b-vision-instruct",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-11b-vision-instruct-infer",
+      "label": "meta / llama-3.2-11b-vision-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.2-11b-vision-instruct",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-11b-vision-instruct-statuspolling",
+      "label": "meta / llama-3.2-11b-vision-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.2-90b-vision-instruct",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-90b-vision-instruct-infer",
+      "label": "meta / llama-3.2-90b-vision-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/llama-3.2-90b-vision-instruct",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-llama-3_2-90b-vision-instruct-statuspolling",
+      "label": "meta / llama-3.2-90b-vision-instruct",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "meta/muse-glimmer-30b",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/meta-muse-glimmer-30b-infer",
+      "label": "meta / muse-glimmer-30b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "moonshotai/kimi-k2.5",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-5-infer",
+      "label": "moonshotai / kimi-k2.5",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "moonshotai/kimi-k2.5",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/moonshotai-kimi-k2-5-statuspolling",
+      "label": "moonshotai / kimi-k2.5",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/deepseek-v4.1-flash",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-deepseek-v4_1-flash-infer",
+      "label": "nvidia / deepseek-v4.1-flash",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/kumo-relational",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-kumo-relational-statuspolling",
+      "label": "nvidia / kumo-relational",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/kumo-tabular",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-kumo-tabular-statuspolling",
+      "label": "nvidia / kumo-tabular",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3-content-safety",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-content-safety-infer",
+      "label": "nvidia / nemotron-3-content-safety",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3-content-safety",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-content-safety-statuspolling",
+      "label": "nvidia / nemotron-3-content-safety",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/nemotron-3.5-content-safety",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-nemotron-3-5-content-safety-infer",
+      "label": "nvidia / nemotron-3.5-content-safety",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "qwen/qwen3.5-122b-a10b",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/multimodal-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/qwen-qwen3-5-122b-a10b-infer",
+      "label": "qwen / qwen3.5-122b-a10b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "arc/evo2-40b",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/arc-evo2-40b-infer",
+      "label": "arc / evo2-40b",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "arc/evo2-7b-forward",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/arc-evo2-7b-infer",
+      "label": "arc / evo2-7b-forward",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "colabfold/msa-search",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/colabfold-msa-search-infer",
+      "label": "colabfold / msa-search",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "deepmind/alphafold2",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/deepmind-alphafold2-infer",
+      "label": "deepmind / alphafold2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "deepmind/alphafold2-multimer",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/deepmind-alphafold2-multimer-infer",
+      "label": "deepmind / alphafold2-multimer",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "ipd/proteinmpnn",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/ipd-proteinmpnn-infer",
+      "label": "ipd / proteinmpnn",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "ipd/rfdiffusion",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/ipd-rfdiffusion-infer",
+      "label": "ipd / rfdiffusion",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/genmol",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-genmol-infer",
+      "label": "nvidia / genmol",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/molmim",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-molmim-infer",
+      "label": "nvidia / molmim",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/vista3d",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-vista3d-infer",
+      "label": "nvidia / vista3d",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "openfold/openfold2",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/openfold-openfold2-infer",
+      "label": "openfold / openfold2",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "openfold/openfold3",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/healthcare-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/openfold-openfold3-infer",
+      "label": "openfold / openfold3",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/cuOpt",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/route-optimization-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-cuopt-infer",
+      "label": "nvidia / cuOpt",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/cuOpt",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/route-optimization-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-cuopt-statuspolling",
+      "label": "nvidia / cuOpt",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/corrdiff",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/climate-simulation-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-corrdiff-infer",
+      "label": "nvidia / corrdiff",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    },
+    {
+      "provider": "nvidia",
+      "candidate_model": "nvidia/fourcastnet",
+      "operation": "contract_review",
+      "source": "https://docs.api.nvidia.com/nim/reference/climate-simulation-apis",
+      "contract_source": "https://docs.api.nvidia.com/reference-link/nvidia-fourcastnet-infer",
+      "label": "nvidia / fourcastnet",
+      "request_id_status": "Documentation candidate; exact wire ID requires model endpoint verification if absent in catalog."
+    }
+  ]
+}

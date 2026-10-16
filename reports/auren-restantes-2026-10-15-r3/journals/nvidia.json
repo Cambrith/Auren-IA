@@ -1,0 +1,1204 @@
+{
+  "started_at": "2026-10-15T08:22:28.416731-03:00",
+  "records": {
+    "nvidia:deepseek-ai/deepseek-v4.1-flash::text": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "prior_interrupted_request_unknown",
+      "pending": "Previous request outcome/cost unknown; no automatic duplicate submission.",
+      "terminal": true
+    },
+    "nvidia:nvidia/ai-synthetic-video-detector::video_detection": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-4-340b-reward::reward": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "official_endpoint_deprecated",
+      "pending": "Official cloud endpoint is deprecated; a reachable compatible endpoint must be provided before native reward validation.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nvclip::image_embeddings": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "deprecated_downloadable_nim_no_configured_endpoint",
+      "pending": "A compatible self-hosted NIM endpoint is not configured; no deployment or installation authorized by these probes.",
+      "terminal": true
+    },
+    "nvidia:nvidia/riva-translate-4b-instruct-v2::code": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_translation_model_requires_language_pair",
+      "pending": "Awaiting real attempt",
+      "terminal": true
+    },
+    "nvidia:nvidia/riva-translate-4b-instruct-v2::documents": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_translation_model_requires_language_pair",
+      "pending": "Awaiting real attempt",
+      "terminal": true
+    },
+    "nvidia:nvidia/riva-translate-4b-instruct-v2::text": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_translation_model_requires_language_pair",
+      "pending": "Awaiting real attempt",
+      "terminal": true
+    },
+    "nvidia:baai/bge-m3::async_result": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nvclip::embeddings": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "deprecated_downloadable_nim_no_configured_endpoint",
+      "pending": "A compatible self-hosted NIM endpoint is not configured; no deployment or installation authorized by these probes.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nv-rerankqa-mistral-4b-v3::rerank": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "official_endpoint_deprecated",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:snowflake/arctic-embed-l::async_result": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:google/diffusiongemma-26b-a4b-it::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:google/gemma-3-27b-it::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:google/gemma-3n-e4b-it::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:google/gemma-4-31b-it::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:hive/ai-generated-image-detection::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Concrete native modality enabled; categorical placeholder preserved only for reconciliation.",
+      "terminal": true
+    },
+    "nvidia:hive/deepfake-image-detection::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Concrete native modality enabled; categorical placeholder preserved only for reconciliation.",
+      "terminal": true
+    },
+    "nvidia:meta/llama-guard-4-12b::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:microsoft/phi-4-multimodal-instruct::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:microsoft/trellis::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:minimaxai/minimax-m3::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:mistralai/mistral-large-3-675b-instruct-2512::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:mistralai/ministral-14b-instruct-2512::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:mistralai/mistral-medium-3.5-128b::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:mistralai/mistral-small-4-119b-2603::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:moonshotai/kimi-k2.6::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/bevformer::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/cosmos-predict1-7b::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/ising-calibration-1.5-31b::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemoretriever-parse::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-3-nano-omni-30b-a3b-reasoning::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-nano-12b-v2-vl::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-parse::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-parse-2.0::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nv-dinov2::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Concrete native modality enabled; categorical placeholder preserved only for reconciliation.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nv-grounding-dino::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/retail-object-detection::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/sparsedrive::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/streampetr::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/vila::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Concrete native modality enabled; categorical placeholder preserved only for reconciliation.",
+      "terminal": true
+    },
+    "nvidia:nvidia/visual-changenet::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:stepfun-ai/step-3.7-flash::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:black-forest-labs/flux.1-kontext-dev::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:google/paligemma::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Concrete native modality enabled; categorical placeholder preserved only for reconciliation.",
+      "terminal": true
+    },
+    "nvidia:meta/llama-3.2-11b-vision-instruct::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:meta/llama-3.2-90b-vision-instruct::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:meta/muse-glimmer-30b::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:moonshotai/kimi-k2.5::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/deepseek-v4.1-flash::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/kumo-relational::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/kumo-tabular::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-3-content-safety::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-3.5-content-safety::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "documentation_wire_id_conflict",
+      "pending": "Exact model page links a schema whose default model is nvidia/nemotron-3-nano-omni-30b-a3b-reasoning; no silent substitution. Verify publisher wire ID before inference.",
+      "terminal": true
+    },
+    "nvidia:qwen/qwen3.5-122b-a10b::specialized_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "inventory_correction_documentation_category_not_operation",
+      "pending": "Documentation category resolves to concrete native operations listed in native_operation_keys.",
+      "terminal": true
+    },
+    "nvidia:nvidia/vista3d::scientific_inference": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "contract_review",
+      "pending": "No sufficiently verified per-model native request/response schema yet. Metadata alone is not a transport. Review linked official contract and implement smallest probe.",
+      "terminal": true
+    },
+    "nvidia:nvidia/nvclip-vit-h-14::image_embeddings": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "deprecated_downloadable_nim_no_configured_endpoint",
+      "pending": "Newly discovered operation; awaiting native real probe.",
+      "terminal": true
+    },
+    "nvidia:deepseek-ai/deepseek-v4.1-flash::code": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:35:23.515405-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "1b74b2794fdcf2df8d4103e2f08903ce332edd4d174ed1f9978df34783397e74",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.281,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:meta/llama-guard-4-12b::code": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "safety_classifier_not_general_completion",
+      "pending": "Official model card defines safety classification, not general text/code/document generation. Canonical moderation_chat operation is tested separately.",
+      "terminal": true
+    },
+    "nvidia:meta/llama-guard-4-12b::documents": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "safety_classifier_not_general_completion",
+      "pending": "Official model card defines safety classification, not general text/code/document generation. Canonical moderation_chat operation is tested separately.",
+      "terminal": true
+    },
+    "nvidia:meta/llama-guard-4-12b::text": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "safety_classifier_not_general_completion",
+      "pending": "Official model card defines safety classification, not general text/code/document generation. Canonical moderation_chat operation is tested separately.",
+      "terminal": true
+    },
+    "nvidia:nvidia/llama-3.1-nemoguard-8b-content-safety::code": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "safety_classifier_not_general_completion",
+      "pending": "Official model card defines safety classification, not general text/code/document generation. Canonical moderation_chat operation is tested separately.",
+      "terminal": true
+    },
+    "nvidia:nvidia/llama-3.1-nemoguard-8b-content-safety::documents": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "safety_classifier_not_general_completion",
+      "pending": "Official model card defines safety classification, not general text/code/document generation. Canonical moderation_chat operation is tested separately.",
+      "terminal": true
+    },
+    "nvidia:nvidia/llama-3.1-nemoguard-8b-content-safety::text": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "safety_classifier_not_general_completion",
+      "pending": "Official model card defines safety classification, not general text/code/document generation. Canonical moderation_chat operation is tested separately.",
+      "terminal": true
+    },
+    "nvidia:deepseek-ai/deepseek-v4.1-flash::documents": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:36:45.793628-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "faa5ca99918e286c2e5b3689f0c51400723a1a0c13f93d74e89ced85ae014acb",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.286,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:meta/muse-glimmer-30b::documents": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:37:19.197773-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "1322dd19de6830c2b6b4be9fc0f43ea1ab4c8c379cc13494cfd4362a82ac6f09",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.277,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-3-super-120b-a12b::documents": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:37:52.593768-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "0ecd392a53145a451e87dd83a5d4e8c6ecacf34d62afdf5e9ff39f99b57a7984",
+          "http_status": 200,
+          "limits": {},
+          "usage": {
+            "prompt_tokens": 85,
+            "completion_tokens": 512,
+            "total_tokens": 597,
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 512,
+              "rejected_prediction_tokens": null
+            }
+          },
+          "reported_cost_usd": null,
+          "resolved_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_error": "",
+          "result": "truncated_inconclusive",
+          "evidence": {
+            "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "text_characters": 0,
+            "finish_reason": "length"
+          },
+          "seconds": 12.271,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b::documents": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:38:07.985805-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "8cfbe7202cde1c878644dc0b188bb7660dc8405b9b36ffe824f2dd0a1f9427f8",
+          "http_status": 200,
+          "limits": {},
+          "usage": {
+            "prompt_tokens": 85,
+            "completion_tokens": 512,
+            "total_tokens": 597,
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 512,
+              "rejected_prediction_tokens": null
+            }
+          },
+          "reported_cost_usd": null,
+          "resolved_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "provider_error": "",
+          "result": "truncated_inconclusive",
+          "evidence": {
+            "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "text_characters": 0,
+            "finish_reason": "length"
+          },
+          "seconds": 5.519,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:nvidia/nemotron-parse-2.0::ocr": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:38:16.623195-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "9e8a00f2144c1168f8e5a6493fc15d587a91763f3217f8986c260842a06cdddc",
+          "http_status": 200,
+          "limits": {},
+          "usage": {
+            "prompt_tokens": 8,
+            "total_tokens": 520,
+            "completion_tokens": 512,
+            "prompt_tokens_details": null
+          },
+          "reported_cost_usd": null,
+          "resolved_model": "nvidia/nemotron-parse-2.0",
+          "provider_error": "",
+          "result": "ocr_check_failed",
+          "synthetic_response_excerpt": "",
+          "finish_reason": "length",
+          "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "seconds": 1.311,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "failed",
+      "terminal": true
+    },
+    "nvidia:poolside/laguna-xs-2.1::code": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:38:21.053185-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "2ec09d0f86f465c8eafb5c013d2587fe0285a847f1bb8f61493eb9488f5a07ff",
+          "http_status": 503,
+          "limits": {},
+          "usage": {},
+          "reported_cost_usd": null,
+          "resolved_model": null,
+          "provider_error": "{\"message\": \"ResourceExhausted: Worker local total request limit reached (35/32)\", \"type\": \"Service Unavailable\", \"code\": 503}",
+          "result": "provider_error",
+          "seconds": 0.138,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "failed",
+      "terminal": true
+    },
+    "nvidia:z-ai/glm-5.3::code": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:38:24.312116-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "e578ff30a56020f695643eadb03b9d4899077ecd082cac0d131a35b743534e23",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.031,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:z-ai/glm-5.3-flash::code": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:38:57.461878-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "7b9c1240f14ced614c5a04b48d2e1bf6b6ccc4330fd670978242e97a5e6cc826",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.271,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:z-ai/glm-5.3-flash::documents": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:39:30.851922-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "45ce2858538fba0552f6918448e83ad67e41e2e11372241725c5f43054a880e7",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.276,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:z-ai/glm-5.3-flash::text": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:40:04.246658-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "6c8e40492ba831f1c16982cabe55bce4963b2a0c85b237ec5bb0b9f6272e607b",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.277,
+          "estimated_request_upper_usd": null
+        },
+        {
+          "at": "2026-10-15T08:40:37.637013-03:00",
+          "sample": 1,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "baf28657fd0b869e9d9530c2a2b9290d6041dd6722f6aa0d1fd663ef636c2b4b",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.328,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:black-forest-labs/flux.1-dev::image": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "native_image_price_bound_unverified",
+      "pending": "Verify per-model image output units and native price before consumption.",
+      "terminal": true
+    },
+    "nvidia:black-forest-labs/flux.1-schnell::image": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "native_image_price_bound_unverified",
+      "pending": "Verify per-model image output units and native price before consumption.",
+      "terminal": true
+    },
+    "nvidia:black-forest-labs/flux.2-klein-4b::image": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "native_image_price_bound_unverified",
+      "pending": "Verify per-model image output units and native price before consumption.",
+      "terminal": true
+    },
+    "nvidia:stabilityai/stable-diffusion-3-medium::image": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "native_image_price_bound_unverified",
+      "pending": "Verify per-model image output units and native price before consumption.",
+      "terminal": true
+    },
+    "nvidia:stabilityai/stable-diffusion-xl::image": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "native_image_price_bound_unverified",
+      "pending": "Verify per-model image output units and native price before consumption.",
+      "terminal": true
+    },
+    "nvidia:stabilityai/stable-video-diffusion::video": {
+      "samples": [],
+      "status": "not_tested",
+      "blocker": "video_price_or_budget",
+      "pending": "Requires verified native price and explicit remaining video allowance.",
+      "terminal": true
+    },
+    "nvidia:nvidia/fourcastnet::scientific_inference": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:41:11.130938-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "states": [
+            {
+              "at": "2026-10-15T08:41:17.001945-03:00",
+              "http_status": 200
+            }
+          ],
+          "parameters": {
+            "input_id": 0,
+            "variables": "w10m",
+            "simulation_length": 1,
+            "ensemble_size": 1,
+            "noise_amplitude": 0
+          },
+          "http_status": 200,
+          "limits": {},
+          "usage": {},
+          "reported_cost_usd": null,
+          "resolved_model": null,
+          "provider_error": "",
+          "response_header_names": [
+            "access-control-expose-headers",
+            "connection",
+            "content-length",
+            "content-type",
+            "date",
+            "nvcf-reqid",
+            "nvcf-status",
+            "server",
+            "vary"
+          ],
+          "response_sha256": "c8e756776af3814e271a65accecc4e28043c4ed92f5bfec5121c89a3aec30ba1",
+          "content_type": "application/json",
+          "response_bytes": 33,
+          "response_encoding_header": "7b226d6573736167",
+          "response_json_keys": [
+            "message"
+          ],
+          "private_output_retained_for_decoder_review": true,
+          "result": "ReadError",
+          "seconds": 5.874,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "failed",
+      "terminal": true
+    },
+    "nvidia:meta/llama-guard-4-12b::moderation_chat": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:41:20.125073-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "5e999015e16baca50a4157a64e01b747595305b34ab085a1e679c42e2a0346c2",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.275,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:google/paligemma::vision": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:41:53.619863-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "263867a2caa31511d2901467a7692e3c02f9f1571296db2e4bc1e817734aba69",
+          "http_status": 422,
+          "limits": {},
+          "usage": {},
+          "reported_cost_usd": null,
+          "resolved_model": null,
+          "provider_error": "\"body -> messages -> 0 -> content -> str\\n  Input should be a valid string (type=string_type)\\nbody -> messages -> 0 -> content -> list[union[UserTextContent,UserImageContent]] -> 1 -> UserTextContent -> type\\n  Input should be 'text' (type=literal_error; expected='text')\\nbody -> messages -> 0 -> content -> list[union[UserTextContent,UserImageContent]] -> 1 -> UserTextContent -> text\\n  Field required (type=missing)\\nbody -> messages -> 0 -> content -> list[union[UserTextContent,UserImageContent]] -> 1 -> UserTextContent -> image_url\\n  Extra inputs are not permitted (type=extra_forbidden)\\nbody -> messages -> 0 -> content -> list[union[UserTextContent,UserImageContent]] -> 1 -> UserImageContent -> image_url\\n  Input should be a valid string (type=string_type)\"",
+          "result": "contract_error",
+          "seconds": 0.525,
+          "estimated_request_upper_usd": null,
+          "contract_valid": false,
+          "contract_correction": "Native HTTP 422 requires image_url as a string instead of an object."
+        },
+        {
+          "at": "2026-10-15T08:45:11.593620-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "28aa10996687b63f173e2e13d55b14c6228bd1d32cdc2c41faf3f6cc7f04241b",
+          "http_status": 500,
+          "limits": {},
+          "usage": {},
+          "reported_cost_usd": null,
+          "resolved_model": null,
+          "provider_error": "\"RuntimeError: CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1.\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n\\n\\nAt:\\n  /usr/local/lib/python3.10/dist-packages/transformers/feature_extraction_utils.py(233): to\\n  /workspace/model_repo/paligemma/1/model.py(99): response_thread\\n  /usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py(115): decorate_context\\n  /workspace/model_repo/paligemma/1/model.py(70): execute\\n\"",
+          "result": "provider_error",
+          "seconds": 0.783,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "failed",
+      "terminal": true
+    },
+    "nvidia:meta/muse-glimmer-30b::tools": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:41:57.315833-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": true,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "d15daeaf71d887e37155e597c8b7c1d64201097c8d4ec22c8441494696980a1b",
+          "http_status": 200,
+          "limits": {},
+          "usage": {
+            "prompt_tokens": 433,
+            "completion_tokens": 180,
+            "total_tokens": 613,
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": 0
+            }
+          },
+          "reported_cost_usd": null,
+          "resolved_model": "meta/muse-glimmer-30b",
+          "provider_error": "",
+          "result": "valid",
+          "evidence": {
+            "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "text_characters": 0,
+            "finish_reason": "tool_calls",
+            "tool_call_count": 1
+          },
+          "seconds": 16.166,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "valid",
+      "terminal": true
+    },
+    "nvidia:nvidia/parakeet-ctc-0_6b-es::live::function-version=048e42ab-3592-43bf-a447-48e42b9660d2": {
+      "samples": [
+        {
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "transport": "grpc",
+          "seconds": 20.006,
+          "result": "native_grpc_deadline_exceeded",
+          "grpc_status": "DEADLINE_EXCEEDED",
+          "provider_error": "Deadline Exceeded",
+          "at": "2026-10-15T08:42:36.833276-03:00",
+          "sample": 0,
+          "function_id": "a9eeee8f-b509-4712-b19d-194361fa5f31",
+          "native_language": "es-US",
+          "requested_function_version_id": "048e42ab-3592-43bf-a447-48e42b9660d2",
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:nvidia/conformer-ctc-asr::live::function-version=35045224-985b-47c7-a0cd-2db7fe9574bc": {
+      "samples": [
+        {
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "transport": "grpc",
+          "seconds": 20.003,
+          "result": "native_grpc_deadline_exceeded",
+          "grpc_status": "DEADLINE_EXCEEDED",
+          "provider_error": "Deadline Exceeded",
+          "at": "2026-10-15T08:43:00.076324-03:00",
+          "sample": 0,
+          "function_id": "50124cf2-fb60-4a8c-9d25-d85b85199526",
+          "native_language": "es-US",
+          "requested_function_version_id": "35045224-985b-47c7-a0cd-2db7fe9574bc",
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:nvidia/riva-translate-4b-instruct-v2::translation": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:43:03.196491-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "4a26fe3b4fa1d3b96213f51ad189b4a1c94eed08256152fbb1e513becb335ae2",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.296,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    },
+    "nvidia:stepfun-ai/step-5-preview::code": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:43:36.612763-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": true,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "4b053c6a67b99dcea5263e434f43d39d356bbefdf5e9e558adb3989a9005d70c",
+          "http_status": 200,
+          "limits": {},
+          "usage": {
+            "prompt_tokens": 38,
+            "completion_tokens": 76,
+            "total_tokens": 114,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "reported_cost_usd": null,
+          "resolved_model": "stepfun-ai/step-5-preview",
+          "provider_error": "",
+          "result": "valid",
+          "evidence": {
+            "response_sha256": "a21aec98a412a2f940f1f0e82605ea1262866833c5b8e464253b07389aaeca89",
+            "text_characters": 46,
+            "finish_reason": "stop"
+          },
+          "seconds": 1.02,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "valid",
+      "terminal": true
+    },
+    "nvidia:stepfun-ai/step-5-preview::documents": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:43:40.753862-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": true,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "c8011d5d0a2abf7b80aad0e3114c926b59011e0d9008b68beb3f3341566e7945",
+          "http_status": 200,
+          "limits": {},
+          "usage": {
+            "prompt_tokens": 85,
+            "completion_tokens": 296,
+            "total_tokens": 381,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "reported_cost_usd": null,
+          "resolved_model": "stepfun-ai/step-5-preview",
+          "provider_error": "",
+          "result": "valid",
+          "evidence": {
+            "response_sha256": "0cc8325672d8d1e953973df6d82c882d62505b2658897913e8ae0f07502e6d82",
+            "text_characters": 14,
+            "finish_reason": "stop"
+          },
+          "seconds": 2.458,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "valid",
+      "terminal": true
+    },
+    "nvidia:stepfun-ai/step-5-preview::text": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:43:46.331807-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": true,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "8086bff4cb9767cc26de703e0787f801e85f3be28af24e926662f84042d676cb",
+          "http_status": 200,
+          "limits": {},
+          "usage": {
+            "prompt_tokens": 50,
+            "completion_tokens": 119,
+            "total_tokens": 169,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "reported_cost_usd": null,
+          "resolved_model": "stepfun-ai/step-5-preview",
+          "provider_error": "",
+          "result": "valid",
+          "evidence": {
+            "response_sha256": "f3bfe8a01735f4a1669460f5869a3ca4df34cd2a4aa0495fa213fe72a3bea7f0",
+            "text_characters": 10,
+            "finish_reason": "stop"
+          },
+          "seconds": 1.208,
+          "estimated_request_upper_usd": null
+        },
+        {
+          "at": "2026-10-15T08:43:50.653345-03:00",
+          "sample": 1,
+          "real_call": true,
+          "success": true,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "aab92c92a2ce1831f2778b17fc4b27df4367ea9b2b82f9387649b9fcfad98437",
+          "http_status": 200,
+          "limits": {},
+          "usage": {
+            "prompt_tokens": 53,
+            "completion_tokens": 113,
+            "total_tokens": 166,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "reported_cost_usd": null,
+          "resolved_model": "stepfun-ai/step-5-preview",
+          "provider_error": "",
+          "result": "valid",
+          "evidence": {
+            "response_sha256": "cc4080f8abf6787d70ebe9f6f35f82532488c08649e82f178e0abc574bdeba7f",
+            "text_characters": 9,
+            "finish_reason": "stop"
+          },
+          "seconds": 1.079,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "valid",
+      "terminal": true
+    },
+    "nvidia:nvidia/llama-3.1-nemoguard-8b-content-safety::moderation_chat": {
+      "samples": [
+        {
+          "at": "2026-10-15T08:43:54.852817-03:00",
+          "sample": 0,
+          "real_call": true,
+          "success": false,
+          "cost_class": "unknown",
+          "parameters": {
+            "max_output_tokens": 512
+          },
+          "request_sha256": "77a815fc1546754ad37c6b84d93cde6bb14b07f368825d1e01b996fa689b9673",
+          "result": "ReadTimeout",
+          "exception_type": "ReadTimeout",
+          "seconds": 30.03,
+          "estimated_request_upper_usd": null
+        }
+      ],
+      "status": "inconclusive",
+      "terminal": true
+    }
+  },
+  "control": {
+    "stop_requested_at": "2026-10-15T08:35:53.529670-03:00"
+  },
+  "updated_at": "2026-10-15T08:45:15.485047-03:00"
+}

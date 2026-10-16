@@ -59,9 +59,9 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(model['cavren']['price_kind'], 'unknown')
 
     def test_retired_provider_and_proxy_models_are_excluded(self):
-        self.assertEqual(parse_credentials('DeepSeek: removed-secret'), {})
+        self.assertEqual(parse_credentials('DeepSeek: synthetic-key'), {'DEEPSEEK_API_KEY':'synthetic-key'})
+        self.assertEqual(public_model('deepseek', {'id':'deepseek-chat'})['cavren']['price_kind'], 'paid')
         for provider, model_id in [
-            ('deepseek', 'test-chat'),
             ('openrouter', 'deepseek/test-chat'),
             ('cloudflare', '@cf/deepseek-ai/test-chat'),
         ]:

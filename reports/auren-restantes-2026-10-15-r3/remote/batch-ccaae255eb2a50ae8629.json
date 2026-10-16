@@ -1,0 +1,15 @@
+{
+  "remote_id": "batch-1791926467-5uHg9LJ4jwwEizmVeNcc",
+  "provider": "openrouter",
+  "row": "openrouter:deepseek/deepseek-v4.1-flash:batch::batch",
+  "updated_at": "2026-10-14T07:36:06.839015-03:00",
+  "states": [
+    {
+      "at": "2026-10-14T07:36:06.838978-03:00",
+      "state": "completed"
+    }
+  ],
+  "result": "valid",
+  "cancel_http_status": null,
+  "input_file_id": null
+}

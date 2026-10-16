@@ -1,0 +1,34 @@
+{
+  "openai": {
+    "catalog": {
+      "connected": true,
+      "count": 56
+    },
+    "selectable_chat_models": 56
+  },
+  "anthropic": {
+    "catalog": {},
+    "selectable_chat_models": 0
+  },
+  "deepseek": {
+    "catalog": {
+      "connected": true,
+      "count": 2
+    },
+    "selectable_chat_models": 2
+  },
+  "huggingface": {
+    "catalog": {
+      "connected": true,
+      "count": 128
+    },
+    "selectable_chat_models": 128
+  },
+  "xai": {
+    "catalog": {
+      "connected": false,
+      "status": 403
+    },
+    "selectable_chat_models": 0
+  }
+}

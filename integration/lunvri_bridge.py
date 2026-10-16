@@ -265,17 +265,22 @@ class BridgeHandler(BaseHTTPRequestHandler):
         if not self.authorized():
             self.error(401, "Ponte local não autorizada.", "auth")
             return
-        if self.path in ('/v1/auren/preferences', '/v1/auren/provider'):
-            from integration.auren_settings import save_preferences, save_key
+        if self.path in ('/v1/auren/preferences', '/v1/auren/provider', '/v1/auren/connections/validate', '/v1/auren/oauth/canva/start'):
+            from integration.auren_settings import save_preferences, save_connection
             try:
                 size = int(self.headers.get('Content-Length', '0'))
                 if not 0 < size <= 8192: raise ValueError('Pedido inválido.')
                 payload = json.loads(self.rfile.read(size))
                 if not isinstance(payload, dict): raise ValueError('Pedido inválido.')
                 if self.path.endswith('preferences'): result = save_preferences(payload)
+                elif self.path.endswith('/validate'):
+                    from integration.auren_connection_validation import validate_connection
+                    result = validate_connection(payload.get('provider'))
+                elif self.path.endswith('/start'):
+                    from integration.auren_canva_oauth import start
+                    result = start()
                 else:
-                    result = save_key(payload.get('provider'), payload.get('key'), free_trial=payload.get('free_trial') is True)
-                    catalog(refresh=True)
+                    result = save_connection(payload.get('provider'), payload.get('fields', {'key':payload.get('key')}), free_trial=payload.get('free_trial') is True)
                 self.respond(200, result)
             except (ValueError, TypeError): self.error(400, 'Revise o provedor, o modelo e os parâmetros enviados.')
             except (OSError, CavrenError): self.error(503, 'O cofre do sistema ou o serviço de modelos está indisponível.')

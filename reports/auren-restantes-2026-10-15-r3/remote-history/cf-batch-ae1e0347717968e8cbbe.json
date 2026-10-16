@@ -1,0 +1,7 @@
+{
+  "remote_id": "d6d01497-ea42-46dc-b00c-c1ec9fcc6d95",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/qwen/qwen3-30b-a3b-fp8::batch",
+  "at": "2026-10-15T08:31:34.360995-03:00",
+  "result": "remote_poll_denied"
+}

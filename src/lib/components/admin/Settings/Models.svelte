@@ -134,10 +134,15 @@
 			.filter(Boolean);
 
 	const modelAccessLabel = (model) => {
-		if (model?.cavren && !model?.user_id)
-			return model.cavren.provider_name
-				? model.cavren.provider_name
-				: 'Seleção automática';
+		if (model?.cavren && !model?.user_id) {
+			const provider = model.cavren.provider_name ?? 'Seleção automática';
+			const detail = model.cavren.available === false
+				? 'Reservado'
+				: model.cavren.price_kind === 'paid'
+					? 'Pago'
+					: model.cavren.provider === 'huggingface' ? 'Custo a verificar' : '';
+			return detail ? `${provider} · ${detail}` : provider;
+		}
 		if (isPublicModel(model)) {
 			return $i18n.t('Public');
 		}

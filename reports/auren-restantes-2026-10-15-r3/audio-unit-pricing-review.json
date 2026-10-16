@@ -1,0 +1,38 @@
+[
+  {
+    "model": "microsoft/mai-transcribe-2",
+    "http_status": 200,
+    "endpoints": [
+      {
+        "name": "Azure | microsoft/mai-transcribe-2-20260903",
+        "context_length": 0,
+        "pricing": {
+          "prompt": "0.1",
+          "completion": "0",
+          "discount": 0
+        },
+        "provider_name": "Azure",
+        "tag": "azure",
+        "supported_parameters": []
+      }
+    ]
+  },
+  {
+    "model": "bytedance-seed/seed-audio-1-0",
+    "http_status": 200,
+    "endpoints": [
+      {
+        "name": "Seed | bytedance-seed/seed-audio-1-0-20260630",
+        "context_length": 0,
+        "pricing": {
+          "prompt": "0",
+          "completion": "0.0025",
+          "discount": 0
+        },
+        "provider_name": "Seed",
+        "tag": "seed",
+        "supported_parameters": []
+      }
+    ]
+  }
+]

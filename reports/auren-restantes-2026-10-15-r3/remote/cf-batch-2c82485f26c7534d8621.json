@@ -1,0 +1,7 @@
+{
+  "remote_id": "5106cd68-ae77-4232-bc4c-28bbec160abc",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/meta/m2m100-1.2b::batch",
+  "at": "2026-10-14T07:40:19.015834-03:00",
+  "result": "criterion_failed"
+}

@@ -1,0 +1,254 @@
+{
+  "count": 30,
+  "counts": {
+    "success": 24,
+    "pending": 4,
+    "failed": 2
+  },
+  "credential_source": "updated_local_inventory_confirmed_rotated",
+  "supplementary_fields": {
+    "cloudflare": "existing_configured_account_id_in_vault"
+  },
+  "results": [
+    {
+      "provider": "aihorde",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:12.835768+00:00"
+    },
+    {
+      "provider": "bedrock",
+      "imported": true,
+      "status": "pending",
+      "reason": "missing_region",
+      "message": "Pendente: informe a região AWS em que a chave foi emitida.",
+      "checked_at": "2026-10-15T21:52:12.863835+00:00"
+    },
+    {
+      "provider": "anthropic",
+      "imported": false,
+      "status": "pending",
+      "reason": "missing_credential",
+      "message": "Pendente: credencial não cadastrada.",
+      "checked_at": "2026-10-15T21:52:12.872470+00:00"
+    },
+    {
+      "provider": "assemblyai",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:13.779531+00:00"
+    },
+    {
+      "provider": "canva",
+      "imported": true,
+      "status": "pending",
+      "reason": "oauth_required",
+      "message": "Pendente: configure a Redirect URL e conclua a autorização OAuth no Canva.",
+      "checked_at": "2026-10-15T21:52:13.818017+00:00"
+    },
+    {
+      "provider": "cartesia",
+      "imported": true,
+      "status": "failed",
+      "reason": "auth_error",
+      "message": "Falha: credencial ou permissão recusada pelo serviço.",
+      "checked_at": "2026-10-15T21:52:14.273754+00:00"
+    },
+    {
+      "provider": "cerebras",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:14.774127+00:00"
+    },
+    {
+      "provider": "cloudflare",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:15.178293+00:00"
+    },
+    {
+      "provider": "cohere",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:15.844226+00:00"
+    },
+    {
+      "provider": "deepgram",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:16.750158+00:00"
+    },
+    {
+      "provider": "deepinfra",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:18.095415+00:00"
+    },
+    {
+      "provider": "deepseek",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:18.930540+00:00"
+    },
+    {
+      "provider": "elevenlabs",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:19.454527+00:00"
+    },
+    {
+      "provider": "fal",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:20.220387+00:00"
+    },
+    {
+      "provider": "fireworks",
+      "imported": false,
+      "status": "pending",
+      "reason": "missing_credential",
+      "message": "Pendente: credencial não cadastrada.",
+      "checked_at": "2026-10-15T21:52:20.229520+00:00"
+    },
+    {
+      "provider": "gemini",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:20.614808+00:00"
+    },
+    {
+      "provider": "groq",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:21.082247+00:00"
+    },
+    {
+      "provider": "huggingface",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:21.288777+00:00"
+    },
+    {
+      "provider": "hyperbolic",
+      "imported": true,
+      "status": "success",
+      "reason": "account_ok",
+      "message": "Conta autenticada; disponibilidade de inferência não comprovada.",
+      "checked_at": "2026-10-15T21:52:22.448496+00:00"
+    },
+    {
+      "provider": "mistral",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:23.303426+00:00"
+    },
+    {
+      "provider": "nvidia",
+      "imported": true,
+      "status": "success",
+      "reason": "inference_ok",
+      "message": "Inferência mínima autenticada concluída; não confirma todos os modelos ou tarefas.",
+      "checked_at": "2026-10-15T21:52:23.951886+00:00"
+    },
+    {
+      "provider": "novita",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:24.429043+00:00"
+    },
+    {
+      "provider": "ollama",
+      "imported": true,
+      "status": "success",
+      "reason": "inference_ok",
+      "message": "Inferência mínima autenticada concluída; não confirma todos os modelos ou tarefas.",
+      "checked_at": "2026-10-15T21:52:25.272035+00:00"
+    },
+    {
+      "provider": "openai",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:26.118795+00:00"
+    },
+    {
+      "provider": "openrouter",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:26.728837+00:00"
+    },
+    {
+      "provider": "replicate",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:27.005537+00:00"
+    },
+    {
+      "provider": "stability",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:27.933133+00:00"
+    },
+    {
+      "provider": "voyage",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:29.060802+00:00"
+    },
+    {
+      "provider": "xai",
+      "imported": true,
+      "status": "failed",
+      "reason": "account_blocked",
+      "message": "Falha: chave desativada ou conta/equipe bloqueada no painel do provedor.",
+      "checked_at": "2026-10-15T21:52:29.343537+00:00"
+    },
+    {
+      "provider": "zai",
+      "imported": true,
+      "status": "success",
+      "reason": "ok",
+      "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+      "checked_at": "2026-10-15T21:52:31.361491+00:00"
+    }
+  ]
+}

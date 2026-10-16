@@ -1,0 +1,214 @@
+{
+  "snapshot_at": "2026-10-15T08:21:47.834731-03:00",
+  "reported_at": "2026-10-15T09:48:12.252745-03:00",
+  "routes": 4279,
+  "operations": 17700,
+  "by_status": {
+    "inconclusive": 302,
+    "valid": 38,
+    "not_tested": 17182,
+    "failed": 177,
+    "partial_validity": 1
+  },
+  "by_provider": {
+    "mistral": {
+      "not_tested": 9,
+      "inconclusive": 1
+    },
+    "cohere": {
+      "inconclusive": 13,
+      "not_tested": 10
+    },
+    "openrouter": {
+      "not_tested": 16755,
+      "failed": 171,
+      "inconclusive": 7,
+      "valid": 19
+    },
+    "nvidia": {
+      "inconclusive": 15,
+      "not_tested": 68,
+      "failed": 3,
+      "valid": 4
+    },
+    "groq": {
+      "not_tested": 11,
+      "inconclusive": 1,
+      "valid": 2
+    },
+    "cloudflare": {
+      "not_tested": 39,
+      "failed": 1,
+      "inconclusive": 18,
+      "valid": 5,
+      "partial_validity": 1
+    },
+    "zai": {
+      "failed": 1,
+      "not_tested": 1
+    },
+    "gemini": {
+      "not_tested": 21,
+      "valid": 2,
+      "failed": 1
+    },
+    "aihorde": {
+      "inconclusive": 247,
+      "valid": 6,
+      "not_tested": 268
+    }
+  },
+  "real_attempts": 810,
+  "auxiliary_real_calls": 14,
+  "rows_with_real_call": 517,
+  "positive_reported_usd": 0,
+  "positive_cost_responses": 0,
+  "zero_cost_responses": 36,
+  "unknown_cost_attempts": 774,
+  "cost_classes": {
+    "unknown": 485,
+    "not_called": 17183,
+    "zero_reported_partial": 32
+  },
+  "budget": {
+    "max_output_tokens": 512,
+    "timeout_seconds": 30,
+    "image_deadline_seconds": 60,
+    "max_positive_reported_usd": 0.39839592302849997,
+    "max_estimated_request_usd": 0.06,
+    "unknown_cost_call_limit_per_provider": 100,
+    "provider_concurrency": 1,
+    "note": "Reported-cost cap is not a invoice-total guarantee; unknown costs tracked separately. Unknown high-cost generative modalities blocked until bounded.",
+    "image_total_usd": 19.22,
+    "image_per_call_usd": 0.5,
+    "image_authorization": "Explicit user reply in current chat: USD 20 total and USD .50 per request.",
+    "pacing_revision": "Conservative per-provider minimum delay: Cohere/NVIDIA/OpenRouter zero-priced 3.1s, Groq 2.1s, others1.1s; Retry-After takes precedence. Initial attempt history retained.",
+    "video_total_usd": 40.0,
+    "video_per_call_usd": 2,
+    "media_pricing_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "video_authorization": "Explicit user reply in current chat: USD 40 total and USD 2 per request.",
+    "unknown_consumption_guard_definition": "Counts accepted generation and transport-outcome-unknown calls; HTTP >=400 denials remain unknown in ledger but excluded from this accepted-generation count. No zero cost is inferred.",
+    "deep_research_planning_authorization": {
+      "at": "2026-10-14T09:22:23.075427-03:00",
+      "user_authorized": true,
+      "max_new_submissions_per_route": 1,
+      "routes": 3,
+      "follow_up_seconds": 30,
+      "reported_cost_unknown_authorized": true,
+      "complete_research_authorized": false
+    },
+    "prior_reservations_usd": {
+      "image": 0.78,
+      "video": 0.0
+    },
+    "media_authorization_source": "/home/cambrith/.codex/.chatgpt-projects/g-p-6aa1781aa48c81919924bcaa9a4f38eb/cavren-openwebui/reports/auren-exaustiva-2026-10-13-r1/results.json",
+    "continuation_policy": "Only uncalled and inconclusive routes. Historical failures retained, no blind denial retries. At most 100 accepted unknown-price calls per provider in this continuation.",
+    "prior_positive_reported_usd": 0.10160407697150003,
+    "community_accounting": "Native kudos unit is tracked separately from unknown USD billing. Two fixed samples per operation, one image at 256x256/eight steps or 128 output text tokens, at most two simultaneous requests within verified account concurrency, thirty-second queue window and cancellation. Missing USD price is not zero.",
+    "provider_concurrency_overrides": {
+      "aihorde": 2
+    }
+  },
+  "all_tested": false,
+  "rows_with_native_real_call": 517,
+  "scope_exhaustive_certified": false,
+  "discovery_limit": "Frozen union is reconciled. General provider documentation may expose additional specialized transports; discovery certification remains pending.",
+  "historical_rows": 870,
+  "historical_routes": 853,
+  "historical_universe_routes": 5438,
+  "fixture_generation_calls_new": 0,
+  "scope": "Remaining uncalled/inconclusive operations, plus new catalogue discoveries. Historical denials and successes are not repeated.",
+  "provider_stages": {
+    "gemini": {
+      "started_at": "2026-10-15T08:22:26.181109-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:22:41.701936-03:00",
+      "operations": 24,
+      "unfinished": 0
+    },
+    "groq": {
+      "started_at": "2026-10-15T08:22:56.688024-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:23:22.594807-03:00",
+      "operations": 14,
+      "unfinished": 0
+    },
+    "zai": {
+      "started_at": "2026-10-15T08:23:51.571190-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:23:58.209491-03:00",
+      "operations": 2,
+      "unfinished": 0
+    },
+    "ollama": {
+      "started_at": "2026-10-15T08:24:10.162711-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:24:12.740372-03:00",
+      "operations": 0,
+      "unfinished": 0
+    },
+    "cohere": {
+      "started_at": "2026-10-15T08:24:32.521770-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:27:53.151755-03:00",
+      "operations": 23,
+      "unfinished": 0
+    },
+    "mistral": {
+      "started_at": "2026-10-15T08:28:23.093686-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:28:27.333199-03:00",
+      "operations": 10,
+      "unfinished": 0
+    },
+    "deepseek": {
+      "started_at": "2026-10-15T08:28:58.413238-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:29:02.087734-03:00",
+      "operations": 0,
+      "unfinished": 0
+    },
+    "cloudflare": {
+      "started_at": "2026-10-15T08:29:19.031487-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:35:12.801381-03:00",
+      "operations": 64,
+      "unfinished": 0
+    },
+    "nvidia": {
+      "started_at": "2026-10-15T08:35:19.849166-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:45:15.673341-03:00",
+      "operations": 90,
+      "unfinished": 0
+    },
+    "openrouter": {
+      "started_at": "2026-10-15T08:46:52.631618-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T09:03:54.675144-03:00",
+      "operations": 16952,
+      "unfinished": 0
+    },
+    "aihorde": {
+      "started_at": "2026-10-15T09:09:37.871747-03:00",
+      "discovery_done": true,
+      "status": "window_ended_with_pending",
+      "updated_at": "2026-10-15T09:48:11.061929-03:00",
+      "operations": 521,
+      "unfinished": 263
+    }
+  },
+  "valid_with_new_inference_rows": 38,
+  "valid_existing_job_polling_rows": 0,
+  "all_rows_terminal": false
+}

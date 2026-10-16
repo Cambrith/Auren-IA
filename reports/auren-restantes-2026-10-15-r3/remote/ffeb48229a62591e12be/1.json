@@ -1,0 +1,8 @@
+{
+  "provider": "aihorde",
+  "row": "aihorde:Realistic Vision Inpainting::image_mask",
+  "sample": 1,
+  "remote_id": "2b616a41-3814-4156-a4ba-74b94ec19799",
+  "accepted_at": "2026-10-13T20:02:34.550375-03:00",
+  "status": "accepted"
+}

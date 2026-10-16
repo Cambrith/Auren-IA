@@ -1,0 +1,22 @@
+{
+  "exact_30_alphabetical": true,
+  "wide_three_columns": true,
+  "validation_buttons_30": true,
+  "canva_oauth_label": true,
+  "existing_surface_preserved": true,
+  "native_mouse_drag": true,
+  "keyboard_order": true,
+  "fields_survive_reordering": true,
+  "credential_stays_with_card": true,
+  "validation_stays_with_card": true,
+  "failed_check_overrides_old_healthy_state": true,
+  "persisted_to_disk": true,
+  "order_after_reload": true,
+  "columns_800": true,
+  "no_overflow_800": true,
+  "columns_520": true,
+  "no_overflow_520": true,
+  "canva_three_distinct_fields": true,
+  "no_production_writes": true,
+  "authenticated_production_api_30": true
+}

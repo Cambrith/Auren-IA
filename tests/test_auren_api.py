@@ -28,4 +28,18 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(body['lunvri_image_generation'])
             self.assertIs(body['stream'],False)
 
+    async def test_multifield_credentials_are_redacted_and_forwarded_only_to_bridge(self):
+        form=auren.CredentialForm(provider='canva',fields={'key':'synthetic-secret','client_id':'synthetic-client'})
+        self.assertNotIn('synthetic-secret',repr(form));self.assertNotIn('synthetic-client',repr(form))
+        with patch.object(auren,'bridge_request',new_callable=AsyncMock,return_value={'saved':True}) as bridge:
+            await auren.provider(form,user=object())
+            self.assertEqual(bridge.call_args.args[2]['fields'],{'key':'synthetic-secret','client_id':'synthetic-client'})
+
+    async def test_connection_validation_and_oauth_use_authenticated_bridge(self):
+        with patch.object(auren,'bridge_request',new_callable=AsyncMock,return_value={}) as bridge:
+            await auren.validate_connection(auren.ConnectionForm(provider='canva'),user=object())
+            self.assertEqual(bridge.call_args.args,('POST','/auren/connections/validate',{'provider':'canva'}))
+            await auren.start_canva(user=object())
+            self.assertEqual(bridge.call_args.args,('POST','/auren/oauth/canva/start',{}))
+
 if __name__=='__main__':unittest.main()

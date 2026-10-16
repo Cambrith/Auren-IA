@@ -1,0 +1,7 @@
+{
+  "remote_id": "3eec3c84-03c4-4e08-8285-3100d91bc4bb",
+  "provider": "cloudflare",
+  "row": "cloudflare:@cf/meta/llama-3.3-70b-instruct-fp8-fast::batch",
+  "at": "2026-10-15T08:31:28.919741-03:00",
+  "result": "remote_poll_denied"
+}

@@ -1,0 +1,2405 @@
+{
+  "source": "https://aihorde.net/api/swagger.json",
+  "checked_at": "2026-10-15T09:27:35.701508-03:00",
+  "http_status": 200,
+  "scope": "Structural contract fields and transitive definitions; prose omitted.",
+  "paths": {
+    "/v2/find_user": {
+      "get": {
+        "responses": {
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDetails"
+            }
+          }
+        },
+        "description": "",
+        "operationId": "get_find_user",
+        "parameters": [
+          {
+            "name": "apikey",
+            "in": "header",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      }
+    },
+    "/v2/generate/async": {
+      "post": {
+        "responses": {
+          "429": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "503": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestValidationError"
+            }
+          },
+          "202": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestAsyncStable"
+            }
+          }
+        },
+        "description": "",
+        "operationId": "post_image_async_generate",
+        "parameters": [
+          {
+            "name": "apikey",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": ""
+          },
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/GenerationInputStable"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      }
+    },
+    "/v2/generate/check/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestStatusCheck"
+            }
+          }
+        },
+        "description": "",
+        "operationId": "get_image_async_check",
+        "parameters": [
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      }
+    },
+    "/v2/generate/status/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "responses": {
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestStatusStable"
+            }
+          }
+        },
+        "description": "",
+        "operationId": "delete_image_async_status",
+        "parameters": [
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      },
+      "get": {
+        "responses": {
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestStatusStable"
+            }
+          }
+        },
+        "description": "",
+        "operationId": "get_image_async_status",
+        "parameters": [
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      }
+    },
+    "/v2/generate/text/async": {
+      "post": {
+        "responses": {
+          "429": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "503": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestValidationError"
+            }
+          },
+          "202": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestAsyncKobold"
+            }
+          }
+        },
+        "description": "",
+        "operationId": "post_text_async_generate",
+        "parameters": [
+          {
+            "name": "apikey",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": ""
+          },
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/GenerationInputKobold"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      }
+    },
+    "/v2/generate/text/status/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "responses": {
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestStatusKobold"
+            }
+          }
+        },
+        "description": "",
+        "operationId": "delete_text_async_status",
+        "parameters": [
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      },
+      "get": {
+        "responses": {
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestStatusKobold"
+            }
+          }
+        },
+        "description": "",
+        "operationId": "get_text_async_status",
+        "parameters": [
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      }
+    },
+    "/v2/status/models": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ActiveModel"
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestError"
+            }
+          }
+        },
+        "operationId": "get_models",
+        "parameters": [
+          {
+            "name": "Client-Agent",
+            "in": "header",
+            "type": "string",
+            "description": "",
+            "default": "unknown:0:unknown"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string",
+            "description": "",
+            "default": "image"
+          },
+          {
+            "name": "min_count",
+            "in": "query",
+            "type": "integer",
+            "description": ""
+          },
+          {
+            "name": "max_count",
+            "in": "query",
+            "type": "integer",
+            "description": ""
+          },
+          {
+            "name": "model_state",
+            "in": "query",
+            "type": "string",
+            "description": "",
+            "default": "all"
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": ""
+          }
+        ],
+        "tags": [
+          "v2"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ActiveModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ActiveModelLite"
+        },
+        {
+          "properties": {
+            "performance": {
+              "type": "number",
+              "description": ""
+            },
+            "queued": {
+              "type": "number",
+              "description": ""
+            },
+            "jobs": {
+              "type": "number",
+              "description": ""
+            },
+            "eta": {
+              "type": "integer",
+              "description": ""
+            },
+            "type": {
+              "type": "string",
+              "description": "",
+              "enum": [
+                "image",
+                "text"
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ActiveModelLite": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "count": {
+          "type": "integer",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "GenerationInputKobold": {
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": ""
+        },
+        "params": {
+          "$ref": "#/definitions/ModelGenerationInputKobold"
+        },
+        "softprompt": {
+          "type": "string",
+          "description": "",
+          "minLength": 1
+        },
+        "trusted_workers": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "validated_backends": {
+          "type": "boolean",
+          "description": "",
+          "default": true
+        },
+        "slow_workers": {
+          "type": "boolean",
+          "description": "",
+          "default": true
+        },
+        "workers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "worker_blacklist": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "dry_run": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "proxied_account": {
+          "type": "string",
+          "description": ""
+        },
+        "extra_source_images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtraSourceImage"
+          }
+        },
+        "disable_batching": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "allow_downgrade": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "webhook": {
+          "type": "string",
+          "description": ""
+        },
+        "style": {
+          "type": "string",
+          "description": "",
+          "minLength": 3,
+          "maxLength": 1024
+        },
+        "template_fields": {
+          "type": "object",
+          "description": ""
+        },
+        "context_fit": {
+          "type": "string",
+          "description": "",
+          "default": "ignore",
+          "enum": [
+            "ignore",
+            "reject",
+            "grow"
+          ]
+        },
+        "extra_slow_workers": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        }
+      },
+      "type": "object"
+    },
+    "ExtraSourceImage": {
+      "properties": {
+        "image": {
+          "type": "string",
+          "description": "",
+          "minLength": 1
+        },
+        "strength": {
+          "type": "number",
+          "description": "",
+          "default": 1.0
+        }
+      },
+      "type": "object"
+    },
+    "GenerationInputStable": {
+      "required": [
+        "prompt"
+      ],
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": "",
+          "minLength": 1
+        },
+        "params": {
+          "$ref": "#/definitions/ModelGenerationInputStable"
+        },
+        "nsfw": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "trusted_workers": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "validated_backends": {
+          "type": "boolean",
+          "description": "",
+          "default": true
+        },
+        "slow_workers": {
+          "type": "boolean",
+          "description": "",
+          "default": true
+        },
+        "extra_slow_workers": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "censor_nsfw": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "workers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "worker_blacklist": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "source_image": {
+          "type": "string",
+          "description": ""
+        },
+        "source_processing": {
+          "type": "string",
+          "description": "",
+          "default": "img2img",
+          "enum": [
+            "img2img",
+            "inpainting",
+            "outpainting",
+            "remix"
+          ]
+        },
+        "source_mask": {
+          "type": "string",
+          "description": ""
+        },
+        "extra_source_images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtraSourceImage"
+          }
+        },
+        "r2": {
+          "type": "boolean",
+          "description": "",
+          "default": true
+        },
+        "shared": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "replacement_filter": {
+          "type": "boolean",
+          "description": "",
+          "default": true
+        },
+        "dry_run": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "proxied_account": {
+          "type": "string",
+          "description": ""
+        },
+        "disable_batching": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "allow_downgrade": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "webhook": {
+          "type": "string",
+          "description": "",
+          "minLength": 10,
+          "maxLength": 1024
+        },
+        "style": {
+          "type": "string",
+          "description": "",
+          "minLength": 3,
+          "maxLength": 1024
+        },
+        "template_fields": {
+          "type": "object",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "ModelGenerationInputKobold": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ModelPayloadRootKobold"
+        },
+        {
+          "properties": {},
+          "type": "object"
+        }
+      ]
+    },
+    "ModelGenerationInputStable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ModelPayloadRootStable"
+        },
+        {
+          "properties": {
+            "steps": {
+              "type": "integer",
+              "default": 30,
+              "minimum": 1,
+              "maximum": 500
+            },
+            "n": {
+              "type": "integer",
+              "description": "",
+              "default": 1,
+              "minimum": 1,
+              "maximum": 20
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ModelPayloadRootKobold": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ModelPayloadStyleKobold"
+        },
+        {
+          "properties": {
+            "n": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "max_context_length": {
+              "type": "integer",
+              "description": "",
+              "default": 2048,
+              "minimum": 80,
+              "maximum": 1048576
+            },
+            "max_length": {
+              "type": "integer",
+              "description": "",
+              "default": 80,
+              "minimum": 16,
+              "maximum": 4096
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ModelPayloadRootStable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ModelPayloadStyleStable"
+        },
+        {
+          "properties": {
+            "seed": {
+              "type": "string",
+              "description": ""
+            },
+            "seed_variation": {
+              "type": "integer",
+              "description": "",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "control_type": {
+              "type": "string",
+              "enum": [
+                "canny",
+                "hed",
+                "depth",
+                "mlsd",
+                "openpose",
+                "normal",
+                "scribble",
+                "fakescribbles",
+                "seg",
+                "binary",
+                "standard_lineart",
+                "lineart",
+                "lineart_anime",
+                "lineart_anime_denoise",
+                "pidinet",
+                "scribble_xdog",
+                "scribble_pidinet",
+                "teed",
+                "pyracanny",
+                "midas_depth",
+                "zoe_depth",
+                "depth_anything",
+                "depth_anything_v2",
+                "normal_bae",
+                "oneformer_ade20k",
+                "oneformer_coco",
+                "color",
+                "shuffle",
+                "recolor_luminance",
+                "recolor_intensity",
+                "tile",
+                "tile_ttplanet_guided",
+                "tile_ttplanet_simple",
+                "hough"
+              ]
+            },
+            "control_strength": {
+              "type": "number",
+              "description": "",
+              "minimum": 0.01,
+              "maximum": 3.0
+            },
+            "image_is_control": {
+              "type": "boolean",
+              "description": "",
+              "default": false
+            },
+            "return_control_map": {
+              "type": "boolean",
+              "description": "",
+              "default": false
+            },
+            "extra_texts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExtraText"
+              }
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ExtraText": {
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "",
+          "minLength": 1
+        },
+        "reference": {
+          "type": "string",
+          "description": "",
+          "minLength": 3
+        }
+      },
+      "type": "object"
+    },
+    "ModelPayloadStyleKobold": {
+      "properties": {
+        "frmtadsnsp": {
+          "type": "boolean",
+          "description": ""
+        },
+        "frmtrmblln": {
+          "type": "boolean",
+          "description": ""
+        },
+        "frmtrmspch": {
+          "type": "boolean",
+          "description": ""
+        },
+        "frmttriminc": {
+          "type": "boolean",
+          "description": ""
+        },
+        "rep_pen": {
+          "type": "number",
+          "description": "",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "rep_pen_range": {
+          "type": "integer",
+          "description": "",
+          "minimum": 0,
+          "maximum": 4096
+        },
+        "rep_pen_slope": {
+          "type": "number",
+          "description": "",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "singleline": {
+          "type": "boolean",
+          "description": ""
+        },
+        "temperature": {
+          "type": "number",
+          "description": "",
+          "minimum": 0,
+          "maximum": 5.0
+        },
+        "tfs": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "top_a": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "top_k": {
+          "type": "integer",
+          "description": "",
+          "minimum": 0,
+          "maximum": 200
+        },
+        "top_p": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.001,
+          "maximum": 1.0
+        },
+        "typical": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "sampler_order": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "description": ""
+          }
+        },
+        "use_default_badwordsids": {
+          "type": "boolean",
+          "description": ""
+        },
+        "stop_sequence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "min_p": {
+          "type": "number",
+          "description": "",
+          "default": 0.0,
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "smoothing_factor": {
+          "type": "number",
+          "description": "",
+          "default": 0.0,
+          "minimum": 0.0,
+          "maximum": 10.0
+        },
+        "dynatemp_range": {
+          "type": "number",
+          "description": "",
+          "default": 0.0,
+          "minimum": 0.0,
+          "maximum": 5.0
+        },
+        "dynatemp_exponent": {
+          "type": "number",
+          "description": "",
+          "default": 1.0,
+          "minimum": 0.0,
+          "maximum": 5.0
+        }
+      },
+      "type": "object"
+    },
+    "ModelPayloadStyleStable": {
+      "properties": {
+        "sampler_name": {
+          "type": "string",
+          "default": "k_euler_a",
+          "enum": [
+            "k_dpmpp_2m",
+            "k_heun",
+            "k_dpm_fast",
+            "deis",
+            "sa_solver",
+            "euler_cfg_pp",
+            "dpmpp_2m_sde",
+            "dpmsolver",
+            "uni_pc",
+            "k_euler_a",
+            "res_multistep_ancestral_cfg_pp",
+            "sa_solver_pece",
+            "er_sde",
+            "k_dpmpp_sde",
+            "heunpp2",
+            "ipndm_v",
+            "gradient_estimation",
+            "dpmpp_2s_ancestral_cfg_pp",
+            "k_dpm_2_a",
+            "ddpm",
+            "exp_heun_2_x0_sde",
+            "dpmpp_2m_sde_heun",
+            "dpmpp_3m_sde",
+            "ipndm",
+            "k_dpm_adaptive",
+            "seeds_3",
+            "k_euler",
+            "dpmpp_2m_cfg_pp",
+            "k_dpm_2",
+            "k_dpmpp_2s_a",
+            "lcm",
+            "euler_ancestral_cfg_pp",
+            "res_multistep_ancestral",
+            "seeds_2",
+            "DDIM",
+            "k_lms",
+            "exp_heun_2_x0",
+            "res_multistep_cfg_pp",
+            "res_multistep",
+            "uni_pc_bh2",
+            "gradient_estimation_cfg_pp"
+          ]
+        },
+        "cfg_scale": {
+          "type": "number",
+          "default": 7.5,
+          "minimum": 0,
+          "maximum": 100
+        },
+        "denoising_strength": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1.0
+        },
+        "hires_fix_denoising_strength": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1.0
+        },
+        "height": {
+          "type": "integer",
+          "description": "",
+          "default": 512,
+          "minimum": 64,
+          "maximum": 3072,
+          "multipleOf": 64
+        },
+        "width": {
+          "type": "integer",
+          "description": "",
+          "default": 512,
+          "minimum": 64,
+          "maximum": 3072,
+          "multipleOf": 64
+        },
+        "post_processing": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "description": "",
+            "enum": [
+              "GFPGAN",
+              "RealESRGAN_x4plus",
+              "RealESRGAN_x2plus",
+              "RealESRGAN_x4plus_anime_6B",
+              "NMKD_Siax",
+              "4x_AnimeSharp",
+              "CodeFormers",
+              "strip_background",
+              "4xNomos8kSC",
+              "4xLSDIRplus",
+              "4xNomosWebPhoto_RealPLKSR",
+              "4xNomos2_realplksr_dysample",
+              "4xNomos2_hq_dat2",
+              "2xModernSpanimationV1",
+              "GFPGANv1.3",
+              "RestoreFormer"
+            ]
+          }
+        },
+        "karras": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "scheduler": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "align_your_steps",
+            "beta",
+            "ddim_uniform",
+            "exponential",
+            "gits",
+            "karras",
+            "kl_optimal",
+            "linear_quadratic",
+            "normal",
+            "sgm_uniform",
+            "simple"
+          ]
+        },
+        "sampler_eta": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0
+        },
+        "sampler_s_noise": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0
+        },
+        "sampler_s_churn": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0
+        },
+        "sampler_s_tmin": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0
+        },
+        "sampler_s_tmax": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0
+        },
+        "sampler_solver_type": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "heun",
+            "midpoint",
+            "phi_1",
+            "phi_2"
+          ]
+        },
+        "sampler_order": {
+          "type": "integer",
+          "description": "",
+          "minimum": 1
+        },
+        "flow_shift": {
+          "type": "number",
+          "description": "",
+          "minimum": 0.0,
+          "maximum": 100.0
+        },
+        "tiling": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "hires_fix": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "clip_skip": {
+          "type": "integer",
+          "description": "",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "facefixer_strength": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.0
+        },
+        "loras": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelPayloadLorasStable"
+          }
+        },
+        "tis": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelPayloadTextualInversionsStable"
+          }
+        },
+        "special": {
+          "$ref": "#/definitions/ModelSpecialPayloadStable"
+        },
+        "workflow": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "qr_code"
+          ]
+        },
+        "transparent": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        }
+      },
+      "type": "object"
+    },
+    "ModelPayloadLorasStable": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "model": {
+          "type": "number",
+          "description": "",
+          "default": 1.0,
+          "minimum": -5.0,
+          "maximum": 5.0
+        },
+        "clip": {
+          "type": "number",
+          "description": "",
+          "default": 1.0,
+          "minimum": -5.0,
+          "maximum": 5.0
+        },
+        "inject_trigger": {
+          "type": "string",
+          "description": "",
+          "minLength": 1,
+          "maxLength": 30
+        },
+        "is_version": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        }
+      },
+      "type": "object"
+    },
+    "ModelPayloadTextualInversionsStable": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "inject_ti": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "prompt",
+            "negprompt"
+          ]
+        },
+        "strength": {
+          "type": "number",
+          "description": "",
+          "default": 1.0,
+          "minimum": -5.0,
+          "maximum": 5.0
+        }
+      },
+      "type": "object"
+    },
+    "ModelSpecialPayloadStable": {
+      "properties": {
+        "*": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "RequestAsyncKobold": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RequestAsync"
+        },
+        {
+          "properties": {
+            "resolved": {
+              "description": "",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/ResolvedRequestKobold"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "RequestAsync": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": ""
+        },
+        "kudos": {
+          "type": "number",
+          "description": ""
+        },
+        "message": {
+          "type": "string",
+          "description": ""
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RequestSingleWarning"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "RequestAsyncStable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RequestAsync"
+        },
+        {
+          "properties": {
+            "resolved": {
+              "description": "",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/ResolvedRequestStable"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "RequestError": {
+      "required": [
+        "rc"
+      ],
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": ""
+        },
+        "rc": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "MissingPrompt",
+            "CorruptPrompt",
+            "KudosValidationError",
+            "NoValidActions",
+            "InvalidSize",
+            "InvalidPromptSize",
+            "TooManySteps",
+            "Profanity",
+            "ProfaneWorkerName",
+            "ProfaneBridgeAgent",
+            "ProfaneWorkerInfo",
+            "ProfaneUserName",
+            "ProfaneUserContact",
+            "ProfaneAdminComment",
+            "ProfaneTeamName",
+            "ProfaneTeamInfo",
+            "TooLong",
+            "TooLongWorkerName",
+            "TooLongUserName",
+            "NameAlreadyExists",
+            "WorkerNameAlreadyExists",
+            "TeamNameAlreadyExists",
+            "PolymorphicNameConflict",
+            "ImageValidationFailed",
+            "SourceImageResolutionExceeded",
+            "SourceImageSizeExceeded",
+            "SourceImageUrlInvalid",
+            "SourceImageUnreadable",
+            "InpaintingMissingMask",
+            "SourceMaskUnnecessary",
+            "UnsupportedSampler",
+            "UnsupportedModel",
+            "ControlNetUnsupported",
+            "ControlNetSourceMissing",
+            "ControlNetInvalidPayload",
+            "SourceImageRequiredForModel",
+            "UnexpectedModelName",
+            "TooManyUpscalers",
+            "ProcGenNotFound",
+            "InvalidAestheticAttempt",
+            "AestheticsNotCompleted",
+            "AestheticsNotPublic",
+            "AestheticsDuplicate",
+            "AestheticsMissing",
+            "AestheticsSolo",
+            "AestheticsConfused",
+            "AestheticsAlreadyExist",
+            "AestheticsServerRejected",
+            "AestheticsServerError",
+            "AestheticsServerDown",
+            "AestheticsServerTimeout",
+            "InvalidAPIKey",
+            "WrongCredentials",
+            "NotAdmin",
+            "NotModerator",
+            "NotOwner",
+            "NotRequestOwner",
+            "NotPrivileged",
+            "AnonForbidden",
+            "AnonForbiddenWorker",
+            "AnonForbiddenUserMod",
+            "NotTrusted",
+            "UntrustedTeamCreation",
+            "UntrustedUnsafeIP",
+            "WorkerMaintenance",
+            "WorkerFlaggedMaintenance",
+            "TooManySameIPs",
+            "WorkerInviteOnly",
+            "UnsafeIP",
+            "TimeoutIP",
+            "TooManyNewIPs",
+            "KudosUpfront",
+            "SharedKeyInvalid",
+            "SharedKeyEmpty",
+            "SharedKeyExpired",
+            "SharedKeyInsufficientKudos",
+            "SharedKeyAssignedStyles",
+            "InvalidJobID",
+            "RequestNotFound",
+            "WorkerNotFound",
+            "TeamNotFound",
+            "FilterNotFound",
+            "UserNotFound",
+            "DuplicateGen",
+            "AbortedGen",
+            "RequestExpired",
+            "TooManyPrompts",
+            "NoValidWorkers",
+            "MaintenanceMode",
+            "TargetAccountFlagged",
+            "SourceAccountFlagged",
+            "FaultWhenKudosReceiving",
+            "FaultWhenKudosSending",
+            "TooFastKudosTransfers",
+            "KudosTransferToAnon",
+            "KudosTransferToSelf",
+            "KudosTransferNotEnough",
+            "NegativeKudosTransfer",
+            "KudosTransferFromAnon",
+            "InvalidAwardUsername",
+            "KudosAwardToAnon",
+            "NotAllowedAwards",
+            "NoWorkerModSelected",
+            "NoUserModSelected",
+            "NoHordeModSelected",
+            "NoTeamModSelected",
+            "NoFilterModSelected",
+            "NoSharedKeyModSelected",
+            "BadRequest",
+            "Forbidden",
+            "Locked",
+            "ControlNetMismatch",
+            "HiResFixMismatch",
+            "TooManyLoras",
+            "BadLoraVersion",
+            "TooManyTIs",
+            "BetaAnonForbidden",
+            "BetaComparisonFault",
+            "BadCFGDecimals",
+            "BadCFGNumber",
+            "BadClientAgent",
+            "SpecialMissingPayload",
+            "SpecialForbidden",
+            "SpecialMissingUsername",
+            "SpecialModelNeedsSpecialUser",
+            "SpecialFieldNeedsSpecialUser",
+            "Img2ImgMismatch",
+            "TilingMismatch",
+            "EducationCannotSendKudos",
+            "InvalidPriorityUsername",
+            "OnlyServiceAccountProxy",
+            "RequiresTrust",
+            "InvalidRemixModel",
+            "InvalidExtraSourceImages",
+            "TooManyExtraSourceImages",
+            "MissingFullSamplerOrder",
+            "TooManyStopSequences",
+            "ExcessiveStopSequence",
+            "TokenOverflow",
+            "MoreThanMinExtraSourceImage",
+            "InvalidExtraTexts",
+            "MissingExtraTexts",
+            "InvalidTransparencyModel",
+            "InvalidTransparencyImg2Img",
+            "InvalidTransparencyCN",
+            "HiResMismatch",
+            "StylesAnonForbidden",
+            "StylePromptMissingVars",
+            "StylePromptFieldInvalid",
+            "TemplateFieldsMatchNoCollectionStyle",
+            "StylesRequiresCustomizer",
+            "StyleMismatch",
+            "StyleGetMistmatch",
+            "TooManyStyleExamples",
+            "ExampleURLAlreadyInUse",
+            "MessagesOnlyOwnWorkers",
+            "NotUserOrMod",
+            "CannotDeleteMod",
+            "UserNotDeleted",
+            "DeletedUser",
+            "CannotWipeActiveUser",
+            "NonServiceForbidden",
+            "NulByteInPayload",
+            "SamplerKnobInapplicable",
+            "SamplerKnobOutOfRange",
+            "SamplerSolverTypeUnsupported",
+            "SamplerSchedulerMismatch",
+            "InvalidOperationsLimit",
+            "InvalidOperationsCursor",
+            "InvalidModerationTimeRange",
+            "InvalidModerationAddressFilter",
+            "InvalidModerationEventID",
+            "InvalidModerationReason",
+            "InvalidModerationNote",
+            "ModerationEventNotFound",
+            "InvalidWorkerID",
+            "InvalidSuspicionID",
+            "SchedulerBaselineMismatch",
+            "FlowShiftInapplicable",
+            "FlowShiftOutOfRange",
+            "ControlStrengthWithoutControlType",
+            "ControlStrengthOutOfRange",
+            "InvalidPromptEncoding",
+            "ControlNetInpaintingMismatch",
+            "InvalidControlType",
+            "ThingNotFound",
+            "TooManyWorkers",
+            "TooManyWorkersTrusted",
+            "StylePolicyOverridableMisplaced",
+            "StyleParameterAboveCeiling",
+            "StyleDeclarationInvalid",
+            "TemplateFieldsRequireStyle",
+            "TemplateFieldUnknown",
+            "TemplateFieldMissing",
+            "PromptExceedsContext"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RequestSingleWarning": {
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "NoAvailableWorker",
+            "ClipSkipMismatch",
+            "StepsTooFew",
+            "StepsTooMany",
+            "CfgScaleMismatch",
+            "CfgScaleTooSmall",
+            "CfgScaleTooLarge",
+            "SamplerMismatch",
+            "SchedulerMismatch",
+            "CfgPPScaleTooLarge"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "description": "",
+          "minLength": 1
+        }
+      },
+      "type": "object"
+    },
+    "RequestStatusCheck": {
+      "properties": {
+        "finished": {
+          "type": "integer",
+          "description": ""
+        },
+        "processing": {
+          "type": "integer",
+          "description": ""
+        },
+        "restarted": {
+          "type": "integer",
+          "description": ""
+        },
+        "waiting": {
+          "type": "integer",
+          "description": ""
+        },
+        "done": {
+          "type": "boolean",
+          "description": ""
+        },
+        "faulted": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "wait_time": {
+          "type": "integer",
+          "description": ""
+        },
+        "queue_position": {
+          "type": "integer",
+          "description": ""
+        },
+        "kudos": {
+          "type": "number",
+          "description": ""
+        },
+        "is_possible": {
+          "type": "boolean",
+          "description": "",
+          "default": true
+        },
+        "eligible_workers": {
+          "type": "integer",
+          "description": "",
+          "default": 0
+        },
+        "eligible_worker_threads": {
+          "type": "integer",
+          "description": "",
+          "default": 0
+        },
+        "might_stall": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        }
+      },
+      "type": "object"
+    },
+    "RequestStatusKobold": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RequestStatusCheck"
+        },
+        {
+          "properties": {
+            "generations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GenerationKobold"
+              }
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "GenerationKobold": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Generation"
+        },
+        {
+          "properties": {
+            "text": {
+              "type": "string",
+              "title": "Generated Text",
+              "description": "",
+              "minLength": 0
+            },
+            "seed": {
+              "type": "integer",
+              "title": "Generation Seed",
+              "description": "",
+              "default": 0
+            },
+            "gen_metadata": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GenerationMetadataKobold"
+              }
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "Generation": {
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "worker_id": {
+          "type": "string",
+          "title": "Worker ID",
+          "description": "",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "worker_name": {
+          "type": "string",
+          "title": "Worker Name",
+          "description": ""
+        },
+        "model": {
+          "type": "string",
+          "title": "Generation Model",
+          "description": ""
+        },
+        "state": {
+          "type": "string",
+          "title": "Generation State",
+          "description": "",
+          "default": "ok",
+          "enum": [
+            "ok",
+            "censored",
+            "csam"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GenerationMetadataKobold": {
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "censorship"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "csam"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "",
+          "maxLength": 255
+        }
+      },
+      "type": "object"
+    },
+    "RequestStatusStable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RequestStatusCheck"
+        },
+        {
+          "properties": {
+            "generations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GenerationStable"
+              }
+            },
+            "shared": {
+              "type": "boolean",
+              "description": ""
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "GenerationStable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Generation"
+        },
+        {
+          "properties": {
+            "img": {
+              "type": "string",
+              "title": "Generated Image",
+              "description": ""
+            },
+            "seed": {
+              "type": "string",
+              "title": "Generation Seed",
+              "description": ""
+            },
+            "id": {
+              "type": "string",
+              "title": "Generation ID",
+              "description": ""
+            },
+            "censored": {
+              "type": "boolean",
+              "description": ""
+            },
+            "gen_metadata": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GenerationMetadataStable"
+              }
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "GenerationMetadataStable": {
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "lora",
+            "ti",
+            "censorship",
+            "source_image",
+            "source_mask",
+            "extra_source_images",
+            "batch_index",
+            "information",
+            "aesthetic_score"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "download_failed",
+            "parse_failed",
+            "baseline_mismatch",
+            "csam",
+            "nsfw",
+            "see_ref"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "",
+          "maxLength": 255
+        }
+      },
+      "type": "object"
+    },
+    "RequestValidationError": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RequestError"
+        },
+        {
+          "properties": {
+            "errors": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "description": ""
+              }
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ResolvedRequestKobold": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResolvedRequest"
+        },
+        {
+          "properties": {
+            "estimated_prompt_tokens": {
+              "type": "integer",
+              "description": ""
+            },
+            "context_fit": {
+              "type": "string",
+              "description": "",
+              "enum": [
+                "ignore",
+                "reject",
+                "grow"
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ResolvedRequest": {
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": ""
+        },
+        "params": {
+          "type": "object",
+          "description": ""
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "style": {
+          "description": "",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResolvedRequestStyle"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResolvedRequestStable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResolvedRequest"
+        },
+        {
+          "properties": {
+            "negative_prompt": {
+              "type": "string",
+              "description": ""
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ResolvedRequestStyle": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "UserDetails": {
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": ""
+        },
+        "id": {
+          "type": "integer",
+          "description": ""
+        },
+        "kudos": {
+          "type": "number",
+          "description": ""
+        },
+        "evaluating_kudos": {
+          "type": "number",
+          "description": ""
+        },
+        "concurrency": {
+          "type": "integer",
+          "description": ""
+        },
+        "worker_invited": {
+          "type": "integer",
+          "description": ""
+        },
+        "moderator": {
+          "type": "boolean",
+          "description": ""
+        },
+        "kudos_details": {
+          "$ref": "#/definitions/UserKudosDetails"
+        },
+        "worker_count": {
+          "type": "integer",
+          "description": ""
+        },
+        "worker_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "styles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResponseModelStylesUser"
+          }
+        },
+        "sharedkey_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "active_generations": {
+          "description": "",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserActiveGenerations"
+            }
+          ]
+        },
+        "monthly_kudos": {
+          "$ref": "#/definitions/MonthlyKudos"
+        },
+        "trusted": {
+          "type": "boolean",
+          "description": ""
+        },
+        "flagged": {
+          "type": "boolean",
+          "description": ""
+        },
+        "vpn": {
+          "type": "boolean",
+          "description": ""
+        },
+        "service": {
+          "type": "boolean",
+          "description": ""
+        },
+        "education": {
+          "type": "boolean",
+          "description": ""
+        },
+        "customizer": {
+          "type": "boolean",
+          "description": ""
+        },
+        "special": {
+          "type": "boolean",
+          "description": ""
+        },
+        "deleted": {
+          "type": "boolean",
+          "description": ""
+        },
+        "suspicious": {
+          "type": "integer",
+          "description": ""
+        },
+        "pseudonymous": {
+          "type": "boolean",
+          "description": ""
+        },
+        "contact": {
+          "type": "string",
+          "description": ""
+        },
+        "admin_comment": {
+          "type": "string",
+          "description": ""
+        },
+        "proxy_passkey": {
+          "type": "string",
+          "description": ""
+        },
+        "account_age": {
+          "type": "integer",
+          "description": ""
+        },
+        "usage": {
+          "$ref": "#/definitions/UsageDetails"
+        },
+        "contributions": {
+          "$ref": "#/definitions/ContributionsDetails"
+        },
+        "records": {
+          "$ref": "#/definitions/UserRecords"
+        }
+      },
+      "type": "object"
+    },
+    "ContributionsDetails": {
+      "properties": {
+        "megapixelsteps": {
+          "type": "number",
+          "description": ""
+        },
+        "fulfillments": {
+          "type": "integer",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "MonthlyKudos": {
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "description": ""
+        },
+        "last_received": {
+          "type": "string",
+          "format": "date-time",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "ResponseModelStylesUser": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResponseModelStylesShort"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "",
+              "enum": [
+                "image",
+                "text"
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ResponseModelStylesShort": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "id": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "UsageDetails": {
+      "properties": {
+        "megapixelsteps": {
+          "type": "number",
+          "description": ""
+        },
+        "requests": {
+          "type": "integer",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "UserActiveGenerations": {
+      "properties": {
+        "text": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "image": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "alchemy": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": ""
+          }
+        }
+      },
+      "type": "object"
+    },
+    "UserKudosDetails": {
+      "properties": {
+        "accumulated": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        },
+        "gifted": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        },
+        "donated": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        },
+        "admin": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        },
+        "received": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        },
+        "recurring": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        },
+        "awarded": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        },
+        "styled": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        }
+      },
+      "type": "object"
+    },
+    "UserRecords": {
+      "properties": {
+        "usage": {
+          "$ref": "#/definitions/UserThingRecords"
+        },
+        "contribution": {
+          "$ref": "#/definitions/UserThingRecords"
+        },
+        "fulfillment": {
+          "$ref": "#/definitions/UserAmountRecords"
+        },
+        "request": {
+          "$ref": "#/definitions/UserAmountRecords"
+        },
+        "style": {
+          "$ref": "#/definitions/UserAmountRecords"
+        }
+      },
+      "type": "object"
+    },
+    "UserAmountRecords": {
+      "properties": {
+        "image": {
+          "type": "integer",
+          "description": "",
+          "default": 0
+        },
+        "text": {
+          "type": "integer",
+          "description": "",
+          "default": 0
+        },
+        "interrogation": {
+          "type": "integer",
+          "description": "",
+          "default": 0
+        }
+      },
+      "type": "object"
+    },
+    "UserThingRecords": {
+      "properties": {
+        "megapixelsteps": {
+          "type": "number",
+          "description": "",
+          "default": 0
+        },
+        "tokens": {
+          "type": "integer",
+          "description": "",
+          "default": 0
+        }
+      },
+      "type": "object"
+    }
+  }
+}

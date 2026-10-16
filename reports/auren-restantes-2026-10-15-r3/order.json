@@ -1,0 +1,106 @@
+{
+  "order": [
+    "gemini",
+    "groq",
+    "zai",
+    "ollama",
+    "cohere",
+    "mistral",
+    "deepseek",
+    "cloudflare",
+    "nvidia",
+    "openrouter",
+    "aihorde"
+  ],
+  "stages": {
+    "gemini": {
+      "started_at": "2026-10-15T08:22:26.181109-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:22:41.701936-03:00",
+      "operations": 24,
+      "unfinished": 0
+    },
+    "groq": {
+      "started_at": "2026-10-15T08:22:56.688024-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:23:22.594807-03:00",
+      "operations": 14,
+      "unfinished": 0
+    },
+    "zai": {
+      "started_at": "2026-10-15T08:23:51.571190-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:23:58.209491-03:00",
+      "operations": 2,
+      "unfinished": 0
+    },
+    "ollama": {
+      "started_at": "2026-10-15T08:24:10.162711-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:24:12.740372-03:00",
+      "operations": 0,
+      "unfinished": 0
+    },
+    "cohere": {
+      "started_at": "2026-10-15T08:24:32.521770-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:27:53.151755-03:00",
+      "operations": 23,
+      "unfinished": 0
+    },
+    "mistral": {
+      "started_at": "2026-10-15T08:28:23.093686-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:28:27.333199-03:00",
+      "operations": 10,
+      "unfinished": 0
+    },
+    "deepseek": {
+      "started_at": "2026-10-15T08:28:58.413238-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:29:02.087734-03:00",
+      "operations": 0,
+      "unfinished": 0
+    },
+    "cloudflare": {
+      "started_at": "2026-10-15T08:29:19.031487-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:35:12.801381-03:00",
+      "operations": 64,
+      "unfinished": 0
+    },
+    "nvidia": {
+      "started_at": "2026-10-15T08:35:19.849166-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T08:45:15.673341-03:00",
+      "operations": 90,
+      "unfinished": 0
+    },
+    "openrouter": {
+      "started_at": "2026-10-15T08:46:52.631618-03:00",
+      "discovery_done": true,
+      "status": "reconciled",
+      "updated_at": "2026-10-15T09:03:54.675144-03:00",
+      "operations": 16952,
+      "unfinished": 0
+    },
+    "aihorde": {
+      "started_at": "2026-10-15T09:09:37.871747-03:00",
+      "discovery_done": true,
+      "status": "window_ended_with_pending",
+      "updated_at": "2026-10-15T09:48:11.061929-03:00",
+      "operations": 521,
+      "unfinished": 263
+    }
+  },
+  "created_at": "2026-10-15T08:21:48.475224-03:00"
+}

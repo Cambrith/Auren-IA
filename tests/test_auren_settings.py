@@ -60,7 +60,7 @@ class SettingsTests(unittest.TestCase):
         self.assertFalse(json.loads((self.root/'provider_policy.json').read_text())['cohere_trial'])
     def test_invalid_provider_and_key_do_not_change_vault(self):
         vault=Vault()
-        for provider,key in [('deepseek','replacement'),('nvidia','short'),('nvidia','x x x x x')]:
+        for provider,key in [('missing-provider','replacement'),('nvidia','short'),('nvidia','x x x x x')]:
             with self.assertRaises(ValueError): settings.save_key(provider,key,vault)
             self.assertEqual(vault.value,'old')
     def test_state_redacts_credentials_and_distinguishes_catalog_from_generation(self):

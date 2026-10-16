@@ -122,7 +122,7 @@ html.dark .lunvri-navbar {
 }
 .auren-settings .connection-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 12px;
 }
 .auren-settings article,
@@ -216,4 +216,39 @@ html.dark .lunvri-navbar {
  overflow-y: auto;
  overscroll-behavior: contain;
  scrollbar-gutter: stable;
+}
+
+/* Connection cards retain their existing surfaces and spacing. */
+.auren-settings .connection-grid article {
+	position: relative;
+	min-width: 0;
+}
+.auren-settings .connection-grid .connection-brand {
+	padding-right: 18px;
+}
+.auren-settings .connection-grid .connection-brand strong {
+	overflow-wrap: anywhere;
+}
+.auren-settings .connection-grid .connection-drag-handle {
+	position: absolute;
+	right: 6px;
+	top: 6px;
+	padding: 0 4px;
+	border: 0;
+	cursor: grab;
+	touch-action: none;
+	color: #a9bdd0;
+}
+.auren-settings .connection-dragging {
+	opacity: 0.45;
+}
+@media (max-width: 900px) {
+	.auren-settings .connection-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+@media (max-width: 650px) {
+	.auren-settings .connection-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
 }

@@ -1,0 +1,293 @@
+{
+  "aihorde": {
+    "file": "aihorde.png",
+    "official": false,
+    "fallback": "existing_attributed_asset",
+    "dark_surface": false,
+    "sha256": "ab45b61932ca8262871c8db270a2485a686784e55ee61f597c96400ec2f24c3e"
+  },
+  "bedrock": {
+    "file": "providers/bedrock.png",
+    "source_page": "https://aws.amazon.com/bedrock/",
+    "source": "https://a0.awsstatic.com/libra-css/images/site/touch-icon-ipad-144-smile.png",
+    "sha256": "054dd79d0d1802792222f68315ca8ff4ad861d2f14fa76bded862040419b9381",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "anthropic": {
+    "file": "anthropic.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "e833fdfa7e7187a86a05b870925067556a506dcd4239089aed73e1e58c9366a3",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/anthropic.png",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "assemblyai": {
+    "file": "providers/assemblyai.svg",
+    "source_page": "https://www.assemblyai.com/docs",
+    "source": "https://mintcdn.com/assemblyai-fff14a6f/vMuNaI_PbWUbVeV0/assets/assemblyai-lockup-primary.svg?fit=max&auto=format&n=vMuNaI_PbWUbVeV0&q=85&s=808d2a677e2536423045d44b3f330ac2",
+    "sha256": "692fcab464c00238c6f203d008e40937c9282c8d36e751bec30de8b727af2c60",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_logo",
+    "local_edit": "ViewBox selects the official symbol from the lockup; original paths preserved."
+  },
+  "canva": {
+    "file": "providers/canva.png",
+    "source_page": "https://www.canva.dev/docs/",
+    "source": "https://www.canva.dev/_next/static/media/apple-touch-120x120.e46561c0.webp",
+    "sha256": "55391aaed6c3ba373d5632297660e9b321f678101abd0d5f3a6e09f87fd30523",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "cartesia": {
+    "file": "providers/cartesia.svg",
+    "source_page": "https://docs.cartesia.ai/get-started/overview",
+    "source": "https://mintcdn.com/cartesia-2650f86a/rp8lz4slmd9FPHjD/logo/dark.svg?fit=max&auto=format&n=rp8lz4slmd9FPHjD&q=85&s=eabbb6923e648403348986ee234894e4",
+    "sha256": "740315e7a234360fc682c130716988d08aac67acee1c49eb61e4bf816e834db5",
+    "official": true,
+    "dark_surface": true,
+    "asset_kind": "declared_logo"
+  },
+  "cerebras": {
+    "file": "providers/cerebras.png",
+    "source_page": "https://www.cerebras.ai/",
+    "source": "https://cdn.sanity.io/images/e4qjo92p/production/e7a55ae5ab7e2c4fdfd4e66a51f628d1f2f44207-967x967.png?w=512&h=512&fit=max&auto=format",
+    "sha256": "1eb2d10f8c2b0e592d75ff0db2eff54bdd2016ca65f6cffa74da66e20e62239e",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "cloudflare": {
+    "file": "cloudflare.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "cee35d3f0ecb7925ce0a89aeaff8b907cadae7c3fe44a23e4001cc8d5ee57502",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/cloudflare.png",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "cohere": {
+    "file": "providers/cohere.png",
+    "source_page": "https://cohere.com/",
+    "source": "https://cohere.com/apple-touch-icon.png",
+    "sha256": "8e4ac9c90bee02ed25bd79531019f01d90b1237c1d707cc480443e8b23374ee5",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "deepgram": {
+    "file": "providers/deepgram.png",
+    "source_page": "https://deepgram.com/",
+    "source": "https://deepgram.com/favicon.ico?93834efdfdd5438d",
+    "sha256": "d061cdf86bd086a2f2daf104a6c83c0993882882d16fd47811244fdf2994b76d",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "deepinfra": {
+    "file": "providers/deepinfra.png",
+    "source_page": "https://deepinfra.com/",
+    "source": "https://deepinfra.com/fav-192.png",
+    "sha256": "0d2521c4b06846e9df816af75520b0c95f381946e6afb3bbcd9416afcc17a417",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "deepseek": {
+    "file": "providers/deepseek.png",
+    "source_page": "https://www.deepseek.com/",
+    "source": "https://www.deepseek.com/favicon.ico",
+    "sha256": "cba0168e484cf74016847e09aff47c839f4198000a52f19e76f44a73dafe24e4",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "elevenlabs": {
+    "file": "providers/elevenlabs.svg",
+    "source_page": "https://elevenlabs.io/docs/overview/intro",
+    "source": "https://elevenlabs.io/docs/_fern-files/elevenlabs.docs.buildwithfern.com/663498a0b1b5ebb51d2a1b7b00c6cae85ac04642aa9bbb77300bb75ad3c9e0f2/assets/logo-light.svg",
+    "sha256": "9fcdfc2d3c092183e01d4a3b595fbb17f3f8f0d2f1044fae7499bd53fa49ef3b",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_logo",
+    "local_edit": "ViewBox selects the official symbol from the lockup; original paths preserved."
+  },
+  "fal": {
+    "file": "providers/fal.png",
+    "source_page": "https://fal.ai/",
+    "source": "https://fal.ai/apple-touch-icon.png",
+    "sha256": "a83675f50f1d7a749725a0b525a7b83fc7a956d9952aaa14ecc5763a8a392758",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "fireworks": {
+    "file": "providers/fireworks.svg",
+    "source_page": "https://fireworks.ai/",
+    "source": "https://fireworks.ai/icon0.svg?e3d99deadffb6216",
+    "sha256": "86b7f4b33ca48c5617f10e2cef5aaa7096c5e798090ceb2d0c21b01273660c76",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "gemini": {
+    "file": "providers/gemini.png",
+    "source_page": "https://gemini.google.com/",
+    "source": "https://www.gstatic.com/lamda/images/gemini_sparkle_4g_512_lt_f94943af3be039176192d.png",
+    "sha256": "f9c86bb73b2d3d0a3b6c3f4018278c6946d8d670e527c253a04026310d55a8bb",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "groq": {
+    "file": "groq.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "078d5cf6e7a54905040c15ddacf5ea33c13042fe7739e820cedc2096e4406651",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/groq.svg",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "huggingface": {
+    "file": "huggingface.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "5d39d66bb6c9b026d3cb5de7bd9978dad3906570df2aca8f00078a6f8a3d0f5e",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/huggingface.svg",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "hyperbolic": {
+    "file": "providers/hyperbolic.png",
+    "source_page": "https://www.hyperbolic.ai/",
+    "source": "https://www.hyperbolic.ai/favicon-dark.ico",
+    "sha256": "be754ec9e3cd4735149ec1f16c3afc8bdcf3c7c7b57d8d2068526a4fff9241b4",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "mistral": {
+    "file": "mistral.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "722f74b289d95486b43662fe24fa883b333701296f618406cd0ed502299170b6",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/mistral.png",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "nvidia": {
+    "file": "nvidia.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "8c941e4eb8b782eccaaea1240c059d20be33ab8eda28d7c9ed9b53ac802fe683",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/nvidia.png",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "novita": {
+    "file": "providers/novita.png",
+    "source_page": "https://novita.ai/",
+    "source": "https://novita.ai/favicon-dark.ico",
+    "sha256": "b277e8eaaa06761600ddee7243dd698f1a1ca48fe3437d1a1f733e098bd7e17a",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "ollama": {
+    "file": "ollama.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "3a268218fb2e6e81fa31df70f70b51331625047794db81db21d35359428fae7a",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/ollama.png",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "openai": {
+    "file": "openai.svg",
+    "official": false,
+    "fallback": "existing_attributed_asset",
+    "dark_surface": false,
+    "sha256": "a595df6b423920c67a7f8f73c063e4bfb72d415948097b6cac063a2366bb5186"
+  },
+  "openrouter": {
+    "file": "openrouter.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "17bede1b89166f824ee06753dc526a3f5e18b769706deaab09d04a3a98de1a78",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/openrouter.png",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "replicate": {
+    "file": "providers/replicate.png",
+    "source_page": "https://replicate.com/",
+    "source": "https://static.replicateassets.com/fe/4fa86b07de3ad4ea584bc1f339cff05cc96889c9/favicon-CKiqAkf2.png",
+    "sha256": "43a94d827cc9bffc8b74d3e18a97acf116cc9092a950785e2b36aa899b11a7e5",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon"
+  },
+  "stability": {
+    "file": "stability.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "61c4593effe20b4fa1f0811861bb6ac199348d955b21a5c3f719bc07c9d27d3a",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/stability.png",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "voyage": {
+    "file": "providers/voyage.svg",
+    "source_page": "https://www.voyageai.com/",
+    "source": "https://www.voyageai.com/icon.svg",
+    "sha256": "357a324760425ddf538a50b75d2e3d42eeb8050aced7fd1654df0c2cb61946a8",
+    "official": true,
+    "dark_surface": false,
+    "asset_kind": "declared_site_icon",
+    "local_edit": "Removed only the standalone white background rectangle; paths and masks preserved."
+  },
+  "xai": {
+    "file": "xai.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "89eb7de9f0d02a41cfecd9109e253d7fd3529e27467dee4254faa67f3ac21451",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/xai.png",
+    "fallback": "existing_attributed_transparent_svg"
+  },
+  "zai": {
+    "file": "zai.svg",
+    "source_page": "https://github.com/lobehub/lobe-icons",
+    "source": "https://github.com/lobehub/lobe-icons",
+    "sha256": "e748cb5108ce37b116d7a5ba97d37e0ae97eadf6849b0de11afb248e244a01e1",
+    "official": false,
+    "dark_surface": false,
+    "asset_kind": "transparent_brand_mark",
+    "previous_official_asset": "providers/zai.svg",
+    "fallback": "existing_attributed_transparent_svg"
+  }
+}

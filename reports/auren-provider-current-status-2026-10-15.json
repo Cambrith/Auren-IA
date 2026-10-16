@@ -1,0 +1,212 @@
+{
+  "aihorde": {
+    "name": "AI Horde",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:39.411214+00:00"
+  },
+  "anthropic": {
+    "name": "Anthropic API (Claude)",
+    "status": "pending",
+    "reason": "future_credentials",
+    "message": "Reservado: sem credencial; ativação futura depende do painel do provedor.",
+    "checked_at": "2026-10-15T23:24:40.033045+00:00"
+  },
+  "assemblyai": {
+    "name": "AssemblyAI API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:40.822681+00:00"
+  },
+  "cerebras": {
+    "name": "Cerebras Inference API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:41.841227+00:00"
+  },
+  "cloudflare": {
+    "name": "Cloudflare Workers AI",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:42.476512+00:00"
+  },
+  "cohere": {
+    "name": "Cohere API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:42.754508+00:00"
+  },
+  "deepgram": {
+    "name": "Deepgram API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:43.780596+00:00"
+  },
+  "deepinfra": {
+    "name": "DeepInfra API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:45.080655+00:00"
+  },
+  "deepseek": {
+    "name": "DeepSeek API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:46.018019+00:00"
+  },
+  "elevenlabs": {
+    "name": "ElevenLabs API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:46.796094+00:00"
+  },
+  "fal": {
+    "name": "fal API (fal.ai)",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:48.457497+00:00"
+  },
+  "fireworks": {
+    "name": "Fireworks AI API",
+    "status": "pending",
+    "reason": "future_credentials",
+    "message": "Reservado: sem credencial; ativação futura depende do painel do provedor.",
+    "checked_at": "2026-10-15T23:24:48.460256+00:00"
+  },
+  "gemini": {
+    "name": "Google Gemini API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:48.874636+00:00"
+  },
+  "groq": {
+    "name": "GroqCloud API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:49.367156+00:00"
+  },
+  "huggingface": {
+    "name": "Hugging Face Inference Providers",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:49.824434+00:00"
+  },
+  "hyperbolic": {
+    "name": "Hyperbolic API",
+    "status": "success",
+    "reason": "account_ok",
+    "message": "Conta autenticada; disponibilidade de inferência não comprovada.",
+    "checked_at": "2026-10-15T23:24:51.119246+00:00"
+  },
+  "mistral": {
+    "name": "Mistral AI API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:51.708465+00:00"
+  },
+  "nvidia": {
+    "name": "NVIDIA NIM API",
+    "status": "success",
+    "reason": "inference_ok",
+    "message": "Inferência mínima autenticada concluída; não confirma todos os modelos ou tarefas.",
+    "checked_at": "2026-10-16T00:04:16.771804+00:00"
+  },
+  "novita": {
+    "name": "Novita AI API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:53.079221+00:00"
+  },
+  "ollama": {
+    "name": "Ollama Cloud API",
+    "status": "success",
+    "reason": "inference_ok",
+    "message": "Inferência mínima autenticada concluída; não confirma todos os modelos ou tarefas.",
+    "checked_at": "2026-10-16T00:04:17.497377+00:00"
+  },
+  "openai": {
+    "name": "OpenAI API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:54.702104+00:00"
+  },
+  "openrouter": {
+    "name": "OpenRouter API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:55.264073+00:00"
+  },
+  "replicate": {
+    "name": "Replicate API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:55.658377+00:00"
+  },
+  "stability": {
+    "name": "Stability AI API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:56.725001+00:00"
+  },
+  "voyage": {
+    "name": "Voyage AI API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-16T00:02:11.781712+00:00"
+  },
+  "xai": {
+    "name": "xAI API",
+    "status": "pending",
+    "reason": "future_credentials",
+    "message": "Reservado para ativação futura; configuração depende do painel do provedor.",
+    "checked_at": "2026-10-16T00:02:11.177159+00:00"
+  },
+  "zai": {
+    "name": "Z.ai API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:58.652678+00:00"
+  },
+  "cartesia": {
+    "name": "Cartesia API",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:24:41.336726+00:00"
+  },
+  "bedrock": {
+    "name": "Amazon Bedrock",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:57:40.769800+00:00"
+  },
+  "canva": {
+    "name": "Canva Connect",
+    "status": "success",
+    "reason": "ok",
+    "message": "Consulta autenticada concluída; não confirma capacidade de geração ou saldo.",
+    "checked_at": "2026-10-15T23:39:37.237026+00:00"
+  }
+}

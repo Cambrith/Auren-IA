@@ -1,0 +1,32 @@
+{
+  "models": [
+    {
+      "model": "deepmind/alphafold2",
+      "source": "https://build.nvidia.com/deepmind/alphafold2/api",
+      "http_status": 200,
+      "examples": [],
+      "sha256": "253c9f8774b107cfa5b3605de72fa4f440666a190c42b0ba28a4f3ffacadb9b9"
+    },
+    {
+      "model": "deepmind/alphafold2-multimer",
+      "source": "https://build.nvidia.com/deepmind/alphafold2-multimer/api",
+      "http_status": 200,
+      "examples": [],
+      "sha256": "59b84fe8cbb597cf534be750d1faf2273461abbaef5eb676b99029bd910f6a6f"
+    },
+    {
+      "model": "ipd/proteinmpnn",
+      "source": "https://build.nvidia.com/ipd/proteinmpnn/api",
+      "http_status": 200,
+      "examples": [],
+      "sha256": "7eb91ab302c55aa168f45592c10c877ad468d6f3cbd281e5089314d5b0d41677"
+    },
+    {
+      "model": "ipd/rfdiffusion",
+      "source": "https://build.nvidia.com/ipd/rfdiffusion/api",
+      "http_status": 200,
+      "examples": [],
+      "sha256": "3a24919b1a7961f4ab525565f42e43218c501b296355e81752a40595678fc1c6"
+    }
+  ]
+}

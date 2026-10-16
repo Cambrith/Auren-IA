@@ -1,0 +1,62 @@
+{
+  "source": "https://build.nvidia.com/resembleai/chatterbox-multilingual-tts/api",
+  "at": "2026-10-14T07:27:17.926822-03:00",
+  "calls": [
+    {
+      "real_call": true,
+      "success": true,
+      "cost_class": "unknown",
+      "transport": "grpc",
+      "seconds": 1.996,
+      "audio_seconds": 1.4500226757369614,
+      "result": "validated_native_gold_speech_fixture",
+      "fixture": "zh-synthetic.wav",
+      "sha256": "a001a64563ba5dcc51172f7af72809f2e591afa801cfefb5c69907f59a310a4b",
+      "expected": "你好 早上好",
+      "language": "zh-CN",
+      "semantic_asr": {
+        "provider": "mistral",
+        "model": "voxtral-mini-latest",
+        "operation": "audio/transcriptions",
+        "real_call": true,
+        "reported_cost_usd": null,
+        "cost_class": "unknown",
+        "http_status": 200,
+        "success": true,
+        "token_coverage": 1.0,
+        "transcript_sha256": "28319e1f3bce716862db2fc6c98e9466a7d793e8dd9636af33da652790edcaea",
+        "result": "semantic_asr_valid",
+        "seconds": 0.561
+      },
+      "generation_result": "native_speech_received"
+    },
+    {
+      "real_call": true,
+      "success": true,
+      "cost_class": "unknown",
+      "transport": "grpc",
+      "seconds": 2.43,
+      "audio_seconds": 1.7700226757369615,
+      "result": "validated_native_gold_speech_fixture",
+      "fixture": "es-synthetic.wav",
+      "sha256": "1e11c1f4a57d9e123b08607484826e23ebaebeca003532df28f592ba4bae406e",
+      "expected": "hola buenos dias",
+      "language": "es-ES",
+      "semantic_asr": {
+        "provider": "mistral",
+        "model": "voxtral-mini-latest",
+        "operation": "audio/transcriptions",
+        "real_call": true,
+        "reported_cost_usd": null,
+        "cost_class": "unknown",
+        "http_status": 200,
+        "success": true,
+        "token_coverage": 1.0,
+        "transcript_sha256": "e506e5db6ab53e80fa55b17db0e1bb6f4057e66ad1a1d47a413c75f4d953e7d8",
+        "result": "semantic_asr_valid",
+        "seconds": 0.891
+      },
+      "generation_result": "native_speech_received"
+    }
+  ]
+}
