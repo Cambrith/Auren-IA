@@ -150,6 +150,7 @@ class AurenWindow(QWidget):
             button = QToolButton(self.header)
             button.setText(name)
             button.setAccessibleName('Menu '+name)
+            button.setFocusPolicy(Qt.NoFocus)
             button.setPopupMode(QToolButton.InstantPopup)
             button.setMenu(menu)
             button.setFixedHeight(32)
@@ -212,6 +213,7 @@ class AurenWindow(QWidget):
         button.setIcon(toolbar_icon(icon))
         button.setToolTip(label)
         button.setAccessibleName(label)
+        button.setFocusPolicy(Qt.NoFocus)
         button.setFixedSize(32, 32)
         button.clicked.connect(action)
         return button
@@ -310,6 +312,10 @@ class AurenWindow(QWidget):
         super().resizeEvent(event)
         if hasattr(self, 'edges'):
             self.layout_controls()
+
+    def showEvent(self, event):
+        super().showEvent(event)
+        self.web.setFocus()
 
     def changeEvent(self, event):
         super().changeEvent(event)

@@ -11,10 +11,10 @@ import time
 import urllib.request
 from pathlib import Path
 
-from PySide6.QtCore import QTimer, QUrl
+from PySide6.QtCore import QStandardPaths, QTimer, QUrl
 from PySide6.QtGui import QIcon
 from PySide6.QtWebEngineCore import QWebEnginePage, QWebEngineProfile
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QFileDialog
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from auren_window import AUREN_BACKGROUND, AurenWindow
@@ -140,6 +140,19 @@ def main():
 
     win = AurenWindow()
     win.setPage(QWebEnginePage(profile, win.web))
+
+    def handle_download(download):
+        downloads_dir = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DownloadLocation) or str(Path.home() / 'Downloads')
+        suggested = download.downloadFileName() or 'download'
+        target, _ = QFileDialog.getSaveFileName(win, 'Salvar arquivo', str(Path(downloads_dir) / suggested))
+        if target:
+            download.setDownloadDirectory(str(Path(target).parent))
+            download.setDownloadFileName(Path(target).name)
+            download.accept()
+        else:
+            download.cancel()
+
+    profile.downloadRequested.connect(handle_download)
 
     if already_up:
         win.setUrl(QUrl(URL))
