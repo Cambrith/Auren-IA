@@ -679,87 +679,91 @@ async def initialize_runtime_config(app: FastAPI):
     app.state.rf = None
     app.state.YOUTUBE_LOADER_TRANSLATION = None
 
-    try:
-        rag_config = await Config.get_many(
-            'rag.embedding_engine',
-            'rag.embedding_model',
-            'rag.enable_hybrid_search',
-            'rag.bypass_embedding_and_retrieval',
-            'rag.reranking_engine',
-            'rag.reranking_model',
-            'rag.external_reranker_url',
-            'rag.external_reranker_api_key',
-            'rag.external_reranker_timeout',
-        )
-        app.state.ef = get_ef(rag_config.get('rag.embedding_engine'), rag_config.get('rag.embedding_model'))
-        if rag_config.get('rag.enable_hybrid_search') and not rag_config.get('rag.bypass_embedding_and_retrieval'):
-            app.state.rf = get_rf(
-                rag_config.get('rag.reranking_engine'),
-                rag_config.get('rag.reranking_model'),
-                rag_config.get('rag.external_reranker_url'),
-                rag_config.get('rag.external_reranker_api_key'),
-                rag_config.get('rag.external_reranker_timeout'),
+    async def _init_rag_models():
+        try:
+            rag_cfg = await Config.get_many(
+                'rag.embedding_engine',
+                'rag.embedding_model',
+                'rag.enable_hybrid_search',
+                'rag.bypass_embedding_and_retrieval',
+                'rag.reranking_engine',
+                'rag.reranking_model',
+                'rag.external_reranker_url',
+                'rag.external_reranker_api_key',
+                'rag.external_reranker_timeout',
+                'rag.openai.api_base_url',
+                'rag.ollama.base_url',
+                'rag.azure_openai.base_url',
+                'rag.openai.api_key',
+                'rag.ollama.api_key',
+                'rag.azure_openai.api_key',
+                'rag.embedding_batch_size',
+                'rag.azure_openai.api_version',
+                'rag.enable_async_embedding',
+                'rag.embedding_concurrent_requests',
+                'rag.reranking_batch_size',
             )
-        else:
+            app.state.ef = await asyncio.to_thread(
+                get_ef,
+                rag_cfg.get('rag.embedding_engine'),
+                rag_cfg.get('rag.embedding_model'),
+            )
+            if rag_cfg.get('rag.enable_hybrid_search') and not rag_cfg.get('rag.bypass_embedding_and_retrieval'):
+                app.state.rf = await asyncio.to_thread(
+                    get_rf,
+                    rag_cfg.get('rag.reranking_engine'),
+                    rag_cfg.get('rag.reranking_model'),
+                    rag_cfg.get('rag.external_reranker_url'),
+                    rag_cfg.get('rag.external_reranker_api_key'),
+                    rag_cfg.get('rag.external_reranker_timeout'),
+                )
+            else:
+                app.state.rf = None
+
+            embedding_engine = rag_cfg.get('rag.embedding_engine')
+            app.state.EMBEDDING_FUNCTION = get_embedding_function(
+                embedding_engine,
+                rag_cfg.get('rag.embedding_model'),
+                embedding_function=app.state.ef,
+                url=(
+                    rag_cfg.get('rag.openai.api_base_url')
+                    if embedding_engine == 'openai'
+                    else (
+                        rag_cfg.get('rag.ollama.base_url')
+                        if embedding_engine == 'ollama'
+                        else rag_cfg.get('rag.azure_openai.base_url')
+                    )
+                ),
+                key=(
+                    rag_cfg.get('rag.openai.api_key')
+                    if embedding_engine == 'openai'
+                    else (
+                        rag_cfg.get('rag.ollama.api_key')
+                        if embedding_engine == 'ollama'
+                        else rag_cfg.get('rag.azure_openai.api_key')
+                    )
+                ),
+                embedding_batch_size=rag_cfg.get('rag.embedding_batch_size'),
+                azure_api_version=(
+                    rag_cfg.get('rag.azure_openai.api_version') if embedding_engine == 'azure_openai' else None
+                ),
+                enable_async=rag_cfg.get('rag.enable_async_embedding'),
+                concurrent_requests=rag_cfg.get('rag.embedding_concurrent_requests'),
+            )
+            app.state.RERANKING_FUNCTION = get_reranking_function(
+                rag_cfg.get('rag.reranking_engine'),
+                rag_cfg.get('rag.reranking_model'),
+                reranking_function=app.state.rf,
+                reranking_batch_size=rag_cfg.get('rag.reranking_batch_size'),
+            )
+        except Exception as e:
+            log.error(f'Error updating models: {e}')
             app.state.rf = None
-    except Exception as e:
-        log.error(f'Error updating models: {e}')
-        app.state.rf = None
 
-    rag_config = await Config.get_many(
-        'rag.embedding_engine',
-        'rag.embedding_model',
-        'rag.openai.api_base_url',
-        'rag.ollama.base_url',
-        'rag.azure_openai.base_url',
-        'rag.openai.api_key',
-        'rag.ollama.api_key',
-        'rag.azure_openai.api_key',
-        'rag.embedding_batch_size',
-        'rag.azure_openai.api_version',
-        'rag.enable_async_embedding',
-        'rag.embedding_concurrent_requests',
-        'rag.reranking_engine',
-        'rag.reranking_model',
-        'rag.reranking_batch_size',
-    )
-    embedding_engine = rag_config.get('rag.embedding_engine')
-    app.state.EMBEDDING_FUNCTION = get_embedding_function(
-        embedding_engine,
-        rag_config.get('rag.embedding_model'),
-        embedding_function=app.state.ef,
-        url=(
-            rag_config.get('rag.openai.api_base_url')
-            if embedding_engine == 'openai'
-            else (
-                rag_config.get('rag.ollama.base_url')
-                if embedding_engine == 'ollama'
-                else rag_config.get('rag.azure_openai.base_url')
-            )
-        ),
-        key=(
-            rag_config.get('rag.openai.api_key')
-            if embedding_engine == 'openai'
-            else (
-                rag_config.get('rag.ollama.api_key')
-                if embedding_engine == 'ollama'
-                else rag_config.get('rag.azure_openai.api_key')
-            )
-        ),
-        embedding_batch_size=rag_config.get('rag.embedding_batch_size'),
-        azure_api_version=(
-            rag_config.get('rag.azure_openai.api_version') if embedding_engine == 'azure_openai' else None
-        ),
-        enable_async=rag_config.get('rag.enable_async_embedding'),
-        concurrent_requests=rag_config.get('rag.embedding_concurrent_requests'),
-    )
-
-    app.state.RERANKING_FUNCTION = get_reranking_function(
-        rag_config.get('rag.reranking_engine'),
-        rag_config.get('rag.reranking_model'),
-        reranking_function=app.state.rf,
-        reranking_batch_size=rag_config.get('rag.reranking_batch_size'),
-    )
+    if os.environ.get('AUREN_LAZY_EMBEDDINGS') == '1':
+        app.state.lazy_embeddings_task = asyncio.create_task(_init_rag_models())
+    else:
+        await _init_rag_models()
 
 
 # Audio

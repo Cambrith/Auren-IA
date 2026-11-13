@@ -100,7 +100,7 @@
 	let confirmEdit = false;
 	let chatTitle = '';
 	let chatTitleInput: HTMLInputElement;
-	let generating = false;
+	let generatingTitle = false;
 
 	const renameHandler = async () => {
 		chatTitle = title || chat?.chat?.title || '';
@@ -115,7 +115,7 @@
 
 	const editChatTitle = async () => {
 		// Disabling the field to generate a title blurs it, which would save the empty field
-		if (!confirmEdit || generating) return;
+		if (!confirmEdit || generatingTitle) return;
 		confirmEdit = false;
 
 		const newTitle = chatTitle.trim();
@@ -141,7 +141,7 @@
 	};
 
 	const generateTitleHandler = async () => {
-		generating = true;
+		generatingTitle = true;
 		chatTitle = '';
 
 		const messages = createMessagesList(history, history.currentId).map((message) => ({
@@ -156,7 +156,7 @@
 				return null;
 			}
 		);
-		generating = false;
+		generatingTitle = false;
 
 		chatTitle = generatedTitle || title;
 		await editChatTitle();
@@ -169,8 +169,8 @@
 		bind:value={chatTitle}
 		class="min-w-0 flex-1 bg-transparent md:py-1 text-[0.9375rem] font-normal text-gray-700 outline-hidden dark:text-gray-300"
 		aria-label={$i18n.t('Title')}
-		placeholder={generating ? $i18n.t('Generating...') : ''}
-		disabled={generating}
+		placeholder={generatingTitle ? $i18n.t('Generating...') : ''}
+		disabled={generatingTitle}
 		on:keydown={(e) => {
 			if (e.isComposing || e.keyCode === 229) return;
 
@@ -190,7 +190,7 @@
 			class="flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-lg text-gray-500 transition hover:bg-gray-50/40 hover:text-gray-700 disabled:cursor-not-allowed dark:text-gray-400 dark:hover:bg-gray-800/40 dark:hover:text-gray-200"
 			id="generate-title-button"
 			aria-label={$i18n.t('Generate')}
-			disabled={generating}
+			disabled={generatingTitle}
 			on:mousedown={(e) => e.preventDefault()}
 			on:click={() => {
 				generateTitleHandler();

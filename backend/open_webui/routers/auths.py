@@ -733,19 +733,12 @@ async def signin(
 
     elif WEBUI_AUTH == False:
         auth_source = 'system'
-        admin_email = 'admin@localhost'
-        admin_password = 'admin'
-
-        if await Users.get_user_by_email(admin_email.lower(), db=db):
-            authenticated = await Auths.authenticate_user(
-                admin_email.lower(),
-                lambda pw: verify_password(admin_password, pw),
-                db=db,
-            )
-            user, auth = authenticated if authenticated else (None, None)
+        user = await Users.get_super_admin_user(db=db) or await Users.get_first_user(db=db)
+        if user:
+            auth = await Auths.get_auth_by_id(user.id, db=db)
         else:
-            if await Users.has_users(db=db):
-                raise HTTPException(400, detail=ERROR_MESSAGES.EXISTING_USERS)
+            admin_email = 'admin@localhost'
+            admin_password = 'admin'
 
             await signup_handler(
                 request,

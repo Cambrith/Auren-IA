@@ -61,7 +61,7 @@
 	import 'tippy.js/dist/tippy.css';
 
 	import { executeToolServer, getBackendConfig, getModels, getVersion } from '$lib/apis';
-	import { getSessionUser, updateUserTimezone, userSignOut } from '$lib/apis/auths';
+	import { getSessionUser, updateUserTimezone, userSignIn, userSignOut } from '$lib/apis/auths';
 	import { getAllTags } from '$lib/apis/chats';
 	import { chatCompletion } from '$lib/apis/openai';
 	import { isTemporaryChatId } from '$lib/utils/chatId';
@@ -1396,35 +1396,55 @@
 			if ($config) {
 				await setupSocket($config.features?.enable_websocket ?? true);
 
+				let sessionUser = null;
+
 				if (sessionUserRequest) {
 					// Get Session User Info
-					const sessionUser = await sessionUserRequest.catch((error) => {
-						toast.error(`${error}`);
+					sessionUser = await sessionUserRequest.catch((error) => {
+						if ($config?.features?.auth !== false) {
+							toast.error(`${error}`);
+						}
 						return null;
 					});
+				}
 
-					if (sessionUser) {
-						await user.set(sessionUser);
-
-						// Keep user timezone in sync on every app load/refresh
-						const timezone = getUserTimezone();
-						if (timezone) {
-							updateUserTimezone(localStorage.token, timezone);
-						}
-
-						// Relay auth token to desktop app for API access
-						if (window.electronAPI?.send) {
-							window.electronAPI
-								.send({
-									type: 'token:update',
-									token: localStorage.token
-								})
-								.catch(() => {});
-						}
-					} else {
-						localStorage.removeItem('token');
-						await user.set(null);
+				if (
+					!sessionUser &&
+					(($config?.features?.auth_trusted_header ?? false) || $config?.features?.auth === false)
+				) {
+					sessionUser = await userSignIn('', '').catch(() => null);
+					if (sessionUser?.token) {
+						localStorage.token = sessionUser.token;
+						$socket?.emit('user-join', { auth: { token: sessionUser.token } });
 					}
+				}
+
+				if (sessionUser) {
+					await user.set(sessionUser);
+					try {
+						await config.set(await getBackendConfig());
+					} catch (error) {
+						console.error('Error refreshing backend config:', error);
+					}
+
+					// Keep user timezone in sync on every app load/refresh
+					const timezone = getUserTimezone();
+					if (timezone) {
+						updateUserTimezone(localStorage.token, timezone);
+					}
+
+					// Relay auth token to desktop app for API access
+					if (window.electronAPI?.send) {
+						window.electronAPI
+							.send({
+								type: 'token:update',
+								token: localStorage.token
+							})
+							.catch(() => {});
+					}
+				} else if (localStorage.token) {
+					localStorage.removeItem('token');
+					await user.set(null);
 				}
 			}
 		} else {

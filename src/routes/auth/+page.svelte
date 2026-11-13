@@ -72,7 +72,9 @@
 					return;
 				}
 			}
-			toast.success($i18n.t(`You're now logged in.`));
+			if ($config?.features?.auth !== false) {
+				toast.success($i18n.t(`You're now logged in.`));
+			}
 			if (sessionUser.token) {
 				localStorage.token = sessionUser.token;
 			}

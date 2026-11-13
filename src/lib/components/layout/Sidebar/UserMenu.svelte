@@ -629,21 +629,23 @@
 				<HotkeyHint name="openSettings" className="ms-auto" />
 			</button>
 
-			<button
-				role="menuitem"
-				class="flex h-[1.6875rem] items-center gap-2 rounded-xl px-2 text-[0.8125rem] w-full hover:bg-gray-50/60 dark:hover:bg-gray-800/60 transition cursor-pointer select-none"
-				type="button"
-				on:click={async () => {
-					const { hasChatViewDrafts } = await import('$lib/stores/chatViewStates');
-					if (hasChatViewDrafts()) confirmSignOut = true;
-					else await signOut();
-				}}
-			>
-				<div class="self-center">
-					<LogOutIcon className="size-3.5" strokeWidth="1.5" />
-				</div>
-				<div class=" self-center truncate">{$i18n.t('Sign Out')}</div>
-			</button>
+			{#if $config?.features?.auth !== false}
+				<button
+					role="menuitem"
+					class="flex h-[1.6875rem] items-center gap-2 rounded-xl px-2 text-[0.8125rem] w-full hover:bg-gray-50/60 dark:hover:bg-gray-800/60 transition cursor-pointer select-none"
+					type="button"
+					on:click={async () => {
+						const { hasChatViewDrafts } = await import('$lib/stores/chatViewStates');
+						if (hasChatViewDrafts()) confirmSignOut = true;
+						else await signOut();
+					}}
+				>
+					<div class="self-center">
+						<LogOutIcon className="size-3.5" strokeWidth="1.5" />
+					</div>
+					<div class=" self-center truncate">{$i18n.t('Sign Out')}</div>
+				</button>
+			{/if}
 		</DropdownMenu>
 	</div>
 </Dropdown>
