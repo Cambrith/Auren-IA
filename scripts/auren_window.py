@@ -101,6 +101,7 @@ class AurenWindow(QWidget):
             )
         self.previous_state = Qt.WindowNoState
         self.previous_geometry = QRect()
+        self._header_unlocked = True
         self.restore_timer = QTimer(self)
         self.restore_timer.setSingleShot(True)
         self.restore_timer.timeout.connect(self.showMaximized)
@@ -180,19 +181,19 @@ class AurenWindow(QWidget):
         root.addWidget(self.header)
         root.addWidget(self.web, 1)
         self.setStyleSheet('''
-            QWidget#aurenTitleBar {background:#101720; border-bottom:1px solid #1a2b3d;}
+            QWidget#aurenTitleBar {background:#080d17; border-bottom:1px solid #131d2e;}
             QWidget#aurenTitleBar QToolButton {color:#a9bdd0; background:transparent;
                 border:0; border-radius:5px; padding:0 7px; font-size:13px;}
-            QWidget#aurenTitleBar QToolButton:hover {background:#1a2b3d; color:#f4faff;}
+            QWidget#aurenTitleBar QToolButton:hover {background:#132033; color:#f4faff;}
             QWidget#aurenTitleBar QToolButton:focus {border:1px solid #59e0f3;}
             QWidget#aurenTitleBar QToolButton:disabled {color:#50667e;}
             QWidget#aurenTitleBar QToolButton::menu-indicator {image:none;}
             QWidget#aurenTitleBar QToolButton#aurenCloseButton:hover {background:#8f2634;}
-            QMenu {background:#0d1727; color:#d7e4ef; border:1px solid #2a3b50; padding:5px;}
+            QMenu {background:#0b1220; color:#d7e4ef; border:1px solid #1c2b40; padding:5px;}
             QMenu::item {padding:7px 24px 7px 12px; border-radius:4px;}
-            QMenu::item:selected {background:#1a2b3d; color:#f4faff;}
+            QMenu::item:selected {background:#132033; color:#f4faff;}
             QMenu::item:disabled {color:#50667e;}
-            QMenu::separator {height:1px; background:#2a3b50; margin:5px;}
+            QMenu::separator {height:1px; background:#1c2b40; margin:5px;}
         ''')
         self.setup_menus()
         self.web.urlChanged.connect(self.update_navigation)
@@ -290,8 +291,12 @@ class AurenWindow(QWidget):
     def setHtml(self, html):
         self.web.setHtml(html)
 
+    def set_header_unlocked(self, unlocked: bool):
+        self._header_unlocked = unlocked
+        self.layout_controls()
+
     def layout_controls(self):
-        self.header.setVisible(not self.isFullScreen())
+        self.header.setVisible(self._header_unlocked and not self.isFullScreen())
         compact = self.width() < 650
         for button in self.menu_buttons:
             button.setVisible(not compact)

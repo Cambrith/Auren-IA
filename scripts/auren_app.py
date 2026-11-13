@@ -139,7 +139,14 @@ def main():
     )
 
     win = AurenWindow()
+    win.set_header_unlocked(False)
     win.setPage(QWebEnginePage(profile, win.web))
+
+    def reveal_header_when_loaded(ok: bool):
+        if ok and win.web.url().toString().startswith(URL):
+            QTimer.singleShot(250, lambda: win.set_header_unlocked(True))
+
+    win.web.loadFinished.connect(reveal_header_when_loaded)
 
     def handle_download(download):
         downloads_dir = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DownloadLocation) or str(Path.home() / 'Downloads')
@@ -157,10 +164,12 @@ def main():
     if already_up:
         win.setUrl(QUrl(URL))
         win.maximize_window()
+        QTimer.singleShot(50, win.showMaximized)
         sys.exit(app.exec())
 
     win.setHtml(splash_html())
     win.maximize_window()
+    QTimer.singleShot(50, win.showMaximized)
 
     state = {'proc': None, 'ready': False, 'failed': False}
 
