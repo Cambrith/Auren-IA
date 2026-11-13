@@ -745,7 +745,7 @@ async def signin(
                 admin_email,
                 admin_password,
                 'Cambrith' if os.environ.get('LUNVRI_LOCAL_PREVIEW') == '1' else 'User',
-                profile_image_url='/cambrith-avatar.png' if os.environ.get('LUNVRI_LOCAL_PREVIEW') == '1' else '/user.png',
+                profile_image_url='/cambrith-avatar.png',
                 db=db,
                 source='system',
             )

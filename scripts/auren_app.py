@@ -47,6 +47,7 @@ def secret_key() -> str:
 def build_server_env() -> dict[str, str]:
     env = {
         **os.environ,
+        'WEBUI_NAME': 'Auren',
         'WEBUI_AUTH': 'False',
         'WEBUI_SECRET_KEY': secret_key(),
         'DATA_DIR': str(STATE / 'data'),

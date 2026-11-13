@@ -831,8 +831,12 @@ async def get_user_profile_image_by_id(user_id: str, user=Depends(get_verified_u
     user = await Users.get_user_by_id(user_id)
     if user:
         if user.profile_image_url:
-            if os.environ.get('LUNVRI_LOCAL_PREVIEW') == '1' and user.profile_image_url == '/cambrith-avatar.png':
-                return FileResponse(FRONTEND_BUILD_DIR / 'cambrith-avatar.png')
+            if user.profile_image_url == '/cambrith-avatar.png':
+                avatar_file = FRONTEND_BUILD_DIR / 'cambrith-avatar.png'
+                if not avatar_file.exists():
+                    avatar_file = STATIC_DIR / 'cambrith-avatar.png'
+                if avatar_file.exists():
+                    return FileResponse(avatar_file)
             if user.profile_image_url.startswith('http'):
                 if ENABLE_PROFILE_IMAGE_URL_FORWARDING:
                     return Response(

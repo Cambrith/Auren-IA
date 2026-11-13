@@ -857,12 +857,12 @@
 						{selectedTab === 'admin:authentication'
 							? 'Esta instalação usa uma sessão local protegida pela ponte. Senha de login remoto e MFA só se aplicam quando o serviço é iniciado com autenticação de contas; não são necessários para salvar o perfil.'
 							: selectedTab === 'admin:web'
-								? 'A pesquisa nas conversas da Auren usa o SearXNG local pelo controle do topo. As opções abaixo pertencem ao mecanismo de pesquisa adicional do Open WebUI.'
+								? 'A pesquisa nas conversas da Auren usa o SearXNG local pelo controle do topo. As opções abaixo pertencem ao mecanismo de pesquisa adicional da Auren.'
 								: selectedTab === 'admin:documents'
 									? 'Anexos da Auren são lidos localmente ou enviados ao modelo compatível. A indexação de bases de conhecimento abaixo exige uma conexão de embeddings própria, ainda não configurada.'
 									: selectedTab.includes('audio')
 										? 'Voz depende do navegador ou de uma API de áudio configurada separadamente. A ponte de modelos da Auren oferece conversa e imagens; ela não fornece transcrição ou síntese de voz.'
-										: 'Esta seção contém recursos avançados do Open WebUI. Não há um serviço de ferramentas externas configurado no motor da Auren; configure e valide o serviço correspondente antes de utilizá-lo.'}
+										: 'Esta seção contém recursos avançados da Auren. Não há um serviço de ferramentas externas configurado no motor da Auren; configure e valide o serviço correspondente antes de utilizá-lo.'}
 					</p>
 				</div>
 			{/if}

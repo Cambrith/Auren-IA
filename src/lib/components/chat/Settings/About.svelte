@@ -65,18 +65,11 @@
 					configurados.
 				</p>
 				<p>
-					Projeto pessoal mantido no fork Cambrith/Auren-IA. A versão indicada abaixo corresponde à
-					base Open WebUI.
+					Projeto pessoal mantido no fork Cambrith/Auren-IA.
 				</p>
 				<p>
 					<a href="https://github.com/Cambrith/Auren-IA" target="_blank" rel="noopener noreferrer"
 						>Repositório do projeto</a
-					>
-					·
-					<a
-						href="https://github.com/open-webui/open-webui"
-						target="_blank"
-						rel="noopener noreferrer">Base Open WebUI</a
 					>
 					·
 					<a
@@ -86,11 +79,8 @@
 					>
 				</p>
 			</section>{/if}
-		<!-- LICENSE covers this Open WebUI About identifier.
-		Do not alter, remove, obscure, or replace it except as LICENSE permits:
-		https://docs.openwebui.com/license. -->
 		<UserSettingSection
-			title={`${$config?.auren?.local ? 'Open WebUI — base' : $WEBUI_NAME} ${$i18n.t('settings.personal.about.sections.version.title')}`}
+			title={`${$WEBUI_NAME} ${$i18n.t('settings.personal.about.sections.version.title')}`}
 			first
 		>
 			<UserSettingRow description={$i18n.t('settings.personal.about.seeWhatSNew.description')}>
@@ -199,13 +189,11 @@
 			</div>
 
 			<div class="text-xs text-gray-400 dark:text-gray-500">
-				<!-- LICENSE covers this Open WebUI copyright attribution.
-				Do not alter, remove, obscure, or replace it except as LICENSE permits:
-				https://docs.openwebui.com/license. -->
 				{$i18n.t('Copyright (c)')}
 				{new Date().getFullYear()}
-				<a href="https://openwebui.com" target="_blank" class="underline">Open WebUI Inc.</a>
-				<a href="https://github.com/open-webui/open-webui/blob/main/LICENSE" target="_blank"
+				<span>Auren</span>
+				·
+				<a href="https://github.com/Cambrith/Auren-IA/blob/main/LICENSE" target="_blank"
 					>{$i18n.t('All rights reserved.')}</a
 				>
 			</div>
