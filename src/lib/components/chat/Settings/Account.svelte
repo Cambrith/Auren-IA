@@ -395,8 +395,7 @@
 		{/if}
 
 		{#if !$config?.auren?.local}
-			<UserSettingSection title={$i18n.t('Multi-factor authentication')}><Mfa /></UserSettingSection
-			>
+			<Mfa />
 		{:else}<p class="text-xs text-gray-500">
 				A sessão desta instalação é local. Senha e autenticação multifator são usadas quando o
 				acesso por contas está habilitado.
@@ -404,9 +403,13 @@
 
 		{#if canUseApiKeys({ user: $user, config: $config })}
 			<UserSettingSection title={$i18n.t('settings.personal.account.sections.apiKeys.title')}>
-				<UserSettingRow description={$i18n.t('settings.personal.account.secrets.description')}>
+				<UserSettingRow
+					let:labelId
+					description={$i18n.t('settings.personal.account.secrets.description')}
+				>
 					<span slot="label">{$i18n.t('settings.personal.account.secrets.label')}</span>
 					<button
+						id={`${labelId}-control`}
 						class={actionButtonClass}
 						type="button"
 						on:click={() => {
@@ -423,7 +426,12 @@
 								description={$i18n.t('settings.personal.account.jwtToken.description')}
 							>
 								<div class="flex">
-									<SensitiveInput variant="settings" value={localStorage.token} readOnly={true} />
+									<SensitiveInput
+										variant="settings"
+										placeholder={$i18n.t('settings.personal.account.jwtToken.label')}
+										value={localStorage.token}
+										readOnly={true}
+									/>
 
 									<button
 										type="button"
@@ -481,7 +489,12 @@
 							>
 								<div class="flex">
 									{#if APIKey}
-										<SensitiveInput variant="settings" value={APIKey} readOnly={true} />
+										<SensitiveInput
+											variant="settings"
+											placeholder={$i18n.t('settings.personal.account.apiKey.label')}
+											value={APIKey}
+											readOnly={true}
+										/>
 
 										<button
 											type="button"
@@ -611,7 +624,13 @@
 	</div>
 </ConfirmDialog>
 
-<Modal size="sm" bind:show={variableModalOpen}>
+<Modal
+	ariaLabel={variableFormIndex === null
+		? $i18n.t('Add User Variable')
+		: $i18n.t('Edit User Variable')}
+	size="sm"
+	bind:show={variableModalOpen}
+>
 	<form class="p-4" on:submit|preventDefault={saveVariableForm}>
 		<h2 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
 			{variableFormIndex === null ? $i18n.t('Add User Variable') : $i18n.t('Edit User Variable')}

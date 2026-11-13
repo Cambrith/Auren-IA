@@ -1,5 +1,8 @@
 <script lang="ts">
 	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
+	import Comments from '$lib/components/comments/Comments.svelte';
+	import type { CommentsRequest } from '$lib/components/comments/CommentsPanel.svelte';
+	let comments: CommentsRequest | null = null;
 	import { marked } from 'marked';
 	import Sortable from 'sortablejs';
 	import fileSaver from 'file-saver';
@@ -95,7 +98,7 @@
 	let availableModelIds = new Set<string>();
 
 	let filteredModels = [];
-	let selectedModelId = null;
+	let selectedModelId: string | null = null;
 
 	let showManageModal = false;
 	let showResetModal = false;
@@ -297,13 +300,17 @@
 			.split(',')
 			.filter((id) => id);
 
-		savedModels = await getAllModels(localStorage.token);
+		savedModels = (await getAllModels(localStorage.token)).filter(
+			(model: ModelListItem) => !model.id.startsWith('agent:')
+		);
 		tags = [...new Set(savedModels.flatMap(modelTags))].sort();
 		if (selectedTag && !tags.includes(selectedTag)) {
 			selectedTag = '';
 		}
 
-		allModels = await getModels(localStorage.token);
+		allModels = (await getModels(localStorage.token)).filter(
+			(model: any) => model.owned_by !== 'terminal'
+		);
 
 		const providerModels = await getModels(localStorage.token, null, true);
 		const allModelIds = new Set<string>(allModels.map((model: ModelListItem) => model.id));
@@ -501,7 +508,10 @@
 		model = { ...model, ...(isPresetModel(model) ? {} : { base_model_id: null }), ...overrides };
 
 		if (savedModels.find((m: ModelListItem) => m.id === model.id) || isPresetModel(model)) {
-			const res = await updateModelById(localStorage.token, model.id, model).catch((error) => {
+			const res = await updateModelById(localStorage.token, model.id, {
+				...savedModels.find((m: ModelListItem) => m.id === model.id),
+				...model
+			}).catch((error) => {
 				return null;
 			});
 
@@ -522,6 +532,10 @@
 				return null;
 			});
 
+			if (res) {
+				savedModels = [...savedModels, res];
+			}
+
 			if (res && showToast) {
 				toast.success($i18n.t('Model updated successfully'));
 				await init().catch((error) => toast.error(`${error}`));
@@ -531,8 +545,8 @@
 	};
 
 	const toggleModelHandler = async (model) => {
-		if (!Object.keys(model).includes('base_model_id') && !isPresetModel(model)) {
-			await createNewModel(localStorage.token, {
+		if (!savedModels.find((m: ModelListItem) => m.id === model.id) && !isPresetModel(model)) {
+			const res = await createNewModel(localStorage.token, {
 				id: model.id,
 				name: model.name,
 				base_model_id: null,
@@ -543,6 +557,10 @@
 			}).catch((error) => {
 				return null;
 			});
+
+			if (res) {
+				savedModels = [...savedModels, res];
+			}
 		} else {
 			await toggleModelById(localStorage.token, model.id);
 		}
@@ -628,6 +646,9 @@
 		).catch(() => null);
 
 		if (res) {
+			if (!savedModels.find((m: ModelListItem) => m.id === model.id)) {
+				savedModels = [...savedModels, res];
+			}
 			models = models.map((m) =>
 				m.id === model.id ? { ...m, access_grants: res.access_grants ?? nextAccessGrants } : m
 			);
@@ -782,7 +803,7 @@
 {#if models !== null}
 	{#if selectedModelId === null}
 		<div class="flex h-full min-h-0 flex-col text-sm">
-			<div class="mb-2 flex items-center justify-between">
+			<div class="mb-0.5 flex items-center justify-between">
 				<h2 class="text-sm font-medium text-gray-900 dark:text-white">
 					{$i18n.t('settings.admin.models.title')}
 					<span class="ml-2 font-normal text-gray-500 dark:text-gray-500">
@@ -845,11 +866,12 @@
 							class=" w-full text-sm py-1 rounded-r-xl outline-hidden bg-transparent"
 							bind:value={searchValue}
 							placeholder={$i18n.t('Search Models')}
+							aria-label={$i18n.t('Search Models')}
 						/>
 						{#if searchValue}
 							<div class="self-center pl-1.5 translate-y-[0.5px] rounded-l-xl bg-transparent">
 								<button
-									class="p-0.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+									class="py-0.5 rounded-full transition hover:text-gray-900 dark:hover:text-gray-100 text-gray-500 dark:text-gray-400 px-0"
 									aria-label={$i18n.t('Clear search')}
 									on:click={() => {
 										searchValue = '';
@@ -1030,7 +1052,7 @@
 					{#if filteredModels.length > 0}
 						{#each filteredModels as model, modelIdx (`${model.id}-${modelIdx}`)}
 							<div
-								class="flex cursor-pointer transition w-full px-2 py-1 rounded-xl hover:bg-gray-50/70 dark:hover:bg-gray-850/50 {model
+								class="group/setting-row flex cursor-pointer transition w-full px-2 py-1 rounded-xl hover:bg-gray-50/70 dark:hover:bg-gray-850/50 {model
 									?.meta?.hidden
 									? 'opacity-50 dark:opacity-50'
 									: ''}"
@@ -1091,13 +1113,17 @@
 														? `${model?.ollama?.digest} **(${model?.ollama?.modified_at})**`
 														: model.id
 											)}
+											allowHTML={true}
 											className="min-w-0 flex-1"
 											placement="top-start"
 										>
 											<div
 												class="flex min-w-0 items-center gap-1.5 text-[0.8125rem] font-normal leading-4"
 											>
-												<span class="min-w-0 truncate">{model.name}</span>
+												<span
+													class="min-w-0 truncate text-gray-600 dark:text-gray-400 transition-colors duration-150 group-hover/setting-row:text-gray-900 group-focus-within/setting-row:text-gray-900 dark:group-hover/setting-row:text-white dark:group-focus-within/setting-row:text-white"
+													>{model.name}</span
+												>
 
 												<span
 													class="shrink-0 text-[0.6875rem] font-normal leading-4 {modelAccessClass(
@@ -1130,6 +1156,7 @@
 									{#if shiftKey}
 										<Tooltip content={model?.meta?.hidden ? $i18n.t('Show') : $i18n.t('Hide')}>
 											<button
+												aria-label={model?.meta?.hidden ? $i18n.t('Show') : $i18n.t('Hide')}
 												class="self-center w-fit text-sm p-1.5 dark:text-gray-300 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-xl"
 												type="button"
 												on:click={() => {
@@ -1243,6 +1270,7 @@
 									</button>
 
 									<ModelMenu
+										onComment={(request) => (comments = request)}
 										user={$user}
 										{model}
 										deleteLabel={canResetModel(model) ? $i18n.t('Reset') : $i18n.t('Delete')}
@@ -1281,6 +1309,7 @@
 										<button
 											class="self-center w-fit text-sm p-1.5 dark:text-gray-300 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-xl"
 											type="button"
+											aria-label={$i18n.t('More Options')}
 										>
 											<EllipsisHorizontal className="size-3.5" />
 										</button>
@@ -1294,6 +1323,7 @@
 										>
 											<Switch
 												bind:state={model.is_active}
+												ariaLabel={$i18n.t('Enabled')}
 												on:change={async () => {
 													toggleModelHandler(model);
 												}}
@@ -1344,7 +1374,11 @@
 			admin
 			edit
 			model={models.find((m) => m.id === selectedModelId)}
+			providerModel={allModels.find((m) => m.id === selectedModelId)}
 			preset={false}
+			onAccessUpdate={(model) => {
+				savedModels = [...savedModels.filter((m) => m.id !== model.id), model];
+			}}
 			onSubmit={async (model) => {
 				console.log(model);
 				if (!(await upsertModelHandler(model))) {
@@ -1366,3 +1400,5 @@
 		<Spinner className="size-5" />
 	</div>
 {/if}
+
+<Comments modal bind:view={comments} />

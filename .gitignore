@@ -311,7 +311,6 @@ cypress/videos
 cypress/screenshots
 .vscode/settings.json
 .cptr
-
 # Isolated Cavren preview runtime, databases, credentials and logs.
 .cavren/
 
@@ -320,3 +319,7 @@ reports/**/.execution.lock
 reports/**/.csv-*
 reports/**/.complete-csv-*
 reports/**/.results.json*
+/evals/
+
+# Local temporary fixtures and screenshots
+/tmp/
