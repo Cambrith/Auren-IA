@@ -139,10 +139,7 @@ class AurenWindow(QWidget):
         row.setSpacing(4)
         self.back = self.button('back', 'Voltar', self.web.back)
         self.forward = self.button('forward', 'Avançar', self.web.forward)
-        self.sidebar = self.button(
-            'sidebar', 'Alternar barra lateral', lambda: self.native_action('sidebar')
-        )
-        for button in (self.back, self.forward, self.sidebar):
+        for button in (self.back, self.forward):
             row.addWidget(button)
         self.menu_buttons = []
         self.menus = {}
