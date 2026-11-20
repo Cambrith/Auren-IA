@@ -1311,9 +1311,9 @@
 			inert={!$showSidebar}
 			class="h-screen max-h-[100dvh] min-h-screen select-none {$mobile
 				? visible
-					? 'bg-gray-50 dark:bg-gray-950 z-50'
+					? 'bg-gray-50 dark:bg-gray-900 z-50'
 					: 'bg-transparent z-0 pointer-events-none'
-				: `bg-gray-50 dark:bg-gray-950 z-50 ${$showSidebar ? '' : 'pointer-events-none'}`} shrink-0 text-gray-700 dark:text-gray-300 text-[0.8125rem] leading-5 fixed top-0 left-0 overflow-x-hidden
+				: `bg-gray-50 dark:bg-gray-900 z-50 ${$showSidebar ? '' : 'pointer-events-none'}`} shrink-0 text-gray-700 dark:text-gray-300 text-[0.8125rem] leading-5 fixed top-0 left-0 overflow-x-hidden
         "
 			style={$mobile
 				? `${panelStyle} --sidebar-width: ${mobileWidth}px;`
@@ -1321,7 +1321,7 @@
 			data-state={$showSidebar}
 		>
 			<div
-				class=" my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[var(--sidebar-width)] overflow-x-hidden scrollbar-none z-50"
+				class=" my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[var(--sidebar-width)] overflow-x-hidden scrollbar-hidden z-50 border-e border-gray-50 dark:border-gray-850/30"
 			>
 				<div
 					class="sidebar {$mobile
@@ -1432,7 +1432,7 @@
 					<div
 						class="{!inboxOpened && scrollTop > 0
 							? 'visible'
-							: 'invisible'} sidebar-bg-gradient-to-b bg-linear-to-b from-gray-50 dark:from-gray-950 to-transparent from-50% pointer-events-none absolute inset-0 -z-10 -mb-6"
+							: 'invisible'} sidebar-bg-gradient-to-b bg-linear-to-b from-gray-50 dark:from-gray-900 to-transparent from-50% pointer-events-none absolute inset-0 -z-10 -mb-6"
 					></div>
 				</div>
 
@@ -1448,7 +1448,7 @@
 				{/if}
 
 				<div
-					class="relative flex flex-col flex-1 overflow-y-auto scrollbar-none space-y-1.5 {$mobile
+					class="relative flex flex-col flex-1 overflow-y-auto scrollbar-hidden space-y-1.5 {$mobile
 						? 'pt-1.5'
 						: ''} pb-2.5"
 					style:display={inboxOpened ? 'none' : undefined}
@@ -2139,7 +2139,7 @@
 						</div>
 					{/if}
 					<div
-						class=" sidebar-bg-gradient-to-t bg-linear-to-t from-gray-50 dark:from-gray-950 to-transparent from-50% pointer-events-none absolute inset-0 -z-10 -mt-6"
+						class=" sidebar-bg-gradient-to-t bg-linear-to-t from-gray-50 dark:from-gray-900 to-transparent from-50% pointer-events-none absolute inset-0 -z-10 -mt-6"
 					></div>
 					<div class="flex flex-col">
 						{#if $user !== undefined && $user !== null}

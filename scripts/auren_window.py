@@ -132,6 +132,7 @@ class AurenWindow(QWidget):
         root.setSpacing(0)
         self.header = TitleBar(self)
         self.header.setObjectName('aurenTitleBar')
+        self.header.setAttribute(Qt.WidgetAttribute.WA_StyledBackground, True)
         self.header.setFixedHeight(40)
         self.header.setAccessibleName('Barra superior da Minerva')
         row = QHBoxLayout(self.header)
@@ -178,7 +179,7 @@ class AurenWindow(QWidget):
         root.addWidget(self.header)
         root.addWidget(self.web, 1)
         self.setStyleSheet('''
-            QWidget#aurenTitleBar {background:#080d17; border-bottom:1px solid #131d2e;}
+            QWidget#aurenTitleBar {background:#0b1320; border-bottom:1px solid #182638;}
             QWidget#aurenTitleBar QToolButton {color:#a9bdd0; background:transparent;
                 border:0; border-radius:5px; padding:0 7px; font-size:13px;}
             QWidget#aurenTitleBar QToolButton:hover {background:#132033; color:#f4faff;}

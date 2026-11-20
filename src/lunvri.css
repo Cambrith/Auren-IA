@@ -25,19 +25,11 @@ html.dark body {
 html.dark #sidebar,
 html.dark #sidebar .sidebar {
 	background: #0d1727;
-	border-color: transparent;
+	border-color: #2a3b50;
 }
-#sidebar ::-webkit-scrollbar,
-#sidebar .scrollbar-hidden::-webkit-scrollbar,
-#sidebar .scrollbar-none::-webkit-scrollbar {
-	display: none !important;
-	width: 0 !important;
-	height: 0 !important;
-}
-#sidebar,
-#sidebar * {
-	-ms-overflow-style: none !important;
-	scrollbar-width: none !important;
+html.dark #sidebar .sidebar-bg-gradient-to-b,
+html.dark #sidebar .sidebar-bg-gradient-to-t {
+	--tw-gradient-from: #0d1727 !important;
 }
 html.dark #chat-input-container {
 	color: #f4faff;

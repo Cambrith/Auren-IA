@@ -144,8 +144,8 @@
 	export let tabTitleEditor: import('svelte').Snippet | undefined = undefined;
 	export let tabActions: import('svelte').Snippet | undefined = undefined;
 	export let tabBarActions: import('svelte').Snippet | undefined = undefined;
-	$: fullWidth = largeScreen;
-	$: panelVisible = largeScreen || !!$showTabs;
+	$: fullWidth = false;
+	$: panelVisible = !!$showTabs;
 
 	let largeScreen = false;
 	let dragged = false;
@@ -2060,7 +2060,7 @@
 	</div>
 {/snippet}
 
-{#if !largeScreen}
+{#if !fullWidth}
 	<MobileSwipePanel
 		open={!!$showTabs}
 		enabled={$mobile}

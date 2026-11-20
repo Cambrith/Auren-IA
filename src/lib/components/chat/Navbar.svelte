@@ -344,7 +344,7 @@
 			id="navbar-bg-gradient-to-b"
 			class="{chat?.id
 				? 'visible'
-				: 'invisible'} bg-linear-to-b via-40% to-97% from-white/90 via-white/50 to-transparent dark:from-gray-900/90 dark:via-gray-900/50 dark:to-transparent pointer-events-none absolute inset-0 -bottom-10 z-[-1]"
+				: 'invisible'} bg-linear-to-b via-40% to-97% from-white/90 via-white/50 to-transparent dark:from-gray-950/95 dark:via-gray-950/60 dark:to-transparent pointer-events-none absolute inset-0 -bottom-10 z-[-1]"
 		></div>
 
 		<div class=" flex max-w-full w-full mx-auto bg-transparent">
@@ -382,14 +382,22 @@
 						/>
 					{/if}
 					{#if chat?.id}
+						{@const displayTitle = (title || chat?.chat?.title || '').trim()}
+						{@const isPlaceholderTitle =
+							!displayTitle ||
+							displayTitle === $i18n.t('New Chat') ||
+							displayTitle === 'Nova Conversa' ||
+							displayTitle === 'New Chat'}
 						<div class="flex max-w-full min-w-0 items-center gap-2 mr-2">
 							{#if confirmEdit && !tabbed}
 								{@render renderTitleEditor()}
 							{:else}
 								<h1
-									class="min-w-0 truncate md:py-1 text-left text-[0.9375rem] font-normal text-gray-700 dark:text-gray-300"
+									class="min-w-0 truncate md:py-1 text-left text-[0.9375rem] font-normal text-gray-700 dark:text-gray-300 {isPlaceholderTitle
+										? 'pointer-events-none invisible'
+										: ''}"
 								>
-									{title || chat?.chat?.title || $i18n.t('New Chat')}
+									{displayTitle || $i18n.t('New Chat')}
 								</h1>
 							{/if}
 
@@ -423,7 +431,7 @@
 
 					{#if !tabbed}{@render renderChatActions()}{/if}
 
-					{#if history.currentId || $selectedTerminalId || $user?.role === 'admin' || ($user?.role === 'user' && ($user.permissions?.chat?.side_chat ?? false))}
+					{#if ($artifactContents ?? []).length > 0 || $selectedTerminalId}
 						<Tooltip content={$i18n.t('Tabs')}>
 							<button
 								class="flex size-6 cursor-pointer items-center justify-center rounded-lg text-gray-500 transition hover:bg-gray-50/40 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800/40 dark:hover:text-gray-200"
