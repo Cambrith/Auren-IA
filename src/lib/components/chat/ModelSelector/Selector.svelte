@@ -31,6 +31,7 @@
 		MODEL_DOWNLOAD_POOL,
 		mobile,
 		models,
+		pinnedModels,
 		temporaryChatEnabled,
 		settings,
 		config,
@@ -44,6 +45,25 @@
 		resolveLocalizedModelName
 	} from '$lib/utils/localizedContent';
 	import { getModels } from '$lib/apis';
+	import { WEBUI_BASE_URL } from '$lib/constants';
+	import {
+		isBlockedInSelector,
+		loadEffectiveResults,
+		loadResults,
+		type TestResult
+	} from '$lib/utils/centralIA';
+	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
+	import {
+		PROVIDER_ORDER,
+		buildGroupedRows,
+		filterConversationModeItems,
+		filterManualModelItems,
+		getModelDisplayMeta,
+		isMinervaModeId,
+		sortModelsForSelector,
+		type ProviderInfo,
+		type ProviderKey
+	} from '$lib/utils/modelSelectorOrg';
 
 	import ChevronDown from '$lib/components/icons/ChevronDown.svelte';
 	import Check from '$lib/components/icons/Check.svelte';
@@ -80,7 +100,7 @@
 		[key: string]: any;
 	}[] = [];
 
-	export let className = 'w-[20rem]';
+	export let className = 'w-[26rem] sm:w-[28rem]';
 	export let triggerClassName = 'text-lg';
 	export let placement: 'top' | 'bottom' | 'auto' = 'bottom';
 	export let align: 'start' | 'end' = 'start';
@@ -149,6 +169,9 @@
 		show = !show;
 		if (show) {
 			searchValue = '';
+			selectedProvider = '';
+			manualMode = false;
+			triageResults = loadResults(typeof localStorage !== 'undefined' ? localStorage : undefined);
 			listScrollTop = 0;
 			if (!selectionOnly) {
 				setOllamaVersion();
@@ -156,12 +179,36 @@
 			}
 			resetView();
 			await tick();
-			for (const delay of [0, 50, 150]) {
-				window.setTimeout(focusSearchInput, delay);
+			if (!isMinervaModeOnly) {
+				for (const delay of [0, 50, 150]) {
+					window.setTimeout(focusSearchInput, delay);
+				}
 			}
 		} else {
+			manualMode = false;
 			document.getElementById(`model-selector-${id}-button`)?.blur();
 		}
+	};
+
+	const openManualMode = async () => {
+		manualMode = true;
+		searchValue = '';
+		selectedProvider = '';
+		listScrollTop = 0;
+		await tick();
+		resetView();
+		for (const delay of [0, 50]) {
+			window.setTimeout(focusSearchInput, delay);
+		}
+	};
+
+	const closeManualMode = async () => {
+		manualMode = false;
+		searchValue = '';
+		selectedProvider = '';
+		listScrollTop = 0;
+		await tick();
+		resetView();
 	};
 
 	export const open = async () => {
@@ -202,15 +249,17 @@
 
 	let tags = [];
 
-	let selectedModel = '';
+	let selectedModel: any = '';
+	let manualMode = false;
 	$: selectedValues = values ?? (value ? [value] : []);
 	$: primaryValue = selectedValues[0] ?? '';
 	$: selectedModel = items.find((item) => item.value === primaryValue) ?? '';
 	$: selectedCount = selectedValues.filter(Boolean).length;
+	$: selectedDisplayLabel = selectedModel ? getModelDisplayMeta(selectedModel).cleanTitle : '';
 	$: triggerLabel = selectedModel
 		? compareEnabled && selectedCount > 1
-			? `${selectedModel.label} +${selectedCount - 1}`
-			: selectedModel.label
+			? `${selectedDisplayLabel} +${selectedCount - 1}`
+			: selectedDisplayLabel
 		: (placeholder ?? $i18n.t('Select a model'));
 
 	let searchValue = '';
@@ -218,6 +267,8 @@
 	let selectedTag = '';
 	let selectedConnectionType = '';
 	let selectedFilter = '';
+	let selectedProvider: '' | 'pinned' | ProviderKey = '';
+	let triageResults: Record<string, TestResult> = {};
 	let modelFilterItems = [];
 
 	let ollamaVersion = null;
@@ -242,70 +293,130 @@
 	const getProviderPoolKey = (connection, model: string) =>
 		`${connection.provider}:${connection.idx}:${model}`;
 
+	$: rawAvailableItems = items.filter(
+		(item) =>
+			includeHidden ||
+			(!(item.model?.info?.meta?.hidden ?? false) && !isBlockedInSelector(item.value, triageResults))
+	);
+	$: hasMinervaModes =
+		!includeHidden && rawAvailableItems.some((item) => isMinervaModeId(item.value));
+	$: manualCandidateItems = filterManualModelItems(rawAvailableItems);
+	$: hasManualModels = hasMinervaModes && manualCandidateItems.length > 0;
+	$: availableItems = includeHidden
+		? rawAvailableItems
+		: manualMode && hasManualModels
+			? manualCandidateItems
+			: filterConversationModeItems(rawAvailableItems, includeHidden);
+	$: isMinervaModeOnly =
+		!includeHidden &&
+		!manualMode &&
+		availableItems.length > 0 &&
+		availableItems.every((item) => isMinervaModeId(item.value));
+
+	$: baseFilteredItems = availableItems
+		.filter((item) => {
+			if (selectedTag === '') {
+				return true;
+			}
+			return (item.model?.tags ?? [])
+				.map((tag) => tag.name.toLowerCase())
+				.includes(selectedTag.toLowerCase());
+		})
+		.filter((item) => {
+			if (selectedConnectionType === '') {
+				return true;
+			} else if (selectedConnectionType === 'local') {
+				return item.model?.connection_type === 'local';
+			} else if (selectedConnectionType === 'external') {
+				return item.model?.connection_type === 'external';
+			} else if (selectedConnectionType === 'direct') {
+				return item.model?.direct;
+			}
+			return true;
+		});
+
+	$: pinnedIdSet = new Set($pinnedModels ?? []);
+
+	$: providerChips = (() => {
+		const counts = new Map<ProviderKey, { info: ProviderInfo; count: number }>();
+		let pinnedCount = 0;
+		for (const item of baseFilteredItems) {
+			if (pinnedIdSet.has(item.value)) {
+				pinnedCount += 1;
+			}
+			const meta = getModelDisplayMeta(item);
+			const existing = counts.get(meta.provider.key);
+			if (existing) {
+				existing.count += 1;
+			} else {
+				counts.set(meta.provider.key, { info: meta.provider, count: 1 });
+			}
+		}
+		const chips: {
+			id: '' | 'pinned' | ProviderKey;
+			label: string;
+			badgeProvider?: string;
+			count: number;
+		}[] = [{ id: '', label: 'Todos', count: baseFilteredItems.length }];
+		if (pinnedCount > 0) {
+			chips.push({ id: 'pinned', label: 'Fixados', count: pinnedCount });
+		}
+		for (const key of PROVIDER_ORDER) {
+			const entry = counts.get(key);
+			if (entry && entry.count > 0) {
+				chips.push({
+					id: key,
+					label: entry.info.chipLabel,
+					badgeProvider: entry.info.badgeProvider,
+					count: entry.count
+				});
+			}
+		}
+		return chips;
+	})();
+
+	$: if (selectedProvider !== '' && !providerChips.some((c) => c.id === selectedProvider)) {
+		selectedProvider = '';
+	}
+
+	$: scopeItems =
+		selectedProvider === ''
+			? baseFilteredItems
+			: selectedProvider === 'pinned'
+				? baseFilteredItems.filter((item) => pinnedIdSet.has(item.value))
+				: baseFilteredItems.filter(
+						(item) => getModelDisplayMeta(item).provider.key === selectedProvider
+					);
+
 	$: fuse = new Fuse(
-		items.map((item) => {
-			const _item = {
+		scopeItems.map((item) => {
+			const meta = getModelDisplayMeta(item);
+			return {
 				...item,
 				modelName: resolveLocalizedModelName(item.model, $i18n.language),
+				cleanTitle: meta.cleanTitle,
+				vendorLabel: meta.vendorLabel,
+				providerLabel: meta.provider.label,
+				badgesText: meta.badges.join(' '),
 				tags: (item.model?.tags ?? []).map((tag) => tag.name).join(' '),
 				desc: resolveLocalizedModelDescription(item.model, $i18n.language)
 			};
-			return _item;
 		}),
 		{
-			keys: ['value', 'tags', 'modelName'],
-			threshold: 0.4
+			keys: ['cleanTitle', 'modelName', 'vendorLabel', 'providerLabel', 'badgesText', 'value', 'tags'],
+			threshold: 0.35
 		}
 	);
 
-	$: filteredItems = (
-		searchValue
-			? fuse
-					.search(searchValue)
-					.map((e) => {
-						return e.item;
-					})
-					.filter((item) => {
-						if (selectedTag === '') {
-							return true;
-						}
+	$: normalizedSearch = isMinervaModeOnly ? '' : searchValue.trim();
 
-						return (item.model?.tags ?? [])
-							.map((tag) => tag.name.toLowerCase())
-							.includes(selectedTag.toLowerCase());
-					})
-					.filter((item) => {
-						if (selectedConnectionType === '') {
-							return true;
-						} else if (selectedConnectionType === 'local') {
-							return item.model?.connection_type === 'local';
-						} else if (selectedConnectionType === 'external') {
-							return item.model?.connection_type === 'external';
-						} else if (selectedConnectionType === 'direct') {
-							return item.model?.direct;
-						}
-					})
-			: items
-					.filter((item) => {
-						if (selectedTag === '') {
-							return true;
-						}
-						return (item.model?.tags ?? [])
-							.map((tag) => tag.name.toLowerCase())
-							.includes(selectedTag.toLowerCase());
-					})
-					.filter((item) => {
-						if (selectedConnectionType === '') {
-							return true;
-						} else if (selectedConnectionType === 'local') {
-							return item.model?.connection_type === 'local';
-						} else if (selectedConnectionType === 'external') {
-							return item.model?.connection_type === 'external';
-						} else if (selectedConnectionType === 'direct') {
-							return item.model?.direct;
-						}
-					})
-	).filter((item) => includeHidden || !(item.model?.info?.meta?.hidden ?? false));
+	$: filteredItems = normalizedSearch
+		? fuse.search(normalizedSearch).map((e) => e.item)
+		: sortModelsForSelector(scopeItems, isMinervaModeOnly ? [] : ($pinnedModels ?? []));
+
+	$: displayRows = normalizedSearch
+		? []
+		: buildGroupedRows(filteredItems, isMinervaModeOnly ? [] : ($pinnedModels ?? []));
 
 	$: sanitizedSearchValue = searchValue.trim();
 	$: downloadTargets =
@@ -752,6 +863,16 @@
 	};
 
 	onMount(() => {
+		if (typeof localStorage !== 'undefined') {
+			triageResults = loadResults(localStorage);
+			loadEffectiveResults(WEBUI_BASE_URL, localStorage)
+				.then((res) => {
+					if (res && Object.keys(res).length > 0) {
+						triageResults = res;
+					}
+				})
+				.catch(() => {});
+		}
 		if (items) {
 			tags = items
 				.filter((item) => includeHidden || !(item.model?.info?.meta?.hidden ?? false))
@@ -947,11 +1068,29 @@
 		>
 			<div
 				class="z-40 {className ??
-					'w-[20rem]'} max-w-[calc(100vw-1rem)] justify-start rounded-xl border border-gray-100 bg-white p-0.5 shadow-lg outline-hidden dark:border-gray-800 dark:bg-gray-850 dark:text-white flex flex-col overflow-hidden"
+					'w-[26rem] sm:w-[28rem]'} max-w-[calc(100vw-1rem)] justify-start rounded-xl border border-gray-100 bg-white p-0.5 shadow-lg outline-hidden dark:border-gray-800 dark:bg-gray-850 dark:text-white flex flex-col overflow-hidden"
 				transition:flyAndScale
 			>
 				<slot>
-					{#if searchEnabled}
+					{#if manualMode && hasMinervaModes}
+						<div
+							class="flex shrink-0 items-center justify-between gap-2 border-b border-gray-100/80 px-2.5 py-1.5 dark:border-gray-800/80"
+						>
+							<button
+								type="button"
+								class="focus-ring inline-flex items-center gap-1 text-[0.7rem] font-medium text-gray-500 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+								on:click|stopPropagation={closeManualMode}
+							>
+								<span aria-hidden="true">←</span>
+								<span>Voltar aos modos</span>
+							</button>
+							<span class="text-[0.65rem] text-gray-400 dark:text-gray-500">
+								Seleção manual
+							</span>
+						</div>
+					{/if}
+
+					{#if searchEnabled && !isMinervaModeOnly}
 						<div class="my-0.5 flex ml-2 mr-0.5 h-[1.6875rem] shrink-0 items-center gap-2">
 							<Search className=" size-3.5 shrink-0" strokeWidth="2" />
 
@@ -1109,10 +1248,49 @@
 								</div>
 							{/if}
 						{:else}
+							{#if providerChips.length > 2 && !isMinervaModeOnly}
+								<div
+									class="flex shrink-0 items-center gap-1 overflow-x-auto px-2 pb-1.5 pt-0.5 scrollbar-none"
+									role="tablist"
+									aria-label="Filtrar por provedor"
+								>
+									{#each providerChips as chip (chip.id)}
+										{@const active = selectedProvider === chip.id}
+										<button
+											type="button"
+											role="tab"
+											aria-selected={active}
+											class="inline-flex shrink-0 items-center gap-1 rounded-full border px-2 py-0.5 text-[0.7rem] font-medium transition-colors {active
+												? 'border-gray-900 bg-gray-900 text-white dark:border-white dark:bg-white dark:text-gray-900'
+												: 'border-gray-200/80 bg-gray-50/80 text-gray-600 hover:bg-gray-100 dark:border-gray-700/80 dark:bg-gray-800/70 dark:text-gray-300 dark:hover:bg-gray-800'}"
+											on:click|stopPropagation={() => {
+												selectedProvider = chip.id;
+												selectedModelIdx = 0;
+												if (listContainer) {
+													listContainer.scrollTop = 0;
+												}
+											}}
+										>
+											{#if chip.badgeProvider}
+												<AurenProviderBadge provider={chip.badgeProvider} compact />
+											{/if}
+											<span>{chip.label}</span>
+											<span
+												class="text-[0.625rem] tabular-nums {active
+													? 'text-white/75 dark:text-gray-900/70'
+													: 'text-gray-400 dark:text-gray-500'}"
+											>
+												{chip.count}
+											</span>
+										</button>
+									{/each}
+								</div>
+							{/if}
+
 							<!-- svelte-ignore a11y-no-static-element-interactions -->
 							<div
-								class="min-h-0 flex-1 overflow-y-auto"
-								style="max-height: 18rem;"
+								class="min-h-0 flex-1 overflow-y-auto scroll-pt-7"
+								style="max-height: 22rem;"
 								id="model-selector-list"
 								role="listbox"
 								aria-label={$i18n.t('Available models')}
@@ -1122,30 +1300,71 @@
 									listScrollTop = listContainer.scrollTop;
 								}}
 							>
-								<div style="height: {visibleStart * ITEM_HEIGHT}px;" />
-								{#each filteredItems.slice(visibleStart, visibleEnd) as item, i (item.value)}
-									{@const index = visibleStart + i}
-									<ModelItem
-										onComment={(request) => (comments = request)}
-										bind:selectedModelIdx
-										{item}
-										{index}
-										value={primaryValue}
-										{pinModelHandler}
-										{unloadModelHandler}
-										{deleteModelHandler}
-										{selectionOnly}
-										{compareEnabled}
-										{selectedValues}
-										onClick={() => {
-											selectItem(item, index);
-										}}
-										onEdit={() => {
-											show = false;
-										}}
-									/>
-								{/each}
-								<div style="height: {(filteredItems.length - visibleEnd) * ITEM_HEIGHT}px;" />
+								{#if normalizedSearch}
+									{#each filteredItems as item, index (item.value)}
+										<ModelItem
+											onComment={(request) => (comments = request)}
+											bind:selectedModelIdx
+											{item}
+											{index}
+											value={primaryValue}
+											{pinModelHandler}
+											{unloadModelHandler}
+											{deleteModelHandler}
+											{selectionOnly}
+											{compareEnabled}
+											{selectedValues}
+											onClick={() => {
+												selectItem(item, index);
+											}}
+											onEdit={() => {
+												show = false;
+											}}
+										/>
+									{/each}
+								{:else}
+									{#each displayRows as row (row.key)}
+										{#if row.type === 'header'}
+											{#if !isMinervaModeOnly}
+												<div
+													class="sticky top-0 z-10 flex items-center justify-between gap-2 bg-white/95 px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-wide text-gray-500 backdrop-blur-xs dark:bg-gray-850/95 dark:text-gray-400"
+												>
+													<div class="flex items-center gap-1.5 min-w-0">
+														{#if !row.pinnedSection && row.provider.key !== 'minerva'}
+															<AurenProviderBadge provider={row.provider.badgeProvider} compact />
+														{/if}
+														<span class="truncate">{row.title}</span>
+													</div>
+													<span
+														class="shrink-0 text-[0.625rem] font-medium tabular-nums text-gray-400 dark:text-gray-500"
+													>
+														{row.count}
+													</span>
+												</div>
+											{/if}
+										{:else}
+											<ModelItem
+												onComment={(request) => (comments = request)}
+												bind:selectedModelIdx
+												item={row.item}
+												index={row.index}
+												value={primaryValue}
+												{pinModelHandler}
+												{unloadModelHandler}
+												{deleteModelHandler}
+												{selectionOnly}
+												{compareEnabled}
+												{selectedValues}
+												onClick={() => {
+													selectItem(row.item, row.index);
+												}}
+												onEdit={() => {
+													show = false;
+												}}
+											/>
+										{/if}
+									{/each}
+								{/if}
 							</div>
 						{/if}
 
@@ -1299,29 +1518,49 @@
 						{/each}
 					</div>
 
-					{#if showSetDefault && $visibleControls['models.set_default']}
-						<div
-							class="flex shrink-0 items-center justify-end px-2 leading-none {($settings?.highContrastMode ??
-							false)
-								? ''
-								: 'py-1'}"
-						>
+					<div
+						class="flex shrink-0 items-center justify-between gap-2 border-t border-gray-100/80 px-3 leading-none dark:border-gray-800/80 {($settings?.highContrastMode ??
+						false)
+							? 'py-1.5'
+							: 'py-2'}"
+					>
+						{#if isMinervaModeOnly}
+							{#if hasManualModels}
+								<button
+									type="button"
+									class="focus-ring text-[0.65rem] font-normal leading-none text-gray-400/90 underline-offset-2 transition-colors duration-100 hover:text-gray-600 hover:underline dark:text-gray-500 dark:hover:text-gray-300"
+									on:click|stopPropagation={openManualMode}
+								>
+									Selecionar modelo manualmente
+								</button>
+							{:else}
+								<span class="text-[0.65rem] tabular-nums text-gray-400 dark:text-gray-500">
+									{filteredItems.length}
+									{filteredItems.length === 1 ? 'modo' : 'modos'}
+								</span>
+							{/if}
+						{:else}
+							<span class="text-[0.65rem] tabular-nums text-gray-400 dark:text-gray-500">
+								{filteredItems.length}
+								{filteredItems.length === 1 ? 'modelo disponível' : 'modelos disponíveis'}
+							</span>
+						{/if}
+						{#if showSetDefault && $visibleControls['models.set_default']}
 							<button
 								type="button"
 								class="focus-ring {($settings?.highContrastMode ?? false)
 									? 'inline-flex min-h-6 items-center'
-									: ''} text-[0.65rem] font-normal leading-none text-gray-500 underline-offset-2 transition-colors duration-100 hover:text-gray-700 hover:underline dark:text-gray-500 dark:hover:text-gray-300"
+									: ''} text-[0.65rem] font-normal leading-none text-gray-400/90 underline-offset-2 transition-colors duration-100 hover:text-gray-700 hover:underline dark:text-gray-500 dark:hover:text-gray-300"
 								on:click|stopPropagation={setDefaultHandler}
 							>
 								{$i18n.t('Set as default')}
 							</button>
-						</div>
-					{:else}
-						<div class="shrink-0 pb-1"></div>
-					{/if}
+						{/if}
+					</div>
 
 					<div class="hidden w-[42rem]" />
-					<div class="hidden w-[28rem]" />
+					<div class="hidden w-[28rem] sm:w-[28rem]" />
+					<div class="hidden w-[26rem]" />
 					<div class="hidden w-[24rem]" />
 					<div class="hidden w-[22rem]" />
 					<div class="hidden w-[20rem]" />

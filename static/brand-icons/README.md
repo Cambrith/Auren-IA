@@ -1,4 +1,4 @@
-# Marcas na Auren
+# Marcas na Minerva
 
 SVGs selecionados de `@lobehub/icons-static-svg` versão 1.95.1, do projeto [Lobe Icons](https://github.com/lobehub/lobe-icons), sob licença MIT. A licença completa está em LICENSE-LobeHub.txt. O arquivo sources.json registra a origem e o SHA-256 de cada SVG. A integridade do pacote foi conferida com o SHA-512 publicado no registro npm; scripts, imagens externas e referências remotas não são aceitos nos SVGs importados.
 

@@ -1,4 +1,4 @@
-"""Native Auren toolbar and window controls, with real Qt/Wayland window states."""
+"""Native Minerva toolbar and window controls, with real Qt/Wayland window states."""
 import os
 import shutil
 import time
@@ -77,7 +77,7 @@ class AurenWindow(QWidget):
         super().__init__()
         self.setWindowFlags(Qt.Window | Qt.FramelessWindowHint | Qt.WindowMinimizeButtonHint
                             | Qt.WindowMaximizeButtonHint | Qt.WindowCloseButtonHint)
-        self.setWindowTitle('Auren')
+        self.setWindowTitle('Minerva')
         palette = self.palette()
         palette.setColor(QPalette.ColorRole.Window, QColor(AUREN_BACKGROUND))
         palette.setColor(QPalette.ColorRole.Base, QColor(AUREN_BACKGROUND))
@@ -133,7 +133,7 @@ class AurenWindow(QWidget):
         self.header = TitleBar(self)
         self.header.setObjectName('aurenTitleBar')
         self.header.setFixedHeight(40)
-        self.header.setAccessibleName('Barra superior da Auren')
+        self.header.setAccessibleName('Barra superior da Minerva')
         row = QHBoxLayout(self.header)
         row.setContentsMargins(8, 3, 5, 3)
         row.setSpacing(4)
@@ -240,7 +240,7 @@ class AurenWindow(QWidget):
         self.menu_action('Exibir', 'Tamanho original', lambda: self.set_zoom(1), 'Ctrl+0')
         self.menu_action('Exibir', 'Tela cheia (F11)', self.toggle_fullscreen)
         self.menu_action('Ajuda', 'Atalhos do teclado', lambda: self.native_action('shortcuts'), 'F1')
-        self.menu_action('Ajuda', 'Sobre a Auren', lambda: self.native_action('about'))
+        self.menu_action('Ajuda', 'Sobre a Minerva', lambda: self.native_action('about'))
 
     def update_edit_actions(self):
         menu = self.menus['Editar']
@@ -364,7 +364,7 @@ class AurenWindow(QWidget):
         # for panels and the monitor containing the window; Qt's may not.
         script = f'''
             const w = workspace.windowList().find(w =>
-                w.pid === {os.getpid()} && w.normalWindow && w.caption === 'Auren');
+                w.pid === {os.getpid()} && w.normalWindow && w.caption === 'Minerva');
             if (w && !w.fullScreen && !w.minimized && w.maximizeMode === 0) {{
                 const area = workspace.clientArea(KWin.MaximizeArea, w);
                 const width = Math.min(910, area.width);

@@ -64,7 +64,7 @@ def click(selector):
 
 def task(name):
     click('.task-trigger')
-    assert js(f"(()=>{{const e=[...document.querySelectorAll('[aria-label=\"Tarefas da Auren\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==={json.dumps(name)});if(!e)return false;e.click();return true}})()")
+    assert js(f"(()=>{{const e=[...document.querySelectorAll('[aria-label=\"Tarefas da Minerva\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==={json.dumps(name)});if(!e)return false;e.click();return true}})()")
     QTest.qWait(250)
 
 

@@ -853,30 +853,25 @@ export const generateTitle = async (
 		// Step 1: Safely extract the response string
 		const response = res?.choices[0]?.message?.content ?? '';
 
-		// Step 2: Attempt to fix common JSON format issues like single quotes
-		const sanitizedResponse = response.replace(/['‘’`]/g, '"'); // Convert single quotes to double quotes for valid JSON
+		const tryParseTitle = (raw: string): string | null => {
+			const start = raw.indexOf('{');
+			const end = raw.lastIndexOf('}');
+			if (start === -1 || end <= start) return null;
+			const parsed = JSON.parse(raw.substring(start, end + 1));
+			return parsed && typeof parsed.title === 'string' && parsed.title.trim()
+				? parsed.title.trim()
+				: null;
+		};
 
-		// Step 3: Find the relevant JSON block within the response
-		const jsonStartIndex = sanitizedResponse.indexOf('{');
-		const jsonEndIndex = sanitizedResponse.lastIndexOf('}');
-
-		// Step 4: Check if we found a valid JSON block (with both `{` and `}`)
-		if (jsonStartIndex !== -1 && jsonEndIndex !== -1) {
-			const jsonResponse = sanitizedResponse.substring(jsonStartIndex, jsonEndIndex + 1);
-
-			// Step 5: Parse the JSON block
-			const parsed = JSON.parse(jsonResponse);
-
-			// Step 6: If there's a "tags" key, return the tags array; otherwise, return an empty array
-			if (parsed && parsed.title) {
-				return parsed.title;
-			} else {
-				return null;
-			}
+		try {
+			const direct = tryParseTitle(response);
+			if (direct) return direct;
+		} catch {
+			// Fallback to normalizing single quotes below
 		}
 
-		// If no valid JSON block found, return an empty array
-		return null;
+		const sanitizedResponse = response.replace(/['‘’`]/g, '"');
+		return tryParseTitle(sanitizedResponse);
 	} catch (e) {
 		// Catch and safely return empty array on any parsing errors
 		console.error('Failed to parse response: ', e);

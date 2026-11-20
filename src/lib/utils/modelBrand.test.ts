@@ -9,7 +9,17 @@ describe('model brand, separate from hosting provider', () => {
 		['nvidia', 'cavren:nvidia:meta/llama-3.2', 'meta'],
 		['gemini', 'cavren:gemini:gemini-flash', 'gemini'],
 		['aihorde', 'cavren:aihorde:stable_diffusion', 'stability'],
-		['aihorde', 'cavren:aihorde:unknown-community-model', 'aihorde']
+		['aihorde', 'cavren:aihorde:unknown-community-model', 'aihorde'],
+		['cerebras', 'cerebras.gpt-oss-120b', 'openai'],
+		['cerebras', 'cerebras.qwen-3.8-27b', 'qwen'],
+		['cloudflare', 'cloudflare.@cf/aisingapore/gemma-sea-lion-v4-27b-it', 'gemma'],
+		['cloudflare', 'cloudflare.@cf/cloudflare/clairic', 'cloudflare'],
+		['cloudflare', 'cloudflare.@cf/ibm-granite/granite-4.0-h-micro', 'ibm'],
+		['nvidia', 'nvidia.minimaxai/minimax-m3.1-flash', 'minimax'],
+		['nvidia', 'nvidia.stepfun-ai/step-5-preview', 'stepfun'],
+		['openrouter', 'openrouter.baidu/ernie-5.5-flash-preview:free', 'baidu'],
+		['openrouter', 'openrouter.liquid/lfm-3-1.7b:free', 'liquid'],
+		['openrouter', 'openrouter.inclusionai/ling-3.2-flash:free', 'antgroup']
 	])('maps %s / %s', (provider, id, brand) => expect(modelBrand(provider, id)).toBe(brand));
 	it('uses the provider mark on a connection card', () =>
 		expect(modelBrand('anthropic')).toBe('anthropic'));

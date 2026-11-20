@@ -128,7 +128,7 @@ async def prepare_attachments(form_data, model, user):
     if not str(form_data.get('model', '')).startswith('cavren:'):
         return
     # Prepare bytes independently of the selected model. The authenticated
-    # Auren bridge chooses a proven compatible route after seeing the parts.
+    # Minerva bridge chooses a proven compatible route after seeing the parts.
     total_size = 0
     for message in form_data.get('messages', []):
         if message.get('role') != 'user':

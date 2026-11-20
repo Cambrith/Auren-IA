@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
+	import { getModelDisplayMeta, isMinervaModeId } from '$lib/utils/modelSelectorOrg';
 	import Comments from '$lib/components/comments/Comments.svelte';
 	import type { CommentsRequest } from '$lib/components/comments/CommentsPanel.svelte';
 	let comments: CommentsRequest | null = null;
@@ -129,6 +130,15 @@
 
 	const isPresetModel = (model: any) =>
 		!!(model?.preset || model?.base_model_id || model?.info?.base_model_id);
+	const hasCustomProfileImage = (model: any): boolean => {
+		const url = model?.meta?.profile_image_url ?? model?.info?.meta?.profile_image_url;
+		return Boolean(
+			url &&
+				!url.endsWith('/favicon.png') &&
+				url !== '/static/favicon.png' &&
+				url !== '/favicon.png'
+		);
+	};
 	const canResetModel = (model: ModelListItem | null) =>
 		!!model && !isPresetModel(model) && availableModelIds.has(model.id);
 	const modelTags = (model: any): string[] =>
@@ -1078,12 +1088,7 @@
 													? ''
 													: 'opacity-50 dark:opacity-50'} bg-transparent rounded-xl"
 											>
-												{#if model?.cavren && (!model?.user_id || !model?.meta?.profile_image_url)}<AurenProviderBadge
-														provider={model.cavren.provider}
-														modelId={model.id}
-														modelName={model.name}
-														name={model.cavren.provider_name ?? 'Seleção automática'}
-													/>{:else}<img
+												{#if hasCustomProfileImage(model)}<img
 														src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model.id}&lang=${$i18n.language}`}
 														alt={$i18n.t('modelfile profile')}
 														class=" rounded-xl size-7 object-cover"
@@ -1095,6 +1100,15 @@
 															// https://docs.openwebui.com/license.
 															e.target.src = '/favicon.png';
 														}}
+													/>{:else}{@const badgeMeta = getModelDisplayMeta({
+													value: model.id,
+													label: model.name ?? model.id,
+													model
+												})}<AurenProviderBadge
+														provider={model?.cavren?.provider ?? badgeMeta.provider.badgeProvider}
+														modelId={isMinervaModeId(model.id) ? model.id : (model.base_model_id || model.id)}
+														modelName={model.name ?? model.id}
+														name={model?.cavren?.provider_name ?? badgeMeta.vendorLabel ?? badgeMeta.provider.label}
 													/>{/if}
 											</div>
 										</div>

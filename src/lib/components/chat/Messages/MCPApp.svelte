@@ -85,7 +85,7 @@
 		if (closing) return;
 		bridge = new AppBridge(
 			null,
-			{ name: 'Auren', version: WEBUI_VERSION },
+			{ name: 'Minerva', version: WEBUI_VERSION },
 			{
 				openLinks: {},
 				message: { text: {} },

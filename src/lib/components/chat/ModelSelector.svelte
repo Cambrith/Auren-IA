@@ -48,12 +48,22 @@
 	};
 
 	$: if (selectedModels.length > 0 && $models.length > 0) {
-		const _selectedModels = selectedModels.map((model) =>
-			model.startsWith('agent:') || $models.map((m) => m.id).includes(model) ? model : ''
-		);
+		const availableIds = $models.map((m) => m.id);
+		const defaultMinervaMode =
+			$models.find((m) => m.id === 'minerva.harmonia')?.id ??
+			$models.find((m) => m.id === 'minerva.sabia')?.id ??
+			$models.find((m) => m.id.startsWith('minerva.'))?.id ??
+			'';
+		const _selectedModels = selectedModels.map((model) => {
+			if (model.startsWith('agent:')) return model;
+			if (!availableIds.includes(model)) return defaultMinervaMode || '';
+			return model;
+		});
 
-		if (!equal(_selectedModels, selectedModels)) {
-			selectedModels = _selectedModels;
+		const deduped = [...new Set(_selectedModels.filter(Boolean))];
+		const normalized = deduped.length ? deduped : [''];
+		if (!equal(normalized, selectedModels)) {
+			selectedModels = normalized;
 		}
 	}
 

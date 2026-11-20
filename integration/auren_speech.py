@@ -34,7 +34,7 @@ def run(job, normalize_messages, *, output=emit):
         stream=wave.open(io.BytesIO(response.content));valid=stream.getnframes()>0 and len(response.content)<20*1024*1024
     except (wave.Error,EOFError):valid=False
     if not valid:raise CavrenError('invalid_response','O provedor não retornou um WAV válido no limite de tamanho.')
-    output({'type':'generation.files','files':[{'type':'audio','url':'data:audio/wav;base64,'+base64.b64encode(response.content).decode(),'name':'Auren-voz.wav'}],'generation_id':job['generation_id']})
+    output({'type':'generation.files','files':[{'type':'audio','url':'data:audio/wav;base64,'+base64.b64encode(response.content).decode(),'name':'Minerva-voz.wav'}],'generation_id':job['generation_id']})
     output({'type':'generation.delta','text':'Áudio gerado em português.','generation_id':job['generation_id']})
     output({'type':'generation.completed','response':{'text':'Áudio gerado em português.','provider':'nvidia','model':'magpie-tts-multilingual','public_mode':job['mode_id'],'usage':{}},'generation_id':job['generation_id']})
     return 0

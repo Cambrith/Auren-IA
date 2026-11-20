@@ -1,4 +1,4 @@
-// Auren chooses a compatible route per request after it prepares owned files.
+// Minerva chooses a compatible route per request after it prepares owned files.
 export const routesAurenAttachments = (ids: string[]) =>
 	ids.length > 0 && ids.every((id) => id.startsWith('cavren:'));
 

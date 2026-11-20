@@ -1,6 +1,6 @@
-"""Auren task definitions and conservative local intent detection.
+"""Minerva task definitions and conservative local intent detection.
 
-Task execution remains separate from Cavren's chat/fim/agentic enum.
+Task execution remains separate from Minerva's chat/fim/agentic enum.
 """
 import json
 import re

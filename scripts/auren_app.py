@@ -1,4 +1,4 @@
-"""Auren como app: abre a janela nativa AurenWindow imediatamente e inicia o servidor em segundo plano."""
+"""Minerva como app: abre a janela nativa AurenWindow imediatamente e inicia o servidor em segundo plano."""
 
 import base64
 import json
@@ -48,7 +48,7 @@ def secret_key() -> str:
 def build_server_env() -> dict[str, str]:
     env = {
         **os.environ,
-        'WEBUI_NAME': 'Auren',
+        'WEBUI_NAME': 'Minerva',
         'WEBUI_AUTH': 'False',
         'WEBUI_SECRET_KEY': secret_key(),
         'DATA_DIR': str(STATE / 'data'),
@@ -91,7 +91,7 @@ def splash_html() -> str:
     logo_tag = ''
     if logo_path.exists():
         b64 = base64.b64encode(logo_path.read_bytes()).decode('ascii')
-        logo_tag = f'<img src="data:image/png;base64,{b64}" alt="Auren" />'
+        logo_tag = f'<img src="data:image/png;base64,{b64}" alt="Minerva" />'
     return f"""<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -127,13 +127,14 @@ def main():
     already_up = healthy(timeout=0.2)
 
     app = QApplication(sys.argv)
-    app.setApplicationName('Auren')
+    app.setApplicationName('Minerva')
     app.setDesktopFileName('auren')
     app.setWindowIcon(QIcon(str(ROOT / 'static/favicon.png')))
 
     profile = QWebEngineProfile('auren', app)
     profile.setPersistentStoragePath(str(STATE / 'webengine'))
     profile.setCachePath(str(STATE / 'webengine/cache'))
+    profile.setHttpCacheType(QWebEngineProfile.HttpCacheType.DiskHttpCache)
     profile.setPersistentCookiesPolicy(
         QWebEngineProfile.PersistentCookiesPolicy.ForcePersistentCookies
     )

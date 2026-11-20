@@ -1,4 +1,4 @@
-"""Use the existing Cavren engine with a single leading system message.
+"""Use the existing Minerva engine with a single leading system message.
 
 This boundary normalization also works around providers that reject multiple
 system messages. The source checkout and its generation logic stay intact.
@@ -21,7 +21,7 @@ from integration.auren_fallback import run as run_manual
 
 
 def normalize_messages(messages):
-    systems = [m.content.replace("Cavren", "Auren").replace("Lunvri", "Auren") for m in messages if m.role == "system"]
+    systems = [m.content.replace("Cavren", "Minerva").replace("Lunvri", "Minerva").replace("Auren", "Minerva") for m in messages if m.role == "system"]
     rest = [m for m in messages if m.role != "system"]
     return ([Message("system", "\n\n".join(systems))] if systems else []) + rest
 
@@ -37,7 +37,7 @@ def normalize_context(builder):
 desktop_worker.build_generation_context = normalize_context(desktop_worker.build_generation_context)
 desktop_worker.with_web_results = normalize_context(desktop_worker.with_web_results)
 
-# Cavren adds route metadata after context assembly. Normalize at the final
+# Minerva adds route metadata after context assembly. Normalize at the final
 # provider boundary too, so that metadata cannot introduce a second system turn.
 _original_adapt = OpenAIChatPromptAdapter.adapt
 
@@ -89,7 +89,7 @@ if __name__ == "__main__":
                         'type': 'generation.error',
                         'generation_id': job['generation_id'],
                         'code': error.code,
-                        'message': str(error).replace('Cavren', 'Auren'),
+                        'message': str(error).replace('Cavren', 'Minerva').replace('Lunvri', 'Minerva').replace('Auren', 'Minerva'),
                     }
                 ),
                 flush=True,

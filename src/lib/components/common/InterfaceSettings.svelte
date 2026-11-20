@@ -449,7 +449,7 @@
 
 {#if $config?.auren?.local}
 	<div class="flex items-center justify-between gap-4 py-3 mb-3 border-b border-gray-200 dark:border-gray-800">
-		<div><div class="font-medium">Mostrar detalhes da resposta</div><p class="text-xs text-gray-500 mt-1">Exibe o modelo, o modo e a tarefa usados pela Auren. Oculto por padrão.</p></div>
+		<div><div class="font-medium">Mostrar detalhes da resposta</div><p class="text-xs text-gray-500 mt-1">Exibe o modelo, o modo e a tarefa usados pela Minerva. Oculto por padrão.</p></div>
 		<Switch bind:state={aurenShowDetails} on:change={() => saveSettings({ aurenShowDetails })} />
 	</div>
 {/if}

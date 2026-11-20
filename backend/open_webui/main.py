@@ -159,6 +159,7 @@ from open_webui.routers import (
     chats,
     comments,
     configs,
+    dev,
     evaluations,
     files,
     folders,
@@ -841,6 +842,7 @@ app.include_router(audio.router, prefix='/api/v1/audio', tags=['audio'])
 app.include_router(retrieval.router, prefix='/api/v1/retrieval', tags=['retrieval'])
 
 app.include_router(configs.router, prefix='/api/v1/configs', tags=['configs'])
+app.include_router(dev.router, prefix='/api/v1/dev', tags=['dev'])
 
 from open_webui.env import UVICORN_WORKERS, REDIS_URL
 from open_webui.routers import tether

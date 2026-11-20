@@ -17,7 +17,7 @@ async def bridge_request(method,path,payload=None):
     except ValueError:
         local = False
     if not local or not keys:
-        raise HTTPException(503,'A ponte local da Auren está indisponível.')
+        raise HTTPException(503,'A ponte local da Minerva está indisponível.')
     try:
         async with httpx.AsyncClient(trust_env=False,timeout=600 if path=='/chat/completions' else 60) as client:
             response=await client.request(method,urls[0]+path,headers={'Authorization':'Bearer '+keys[0]},json=payload)

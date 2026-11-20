@@ -66,7 +66,7 @@ def image_files(provider, payload):
         if mime not in ('image/png', 'image/jpeg', 'image/webp') or len(data) > 40_000_000:
             raise CavrenError('image', 'O provedor retornou uma imagem em formato não suportado.')
         base64.b64decode(data, validate=True)
-        file['name'] = 'Auren.' + {'image/png':'png','image/jpeg':'jpg','image/webp':'webp'}[mime]
+        file['name'] = 'Minerva.' + {'image/png':'png','image/jpeg':'jpg','image/webp':'webp'}[mime]
     if not files:
         raise CavrenError('image', 'O provedor não retornou uma imagem. Revise o pedido e os limites da conta.')
     return files, '\n'.join(text) or 'Imagem gerada.'

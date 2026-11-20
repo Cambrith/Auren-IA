@@ -7,10 +7,15 @@
 	export let modelName = '';
 	export let compact = false;
 	const monochromeBrands = new Set([
+		'ai21',
 		'anthropic',
 		'assemblyai',
 		'elevenlabs',
+		'flux',
 		'groq',
+		'ibm',
+		'liquid',
+		'moonshot',
 		'ollama',
 		'openai',
 		'voyage',
@@ -19,8 +24,6 @@
 	]);
 	// Remove only the tile surface at render time; keep the original public assets intact.
 	const tileSurfaces: Record<string, string> = {
-		bedrock: '#232f3e',
-		cerebras: '#ffffff',
 		deepgram: '#000000',
 		fal: '#ffc4d8',
 		hyperbolic: '#1a1a1a'
@@ -146,5 +149,10 @@
 		height: 20px;
 		border: none;
 		border-radius: 4px;
+	}
+	.provider-badge.compact img,
+	.provider-badge.compact svg {
+		width: 16px;
+		height: 16px;
 	}
 </style>

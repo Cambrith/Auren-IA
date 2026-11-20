@@ -51,7 +51,7 @@ def click(selector):
 window.setUrl(QUrl('http://127.0.0.1:8175/'))
 until("!!window.__aurenInterfaceReady&&!!document.querySelector('.lunvri-controls')")
 click('.task-trigger')
-assert js("(()=>{const e=[...document.querySelectorAll('[aria-label=\"Tarefas da Auren\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==='Conversar');if(!e)return false;e.click();return true})()")
+assert js("(()=>{const e=[...document.querySelectorAll('[aria-label=\"Tarefas da Minerva\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==='Conversar');if(!e)return false;e.click();return true})()")
 QTest.qWait(250);click('.model-trigger')
 assert js("(()=>{const e=document.querySelector('[aria-label=\"Filtrar modelos\"]');e.value='gpt oss 120b groq';e.dispatchEvent(new Event('input',{bubbles:true}));return true})()")
 QTest.qWait(300);click('.models-panel .model-choice')

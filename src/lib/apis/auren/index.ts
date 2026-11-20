@@ -62,6 +62,6 @@ export async function aurenRequest<T = unknown>(path: string, data?: unknown) {
 	});
 	const result = await response.json();
 	if (!response.ok)
-		throw new Error(result.detail ?? result.error?.message ?? 'Não foi possível acessar a Auren.');
+		throw new Error(result.detail ?? result.error?.message ?? 'Não foi possível acessar a Minerva.');
 	return result as T;
 }

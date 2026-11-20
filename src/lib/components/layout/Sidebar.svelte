@@ -6,6 +6,14 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import {
+		devActiveHistoryId,
+		devHistoryItems,
+		devNewSessionTrigger,
+		reloadDevHistory
+	} from '$lib/stores/dev';
+	import { deleteDevHistoryItem } from '$lib/apis/dev';
+	import DevToolIcon from '$lib/components/dev/DevToolIcon.svelte';
+	import {
 		user,
 		chats,
 		settings,
@@ -125,6 +133,21 @@
 	let openSidebarButton: HTMLButtonElement;
 	let closeSidebarButton: HTMLButtonElement;
 	let shiftKey = false;
+	let showMinervaModeMenu = false;
+	let devSearchQuery = '';
+
+	$: currentPath = $page?.url?.pathname ?? '';
+	$: isMinervaDevRoute = currentPath === '/dev' || currentPath.startsWith('/dev/');
+	$: filteredDevHistory = devSearchQuery.trim()
+		? $devHistoryItems.filter(
+				(it) =>
+					it.title.toLowerCase().includes(devSearchQuery.trim().toLowerCase()) ||
+					(it.cwd || '').toLowerCase().includes(devSearchQuery.trim().toLowerCase())
+			)
+		: $devHistoryItems;
+	$: if (isMinervaDevRoute && typeof localStorage !== 'undefined') {
+		reloadDevHistory(localStorage.token || '');
+	}
 
 	let selectedChatId = null;
 	const selectedChatIds = writable(new Set<string>());
@@ -1318,17 +1341,65 @@
 						<LunvriMark />
 					</a>
 
-					<a href="/" class="flex min-w-0 flex-1 px-0.5" on:click={newChatHandler}>
-						<!-- LICENSE covers this Open WebUI sidebar name.
-					Do not alter, remove, obscure, or replace it except as LICENSE permits:
-					https://docs.openwebui.com/license. -->
-						<div
+					<div class="relative flex min-w-0 flex-1 items-center">
+						<button
+							type="button"
 							id="sidebar-webui-name"
-							class=" self-center truncate font-normal text-gray-700 dark:text-gray-200"
+							class="flex min-w-0 items-center gap-1 self-center rounded-lg px-1.5 py-1 text-left font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+							on:click={() => (showMinervaModeMenu = !showMinervaModeMenu)}
 						>
-							{$WEBUI_NAME}
-						</div>
-					</a>
+							<span class="truncate">
+								{isMinervaDevRoute ? 'Minerva Dev' : $WEBUI_NAME === 'Minerva' ? 'Minerva Chat' : $WEBUI_NAME}
+							</span>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-3.5 shrink-0 opacity-60">
+								<path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+							</svg>
+						</button>
+
+						{#if showMinervaModeMenu}
+							<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
+							<div
+								class="fixed inset-0 z-40"
+								on:click={() => (showMinervaModeMenu = false)}
+							></div>
+							<div
+								class="absolute left-0 top-full z-50 mt-1 w-44 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-1 shadow-xl"
+							>
+								<button
+									type="button"
+									class="flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-left text-xs hover:bg-gray-100 dark:hover:bg-gray-800 transition {!isMinervaDevRoute
+										? 'bg-sky-500/10 text-sky-600 dark:text-sky-400 font-medium'
+										: 'text-gray-700 dark:text-gray-200'}"
+									on:click={async () => {
+										showMinervaModeMenu = false;
+										await goto('/');
+										if ($mobile) showSidebar.set(false);
+									}}
+								>
+									<span>Minerva Chat</span>
+									{#if !isMinervaDevRoute}
+										<span>✓</span>
+									{/if}
+								</button>
+								<button
+									type="button"
+									class="mt-0.5 flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-left text-xs hover:bg-gray-100 dark:hover:bg-gray-800 transition {isMinervaDevRoute
+										? 'bg-sky-500/10 text-sky-600 dark:text-sky-400 font-medium'
+										: 'text-gray-700 dark:text-gray-200'}"
+									on:click={async () => {
+										showMinervaModeMenu = false;
+										await goto('/dev');
+										if ($mobile) showSidebar.set(false);
+									}}
+								>
+									<span>Minerva Dev</span>
+									{#if isMinervaDevRoute}
+										<span>✓</span>
+									{/if}
+								</button>
+							</div>
+						{/if}
+					</div>
 					<div class="flex shrink-0 items-center gap-px">
 						{#if $config?.features?.enable_notifications}<InboxButton
 								onClose={() => inboxHost.close()}
@@ -1387,6 +1458,101 @@
 						}
 					}}
 				>
+					{#if isMinervaDevRoute}
+						<div class="pb-1 space-y-1.5">
+							<div class="px-1 flex justify-center text-gray-700 dark:text-gray-300">
+								<button
+									type="button"
+									class="group grow flex items-center space-x-2 rounded-xl px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800/80 transition outline-none"
+									on:click={() => {
+										devActiveHistoryId.set(null);
+										devNewSessionTrigger.update((n) => n + 1);
+										if ($mobile) showSidebar.set(false);
+									}}
+								>
+									<div class="self-center flex size-4 shrink-0 items-center justify-center">
+										<EditPencilIcon className="size-4" strokeWidth="1.5" />
+									</div>
+									<div class="flex flex-1 self-center translate-y-[0.5px]">
+										<div class="self-center text-[0.8125rem] leading-5">Nova sessão</div>
+									</div>
+								</button>
+							</div>
+
+							{#if $devHistoryItems.length > 3}
+								<div class="px-2">
+									<div class="relative">
+										<input
+											type="text"
+											bind:value={devSearchQuery}
+											placeholder="Filtrar sessões…"
+											class="w-full rounded-lg border border-gray-200/80 dark:border-gray-700 bg-white/80 dark:bg-gray-950/70 pl-7 pr-2.5 py-1 text-xs outline-none focus:border-sky-500 transition"
+										/>
+										<span class="pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-gray-400">
+											<DevToolIcon name="search" className="size-3" />
+										</span>
+									</div>
+								</div>
+							{/if}
+
+							<div class="flex items-center justify-between px-3 pt-2 text-[11px] font-medium text-gray-500 dark:text-gray-400">
+								<span>Sessões</span>
+								{#if $devHistoryItems.length > 0}
+									<span class="font-mono tabular-nums text-[10px] opacity-70">{$devHistoryItems.length}</span>
+								{/if}
+							</div>
+
+							{#if filteredDevHistory.length === 0}
+								<div class="px-3 py-2 text-xs text-gray-500 dark:text-gray-400/80">
+									{devSearchQuery.trim()
+										? 'Nenhuma sessão encontrada.'
+										: 'Nenhuma sessão iniciada ainda.'}
+								</div>
+							{:else}
+								<div class="px-1.5 space-y-0.5">
+									{#each filteredDevHistory as item (item.id)}
+										<div
+											class="group flex items-center justify-between rounded-xl px-2 py-1.5 text-[0.8125rem] leading-5 transition {$devActiveHistoryId === item.id
+												? 'bg-black/[0.045] dark:bg-white/[0.08] text-gray-900 dark:text-white font-medium'
+												: 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/80'}"
+										>
+											<button
+												type="button"
+												class="min-w-0 flex-1 text-left"
+												on:click={() => {
+													devActiveHistoryId.set(item.id);
+													if ($mobile) showSidebar.set(false);
+												}}
+											>
+												<div class="truncate">{item.title}</div>
+												{#if item.cwd}
+													<div class="mt-0.5 flex items-center gap-1 truncate font-mono text-[10px] text-gray-500 dark:text-gray-400/80">
+														<DevToolIcon name="folder" className="size-2.5 shrink-0 text-sky-400/80" />
+														<span class="truncate">{item.cwd.split('/').filter(Boolean).pop() || item.cwd}</span>
+													</div>
+												{/if}
+											</button>
+											<button
+												type="button"
+												class="ml-1 hidden group-hover:flex size-5 shrink-0 items-center justify-center rounded-md text-gray-400 hover:bg-rose-500/15 hover:text-rose-400 transition"
+												aria-label="Excluir conversa Dev"
+												on:click|stopPropagation={async () => {
+													await deleteDevHistoryItem(localStorage.token || '', item.id);
+													if ($devActiveHistoryId === item.id) {
+														devActiveHistoryId.set(null);
+														devNewSessionTrigger.update((n) => n + 1);
+													}
+													await reloadDevHistory(localStorage.token || '');
+												}}
+											>
+												×
+											</button>
+										</div>
+									{/each}
+								</div>
+							{/if}
+						</div>
+					{:else}
 					<div class="pb-1">
 						<div class="px-1 flex justify-center text-gray-700 dark:text-gray-300">
 							<a
@@ -1897,6 +2063,7 @@
 							</div>
 						</div>
 					</SidebarSection>
+					{/if}
 				</div>
 
 				<div class="px-1 pt-1 pb-1.5 sticky bottom-0 z-10 -mt-2 sidebar">

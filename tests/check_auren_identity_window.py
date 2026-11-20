@@ -12,7 +12,7 @@ from PySide6.QtCore import Qt,QObject,Slot,ClassInfo
 from PySide6.QtGui import QIcon
 from PySide6.QtDBus import QDBusConnection
 from PySide6.QtTest import QTest
-app=QApplication([]);app.setApplicationName('Auren');app.setDesktopFileName(DESKTOP_ID)
+app=QApplication([]);app.setApplicationName('Minerva');app.setDesktopFileName(DESKTOP_ID)
 icon_path,_=ensure_icons();app.setWindowIcon(QIcon(str(icon_path)))
 QIcon.setThemeSearchPaths([str(Path.home()/'.local/share/icons'),'/usr/share/icons',*QIcon.themeSearchPaths()]);QIcon.setFallbackThemeName('hicolor')
 icon=QIcon.fromTheme('auren')

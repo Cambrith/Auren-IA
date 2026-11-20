@@ -58,14 +58,14 @@
 
 	<div class="flex-1 min-h-0 overflow-y-auto scrollbar-hover pr-1.5">
 		{#if $config?.auren?.local}<section class="auren-settings">
-				<h2>Auren</h2>
+				<h2>Minerva</h2>
 				<p>
 					Assistente pessoal integrado ao Cambrith OS. A interface combina conversas, seleção de
 					modelos, pesquisa local na web e recursos de imagem compatíveis com os provedores
 					configurados.
 				</p>
 				<p>
-					Projeto pessoal mantido no fork Cambrith/Auren-IA.
+					Projeto pessoal mantido por Cambrith.
 				</p>
 				<p>
 					<a href="https://github.com/Cambrith/Auren-IA" target="_blank" rel="noopener noreferrer"
@@ -191,7 +191,7 @@
 			<div class="text-xs text-gray-400 dark:text-gray-500">
 				{$i18n.t('Copyright (c)')}
 				{new Date().getFullYear()}
-				<span>Auren</span>
+				<span>Minerva</span>
 				·
 				<a href="https://github.com/Cambrith/Auren-IA/blob/main/LICENSE" target="_blank"
 					>{$i18n.t('All rights reserved.')}</a

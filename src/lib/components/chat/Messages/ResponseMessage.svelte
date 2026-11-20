@@ -215,11 +215,13 @@
 	$: model = $models.find((m) => m.id === message.model);
 	$: responseTimestamp = message?.meta?.response_ended_at ?? message?.timestamp;
 
-	$: isAuren = (model?.id ?? message.model)?.startsWith('cavren:');
+	$: isAuren =
+		(model?.id ?? message.model)?.startsWith('cavren:') ||
+		(model?.id ?? message.model)?.startsWith('minerva.');
 	let imageElapsedSeconds = 0;
 	let imageProgressTimer: ReturnType<typeof setInterval> | undefined;
 	$: rawStatuses = message?.statusHistory ?? [...(message?.status ? [message?.status] : [])];
-	$: imageInProgress = isAuren && !message.done && !message.error && rawStatuses.some((s) => s.action === 'image_generation' && !s.done);
+	$: imageInProgress = !message.done && !message.error && rawStatuses.some((s) => s.action === 'image_generation' && !s.done);
 	$: if (imageInProgress && !imageProgressTimer) {
 		const latest = rawStatuses.filter((s) => s.action === 'image_generation').at(-1) as any;
 		const suppliedStart = latest?.started_at;
@@ -232,7 +234,12 @@
 		imageProgressTimer = undefined;
 	}
 	onDestroy(() => { if (imageProgressTimer) clearInterval(imageProgressTimer); });
-	$: statusEntries = isAuren ? aurenStatuses(rawStatuses, $settings?.aurenShowDetails === true, message.done === true, imageElapsedSeconds) : rawStatuses;
+	$: statusEntries = aurenStatuses(
+		rawStatuses,
+		!isAuren || $settings?.aurenShowDetails === true,
+		message.done === true,
+		imageElapsedSeconds
+	);
 	$: visibleFiles = aurenFiles(message.files ?? [], isAuren, message.done);
 	$: hasVisibleStatus =
 		(model?.info?.meta?.capabilities?.status_updates ?? true) &&
@@ -738,29 +745,7 @@
 		dir={$settings.chatDirection}
 		style="scroll-margin-top: 3rem;"
 	>
-		{#if !(model?.id ?? message.model)?.startsWith('cavren:')}
-			<div class={`shrink-0 ltr:mr-2 rtl:ml-2 hidden @lg:flex mt-0.5 `}>
-				<ProfileImage
-					src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model?.id ?? message.model}&lang=${$i18n.language}`}
-					className={'size-7 assistant-message-profile-image'}
-				/>
-			</div>
-		{/if}
-
-		<div
-			class="flex-auto w-0 pl-1 relative"
-			class:lunvri-response={(model?.id ?? message.model)?.startsWith('cavren:')}
-		>
-			{#if !compactPreview && !(model?.id ?? message.model)?.startsWith('cavren:')}
-				<Name>
-					<Tooltip content={localizedModelName} placement="top-start">
-						<span id="response-message-model-name" class="line-clamp-1 text-black dark:text-white">
-							{localizedModelName}
-						</span>
-					</Tooltip>
-				</Name>
-			{/if}
-
+		<div class="flex-auto w-0 pl-1 relative" class:lunvri-response={true}>
 			{#if message.contextSummary && !compactionStatus}
 				<ContextCompactionLabel summary={message.contextSummary} {compactPreview} />
 			{/if}
@@ -768,10 +753,10 @@
 			<div>
 				<div class="chat-{message.role} w-full min-w-full">
 					<div>
-						{#if (model?.info?.meta?.capabilities?.status_updates ?? true) && (!isAuren || (message.done && $settings?.aurenShowDetails === true))}
+						{#if (model?.info?.meta?.capabilities?.status_updates ?? true) && (isAuren ? message.done && $settings?.aurenShowDetails === true : message.done)}
 							<StatusHistory statusHistory={statusEntries} />
 						{/if}
-						{#if message.aurenCancelled && message.model?.startsWith('cavren:')}
+						{#if message.aurenCancelled && isAuren}
 							<p class="my-2 text-sm text-gray-500 dark:text-gray-400" role="status">Geração interrompida.</p>
 						{/if}
 
@@ -782,9 +767,9 @@
 									preload="metadata"
 									src={file.url}
 									class="max-w-full"
-									aria-label="Áudio gerado pela Auren"
+									aria-label="Áudio gerado pela Minerva"
 								></audio>
-								<a href={file.url} download="Auren-voz.wav" class="text-sm">Baixar áudio</a>
+								<a href={file.url} download="Minerva-voz.wav" class="text-sm">Baixar áudio</a>
 							</div>
 						{/each}
 						{#if visibleFiles.length && visibleFiles.filter( (f) => ['image', 'file'].includes(f.type) ).length > 0}
@@ -997,18 +982,12 @@
 								<ContextCompactionLabel status={compactionStatus} {compactPreview} />
 							{/if}
 
-							{#if !message.done && !message.error && (model?.id ?? message.model)?.startsWith('cavren:')}
+							{#if !compactionStatus && !message.done && !message.error && (!hasResponseContent || imageInProgress)}
 								<AurenActivity
 									phase={activity.phase}
 									description={activity.description}
 									status={activity.status}
 								/>
-							{:else if !compactionStatus && !message.done && !message.error && (hasResponseContent || !hasVisibleStatus)}
-								<div class="text-[0.90625rem] leading-relaxed">
-									<span
-										class="inline-block w-[0.125rem] h-3.5 bg-gray-400 dark:bg-gray-500 ml-0.5 animate-cursor-pulse align-text-bottom"
-									></span>
-								</div>
 							{/if}
 
 							{#if message?.error}

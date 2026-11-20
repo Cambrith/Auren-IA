@@ -1,0 +1,1302 @@
+{
+ "cerebras.gpt-oss-120b": {
+  "provider": "cerebras",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "groq.allam-2-7b": {
+  "provider": "groq",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "cohere.c4ai-aya-expanse-32b": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "openrouter.inclusionai/ling-3.2-flash:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 3.7
+ },
+ "groq.openai/gpt-oss-20b": {
+  "provider": "groq",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "cerebras.qwen-3.8-27b": {
+  "provider": "cerebras",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.6
+ },
+ "cohere.c4ai-aya-vision-32b": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.7
+ },
+ "cloudflare.@cf/aisingapore/gemma-sea-lion-v4-27b-it": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 6.8
+ },
+ "openrouter.baidu/ernie-5.5-flash-preview:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.9
+ },
+ "cohere.command-a-03-2025": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.7
+ },
+ "groq.qwen/qwen3.8-27b": {
+  "provider": "groq",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.7
+ },
+ "groq.openai/gpt-oss-120b": {
+  "provider": "groq",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.9
+ },
+ "cohere.command-a-plus-05-2026": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.2
+ },
+ "cloudflare.@cf/daily-co/phonellm-mini-alpha-2": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 6.0
+ },
+ "openrouter.liquid/lfm-3-1.7b:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.9
+ },
+ "cohere.command-a-reasoning-08-2025": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 3.3
+ },
+ "openrouter.particle-ai/particle-1:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.9
+ },
+ "cloudflare.@cf/deepseek-ai/deepseek-r1-distill-qwen-32b": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 8.5
+ },
+ "cohere.command-a-translate-08-2025": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.7
+ },
+ "gemini.models/gemma-4-26b-a4b-it": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 25.2
+ },
+ "openrouter.recursive/flint-v1.0:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.6
+ },
+ "cloudflare.@cf/google/gemma-2b-it-lora": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.6
+ },
+ "cohere.command-a-vision-07-2025": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.7
+ },
+ "openrouter.nvidia/nemotron-3.5-super-vl:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "cloudflare.@cf/google/gemma-4-26b-a4b-it": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 5.2
+ },
+ "cohere.command-r-08-2024": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.7
+ },
+ "openrouter.dots-studio/dots-3-note-preview:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 2.2
+ },
+ "cloudflare.@cf/google/gemma-7b-it-lora": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 4.5
+ },
+ "cloudflare.@cf/ibm-granite/granite-4.0-h-micro": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 3.4
+ },
+ "openrouter.nvidia/nemotron-3.5-lightning:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.6
+ },
+ "openrouter.cohere/north-mini-code:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.5
+ },
+ "openrouter.nvidia/nemotron-3-ultra-550b-a55b:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.4
+ },
+ "openrouter.nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "cohere.command-r-plus-08-2024": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 50.0
+ },
+ "cohere.command-r7b-12-2024": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.0
+ },
+ "openrouter.openrouter/free": {
+  "provider": "openrouter",
+  "pass": true,
+  "calc": null,
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.5
+ },
+ "gemini.models/gemma-4-31b-it": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 98.6
+ },
+ "cohere.command-r7b-arabic-02-2025": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 170.7
+ },
+ "cohere.north-mini-code-1.0": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.0
+ },
+ "cohere.north-small-translate-1.0": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.6
+ },
+ "cloudflare.@cf/meta-llama/llama-2-7b-chat-hf-lora": {
+  "provider": "cloudflare",
+  "pass": false,
+  "calc": {
+   "ok": false,
+   "status": 200,
+   "msg": "resposta errada/vazia: ''"
+  },
+  "capital": {
+   "ok": false,
+   "status": 200,
+   "msg": "resposta errada/vazia: '' (0 trechos, fim=True)"
+  },
+  "seg": 232.3
+ },
+ "cohere.tiny-aya-earth": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.6
+ },
+ "cohere.tiny-aya-fire": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.7
+ },
+ "cohere.tiny-aya-global": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "cohere.tiny-aya-water": {
+  "provider": "cohere",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.9
+ },
+ "gemini.models/gemini-flash-lite-latest": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.5
+ },
+ "gemini.models/gemini-3-flash-preview": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 2.8
+ },
+ "gemini.models/gemini-3.1-flash-lite-preview": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 8.6
+ },
+ "gemini.models/gemini-3.1-flash-lite": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.8
+ },
+ "gemini.models/gemini-3.5-flash": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 9.5
+ },
+ "gemini.models/gemini-3.5-flash-lite": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.4
+ },
+ "gemini.models/gemini-3.6-flash": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 6.8
+ },
+ "cloudflare.@cf/meta/llama-3.2-11b-vision-instruct": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.0
+ },
+ "cloudflare.@cf/meta/llama-3.2-1b-instruct": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.6
+ },
+ "cloudflare.@cf/meta/llama-3.2-3b-instruct": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.7
+ },
+ "cloudflare.@cf/meta/llama-3.3-70b-instruct-fp8-fast": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "cloudflare.@cf/meta/llama-4-scout-17b-16e-instruct": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.8
+ },
+ "gemini.models/gemini-4-hydrogen": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 14.1
+ },
+ "cloudflare.@cf/mistral/mistral-7b-instruct-v0.2-lora": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 3.5
+ },
+ "cloudflare.@cf/mistralai/mistral-small-3.1-24b-instruct": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.7
+ },
+ "gemini.models/gemini-robotics-er-2-preview": {
+  "provider": "gemini",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 2.3
+ },
+ "cloudflare.@cf/nvidia/nemotron-3-120b-a12b": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 2.2
+ },
+ "nvidia.meta/llama-3.2-90b-vision-instruct": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 26.6
+ },
+ "cloudflare.@cf/openai/gpt-oss-120b": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 9.7
+ },
+ "cloudflare.@cf/openai/gpt-oss-20b": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.3
+ },
+ "cloudflare.@cf/qwen/qwen2.5-coder-32b-instruct": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.5
+ },
+ "cloudflare.@cf/qwen/qwen3-30b-a3b-fp8": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 7.5
+ },
+ "nvidia.meta/muse-glimmer-30b": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 19.8
+ },
+ "cloudflare.@cf/qwen/qwen3.8-27b": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 3.4
+ },
+ "nvidia.minimaxai/minimax-m3.1-flash": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 2.9
+ },
+ "cloudflare.@cf/qwen/qwq-32b": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 6.3
+ },
+ "cloudflare.@cf/zai-org/glm-4.7-flash": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 12.7
+ },
+ "nvidia.mistralai/mistral-large-4-1t-a52b": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 58.0
+ },
+ "nvidia.nvidia/ising-calibration-1.5-31b": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.0
+ },
+ "nvidia.nvidia/nemotron-3-nano-omni-30b-a3b-reasoning": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.8
+ },
+ "nvidia.nvidia/nemotron-3-ultra-550b-a55b": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 2.7
+ },
+ "nvidia.nvidia/nemotron-3.5-bolt-e4b": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.7
+ },
+ "nvidia.nvidia/nemotron-3.5-lightning-30b-a3b": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 3.5
+ },
+ "nvidia.nvidia/nemotron-3.5-super-vl-120b-a12b": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.4
+ },
+ "nvidia.nvidia/riva-translate-4b-instruct-v2": {
+  "provider": "nvidia",
+  "pass": false,
+  "calc": {
+   "ok": false,
+   "status": 200,
+   "msg": "resposta errada/vazia: 'What is 7+5? Answer only the number.'"
+  },
+  "capital": {
+   "ok": false,
+   "status": 200,
+   "msg": "resposta errada/vazia: 'What is the capital of Brazil? Answer in one word.' (12 trechos, fim=True)"
+  },
+  "seg": 42.9
+ },
+ "nvidia.poolside/laguna-xs-2.1": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 0.8
+ },
+ "nvidia.stepfun-ai/step-5-preview": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 2.8
+ },
+ "cloudflare.@cf/meta/llama-3.1-8b-instruct-fp8": {
+  "provider": "cloudflare",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 1.3
+ },
+ "openrouter.google/gemma-4-26b-a4b-it:free": {
+  "provider": "openrouter",
+  "pass": false,
+  "calc": null,
+  "capital": {
+   "ok": false,
+   "status": 429,
+   "msg": "Provider returned error"
+  },
+  "seg": 20.9
+ },
+ "openrouter.google/gemma-4-31b-it:free": {
+  "provider": "openrouter",
+  "pass": false,
+  "calc": null,
+  "capital": {
+   "ok": false,
+   "status": 429,
+   "msg": "Provider returned error"
+  },
+  "seg": 20.9
+ },
+ "gemini.models/gemini-flash-latest": {
+  "provider": "gemini",
+  "pass": false,
+  "calc": {
+   "ok": false,
+   "status": 0,
+   "msg": "timed out"
+  },
+  "capital": null,
+  "seg": 320.1
+ },
+ "nvidia.deepseek-ai/deepseek-v4.1-flash": {
+  "provider": "nvidia",
+  "pass": false,
+  "calc": {
+   "ok": false,
+   "status": 0,
+   "msg": "timed out"
+  },
+  "capital": null,
+  "seg": 320.2
+ },
+ "nvidia.google/gemma-4-31b-it": {
+  "provider": "nvidia",
+  "pass": true,
+  "calc": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "capital": {
+   "ok": true,
+   "status": 200,
+   "msg": "ok"
+  },
+  "seg": 2.0
+ },
+ "gemini.models/gemini-3.7-flash": {
+  "provider": "gemini",
+  "pass": false,
+  "calc": {
+   "ok": false,
+   "status": 0,
+   "msg": "timed out"
+  },
+  "capital": null,
+  "seg": 171.8
+ },
+ "gemini.models/gemini-3.8-flash": {
+  "provider": "gemini",
+  "pass": false,
+  "calc": {
+   "ok": false,
+   "status": 429,
+   "msg": "[{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your"
+  },
+  "capital": null,
+  "seg": 20.9
+ },
+ "nvidia.openai/gpt-oss-20b": {
+  "provider": "nvidia",
+  "pass": false,
+  "calc": {
+   "ok": false,
+   "status": 0,
+   "msg": "timed out"
+  },
+  "capital": null,
+  "seg": 320.2
+ },
+ "nvidia.z-ai/glm-5.3-flash": {
+  "provider": "nvidia",
+  "pass": false,
+  "calc": {
+   "ok": false,
+   "status": 0,
+   "msg": "timed out"
+  },
+  "capital": null,
+  "seg": 320.2
+ }
+}

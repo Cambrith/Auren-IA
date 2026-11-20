@@ -1,4 +1,4 @@
-"""Persistent KDE window for the local Auren interface."""
+"""Persistent KDE window for the local Minerva interface."""
 
 from pathlib import Path
 import os
@@ -31,12 +31,12 @@ def startup_html():
     @media(prefers-reduced-motion:reduce){{img{{animation:none!important}}}}
     </style></head><body>
     <script>document.documentElement.style.setProperty('--auren-pulse-delay', -((Date.now()-window.__aurenLoadStarted)%2600)+'ms');</script>
-    <img alt="Carregando Auren" src="data:image/png;base64,{icon}" style="width:104px;height:104px;object-fit:contain;filter:grayscale(1) brightness(.74);animation:pulse 2.6s ease-in-out infinite;animation-delay:var(--auren-pulse-delay,0ms);will-change:transform,opacity"/></body></html>"""
+    <img alt="Carregando Minerva" src="data:image/png;base64,{icon}" style="width:104px;height:104px;object-fit:contain;filter:grayscale(1) brightness(.74);animation:pulse 2.6s ease-in-out infinite;animation-delay:var(--auren-pulse-delay,0ms);will-change:transform,opacity"/></body></html>"""
 
 
 def main():
     app = QApplication(sys.argv)
-    app.setApplicationName('Auren')
+    app.setApplicationName('Minerva')
     app.setOrganizationName('Cambrith')
     app.setDesktopFileName(DESKTOP_ID)
     # Recover deleted local icon files without relying on the theme cache.
@@ -70,7 +70,7 @@ def main():
 
     view = AurenWindow()
     view.setPage(Page(profile, view))
-    view.setWindowTitle('Auren')
+    view.setWindowTitle('Minerva')
     # The window is visible during service startup and frontend hydration.
     view.setHtml(startup_html())
     view.showMaximized()
@@ -123,7 +123,7 @@ def main():
             timer.stop()
             if pending is not None: pending.abort()
             QMessageBox.critical(
-                view, 'Auren', 'Não foi possível iniciar a Auren. Consulte o serviço lunvri.service.'
+                view, 'Minerva', 'Não foi possível iniciar a Minerva. Consulte o serviço lunvri.service.'
             )
             return
         if pending is not None: return

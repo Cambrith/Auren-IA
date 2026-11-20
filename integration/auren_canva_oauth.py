@@ -92,7 +92,7 @@ def start(backend=None):
                         if response.status_code == 200:
                             store_tokens(vault,response.json()); ok = True
                 except (httpx.HTTPError,OSError,ValueError,KeyError,TypeError): pass
-            message = 'Canva autorizado. Volte à Auren e valide a conexão.' if ok else 'Autorização não concluída. Volte à Auren.'
+            message = 'Canva autorizado. Volte à Minerva e valide a conexão.' if ok else 'Autorização não concluída. Volte à Minerva.'
             body = ('<!doctype html><meta charset="utf-8"><script>history.replaceState(null,"","/oauth/canva/callback")</script><p>'+message+'</p>').encode()
             self.send_response(200 if ok else 400)
             self.send_header('Content-Type','text/html; charset=utf-8'); self.send_header('Content-Length',str(len(body)))

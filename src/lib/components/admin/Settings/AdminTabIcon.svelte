@@ -90,4 +90,6 @@
 	<QueueList {className} {strokeWidth} />
 {:else if id === 'db'}
 	<Database {className} {strokeWidth} />
+{:else if id === 'ai-hub'}
+	<Grid {className} {strokeWidth} />
 {/if}

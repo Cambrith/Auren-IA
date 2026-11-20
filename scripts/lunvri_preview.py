@@ -38,7 +38,7 @@ def wait_ready(url: str, process, timeout=180):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Prévia local da Auren')
+    parser = argparse.ArgumentParser(description='Prévia local da Minerva')
     parser.add_argument('--port', type=int, default=8175)
     parser.add_argument('--dev', action='store_true', help='Use o frontend de desenvolvimento.')
     parser.add_argument('--dev-port', type=int, default=5179)
@@ -100,7 +100,7 @@ def main():
             {
                 'DATA_DIR': str(data),
                 'STATIC_DIR': str(RUNTIME / 'static'),
-                'WEBUI_NAME': 'Auren',
+                'WEBUI_NAME': 'Minerva',
                 'WEBUI_AUTH': 'False',
                 'WEBUI_SECRET_KEY': secret_path.read_text(),
                 'LUNVRI_LOCAL_PREVIEW': '1',
@@ -204,7 +204,7 @@ def main():
             processes.append(frontend)
             wait_ready(public_url, frontend)
         (RUNTIME / 'preview.json').write_text(json.dumps({'url': public_url, 'pid': os.getpid()}))
-        print(f'Prévia Auren pronta: {public_url}', flush=True)
+        print(f'Prévia Minerva pronta: {public_url}', flush=True)
         while all(process.poll() is None for process in processes):
             time.sleep(1)
     finally:

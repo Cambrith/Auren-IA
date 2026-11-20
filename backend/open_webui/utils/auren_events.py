@@ -1,4 +1,4 @@
-"""Isolate repeated generations of one Auren response, including its DB events."""
+"""Isolate repeated generations of one Minerva response, including its DB events."""
 import asyncio
 from collections import OrderedDict
 from uuid import UUID

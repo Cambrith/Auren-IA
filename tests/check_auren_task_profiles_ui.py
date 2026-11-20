@@ -70,8 +70,8 @@ expected={
  'Transcrever áudio':['Escuta','Lusofonia','Echo']}
 result['task_profiles']={}
 for task,names in expected.items():
- click('[aria-label="Tarefa da Auren"]')
- assert js(f"(()=>{{const e=[...document.querySelectorAll('[aria-label=\"Tarefas da Auren\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==={json.dumps(task)});if(!e)return false;e.click();return true}})()")
+ click('[aria-label="Tarefa da Minerva"]')
+ assert js(f"(()=>{{const e=[...document.querySelectorAll('[aria-label=\"Tarefas da Minerva\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==={json.dumps(task)});if(!e)return false;e.click();return true}})()")
  QTest.qWait(300);click('.mode-trigger')
  found=js("[...document.querySelectorAll('.modes-panel [data-choice] strong')].map(e=>e.textContent)")
  assert found==names,(task,found)
@@ -80,26 +80,26 @@ for task,names in expected.items():
  assert selected==names[-1];result['task_profiles'][task]=found
  # A fresh empty conversation intentionally resets on reload. Check per-task
  # restoration by switching away and back, without creating a user conversation.
- click('[aria-label="Tarefa da Auren"]')
- assert js("(()=>{[...document.querySelectorAll('[aria-label=\"Tarefas da Auren\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==='Automática').click();return true})()")
- QTest.qWait(250);click('[aria-label="Tarefa da Auren"]')
- assert js(f"(()=>{{[...document.querySelectorAll('[aria-label=\"Tarefas da Auren\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==={json.dumps(task)}).click();return true}})()")
+ click('[aria-label="Tarefa da Minerva"]')
+ assert js("(()=>{[...document.querySelectorAll('[aria-label=\"Tarefas da Minerva\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==='Automática').click();return true})()")
+ QTest.qWait(250);click('[aria-label="Tarefa da Minerva"]')
+ assert js(f"(()=>{{[...document.querySelectorAll('[aria-label=\"Tarefas da Minerva\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==={json.dumps(task)}).click();return true}})()")
  QTest.qWait(250);assert js("document.querySelector('.mode-trigger strong').textContent")==selected
 # The preceding task is transcription. Inspect compatibility per language profile.
 for name,cohere_expected in [('Escuta',False),('Echo',True)]:
  click('.mode-trigger')
  assert js(f"(()=>{{[...document.querySelectorAll('.modes-panel [data-choice]')].find(e=>e.querySelector('strong')?.textContent==={json.dumps(name)}).click();return true}})()")
- QTest.qWait(250);click('[aria-label="Modelo da Auren"]')
+ QTest.qWait(250);click('[aria-label="Modelo da Minerva"]')
  cohere=js("[...document.querySelectorAll('.models-panel .provider-heading')].some(e=>e.textContent.includes('Cohere'))")
  assert cohere==cohere_expected
  result['transcribe_'+name+'_cohere_visible']=cohere
  click('.models-panel button[data-choice]')
-click('[aria-label="Tarefa da Auren"]')
-assert js("(()=>{[...document.querySelectorAll('[aria-label=\"Tarefas da Auren\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==='Automática').click();return true})()")
+click('[aria-label="Tarefa da Minerva"]')
+assert js("(()=>{[...document.querySelectorAll('[aria-label=\"Tarefas da Minerva\"] [data-choice]')].find(e=>e.querySelector('strong')?.textContent==='Automática').click();return true})()")
 QTest.qWait(300);click('.mode-trigger')
 assert js("[...document.querySelectorAll('.modes-panel [data-choice] strong')].map(e=>e.textContent)")==['Automático']
 click('.modes-panel [data-choice]')
-click('[aria-label="Modelo da Auren"]')
+click('[aria-label="Modelo da Minerva"]')
 assert js("(()=>{const input=document.querySelector('[aria-label=\"Filtrar modelos\"]');input.value='Tiny Aya Water';input.dispatchEvent(new Event('input',{bubbles:true}));return true})()")
 QTest.qWait(400)
 assert js("(()=>{const e=[...document.querySelectorAll('.model-choice')].find(e=>!e.disabled&&e.querySelector('strong')?.textContent==='Tiny Aya Water');if(!e)return false;e.click();return true})()")
@@ -107,7 +107,7 @@ QTest.qWait(300)
 result['manual_model']=js("(()=>{const e=document.querySelector('.model-trigger');return {caption:e.querySelector('small').textContent,name:e.querySelector('strong').textContent,width:e.getBoundingClientRect().width,align:getComputedStyle(e.querySelector('strong')).textAlign,textX:e.querySelector('strong').getBoundingClientRect().x}})()")
 assert result['manual_model']['caption']=='Modelo' and 176<=result['manual_model']['width']<=224 and result['manual_model']['align']=='left'
 capture('auren-perfis-cartoes-manual-2026-10-13.png')
-click('[aria-label="Modelo da Auren"]');click('.models-panel button[data-choice]')
+click('[aria-label="Modelo da Minerva"]');click('.models-panel button[data-choice]')
 capture('auren-perfis-cartoes-automaticos-2026-10-13.png')
 result['matching_model_alignment']=abs(result['manual_model']['textX']-js("document.querySelector('.model-trigger strong').getBoundingClientRect().x"))<1
 assert result['matching_model_alignment']

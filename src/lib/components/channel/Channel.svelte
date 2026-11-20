@@ -431,10 +431,10 @@
 					} else {
 						return e.name;
 					}
-				}, '')} / Auren</title
+				}, '')} / Minerva</title
 		>
 	{:else}
-		<title>#{channel?.name ?? 'Channel'} / Auren</title>
+		<title>#{channel?.name ?? 'Channel'} / Minerva</title>
 	{/if}
 </svelte:head>
 

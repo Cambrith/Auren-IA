@@ -19,6 +19,12 @@
 	import { toast } from 'svelte-sonner';
 	import Tag from '$lib/components/icons/Tag.svelte';
 	import Label from '$lib/components/icons/Label.svelte';
+	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
+	import {
+		getModelDisplayMeta,
+		isMinervaModeId,
+		type ModelDisplayMeta
+	} from '$lib/utils/modelSelectorOrg';
 
 	const i18n = getContext<typeof import('$lib/i18n').default>('i18n');
 
@@ -28,6 +34,8 @@
 	export let value: string | null = '';
 	export let selectedValues: string[] = [];
 	export let compareEnabled = false;
+	export let displayMeta: ModelDisplayMeta | undefined = undefined;
+	export let showProviderTag = true;
 
 	export let unloadModelHandler: (model: any) => void = () => {};
 	export let pinModelHandler: (modelId: string) => void = () => {};
@@ -38,6 +46,13 @@
 	export let onEdit: () => void = () => {};
 
 	$: localizedDescription = resolveLocalizedModelDescription(item.model, $i18n.language);
+	$: isMinervaMode = isMinervaModeId(item?.value) || Boolean(item?.model?.info?.meta?.minerva_mode);
+	$: meta = displayMeta ?? getModelDisplayMeta(item);
+	$: showVendorPill =
+		!isMinervaMode &&
+		Boolean(meta.vendorLabel) &&
+		meta.vendorLabel.toLowerCase() !== meta.provider.chipLabel.toLowerCase() &&
+		!meta.cleanTitle.toLowerCase().includes(meta.vendorLabel.toLowerCase());
 
 	const copyLinkHandler = async (model) => {
 		const baseUrl = window.location.origin;
@@ -62,10 +77,12 @@
 	aria-selected={isSelected}
 	aria-label={$i18n.t('Select {{modelName}} model', { modelName: item.label })}
 	aria-describedby={localizedDescription ? `model-description-${index}` : undefined}
-	class="focus-ring group/item relative flex h-8 w-full cursor-pointer select-none items-center rounded-xl px-2 text-left text-[0.8125rem] font-normal text-gray-700 outline-hidden transition-colors duration-75 dark:text-gray-100 {($settings?.highContrastMode ??
+	class="focus-ring group/item relative flex min-h-9 w-full cursor-pointer select-none items-center rounded-xl {isMinervaMode
+		? 'px-3 py-2'
+		: 'px-2 py-1'} text-left text-[0.8125rem] font-normal text-gray-700 outline-hidden transition-colors duration-75 dark:text-gray-100 {($settings?.highContrastMode ??
 	false)
 		? 'hover:bg-gray-200 dark:hover:bg-gray-800'
-		: 'hover:bg-gray-50/40 dark:hover:bg-gray-800/40'} {index === selectedModelIdx &&
+		: 'hover:bg-gray-50/50 dark:hover:bg-gray-800/45'} {index === selectedModelIdx &&
 	!compareEnabled
 		? ($settings?.highContrastMode ?? false)
 			? 'bg-gray-200 dark:bg-gray-800'
@@ -84,50 +101,63 @@
 		onClick();
 	}}
 >
-	<div class="flex flex-1 flex-col gap-1.5 overflow-hidden">
-		<!-- {#if (item?.model?.tags ?? []).length > 0}
-			<div
-				class="flex gap-0.5 self-center items-start h-full w-full translate-y-[0.5px] overflow-x-auto scrollbar-none"
-			>
-				{#each item.model?.tags.sort((a, b) => a.name.localeCompare(b.name)) as tag}
-					<Tooltip content={tag.name} className="flex-shrink-0">
-						<div
-							class=" text-xs font-normal px-1 rounded-sm uppercase bg-gray-500/20 text-gray-700 dark:text-gray-200"
-						>
-							{tag.name}
-						</div>
-					</Tooltip>
-				{/each}
-			</div>
-		{/if} -->
-
+	<div class="flex flex-1 flex-col gap-0.5 overflow-hidden">
 		<div class="flex items-center gap-2 overflow-hidden">
-			<div class="flex items-center min-w-fit">
-				<Tooltip content={$user?.role === 'admin' ? (item?.value ?? '') : ''} placement="top-start">
-					<img
-						src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${item.model.id}&lang=${$i18n.language}`}
-						alt={$i18n.t('{{modelName}} profile image', { modelName: item.label })}
-						class="flex size-4 items-center rounded-full"
-						loading="lazy"
-						on:error={(e) => {
-							// LICENSE covers this Open WebUI fallback logo.
-							// Do not alter, remove, obscure, or replace it except as LICENSE permits:
-							// https://docs.openwebui.com/license.
-							e.currentTarget.src = '/favicon.png';
-						}}
-					/>
-				</Tooltip>
-			</div>
+			{#if !isMinervaMode}
+				<div class="flex shrink-0 items-center">
+					<Tooltip
+						content={$user?.role === 'admin' ? (item?.value ?? '') : ''}
+						placement="top-start"
+					>
+						<AurenProviderBadge
+							compact
+							provider={meta.provider.badgeProvider}
+							name={meta.provider.label}
+							modelId={item?.value ?? ''}
+							modelName={item?.label ?? ''}
+						/>
+					</Tooltip>
+				</div>
+			{/if}
 
-			<div class="flex min-w-0 items-center">
-				<Tooltip content={`${item.label} (${item.value})`} placement="top-start">
-					<div class="line-clamp-1">
-						{item.label}
+			<div class="flex min-w-0 flex-1 items-center gap-1.5 overflow-hidden">
+				<Tooltip
+					content={isMinervaMode
+						? `${meta.cleanTitle}${localizedDescription ? ` · ${localizedDescription}` : ''}`
+						: `${meta.cleanTitle} · ${meta.provider.label} (${item.value})`}
+					placement="top-start"
+				>
+					<div class="truncate font-medium text-gray-800 dark:text-gray-100">
+						{meta.cleanTitle}
 					</div>
 				</Tooltip>
+				{#if showVendorPill}
+					<span class="shrink-0 rounded-md bg-gray-100 px-1.5 py-0.5 text-[0.625rem] font-normal leading-none text-gray-500 dark:bg-gray-800/90 dark:text-gray-400">
+						{meta.vendorLabel}
+					</span>
+				{/if}
 			</div>
 
-			<div class="flex shrink-0 items-center gap-1.5">
+			<div class="flex shrink-0 items-center gap-1">
+				{#each meta.badges.slice(0, 2) as badge}
+					<span
+						class="hidden sm:inline-flex shrink-0 rounded-md px-1.5 py-0.5 text-[0.625rem] font-medium leading-none {badge === 'Equilíbrio e velocidade' ||
+						badge === 'Equilíbrio e inteligência'
+							? 'bg-sky-500/10 text-sky-600 dark:bg-sky-400/15 dark:text-sky-300'
+							: badge === 'Inteligência máxima' || badge === 'Raciocínio' || badge === 'Visão'
+								? 'bg-violet-500/10 text-violet-600 dark:bg-violet-400/15 dark:text-violet-300'
+								: badge === 'Velocidade e disponibilidade' || badge === 'Código'
+									? 'bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300'
+									: 'bg-gray-500/10 text-gray-600 dark:bg-gray-400/15 dark:text-gray-300'}"
+					>
+						{badge}
+					</span>
+				{/each}
+				{#if showProviderTag && !isMinervaMode}
+					<span class="shrink-0 text-[0.625rem] font-normal text-gray-400 dark:text-gray-500">
+						{meta.provider.chipLabel}
+					</span>
+				{/if}
 				{#if item.model.owned_by === 'ollama'}
 					{#if (item.model.ollama?.details?.parameter_size ?? '') !== ''}
 						<div class="flex items-center translate-y-[0.5px]">
@@ -236,7 +266,7 @@
 							</svg>
 						</div>
 					</Tooltip>
-				{:else if item.model.connection_type === 'external'}
+				{:else if !isMinervaMode && item.model.connection_type === 'external'}
 					<Tooltip content={`${$i18n.t('External')}`}>
 						<div class="translate-y-[1px]">
 							<svg
@@ -260,7 +290,7 @@
 					</Tooltip>
 				{/if}
 
-				{#if localizedDescription}
+				{#if !isMinervaMode && localizedDescription}
 					<span id={`model-description-${index}`} class="sr-only"
 						>{removeFormattings(localizedDescription)}</span
 					>
@@ -290,6 +320,14 @@
 				{/if}
 			</div>
 		</div>
+		{#if isMinervaMode && localizedDescription}
+			<div
+				id={`model-description-${index}`}
+				class="text-[0.7rem] leading-snug text-gray-500 dark:text-gray-400 line-clamp-2"
+			>
+				{localizedDescription}
+			</div>
+		{/if}
 	</div>
 
 	<div
@@ -318,7 +356,7 @@
 			</Tooltip>
 		{/if}
 
-		{#if !selectionOnly}
+		{#if !selectionOnly && !isMinervaMode}
 			<ModelItemMenu
 				{onComment}
 				bind:show={showMenu}

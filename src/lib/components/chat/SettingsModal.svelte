@@ -49,6 +49,7 @@
 	import AdminGeneral from '$lib/components/admin/Settings/General.svelte';
 	import AdminAuthentication from '$lib/components/admin/Settings/Authentication.svelte';
 	import AdminConnections from '$lib/components/admin/Settings/Connections.svelte';
+	import CentralIA from '$lib/components/admin/Settings/CentralIA.svelte';
 	import AdminModels from '$lib/components/admin/Settings/Models.svelte';
 	import AdminSubagents from '$lib/components/admin/Settings/Subagents.svelte';
 	import AdminEvaluations from '$lib/components/admin/Settings/Evaluations.svelte';
@@ -164,6 +165,7 @@
 		'admin:general': $i18n.t('System'),
 		'admin:authentication': $i18n.t('System'),
 		'admin:interface': $i18n.t('System'),
+		'admin:ai-hub': $i18n.t('AI'),
 		'admin:connections': $i18n.t('AI'),
 		'admin:models': $i18n.t('AI'),
 		'admin:subagents': $i18n.t('AI'),
@@ -289,6 +291,12 @@
 			titleKey: 'settings.admin.interface.title',
 			title: $i18n.t('settings.admin.interface.title'),
 			searchPrefixes: ['settings.admin.interface.', 'settings.personal.general.parameters.']
+		},
+		{
+			id: 'admin:ai-hub',
+			titleKey: 'Central de IA',
+			title: 'Central de IA',
+			searchPrefixes: []
 		},
 		{
 			id: 'admin:connections',
@@ -857,12 +865,12 @@
 						{selectedTab === 'admin:authentication'
 							? 'Esta instalação usa uma sessão local protegida pela ponte. Senha de login remoto e MFA só se aplicam quando o serviço é iniciado com autenticação de contas; não são necessários para salvar o perfil.'
 							: selectedTab === 'admin:web'
-								? 'A pesquisa nas conversas da Auren usa o SearXNG local pelo controle do topo. As opções abaixo pertencem ao mecanismo de pesquisa adicional da Auren.'
+								? 'A pesquisa nas conversas da Minerva usa o SearXNG local pelo controle do topo. As opções abaixo pertencem ao mecanismo de pesquisa adicional da Minerva.'
 								: selectedTab === 'admin:documents'
-									? 'Anexos da Auren são lidos localmente ou enviados ao modelo compatível. A indexação de bases de conhecimento abaixo exige uma conexão de embeddings própria, ainda não configurada.'
+									? 'Anexos da Minerva são lidos localmente ou enviados ao modelo compatível. A indexação de bases de conhecimento abaixo exige uma conexão de embeddings própria, ainda não configurada.'
 									: selectedTab.includes('audio')
-										? 'Voz depende do navegador ou de uma API de áudio configurada separadamente. A ponte de modelos da Auren oferece conversa e imagens; ela não fornece transcrição ou síntese de voz.'
-										: 'Esta seção contém recursos avançados da Auren. Não há um serviço de ferramentas externas configurado no motor da Auren; configure e valide o serviço correspondente antes de utilizá-lo.'}
+										? 'Voz depende do navegador ou de uma API de áudio configurada separadamente. A ponte de modelos da Minerva oferece conversa e imagens; ela não fornece transcrição ou síntese de voz.'
+										: 'Esta seção contém recursos avançados da Minerva. Não há um serviço de ferramentas externas configurado no motor da Minerva; configure e valide o serviço correspondente antes de utilizá-lo.'}
 					</p>
 				</div>
 			{/if}
@@ -932,6 +940,8 @@
 				<AdminGeneral saveHandler={adminConfigSaveHandler} />
 			{:else if selectedTab === 'admin:authentication'}
 				<AdminAuthentication />
+			{:else if selectedTab === 'admin:ai-hub'}
+				<CentralIA />
 			{:else if selectedTab === 'admin:connections'}
 				{#if $config?.auren?.local}<AurenConnections />{:else}
 					<AdminConnections

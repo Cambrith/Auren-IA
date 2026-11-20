@@ -77,6 +77,18 @@
 	import CommunityDiscover from './common/CommunityDiscover.svelte';
 	import Pagination from '../common/Pagination.svelte';
 	import Badge from '$lib/components/common/Badge.svelte';
+	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
+	import { getModelDisplayMeta, isMinervaModeId } from '$lib/utils/modelSelectorOrg';
+
+	const hasCustomProfileImage = (model: any): boolean => {
+		const url = model?.meta?.profile_image_url ?? model?.info?.meta?.profile_image_url;
+		return Boolean(
+			url &&
+				!url.endsWith('/favicon.png') &&
+				url !== '/static/favicon.png' &&
+				url !== '/favicon.png'
+		);
+	};
 
 	let shiftKey = false;
 
@@ -799,19 +811,33 @@
 											<div
 												class="{model.is_active ? '' : 'opacity-50 dark:opacity-50'} bg-transparent"
 											>
-												<img
-													src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model.id}&lang=${$i18n.language}`}
-													alt=""
-													class="size-7 rounded-lg object-cover"
-													loading="lazy"
-													decoding="async"
-													on:error={(e) => {
-														// LICENSE covers this Open WebUI fallback logo.
-														// Do not alter, remove, obscure, or replace it except as LICENSE permits:
-														// https://docs.openwebui.com/license.
-														e.target.src = '/favicon.png';
-													}}
-												/>
+												{#if hasCustomProfileImage(model)}
+													<img
+														src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model.id}&lang=${$i18n.language}`}
+														alt=""
+														class="size-7 rounded-lg object-cover"
+														loading="lazy"
+														decoding="async"
+														on:error={(e) => {
+															// LICENSE covers this Open WebUI fallback logo.
+															// Do not alter, remove, obscure, or replace it except as LICENSE permits:
+															// https://docs.openwebui.com/license.
+															e.target.src = '/favicon.png';
+														}}
+													/>
+												{:else}
+													{@const badgeMeta = getModelDisplayMeta({
+														value: model.id,
+														label: localizedModelName,
+														model
+													})}
+													<AurenProviderBadge
+														provider={badgeMeta.provider.badgeProvider}
+														modelId={isMinervaModeId(model.id) ? model.id : (model.base_model_id || model.id)}
+														modelName={localizedModelName}
+														name={badgeMeta.vendorLabel || badgeMeta.provider.label}
+													/>
+												{/if}
 											</div>
 										</div>
 										<div class="flex min-w-0 flex-1 items-center gap-1 overflow-hidden">

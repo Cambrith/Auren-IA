@@ -1,4 +1,4 @@
-"""Replace the personal Cavren shortcut with Auren, keeping a recovery copy."""
+"""Replace the personal Minerva shortcut with Minerva, keeping a recovery copy."""
 
 from pathlib import Path
 import argparse
@@ -27,9 +27,9 @@ def main():
     template = f'''[Desktop Entry]
 Type=Application
 Version=1.0
-Name=Auren
+Name=Minerva
 GenericName=Assistente de inteligência artificial
-Comment=Espaço de trabalho Auren
+Comment=Espaço de trabalho Minerva
 Exec="{ROOT}/scripts/run_lunvri.sh"
 Icon=lunvri
 Terminal=false
@@ -42,14 +42,14 @@ StartupWMClass=cavren
     if desktop_dir != Path.home() and desktop_dir.is_dir():
         # Repair existing copies and offer the named desktop shortcut when absent.
         copies = [p for p in desktop_dir.glob('*.desktop') if p.name.casefold() in ('auren.desktop', 'cavren.desktop', 'lunvri.desktop')]
-        for copy in copies or [desktop_dir / 'Auren.desktop']:
+        for copy in copies or [desktop_dir / 'Minerva.desktop']:
             update_launcher(copy, icon, desktop.read_text())
     if args.icons_only:
         refresh_desktop_cache()
-        print('Ícones e atalhos da Auren corrigidos; serviço preservado.')
+        print('Ícones e atalhos da Minerva corrigidos; serviço preservado.')
         return
     (units / 'lunvri.service').write_text(f'''[Unit]
-Description=Auren - interface local e ponte de IA
+Description=Minerva - interface local e ponte de IA
 After=cavren-search.service
 Wants=cavren-search.service
 
@@ -64,7 +64,7 @@ TimeoutStopSec=30
 ''')
     subprocess.run(['systemctl', '--user', 'daemon-reload'], check=True)
     refresh_desktop_cache()
-    print('Atalho Auren instalado. O original está em .cavren/desktop-backup/.')
+    print('Atalho Minerva instalado. O original está em .cavren/desktop-backup/.')
 
 
 if __name__ == '__main__':

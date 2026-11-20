@@ -107,7 +107,8 @@
 
 	$: models = selectedModels.map((id) => $_models.find((m) => m.id === id));
 	$: selectedModel = atSelectedModel ?? models[selectedModelIdx];
-	$: cavrenActive = selectedModel?.id?.startsWith('cavren:');
+	$: cavrenActive =
+		selectedModel?.id?.startsWith('cavren:') || selectedModel?.id?.startsWith('minerva.');
 	$: selectedModelName = resolveLocalizedModelName(selectedModel, $i18n.language);
 	$: selectedModelDescription =
 		$config?.license_metadata?.chat_placeholder_description ||
@@ -203,18 +204,7 @@
 						in:fade={{ duration: 100 }}
 					>
 						{#if cavrenActive}
-							<span class="text-3xl tracking-tight">Auren</span>
-						{:else if selectedModelName}
-							<Tooltip
-								as="span"
-								content={selectedModelName}
-								placement="top"
-								className=" flex items-center "
-							>
-								<span class="line-clamp-1">
-									{selectedModelName}
-								</span>
-							</Tooltip>
+							<span class="text-3xl tracking-tight">Minerva</span>
 						{:else}
 							{$i18n.t('Hello, {{name}}', { name: $user?.name })}
 						{/if}

@@ -1,4 +1,4 @@
-"""Install existing Auren artwork and preserve its desktop application identity."""
+"""Install existing Minerva artwork and preserve its desktop application identity."""
 import os
 import base64
 import struct
@@ -39,7 +39,7 @@ def ensure_icons(home=None, root=ROOT):
         source = source_root / f'{size}x{size}/apps/cavren.png'
         content = source.read_bytes()
         if content[:8] != b'\x89PNG\r\n\x1a\n' or int.from_bytes(content[16:20], 'big') != size or int.from_bytes(content[20:24], 'big') != size:
-            raise OSError('O ícone original da Auren é inválido.')
+            raise OSError('O ícone original da Minerva é inválido.')
         assets[size] = content
     changed = False
     # hicolor is the standard fallback, even when the user changes icon themes.
@@ -56,7 +56,7 @@ def ensure_icons(home=None, root=ROOT):
 
 def update_launcher(path, icon, template=None):
     content = path.read_text() if path.exists() else template
-    if content is None: raise OSError('O atalho original da Auren não foi encontrado.')
+    if content is None: raise OSError('O atalho original da Minerva não foi encontrado.')
     lines = content.splitlines()
     in_entry = False
     found = False

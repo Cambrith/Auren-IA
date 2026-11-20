@@ -1,19 +1,47 @@
-/** Local brand assets; provenance and transparent fallbacks in static/brand-icons/provider-sources.json. */
+/** Local brand assets; clean vector SVGs preferred for crisp rendering in Settings & Selectors. */
 export const providerIcons: Record<string, { src: string; darkSurface: boolean }> = {
+	ai21: {
+		src: '/brand-icons/ai21.svg',
+		darkSurface: false
+	},
 	aihorde: {
 		src: '/brand-icons/aihorde.png',
 		darkSurface: false
 	},
-	bedrock: {
-		src: '/brand-icons/providers/bedrock.png',
+	amazon: {
+		src: '/brand-icons/aws.svg',
+		darkSurface: false
+	},
+	antgroup: {
+		src: '/brand-icons/antgroup.svg',
 		darkSurface: false
 	},
 	anthropic: {
 		src: '/brand-icons/anthropic.svg',
 		darkSurface: false
 	},
+	arcee: {
+		src: '/brand-icons/arcee.svg',
+		darkSurface: false
+	},
 	assemblyai: {
 		src: '/brand-icons/providers/assemblyai.svg',
+		darkSurface: false
+	},
+	aws: {
+		src: '/brand-icons/aws.svg',
+		darkSurface: false
+	},
+	baidu: {
+		src: '/brand-icons/baidu.svg',
+		darkSurface: false
+	},
+	bedrock: {
+		src: '/brand-icons/aws.svg',
+		darkSurface: false
+	},
+	bytedance: {
+		src: '/brand-icons/bytedance.svg',
 		darkSurface: false
 	},
 	canva: {
@@ -25,7 +53,11 @@ export const providerIcons: Record<string, { src: string; darkSurface: boolean }
 		darkSurface: true
 	},
 	cerebras: {
-		src: '/brand-icons/providers/cerebras.png',
+		src: '/brand-icons/cerebras.svg',
+		darkSurface: false
+	},
+	claude: {
+		src: '/brand-icons/claude.svg',
 		darkSurface: false
 	},
 	cloudflare: {
@@ -33,7 +65,7 @@ export const providerIcons: Record<string, { src: string; darkSurface: boolean }
 		darkSurface: false
 	},
 	cohere: {
-		src: '/brand-icons/providers/cohere.png',
+		src: '/brand-icons/cohere.svg',
 		darkSurface: false
 	},
 	deepgram: {
@@ -45,7 +77,7 @@ export const providerIcons: Record<string, { src: string; darkSurface: boolean }
 		darkSurface: false
 	},
 	deepseek: {
-		src: '/brand-icons/providers/deepseek.png',
+		src: '/brand-icons/deepseek.svg',
 		darkSurface: false
 	},
 	elevenlabs: {
@@ -60,8 +92,20 @@ export const providerIcons: Record<string, { src: string; darkSurface: boolean }
 		src: '/brand-icons/providers/fireworks.svg',
 		darkSurface: false
 	},
+	flux: {
+		src: '/brand-icons/flux.svg',
+		darkSurface: false
+	},
 	gemini: {
-		src: '/brand-icons/providers/gemini.png',
+		src: '/brand-icons/gemini.svg',
+		darkSurface: false
+	},
+	gemma: {
+		src: '/brand-icons/gemma.svg',
+		darkSurface: false
+	},
+	google: {
+		src: '/brand-icons/google.svg',
 		darkSurface: false
 	},
 	groq: {
@@ -76,20 +120,60 @@ export const providerIcons: Record<string, { src: string; darkSurface: boolean }
 		src: '/brand-icons/providers/hyperbolic.png',
 		darkSurface: false
 	},
+	ibm: {
+		src: '/brand-icons/ibm.svg',
+		darkSurface: false
+	},
+	kimi: {
+		src: '/brand-icons/kimi.svg',
+		darkSurface: false
+	},
+	liquid: {
+		src: '/brand-icons/liquid.svg',
+		darkSurface: false
+	},
+	meta: {
+		src: '/brand-icons/meta.svg',
+		darkSurface: false
+	},
+	microsoft: {
+		src: '/brand-icons/microsoft.svg',
+		darkSurface: false
+	},
+	minerva: {
+		src: '/lunvri-logo.png',
+		darkSurface: false
+	},
+	minimax: {
+		src: '/brand-icons/minimax.svg',
+		darkSurface: false
+	},
 	mistral: {
 		src: '/brand-icons/mistral.svg',
+		darkSurface: false
+	},
+	moonshot: {
+		src: '/brand-icons/moonshot.svg',
+		darkSurface: false
+	},
+	novita: {
+		src: '/brand-icons/providers/novita.svg',
 		darkSurface: false
 	},
 	nvidia: {
 		src: '/brand-icons/nvidia.svg',
 		darkSurface: false
 	},
-	novita: {
-		src: '/brand-icons/providers/novita.png',
+	nvidia_nim: {
+		src: '/brand-icons/nvidia.svg',
 		darkSurface: false
 	},
 	ollama: {
 		src: '/brand-icons/ollama.svg',
+		darkSurface: false
+	},
+	open_router: {
+		src: '/brand-icons/openrouter.svg',
 		darkSurface: false
 	},
 	openai: {
@@ -100,12 +184,24 @@ export const providerIcons: Record<string, { src: string; darkSurface: boolean }
 		src: '/brand-icons/openrouter.svg',
 		darkSurface: false
 	},
+	perplexity: {
+		src: '/brand-icons/perplexity.svg',
+		darkSurface: false
+	},
+	qwen: {
+		src: '/brand-icons/qwen.svg',
+		darkSurface: false
+	},
 	replicate: {
 		src: '/brand-icons/providers/replicate.png',
 		darkSurface: false
 	},
 	stability: {
 		src: '/brand-icons/stability.svg',
+		darkSurface: false
+	},
+	stepfun: {
+		src: '/brand-icons/stepfun.svg',
 		darkSurface: false
 	},
 	voyage: {

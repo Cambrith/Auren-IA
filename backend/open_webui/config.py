@@ -2301,45 +2301,45 @@ TOOL_SEARCH_DEFER_BUILTIN_TOOLS = os.getenv('TOOL_SEARCH_DEFER_BUILTIN_TOOLS', '
 
 TITLE_GENERATION_PROMPT_TEMPLATE = os.getenv('TITLE_GENERATION_PROMPT_TEMPLATE', '')
 
-DEFAULT_TITLE_GENERATION_PROMPT_TEMPLATE = """### Task:
-Generate a concise title summarizing the chat history.
-### Guidelines:
-- The title should clearly represent the main theme or subject of the conversation.
-- Keep it short: 2-4 words is best.
-- Do not use emojis, quotation marks, or special formatting.
-- Write the title in the chat's primary language; default to English if multilingual.
-- Prioritize accuracy over creativity.
-- Your entire response must consist solely of the JSON object, without any introductory or concluding text.
-- The output must be a single, raw JSON object, without any markdown code fences or other encapsulating text.
-- Ensure no conversational text, affirmations, or explanations precede or follow the raw JSON output, as this will cause direct parsing failure.
-### Output:
-JSON format: { "title": "your concise title here" }
-### Examples:
-- { "title": "Stock Trends" },
-- { "title": "Chocolate Chip Cookies" },
-- { "title": "Music Streaming" },
-- { "title": "Remote Work" }
-### Chat History:
+DEFAULT_TITLE_GENERATION_PROMPT_TEMPLATE = """### Tarefa:
+Gere um título curto e natural em Português do Brasil (pt-BR) que resuma o assunto principal da conversa.
+### Regras Obrigatórias:
+- O título DEVE estar SEMPRE em Português do Brasil (pt-BR), sem exceções — mesmo que a conversa seja apenas uma saudação curta (como "oi" ou "olá"), contenha siglas (como "IOI", "API"), trechos de código ou frases em inglês ou outro idioma.
+- NUNCA escreva títulos em inglês (ex.: nunca use "Simple Greeting", "Initial Greeting", "IOI Meaning" ou "New Chat").
+- Mantenha o título conciso: de 2 a 5 palavras é o ideal.
+- Não use emojis, aspas externas, ponto final ou formatação especial.
+- Priorize clareza e precisão em português natural.
+- Toda a sua resposta deve consistir exclusivamente no objeto JSON bruto, sem blocos de código markdown e sem nenhum texto antes ou depois.
+### Formato de Saída:
+JSON: { "title": "título conciso em português" }
+### Exemplos:
+- { "title": "Saudação Inicial" }
+- { "title": "Significado da Sigla IOI" }
+- { "title": "Tendências do Mercado" }
+- { "title": "Receita de Bolo" }
+- { "title": "Trabalho Remoto" }
+- { "title": "Revisão de Código Python" }
+### Histórico da Conversa:
 <chat_history>
 {{MESSAGES:END:2}}
 </chat_history>"""
 
 TAGS_GENERATION_PROMPT_TEMPLATE = os.getenv('TAGS_GENERATION_PROMPT_TEMPLATE', '')
 
-DEFAULT_TAGS_GENERATION_PROMPT_TEMPLATE = """### Task:
-Generate 1-3 broad tags categorizing the main themes of the chat history, along with 1-3 more specific subtopic tags.
+DEFAULT_TAGS_GENERATION_PROMPT_TEMPLATE = """### Tarefa:
+Gere de 1 a 3 tags amplas que categorizem os temas principais da conversa em Português do Brasil (pt-BR), junto com 1 a 3 subtemas específicos quando relevantes.
 
-### Guidelines:
-- Start with high-level domains (e.g. Science, Technology, Philosophy, Arts, Politics, Business, Health, Sports, Entertainment, Education)
-- Consider including relevant subfields/subdomains if they are strongly represented throughout the conversation
-- If content is too short (less than 3 messages) or too diverse, use only ["General"]
-- Use the chat's primary language; default to English if multilingual
-- Prioritize accuracy over specificity
+### Diretrizes:
+- Comece por domínios amplos em português (ex.: Ciência, Tecnologia, Filosofia, Artes, Política, Negócios, Saúde, Esportes, Entretenimento, Educação, Programação)
+- Inclua subáreas relevantes caso estejam bem representadas na conversa
+- Se o conteúdo for muito curto (menos de 3 mensagens) ou muito diverso, use apenas ["Geral"]
+- Escreva as tags sempre em Português do Brasil (pt-BR)
+- Priorize precisão em vez de especificidade excessiva
 
-### Output:
-JSON format: { "tags": ["tag1", "tag2", "tag3"] }
+### Formato de Saída:
+JSON: { "tags": ["tag1", "tag2", "tag3"] }
 
-### Chat History:
+### Histórico da Conversa:
 <chat_history>
 {{MESSAGES:END:6}}
 </chat_history>"""

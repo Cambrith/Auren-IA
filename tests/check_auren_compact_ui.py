@@ -53,20 +53,20 @@ assert result['matching_trigger_text']['task']==result['matching_trigger_text'][
 capture('auren-seletores-compactos-2026-10-13.png')
 if '--capture-only' in sys.argv:
  window.close();print(json.dumps(result),flush=True);raise SystemExit(0)
-click('[aria-label="Tarefa da Auren"]');result['task_menu_wide']=menu_metrics('[aria-label="Tarefas da Auren"]');capture('auren-tarefas-compactas-2026-10-13.png','[aria-label="Tarefas da Auren"]')
-assert js("(()=>{const b=[...document.querySelector('[aria-label=\"Tarefas da Auren\"]').querySelectorAll('[data-choice]')];b.at(-1).click();return true})()")
-QTest.qWait(300);click('[aria-label="Tarefa da Auren"]');result['last_task_visible']=menu_metrics('[aria-label="Tarefas da Auren"]')['chosenVisible'];assert result['last_task_visible']
-assert js("(()=>{const b=[...document.querySelector('[aria-label=\"Tarefas da Auren\"]').querySelectorAll('[data-choice]')].find(x=>x.textContent.includes('Conversar'));b.click();return true})()")
-QTest.qWait(300);click('[aria-label="Modelo da Auren"]');result['model_menu_wide']=menu_metrics('[aria-label="Modelos disponíveis"]');capture('auren-modelos-compactos-2026-10-13.png','[aria-label="Modelos disponíveis"]')
+click('[aria-label="Tarefa da Minerva"]');result['task_menu_wide']=menu_metrics('[aria-label="Tarefas da Minerva"]');capture('auren-tarefas-compactas-2026-10-13.png','[aria-label="Tarefas da Minerva"]')
+assert js("(()=>{const b=[...document.querySelector('[aria-label=\"Tarefas da Minerva\"]').querySelectorAll('[data-choice]')];b.at(-1).click();return true})()")
+QTest.qWait(300);click('[aria-label="Tarefa da Minerva"]');result['last_task_visible']=menu_metrics('[aria-label="Tarefas da Minerva"]')['chosenVisible'];assert result['last_task_visible']
+assert js("(()=>{const b=[...document.querySelector('[aria-label=\"Tarefas da Minerva\"]').querySelectorAll('[data-choice]')].find(x=>x.textContent.includes('Conversar'));b.click();return true})()")
+QTest.qWait(300);click('[aria-label="Modelo da Minerva"]');result['model_menu_wide']=menu_metrics('[aria-label="Modelos disponíveis"]');capture('auren-modelos-compactos-2026-10-13.png','[aria-label="Modelos disponíveis"]')
 assert js("(()=>{const b=[...document.querySelector('[aria-label=\"Modelos disponíveis\"]').querySelectorAll('.model-choice:not(:disabled)')].at(-1);if(!b)return false;b.click();return true})()")
-QTest.qWait(200);click('[aria-label="Modelo da Auren"]');result['last_model_visible']=menu_metrics('[aria-label="Modelos disponíveis"]')['chosenVisible'];assert result['last_model_visible']
+QTest.qWait(200);click('[aria-label="Modelo da Minerva"]');result['last_model_visible']=menu_metrics('[aria-label="Modelos disponíveis"]')['chosenVisible'];assert result['last_model_visible']
 assert js("(()=>{document.querySelector('[aria-label=\"Modelos disponíveis\"] button[data-choice]').click();return true})()")
 QTest.qWait(300);window.resize(520,720);QTest.qWait(500)
-click('[aria-label="Tarefa da Auren"]');result['task_menu_narrow']=menu_metrics('[aria-label="Tarefas da Auren"]')
+click('[aria-label="Tarefa da Minerva"]');result['task_menu_narrow']=menu_metrics('[aria-label="Tarefas da Minerva"]')
 geometry=[]
-for _ in range(8):geometry.append(menu_metrics('[aria-label="Tarefas da Auren"]')['panelHeight']);QTest.qWait(100)
+for _ in range(8):geometry.append(menu_metrics('[aria-label="Tarefas da Minerva"]')['panelHeight']);QTest.qWait(100)
 result['menu_height_stable']=max(geometry)-min(geometry)<1;assert result['menu_height_stable']
-assert js("(()=>{document.querySelector('[aria-label=\"Tarefas da Auren\"] [aria-checked=true]').click();return true})()")
+assert js("(()=>{document.querySelector('[aria-label=\"Tarefas da Minerva\"] [aria-checked=true]').click();return true})()")
 QTest.qWait(300)
 for i in range(3):
  window.web.reload();ready();QTest.qWait(400);before=layout();QTest.qWait(1000);assert layout()==before

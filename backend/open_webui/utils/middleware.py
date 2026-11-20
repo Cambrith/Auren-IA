@@ -2222,6 +2222,25 @@ async def process_chat_payload(request, form_data, user, metadata, model):
         except Exception:
             pass
 
+    # Identidade oficial da Minerva (vassalagem leal e honesta + perfil técnico do sistema do Mestre)
+    try:
+        from pathlib import Path as _MinervaPath
+        import sys as _minerva_sys
+
+        _minerva_repo = str(_MinervaPath(__file__).resolve().parents[3])
+        if _minerva_repo not in _minerva_sys.path:
+            _minerva_sys.path.insert(0, _minerva_repo)
+        from minerva_dev.persona import build_minerva_chat_system_prompt as _build_minerva_prompt
+
+        _existing_sys = get_system_message(form_data.get('messages', []))
+        _existing_txt = get_content_from_message(_existing_sys) if _existing_sys else ''
+        if 'vassala leal do seu Mestre' not in (_existing_txt or ''):
+            form_data = await apply_system_prompt_to_body(
+                _build_minerva_prompt(), form_data, metadata, user, replace=False
+            )
+    except Exception:
+        pass
+
     form_data = await convert_url_images_to_base64(form_data, user=user)
 
     event_emitter = await get_event_emitter(metadata)
@@ -3808,27 +3827,15 @@ async def background_tasks_handler(ctx):
                         if res and isinstance(res, dict):
                             if len(res.get('choices', [])) == 1:
                                 response_message = res.get('choices', [])[0].get('message', {})
+                                from open_webui.utils.task import extract_title_from_response, normalize_ptbr_title
 
-                                title_string = (
-                                    response_message.get('content')
-                                    or response_message.get(
-                                        'reasoning_content',
-                                    )
-                                    or message.get('content', user_message)
-                                )
+                                title = extract_title_from_response(response_message)
                             else:
-                                title_string = ''
-
-                            title_string = title_string[title_string.find('{') : title_string.rfind('}') + 1]
-
-                            try:
-                                title = JSONCodec.loads(title_string).get('title', expected_title or user_message)
-                            except Exception as e:
                                 title = ''
 
                             if not title:
-                                title = expected_title or replace_skill_mentions_with_labels(
-                                    messages[0].get('content', user_message)
+                                title = expected_title or normalize_ptbr_title(
+                                    replace_skill_mentions_with_labels(messages[0].get('content', user_message))
                                 )
 
                             if expected_title is not None and (not isinstance(title, str) or not title.strip()):

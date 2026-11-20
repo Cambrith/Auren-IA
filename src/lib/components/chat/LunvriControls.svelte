@@ -180,7 +180,7 @@
 	}
 </script>
 
-<div class="lunvri-controls no-drag" aria-label="Configurações da Auren">
+<div class="lunvri-controls no-drag" aria-label="Configurações da Minerva">
 	<Dropdown
 		bind:show={showTask}
 		contentClass="lunvri-selector-popover"
@@ -191,7 +191,7 @@
 		<button
 			type="button"
 			class="selector task-trigger"
-			aria-label="Tarefa da Auren"
+			aria-label="Tarefa da Minerva"
 			aria-expanded={showTask}
 			{disabled}
 		>
@@ -206,7 +206,7 @@
 			class="selector-panel modes-panel"
 			role="menu"
 			tabindex="-1"
-			aria-label="Tarefas da Auren"
+			aria-label="Tarefas da Minerva"
 			on:keydown={navigateChoices}
 		>
 			<div class="panel-heading">
@@ -255,8 +255,8 @@
 				: activeTask(options) === 'transcribe'
 					? 'Idioma da transcrição'
 					: options.image_generation
-						? 'Perfil de imagem da Auren'
-						: 'Modo da Auren'}
+						? 'Perfil de imagem da Minerva'
+						: 'Modo da Minerva'}
 			aria-expanded={showMode}
 			{disabled}
 		>
@@ -329,7 +329,7 @@
 			class:automatic={selectedModels[0] === 'cavren:auto'}
 			style:--model-card-width={`${modelCardWidth(selectedInfo?.label ?? selected?.name ?? '', selectedModels[0] === 'cavren:auto')}px`}
 			title={selectedModels[0] === 'cavren:auto' ? 'Modelo automático' : `${selectedInfo?.label ?? selected?.name} · ${providerName(selectedInfo?.provider)}`}
-			aria-label="Modelo da Auren"
+			aria-label="Modelo da Minerva"
 			aria-expanded={showModel}
 			{disabled}
 		>

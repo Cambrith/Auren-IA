@@ -510,9 +510,7 @@
 	};
 
 	let taskIds = null;
-	$: lunvriGenerating.set(
-		Boolean(selectedModels[0]?.startsWith('cavren:') && (generating || !!taskIds?.length))
-	);
+	$: lunvriGenerating.set(Boolean(generating || !!taskIds?.length));
 	onDestroy(() => lunvriGenerating.set(false));
 	let liveStatus = '';
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import copy
 import hashlib
 import logging
 import re
@@ -44,7 +45,7 @@ from open_webui.utils.auth import get_admin_user, get_verified_user
 from open_webui.utils.headers import get_headers_and_cookies, include_user_info_headers
 from open_webui.utils.json_codec import JSONCodec
 from open_webui.utils.misc import convert_logit_bias_input_to_json, get_provider_function, merge_tool_call_batches
-from open_webui.utils.model_ids import strip_provider_model_prefix
+from open_webui.utils.model_ids import display_model_name, provider_label, strip_provider_model_prefix
 from open_webui.utils.payload import (
     apply_model_params_to_body_openai,
     apply_system_prompt_to_body,
@@ -656,9 +657,12 @@ async def get_all_models_responses(request: Request, user: UserModel) -> list:
                     del model['name']
 
                 if prefix_id:
-                    model['id'] = f'{prefix_id}.{model.get("id", model.get("name", ""))}'
-                    if model.get('name'):
-                        model['name'] = f'{prefix_id}.{model["name"]}'
+                    raw_id = model.get('id', model.get('name', ''))
+                    label = provider_label(url, prefix_id)
+                    model['id'] = f'{prefix_id}.{raw_id}'
+                    model['name'] = display_model_name(model.get('name') or raw_id, label)
+                    if not tags and label:
+                        model['tags'] = [{'name': label}]
 
                 if tags:
                     model['tags'] = tags
@@ -1402,6 +1406,69 @@ def convert_responses_result(response: dict) -> dict:
     }
 
 
+MINERVA_MODE_CHAINS: dict[str, list[str]] = {
+    'minerva.harmonia': [
+        'nvidia.nvidia/nemotron-3.5-super-vl-120b-a12b',
+        'gemini.models/gemini-3.6-flash',
+        'nvidia.nvidia/nemotron-3-ultra-550b-a55b',
+        'cerebras.qwen-3.8-27b',
+        'gemini.models/gemini-3.5-flash-lite',
+        'groq.qwen/qwen3.8-27b',
+        'openrouter.nvidia/nemotron-3.5-super-vl:free',
+    ],
+    'minerva.sabia': [
+        'gemini.models/gemini-4-hydrogen',
+        'gemini.models/gemini-3.6-flash',
+        'nvidia.nvidia/nemotron-3-ultra-550b-a55b',
+        'nvidia.minimaxai/minimax-m3.1-flash',
+        'nvidia.nvidia/nemotron-3.5-super-vl-120b-a12b',
+        'cerebras.qwen-3.8-27b',
+        'openrouter.baidu/ernie-5.5-flash-preview:free',
+    ],
+    'minerva.impeto': [
+        'cerebras.qwen-3.8-27b',
+        'groq.qwen/qwen3.8-27b',
+        'cerebras.gpt-oss-120b',
+        'groq.openai/gpt-oss-120b',
+        'cloudflare.@cf/qwen/qwen3.8-27b',
+        'cloudflare.@cf/openai/gpt-oss-120b',
+    ],
+}
+
+
+def _collect_candidate_model_ids(
+    primary_id: str | None,
+    requested_id: str | None,
+    model_info: Any,
+) -> list[str]:
+    """Build ordered deduplicated candidate model IDs (primary + fallbacks)."""
+    raw_candidates: list[str] = []
+    if primary_id:
+        raw_candidates.append(primary_id)
+
+    meta_dict = {}
+    if model_info and getattr(model_info, 'meta', None) is not None:
+        meta_dict = (
+            model_info.meta.model_dump()
+            if hasattr(model_info.meta, 'model_dump')
+            else dict(model_info.meta)
+        )
+    fallback_ids = meta_dict.get('fallback_model_ids')
+    if isinstance(fallback_ids, list):
+        raw_candidates.extend(fid for fid in fallback_ids if isinstance(fid, str) and fid)
+
+    if requested_id and requested_id in MINERVA_MODE_CHAINS:
+        raw_candidates.extend(MINERVA_MODE_CHAINS[requested_id])
+
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for cid in raw_candidates:
+        if cid not in seen:
+            seen.add(cid)
+            ordered.append(cid)
+    return ordered
+
+
 @router.post('/chat/completions')
 async def generate_chat_completion(
     request: Request,
@@ -1422,12 +1489,11 @@ async def generate_chat_completion(
         bypass_filter = True
     bypass_system_prompt = getattr(request.state, 'bypass_system_prompt', False)
 
-    idx = 0
-
     payload = {**form_data}
     metadata = payload.pop('metadata', None)
 
-    model_id = form_data.get('model')
+    requested_preset_id = form_data.get('model')
+    model_id = requested_preset_id
     # keep the model the client asked for when reached from /api/chat/completions
     if not hasattr(request.state, 'model_id'):
         request.state.model_id = model_id
@@ -1455,231 +1521,274 @@ async def generate_chat_completion(
     else:
         await check_model_access(user, None, bypass_filter)
 
-    # Check if model is already in app state cache to avoid expensive get_all_models() call
+    candidate_model_ids = _collect_candidate_model_ids(model_id, requested_preset_id, model_info)
+
+    # Check if models are already in app state cache to avoid expensive get_all_models() call
     models = request.app.state.OPENAI_MODELS
-    if not models or model_id not in models:
+    if not models or not any(cid in models for cid in candidate_model_ids):
         await get_all_models(request, user=user)
         models = request.app.state.OPENAI_MODELS
-    model = models.get(model_id)
 
-    if model:
-        idx = model['urlIdx']
-    else:
+    candidate_model_ids = [cid for cid in candidate_model_ids if cid in models]
+    if not candidate_model_ids:
         raise HTTPException(
             status_code=404,
             detail=ERROR_MESSAGES.MODEL_NOT_FOUND(),
         )
 
-    url, key, api_config = await get_openai_connection(idx)
+    base_payload = copy.deepcopy(payload)
+    session = await get_session()
 
-    prefix_id = api_config.get('prefix_id', None)
-    payload['model'] = strip_provider_model_prefix(payload['model'], prefix_id)
+    for attempt_idx, candidate_id in enumerate(candidate_model_ids):
+        is_last_attempt = attempt_idx == len(candidate_model_ids) - 1
+        model = models[candidate_id]
+        idx = model['urlIdx']
+        url, key, api_config = await get_openai_connection(idx)
 
-    # Add user info to the payload if the model is a pipeline
-    if 'pipeline' in model and model.get('pipeline'):
-        payload['user'] = {
-            'name': user.name,
-            'id': user.id,
-            'email': user.email,
-            'role': user.role,
-        }
+        attempt_payload = copy.deepcopy(base_payload)
+        attempt_payload['model'] = candidate_id
+        prefix_id = api_config.get('prefix_id', None)
+        attempt_payload['model'] = strip_provider_model_prefix(attempt_payload['model'], prefix_id)
 
-    # Check if model is a reasoning model that needs special handling
-    if is_openai_new_model(payload['model']):
-        payload = openai_reasoning_model_handler(payload)
-    elif 'api.openai.com' not in url:
-        # Remove "max_completion_tokens" from the payload for backward compatibility
-        if 'max_completion_tokens' in payload:
-            payload['max_tokens'] = payload['max_completion_tokens']
-            del payload['max_completion_tokens']
+        # Add user info to the payload if the model is a pipeline
+        if 'pipeline' in model and model.get('pipeline'):
+            attempt_payload['user'] = {
+                'name': user.name,
+                'id': user.id,
+                'email': user.email,
+                'role': user.role,
+            }
 
-    if 'max_tokens' in payload and 'max_completion_tokens' in payload:
-        del payload['max_tokens']
+        # Check if model is a reasoning model that needs special handling
+        if is_openai_new_model(attempt_payload['model']):
+            attempt_payload = openai_reasoning_model_handler(attempt_payload)
+        elif 'api.openai.com' not in url:
+            # Remove "max_completion_tokens" from the payload for backward compatibility
+            if 'max_completion_tokens' in attempt_payload:
+                attempt_payload['max_tokens'] = attempt_payload['max_completion_tokens']
+                del attempt_payload['max_completion_tokens']
 
-    # Convert the modified body back to JSON
-    if 'logit_bias' in payload and payload['logit_bias']:
-        logit_bias = convert_logit_bias_input_to_json(payload['logit_bias'])
+        if 'max_tokens' in attempt_payload and 'max_completion_tokens' in attempt_payload:
+            del attempt_payload['max_tokens']
 
-        if logit_bias:
-            payload['logit_bias'] = JSONCodec.loads(logit_bias)
+        # Convert the modified body back to JSON
+        if 'logit_bias' in attempt_payload and attempt_payload['logit_bias']:
+            logit_bias = convert_logit_bias_input_to_json(attempt_payload['logit_bias'])
 
-    headers, cookies = await get_headers_and_cookies(request, url, key, api_config, metadata, user=user)
+            if logit_bias:
+                attempt_payload['logit_bias'] = JSONCodec.loads(logit_bias)
 
-    is_responses = api_config.get('api_type') == 'responses'
+        headers, cookies = await get_headers_and_cookies(request, url, key, api_config, metadata, user=user)
 
-    # Explicit continuation keeps llama.cpp from echoing the prefill in streamed replies.
-    if (
-        api_config.get('provider') == 'llama.cpp'
-        # These flags apply to Chat Completions, not the Responses API.
-        and not is_responses
-        # The frontend sends this ID when the user clicks Continue.
-        and (metadata or {}).get('assistant_message_id')
-        # Tool follow-ups retain the metadata but must start a new assistant turn.
-        and payload.get('messages')
-        and payload['messages'][-1].get('role') == 'assistant'
-    ):
-        payload['continue_final_message'] = True
-        payload['add_generation_prompt'] = False
+        is_responses = api_config.get('api_type') == 'responses'
 
-    if api_config.get('azure') or api_config.get('provider') == 'azure':
-        # Only set api-key header if not using Azure Entra ID authentication
-        auth_type = api_config.get('auth_type', 'bearer')
-        if auth_type not in ('azure_ad', 'microsoft_entra_id'):
-            headers['api-key'] = key
+        # Explicit continuation keeps llama.cpp from echoing the prefill in streamed replies.
+        if (
+            api_config.get('provider') == 'llama.cpp'
+            # These flags apply to Chat Completions, not the Responses API.
+            and not is_responses
+            # The frontend sends this ID when the user clicks Continue.
+            and (metadata or {}).get('assistant_message_id')
+            # Tool follow-ups retain the metadata but must start a new assistant turn.
+            and attempt_payload.get('messages')
+            and attempt_payload['messages'][-1].get('role') == 'assistant'
+        ):
+            attempt_payload['continue_final_message'] = True
+            attempt_payload['add_generation_prompt'] = False
 
-        # Azure v1 format: base URL already ends with /openai/v1,
-        # model stays in the payload, no deployment URL rewriting.
-        is_azure_v1 = bool(re.search(r'/openai/v1(?:/|$)', url))
+        if api_config.get('azure') or api_config.get('provider') == 'azure':
+            # Only set api-key header if not using Azure Entra ID authentication
+            auth_type = api_config.get('auth_type', 'bearer')
+            if auth_type not in ('azure_ad', 'microsoft_entra_id'):
+                headers['api-key'] = key
 
-        if is_azure_v1:
-            if is_responses:
-                payload = convert_to_responses_payload(payload)
-                request_url = f'{url.rstrip("/")}/responses'
-            else:
-                request_url = f'{url.rstrip("/")}/chat/completions'
-        else:
-            api_version = api_config.get('api_version', '2023-03-15-preview')
-            request_url, payload = convert_to_azure_payload(url, payload, api_version)
-            headers['api-version'] = api_version
+            # Azure v1 format: base URL already ends with /openai/v1,
+            # model stays in the payload, no deployment URL rewriting.
+            is_azure_v1 = bool(re.search(r'/openai/v1(?:/|$)', url))
 
-            if is_responses:
-                payload = convert_to_responses_payload(payload)
-                request_url = f'{request_url}/responses?api-version={api_version}'
-            else:
-                request_url = f'{request_url}/chat/completions?api-version={api_version}'
-    else:
-        if is_responses:
-            payload = convert_to_responses_payload(payload)
-            request_url = f'{url}/responses'
-        else:
-            request_url = f'{url}/chat/completions'
-    requested_model = payload.get('model')
-    # For Chat Completions, strip image parts from multimodal tool messages
-    # (Chat Completions doesn't support images in tool content).
-    if not is_responses and 'messages' in payload:
-        for message in payload['messages']:
-            if message.get('role') == 'tool' and isinstance(message.get('content'), list):
-                parts = message['content']
-                text = ''.join(part.get('text', '') for part in parts if part.get('type') in ('input_text', 'text'))
-                cache_control = next(
-                    (part['cache_control'] for part in reversed(parts) if part.get('cache_control')), None
-                )
-                # Prompt-cache markers only work on a content block, so keep the text as one
-                message['content'] = (
-                    [{'type': 'text', 'text': text, 'cache_control': cache_control}] if cache_control and text else text
-                )
-
-    is_streaming_request = bool(payload.get('stream', False))
-    if not is_streaming_request:
-        payload.pop('stream_options', None)
-
-    payload = JSONCodec.dumps(payload)
-
-    r = None
-    streaming = False
-    response = None
-
-    try:
-        session = await get_session()
-
-        r = await session.request(
-            method='POST',
-            url=request_url,
-            data=payload,
-            headers=headers,
-            cookies=cookies,
-            ssl=AIOHTTP_CLIENT_SESSION_SSL,
-            timeout=get_client_timeout(stream=is_streaming_request),
-        )
-
-        # Check if response is SSE
-        if 'text/event-stream' in r.headers.get('Content-Type', ''):
-            # If the provider returned an error status with SSE content-type,
-            # read the body and return a proper error response instead of
-            # streaming the error back (which hides the error from logs).
-            if r.status >= 400:
-                retry_headers = {k: v for k, v in r.headers.items() if k.lower() in ('retry-after', 'retry-after-ms')}
-                error_body = await r.text()
-                log.error(
-                    'Provider returned HTTP %d with SSE content-type: %s',
-                    r.status,
-                    error_body[:1000],
-                )
-                try:
-                    error_json = JSONCodec.loads(error_body)
-                    await publish_model_provider_request_failed(
-                        request,
-                        actor=user,
-                        provider='openai-compatible',
-                        base_url=url,
-                        api_key=key,
-                        status=r.status,
-                        requested_model=requested_model,
-                        upstream_error=error_json,
-                    )
-                    return JSONResponse(status_code=r.status, content=error_json, headers=retry_headers)
-                except JSONCodec.JSONDecodeError:
-                    await publish_model_provider_request_failed(
-                        request,
-                        actor=user,
-                        provider='openai-compatible',
-                        base_url=url,
-                        api_key=key,
-                        status=r.status,
-                        requested_model=requested_model,
-                        upstream_error=error_body,
-                    )
-                    return JSONResponse(
-                        status_code=r.status,
-                        content={'error': {'message': error_body, 'code': r.status}},
-                        headers=retry_headers,
-                    )
-
-            streaming = True
-            return StreamingResponse(
-                stream_wrapper(r),
-                status_code=r.status,
-                headers=_clean_proxy_headers(r.headers),
-            )
-        else:
-            try:
-                response = await r.json(loads=JSONCodec.loads)
-            except Exception as e:
-                log.error(e)
-                response = await r.text()
-
-            if r.status >= 400:
-                retry_headers = {k: v for k, v in r.headers.items() if k.lower() in ('retry-after', 'retry-after-ms')}
-                await publish_model_provider_request_failed(
-                    request,
-                    actor=user,
-                    provider='openai-compatible',
-                    base_url=url,
-                    api_key=key,
-                    status=r.status,
-                    requested_model=requested_model,
-                    upstream_error=response,
-                )
-                if isinstance(response, (dict, list)):
-                    return JSONResponse(status_code=r.status, content=response, headers=retry_headers)
+            if is_azure_v1:
+                if is_responses:
+                    attempt_payload = convert_to_responses_payload(attempt_payload)
+                    request_url = f'{url.rstrip("/")}/responses'
                 else:
-                    return PlainTextResponse(status_code=r.status, content=response, headers=retry_headers)
+                    request_url = f'{url.rstrip("/")}/chat/completions'
+            else:
+                api_version = api_config.get('api_version', '2023-03-15-preview')
+                request_url, attempt_payload = convert_to_azure_payload(url, attempt_payload, api_version)
+                headers['api-version'] = api_version
 
-            # Convert Responses API result to simple format
-            if is_responses and isinstance(response, dict):
-                response = convert_responses_result(response)
+                if is_responses:
+                    attempt_payload = convert_to_responses_payload(attempt_payload)
+                    request_url = f'{request_url}/responses?api-version={api_version}'
+                else:
+                    request_url = f'{request_url}/chat/completions?api-version={api_version}'
+        else:
+            if is_responses:
+                attempt_payload = convert_to_responses_payload(attempt_payload)
+                request_url = f'{url}/responses'
+            else:
+                request_url = f'{url}/chat/completions'
+        requested_model = attempt_payload.get('model')
+        # For Chat Completions, strip image parts from multimodal tool messages
+        # (Chat Completions doesn't support images in tool content).
+        if not is_responses and 'messages' in attempt_payload:
+            for message in attempt_payload['messages']:
+                if message.get('role') == 'tool' and isinstance(message.get('content'), list):
+                    parts = message['content']
+                    text = ''.join(part.get('text', '') for part in parts if part.get('type') in ('input_text', 'text'))
+                    cache_control = next(
+                        (part['cache_control'] for part in reversed(parts) if part.get('cache_control')), None
+                    )
+                    # Prompt-cache markers only work on a content block, so keep the text as one
+                    message['content'] = (
+                        [{'type': 'text', 'text': text, 'cache_control': cache_control}]
+                        if cache_control and text
+                        else text
+                    )
 
-            return response
-    except Exception as e:
-        log.exception(e)
+        is_streaming_request = bool(attempt_payload.get('stream', False))
+        if not is_streaming_request:
+            attempt_payload.pop('stream_options', None)
 
-        raise HTTPException(
-            status_code=r.status if r else 500,
-            detail=ERROR_MESSAGES.SERVER_CONNECTION_ERROR,
-        )
-    finally:
-        if not streaming:
-            await cleanup_response(r)
+        serialized_payload = JSONCodec.dumps(attempt_payload)
+
+        r = None
+        streaming = False
+        response = None
+        should_fallback = False
+
+        try:
+            req_timeout = get_client_timeout(stream=is_streaming_request)
+            if len(candidate_model_ids) > 1 and not is_last_attempt:
+                req_timeout = aiohttp.ClientTimeout(
+                    total=req_timeout.total,
+                    sock_connect=10,
+                    sock_read=25,
+                )
+            r = await session.request(
+                method='POST',
+                url=request_url,
+                data=serialized_payload,
+                headers=headers,
+                cookies=cookies,
+                ssl=AIOHTTP_CLIENT_SESSION_SSL,
+                timeout=req_timeout,
+            )
+
+            if r.status >= 400 and not is_last_attempt:
+                err_preview = ''
+                try:
+                    err_preview = (await r.text())[:300]
+                except Exception:
+                    pass
+                log.warning(
+                    'Fallback triggered for %s: candidate %s returned HTTP %d (%s), trying next candidate',
+                    requested_preset_id,
+                    candidate_id,
+                    r.status,
+                    err_preview,
+                )
+                should_fallback = True
+            elif 'text/event-stream' in r.headers.get('Content-Type', ''):
+                # Check if response is SSE
+                # If the provider returned an error status with SSE content-type,
+                # read the body and return a proper error response instead of
+                # streaming the error back (which hides the error from logs).
+                if r.status >= 400:
+                    retry_headers = {k: v for k, v in r.headers.items() if k.lower() in ('retry-after', 'retry-after-ms')}
+                    error_body = await r.text()
+                    log.error(
+                        'Provider returned HTTP %d with SSE content-type: %s',
+                        r.status,
+                        error_body[:1000],
+                    )
+                    try:
+                        error_json = JSONCodec.loads(error_body)
+                        await publish_model_provider_request_failed(
+                            request,
+                            actor=user,
+                            provider='openai-compatible',
+                            base_url=url,
+                            api_key=key,
+                            status=r.status,
+                            requested_model=requested_model,
+                            upstream_error=error_json,
+                        )
+                        return JSONResponse(status_code=r.status, content=error_json, headers=retry_headers)
+                    except JSONCodec.JSONDecodeError:
+                        await publish_model_provider_request_failed(
+                            request,
+                            actor=user,
+                            provider='openai-compatible',
+                            base_url=url,
+                            api_key=key,
+                            status=r.status,
+                            requested_model=requested_model,
+                            upstream_error=error_body,
+                        )
+                        return JSONResponse(
+                            status_code=r.status,
+                            content={'error': {'message': error_body, 'code': r.status}},
+                            headers=retry_headers,
+                        )
+
+                streaming = True
+                return StreamingResponse(
+                    stream_wrapper(r),
+                    status_code=r.status,
+                    headers=_clean_proxy_headers(r.headers),
+                )
+            else:
+                try:
+                    response = await r.json(loads=JSONCodec.loads)
+                except Exception as e:
+                    log.error(e)
+                    response = await r.text()
+
+                if r.status >= 400:
+                    retry_headers = {k: v for k, v in r.headers.items() if k.lower() in ('retry-after', 'retry-after-ms')}
+                    await publish_model_provider_request_failed(
+                        request,
+                        actor=user,
+                        provider='openai-compatible',
+                        base_url=url,
+                        api_key=key,
+                        status=r.status,
+                        requested_model=requested_model,
+                        upstream_error=response,
+                    )
+                    if isinstance(response, (dict, list)):
+                        return JSONResponse(status_code=r.status, content=response, headers=retry_headers)
+                    else:
+                        return PlainTextResponse(status_code=r.status, content=response, headers=retry_headers)
+
+                # Convert Responses API result to simple format
+                if is_responses and isinstance(response, dict):
+                    response = convert_responses_result(response)
+
+                return response
+        except Exception as e:
+            if not is_last_attempt:
+                log.warning(
+                    'Fallback triggered for %s: candidate %s raised %s, trying next candidate',
+                    requested_preset_id,
+                    candidate_id,
+                    e,
+                )
+                should_fallback = True
+            else:
+                log.exception(e)
+
+                raise HTTPException(
+                    status_code=r.status if r else 500,
+                    detail=ERROR_MESSAGES.SERVER_CONNECTION_ERROR,
+                )
+        finally:
+            if not streaming:
+                await cleanup_response(r)
+
+        if should_fallback:
+            continue
 
 
 async def embeddings(request: Request, form_data: dict, user):

@@ -1,4 +1,4 @@
-"""Pin Auren to its persistent Secret Service; never copy secrets to disk."""
+"""Pin Minerva to its persistent Secret Service; never copy secrets to disk."""
 import json
 import os
 import subprocess
@@ -40,8 +40,8 @@ def configure_vault():
             service = data['service']
             if data.get('version') != 1 or service not in SERVICES: raise ValueError()
         except (OSError, ValueError, KeyError, TypeError) as error:
-            raise OSError('Não foi possível identificar o cofre configurado da Auren.') from error
-        # libsecret supports this override. It affects Auren and its children only.
+            raise OSError('Não foi possível identificar o cofre configurado da Minerva.') from error
+        # libsecret supports this override. It affects Minerva and its children only.
         # Never fall back to another wallet when the chosen wallet is unavailable.
         os.environ['SECRET_SERVICE_BUS_NAME'] = service
         return service

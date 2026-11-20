@@ -178,10 +178,10 @@
 	});
 </script>
 
-<section class="auren-settings auren-settings-page" aria-label="Conexões da Auren">
+<section class="auren-settings auren-settings-page" aria-label="Conexões da Minerva">
 	<header>
 		<div>
-			<h2>Conexões da Auren</h2>
+			<h2>Conexões da Minerva</h2>
 			<p>Provedores usados pelo motor local. As credenciais ficam no cofre do sistema.</p>
 		</div>
 		<button on:click={() => load(true)} disabled={busy}>Revalidar catálogos</button>

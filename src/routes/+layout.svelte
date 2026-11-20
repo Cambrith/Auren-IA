@@ -668,7 +668,7 @@
 			if ($isLastActiveTab) {
 				if ($settings?.notificationEnabled ?? false) {
 					notify(
-						`${data.title} / Open WebUI`,
+						`${data.title} / ${$WEBUI_NAME}`,
 						{
 							body: timeStr,
 							// LICENSE covers this Open WebUI notification identifier.
@@ -829,7 +829,7 @@
 					if ($isLastActiveTab) {
 						if ($settings?.notificationEnabled ?? false) {
 							notify(
-								`${displayTitle} / Open WebUI`,
+								`${displayTitle} / ${$WEBUI_NAME}`,
 								{
 									body: contentPreview,
 									// LICENSE covers this Open WebUI notification identifier.
@@ -976,7 +976,7 @@
 						// Do not alter, remove, obscure, or replace it except as LICENSE permits:
 						// https://docs.openwebui.com/license.
 						notify(
-							`${title} / Open WebUI`,
+							`${title} / ${$WEBUI_NAME}`,
 							{
 								body: content,
 								icon: `${WEBUI_API_BASE_URL}/users/${data?.user?.id}/profile/image`

@@ -79,7 +79,7 @@ def credentials_env() -> dict[str, str]:
     from integration.auren_credentials import AurenVault, remember_credentials
     vault = AurenVault()
     env = {name: value for name, value in worker_env().items() if name not in ('DEEPSEEK_API_KEY',)}
-    # Optional direct providers remain dormant until explicitly configured in Auren.
+    # Optional direct providers remain dormant until explicitly configured in Minerva.
     for key in ('OPENAI_API_KEY','ANTHROPIC_API_KEY','DEEPSEEK_API_KEY','XAI_API_KEY','HUGGINGFACE_API_KEY'):
         env.pop(key,None)
     from cavren.credentials import KEY_NAMES
@@ -171,7 +171,7 @@ def capabilities(provider, raw, model_id):
         'pdf': 'file' in inputs or (gemini and not image_out),
         'image_generation': bool(image_out and provider in ('gemini', 'openrouter', 'aihorde')),
         'file_upload': True,  # Text documents are extracted locally, without embeddings.
-        'web_search': False,  # The Lunvri search control uses the engine's SearXNG.
+        'web_search': False,  # The Minerva search control uses the engine's SearXNG.
         'builtin_tools': False,
         'code_interpreter': False,
         'terminal': False,

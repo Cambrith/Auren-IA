@@ -6,11 +6,19 @@
 
 	import Cog6 from '$lib/components/icons/Cog6.svelte';
 	import ArenaModelModal from './ArenaModelModal.svelte';
+	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
+	import { getModelDisplayMeta } from '$lib/utils/modelSelectorOrg';
 	import { WEBUI_API_BASE_URL } from '$lib/constants';
 	export let model;
 	export let onEdit = async (_model) => true;
 
 	let showModel = false;
+	$: badgeMeta = getModelDisplayMeta({ value: model?.id ?? '', label: model?.name ?? model?.id ?? '', model });
+	$: hasCustomImage = Boolean(
+		model?.meta?.profile_image_url &&
+			!model.meta.profile_image_url.endsWith('/favicon.png') &&
+			model.meta.profile_image_url !== '/static/favicon.png'
+	);
 </script>
 
 <ArenaModelModal
@@ -27,11 +35,20 @@
 	<div class="flex justify-between items-center mb-1">
 		<div class="flex flex-col flex-1">
 			<div class="flex gap-2.5 items-center">
-				<img
-					src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model.id}`}
-					alt={resolveLocalizedResource(model, $i18n.language)}
-					class="size-8 rounded-full object-cover shrink-0"
-				/>
+				{#if hasCustomImage}
+					<img
+						src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model.id}`}
+						alt={resolveLocalizedResource(model, $i18n.language)}
+						class="size-8 rounded-full object-cover shrink-0"
+					/>
+				{:else}
+					<AurenProviderBadge
+						provider={badgeMeta.provider.badgeProvider}
+						modelId={model?.base_model_id || model?.id || ''}
+						modelName={model?.name || model?.id || ''}
+						name={badgeMeta.vendorLabel || badgeMeta.provider.label}
+					/>
+				{/if}
 
 				<div class="w-full flex flex-col">
 					<div class="flex items-center gap-1">

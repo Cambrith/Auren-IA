@@ -323,6 +323,294 @@ async def title_generation_template(template: str, messages: list[dict], user: O
     return template
 
 
+_EXACT_ENGLISH_TITLE_MAP: dict[str, str] = {
+    'new chat': 'Nova Conversa',
+    'untitled': 'Nova Conversa',
+    'untitled chat': 'Nova Conversa',
+    'chat': 'Nova Conversa',
+    'greeting': 'Saudação Inicial',
+    'greetings': 'Saudação Inicial',
+    'simple greeting': 'Saudação Inicial',
+    'initial greeting': 'Saudação Inicial',
+    'casual greeting': 'Saudação Inicial',
+    'brief greeting': 'Saudação Inicial',
+    'friendly greeting': 'Saudação Inicial',
+    'short greeting': 'Saudação Inicial',
+    'basic greeting': 'Saudação Inicial',
+    'quick greeting': 'Saudação Inicial',
+    'warm greeting': 'Saudação Inicial',
+    'greeting exchange': 'Saudação Inicial',
+    'friendly exchange': 'Saudação Inicial',
+    'hello': 'Saudação Inicial',
+    'hi': 'Saudação Inicial',
+    'hello greeting': 'Saudação Inicial',
+    'conversation start': 'Início de Conversa',
+    'starting conversation': 'Início de Conversa',
+    'start of conversation': 'Início de Conversa',
+    'chat introduction': 'Início de Conversa',
+    'system prompt': 'Prompt do Sistema',
+    'system prompt inquiry': 'Consulta sobre Prompt do Sistema',
+    'system prompt request': 'Consulta sobre Prompt do Sistema',
+    'general inquiry': 'Consulta Geral',
+    'general question': 'Pergunta Geral',
+    'help request': 'Pedido de Ajuda',
+    'assistance request': 'Pedido de Ajuda',
+}
+
+_ENGLISH_TITLE_STRONG_WORDS = frozenset(
+    {
+        'meaning',
+        'greeting',
+        'greetings',
+        'exchange',
+        'overview',
+        'summary',
+        'discussion',
+        'question',
+        'questions',
+        'request',
+        'inquiry',
+        'assistance',
+        'explanation',
+        'introduction',
+        'conversation',
+        'troubleshooting',
+        'debugging',
+        'understanding',
+        'exploring',
+        'learning',
+        'creating',
+        'building',
+        'fixing',
+        'updating',
+        'checking',
+        'finding',
+        'comparing',
+        'comparison',
+        'difference',
+        'differences',
+        'between',
+        'about',
+        'with',
+        'without',
+        'from',
+        'into',
+        'using',
+        'how',
+        'what',
+        'why',
+        'when',
+        'where',
+        'which',
+        'the',
+        'and',
+        'for',
+        'your',
+        'simple',
+        'initial',
+        'casual',
+        'brief',
+        'friendly',
+        'quick',
+        'new',
+        'chat',
+        'help',
+        'guide',
+        'tips',
+        'issue',
+        'issues',
+        'error',
+        'errors',
+        'problem',
+        'problems',
+        'setup',
+        'review',
+        'analysis',
+        'translation',
+        'definition',
+        'acronym',
+        'abbreviation',
+        'code',
+        'coding',
+        'programming',
+        'file',
+        'files',
+        'folder',
+        'folders',
+        'model',
+        'models',
+        'system',
+        'setting',
+        'settings',
+        'config',
+        'configuration',
+        'update',
+        'fix',
+        'task',
+        'project',
+        'recipe',
+        'trends',
+        'work',
+        'remote',
+        'music',
+        'story',
+        'writing',
+        'idea',
+        'ideas',
+        'plan',
+        'planning',
+        'research',
+        'search',
+        'report',
+        'data',
+        'user',
+        'assistant',
+    }
+)
+
+_PTBR_SIGNAL_WORDS = frozenset(
+    {
+        'de',
+        'da',
+        'do',
+        'das',
+        'dos',
+        'em',
+        'no',
+        'na',
+        'nos',
+        'nas',
+        'para',
+        'com',
+        'sem',
+        'sobre',
+        'como',
+        'qual',
+        'quais',
+        'por',
+        'pelo',
+        'pela',
+        'entre',
+        'uma',
+        'uns',
+        'umas',
+        'saudação',
+        'conversa',
+        'início',
+        'significado',
+        'sigla',
+        'ajuda',
+        'dúvida',
+        'duvida',
+        'análise',
+        'analise',
+        'revisão',
+        'revisao',
+        'código',
+        'codigo',
+        'sistema',
+        'configuração',
+        'configuracao',
+        'instalação',
+        'instalacao',
+        'correção',
+        'correcao',
+        'resumo',
+        'explicação',
+        'explicacao',
+        'consulta',
+        'pedido',
+        'erro',
+        'problema',
+        'guia',
+        'dicas',
+        'receita',
+        'trabalho',
+        'projeto',
+        'arquivo',
+        'arquivos',
+        'pasta',
+        'modelo',
+        'modelos',
+    }
+)
+
+
+def normalize_ptbr_title(raw_title: str) -> str:
+    """Limpa pontuação/ruído e traduz títulos genéricos acidentais em inglês para pt-BR."""
+    if not isinstance(raw_title, str):
+        return ''
+    title = raw_title.strip()
+    title = re.sub(r'^```(?:json)?\s*|\s*```$', '', title, flags=re.IGNORECASE).strip()
+    title = title.strip('"\'“”‘’`').strip()
+    title = re.sub(r'\s+', ' ', title)
+    title = title.rstrip('.').strip()
+    if not title:
+        return ''
+    mapped = _EXACT_ENGLISH_TITLE_MAP.get(title.lower())
+    if mapped:
+        return mapped
+    return title
+
+
+def looks_english_title(title: str) -> bool:
+    """Detecta títulos curtos que escaparam em inglês para acionar reescrita garantida em pt-BR."""
+    clean = normalize_ptbr_title(title)
+    if not clean:
+        return False
+    # Acentuação típica do português já indica pt-BR
+    if re.search(r'[áàâãéêíóôõúçÁÀÂÃÉÊÍÓÔÕÚÇ]', clean):
+        return False
+    tokens = re.findall(r"[a-zA-ZÀ-ÿ]+", clean.lower())
+    if not tokens:
+        return False
+    if any(tok in _PTBR_SIGNAL_WORDS for tok in tokens):
+        return False
+    eng_hits = sum(1 for tok in tokens if tok in _ENGLISH_TITLE_STRONG_WORDS)
+    if eng_hits == 0:
+        return False
+    # Qualquer título curto contendo termos caracteristicamente ingleses sem sinais de pt-BR
+    return eng_hits >= 1 and (eng_hits / len(tokens)) >= 0.33
+
+
+def extract_title_from_response(response_message: dict | None) -> str:
+    """Extrai o campo title do JSON retornado pelo modelo sem vazar raciocínio bruto."""
+    if not isinstance(response_message, dict):
+        return ''
+    candidates: list[tuple[str, str]] = []
+    content = response_message.get('content')
+    if isinstance(content, str) and content.strip():
+        candidates.append(('content', content.strip()))
+    reasoning = response_message.get('reasoning_content')
+    if isinstance(reasoning, str) and reasoning.strip():
+        candidates.append(('reasoning', reasoning.strip()))
+
+    for source_kind, text in candidates:
+        start = text.find('{')
+        end = text.rfind('}')
+        if start != -1 and end > start:
+            snippet = text[start : end + 1]
+            try:
+                parsed = JSONCodec.loads(snippet)
+                if isinstance(parsed, dict) and isinstance(parsed.get('title'), str):
+                    cleaned = normalize_ptbr_title(parsed['title'])
+                    if cleaned:
+                        return cleaned
+            except Exception:
+                # Tenta extrair via regex caso haja aspas simples ou texto extra no JSON
+                m = re.search(r'["\']title["\']\s*:\s*["\']([^"\']+)["\']', snippet)
+                if m:
+                    cleaned = normalize_ptbr_title(m.group(1))
+                    if cleaned:
+                        return cleaned
+        # Só aceita texto plano direto do campo content (nunca do reasoning_content)
+        if source_kind == 'content' and '\n' not in text and len(text) <= 80 and '{' not in text:
+            cleaned = normalize_ptbr_title(text)
+            if cleaned:
+                return cleaned
+    return ''
+
+
 async def follow_up_generation_template(
     template: str, messages: list[dict], user: Optional[Any] = None, *, use_default: bool = False
 ) -> str:

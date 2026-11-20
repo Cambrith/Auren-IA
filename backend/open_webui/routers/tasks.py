@@ -21,14 +21,18 @@ from open_webui.models.config import Config
 from open_webui.routers.pipelines import process_pipeline_inlet_filter
 from open_webui.utils.auth import get_admin_user, get_verified_user
 from open_webui.utils.chat import generate_chat_completion
+from open_webui.utils.json_codec import JSONCodec
 from open_webui.utils.payload import apply_params_to_form_data
 from open_webui.utils.task import (
     autocomplete_generation_template,
     emoji_generation_template,
+    extract_title_from_response,
     follow_up_generation_template,
     get_task_model_id,
     image_prompt_generation_template,
+    looks_english_title,
     moa_response_generation_template,
+    normalize_ptbr_title,
     query_generation_template,
     tags_generation_template,
     title_generation_template,
@@ -170,6 +174,11 @@ async def generate_title(request: Request, form_data: dict, user=Depends(get_ver
     if task_model_id not in models or task_model_id.startswith('agent:'):
         return JSONResponse(content={'detail': 'No task model configured for agent chat titles'})
 
+    # Para os modos oficiais da Minerva, gera títulos usando o modo rápido (Ímpeto)
+    # para responder em <1s com pt-BR consistente sem consumir cota do modo profundo.
+    if task_model_id in ('minerva.harmonia', 'minerva.sabia', 'minerva.impeto') and 'minerva.impeto' in models:
+        task_model_id = 'minerva.impeto'
+
     log.debug('generating chat title using model %s for user %s ', task_model_id, user.email)
 
     title_template = await Config.get('task.title.prompt_template')
@@ -183,9 +192,21 @@ async def generate_title(request: Request, form_data: dict, user=Depends(get_ver
         'max_tokens': models[task_model_id].get('info', {}).get('params', {}).get('max_tokens', 1000)
     }
 
+    title_system_prompt = (
+        'Você é um gerador de títulos de conversa em Português do Brasil (pt-BR). '
+        'Responda EXCLUSIVAMENTE com um objeto JSON bruto e válido no formato '
+        '{"title": "Título Curto em Português"} com 2 a 5 palavras em pt-BR. '
+        'REGRA INVIOLÁVEL: o título DEVE estar SEMPRE em Português do Brasil (pt-BR), '
+        'mesmo para saudações curtas ("oi"), siglas ("IOI"), trechos de código ou texto em inglês. '
+        'Jamais escreva títulos em inglês.'
+    )
+
     payload = {
         'model': task_model_id,
-        'messages': [{'role': 'user', 'content': content}],
+        'messages': [
+            {'role': 'system', 'content': title_system_prompt},
+            {'role': 'user', 'content': content},
+        ],
         'stream': False,
         'metadata': {
             **(request.state.metadata if hasattr(request.state, 'metadata') else {}),
@@ -204,7 +225,44 @@ async def generate_title(request: Request, form_data: dict, user=Depends(get_ver
     payload = apply_task_model_params(payload, models, task_model_id, task_model_params)
 
     try:
-        return await generate_chat_completion(request, form_data=payload, user=user)
+        res = await generate_chat_completion(request, form_data=payload, user=user)
+        if isinstance(res, dict) and res.get('choices'):
+            msg = res['choices'][0].get('message') or {}
+            extracted = extract_title_from_response(msg)
+            if extracted and looks_english_title(extracted):
+                retry_payload = {
+                    'model': task_model_id,
+                    'messages': [
+                        {'role': 'system', 'content': title_system_prompt},
+                        {
+                            'role': 'user',
+                            'content': (
+                                'Traduza e reescreva o título abaixo para Português do Brasil (pt-BR) '
+                                'natural e conciso (2 a 5 palavras). Retorne SOMENTE {"title": "..."}.\n'
+                                f'Título original: {extracted}'
+                            ),
+                        },
+                    ],
+                    'stream': False,
+                    'max_tokens': 256,
+                    'metadata': payload.get('metadata'),
+                }
+                try:
+                    retry_res = await generate_chat_completion(request, form_data=retry_payload, user=user)
+                    if isinstance(retry_res, dict) and retry_res.get('choices'):
+                        retry_title = extract_title_from_response(retry_res['choices'][0].get('message'))
+                        if retry_title and not looks_english_title(retry_title):
+                            extracted = retry_title
+                except Exception:
+                    log.debug('Portuguese title rewrite retry failed', exc_info=True)
+
+            if extracted:
+                extracted = normalize_ptbr_title(extracted)
+                res['choices'][0]['message'] = {
+                    **msg,
+                    'content': JSONCodec.dumps({'title': extracted}),
+                }
+        return res
     except Exception as e:
         log.error('Exception occurred', exc_info=True)
         return JSONResponse(

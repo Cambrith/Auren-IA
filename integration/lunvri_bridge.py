@@ -1,4 +1,4 @@
-"""Loopback OpenAI adapter. Provider keys remain in the Cavren worker environment."""
+"""Loopback OpenAI adapter. Provider keys remain in the Minerva worker environment."""
 
 from __future__ import annotations
 
@@ -29,17 +29,17 @@ WORKER = Path(__file__).with_name("lunvri_worker.py")
 def prepare_job(body: dict, generation_id: str) -> dict:
     mode = body.get("cavren_mode_id", DEFAULT_MODE_ID)
     if mode not in MODE_BY_ID:
-        raise ValueError("Escolha um modo Auren válido.")
+        raise ValueError("Escolha um modo Minerva válido.")
     model = body.get("model", "")
     allowed = {item["id"]: item for item in catalog()}
     if model not in allowed:
-        raise ValueError("Escolha um modelo integrado à Auren.")
+        raise ValueError("Escolha um modelo integrado à Minerva.")
     info = allowed[model].get('cavren', {})
     requested_model = model
     attachment_switch = None
     task = body.get('auren_task')
     if task not in (None, 'auto', 'chat', 'image', 'documents', 'code', 'research', 'transcribe', 'speech'):
-        raise ValueError('Escolha uma tarefa Auren válida.')
+        raise ValueError('Escolha uma tarefa Minerva válida.')
     images = task == 'image' if task else body.get('lunvri_image_generation') is True or info.get('image_only') is True
     raw_messages = body.get("messages")
     if not isinstance(raw_messages, list) or not raw_messages:
@@ -48,7 +48,7 @@ def prepare_job(body: dict, generation_id: str) -> dict:
     for item in raw_messages:
         if not isinstance(item, dict):
             raise ValueError("Mensagem inválida.")
-        # Tool execution stays with Open WebUI; Cavren accepts its public message contract.
+        # Tool execution stays with Open WebUI; Minerva accepts its public message contract.
         message = Message(item.get("role"), item.get("content"))
         messages.append({"role": message.role, "content": message.content})
     users = [m for m in messages if m["role"] == "user"]
@@ -259,7 +259,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
         try:
             self.respond(200, {"object": "list", "data": catalog(refresh='refresh=true' in self.path)})
         except (OSError, ValueError, CavrenError):
-            self.error(503, "Não foi possível acessar o cofre ou catálogo da Auren.", "credentials")
+            self.error(503, "Não foi possível acessar o cofre ou catálogo da Minerva.", "credentials")
 
     def do_POST(self):
         if not self.authorized():
@@ -404,13 +404,13 @@ class BridgeHandler(BaseHTTPRequestHandler):
                             self.sse(
                                 {
                                     "error": {
-                                        "message": event["message"].replace("Cavren", "Auren"),
+                                        "message": event["message"].replace("Cavren", "Minerva").replace("Lunvri", "Minerva").replace("Auren", "Minerva"),
                                         "code": event["code"],
                                     }
                                 }
                             )
                         else:
-                            self.error(503, event["message"].replace("Cavren", "Auren"), event["code"])
+                            self.error(503, event["message"].replace("Cavren", "Minerva").replace("Lunvri", "Minerva").replace("Auren", "Minerva"), event["code"])
                         break
             if not terminal:
                 if streaming:

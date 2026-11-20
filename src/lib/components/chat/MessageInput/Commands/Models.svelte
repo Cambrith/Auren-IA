@@ -11,6 +11,8 @@
 		resolveLocalizedModelDescription,
 		resolveLocalizedModelName
 	} from '$lib/utils/localizedContent';
+	import AurenProviderBadge from '$lib/components/common/AurenProviderBadge.svelte';
+	import { getModelDisplayMeta, isMinervaModeId } from '$lib/utils/modelSelectorOrg';
 
 	const i18n = getContext<typeof import('$lib/i18n').default>('i18n');
 
@@ -86,18 +88,21 @@
 				on:focus={() => {}}
 				data-selected={modelIdx === selectedIdx}
 			>
-				<div class="flex min-w-0 items-center text-black dark:text-gray-100">
-					<img
-						src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model.id}&lang=${$i18n.language}`}
-						alt={resolveLocalizedModelName(model, $i18n.language) ?? model.id}
-						class="mr-2 size-4.5 rounded-full object-cover"
-						on:error={(e) => {
-							// LICENSE covers this Open WebUI fallback logo.
-							// Do not alter, remove, obscure, or replace it except as LICENSE permits:
-							// https://docs.openwebui.com/license.
-							e.currentTarget.src = '/favicon.png';
-						}}
-					/>
+				<div class="flex min-w-0 items-center gap-2 text-black dark:text-gray-100">
+					{#if !isMinervaModeId(model.id)}
+						{@const badgeMeta = getModelDisplayMeta({
+							value: model.id,
+							label: resolveLocalizedModelName(model, $i18n.language) ?? model.id,
+							model
+						})}
+						<AurenProviderBadge
+							compact
+							provider={badgeMeta.provider.badgeProvider}
+							modelId={model.info?.base_model_id || model.id}
+							modelName={resolveLocalizedModelName(model, $i18n.language) ?? model.id}
+							name={badgeMeta.vendorLabel || badgeMeta.provider.label}
+						/>
+					{/if}
 					<div class="min-w-0 truncate">
 						{resolveLocalizedModelName(model, $i18n.language)}
 					</div>

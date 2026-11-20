@@ -117,7 +117,7 @@
 				><label>Etapas<input type="number" min="5" max="50" bind:value={prefs.image_steps} /></label
 				>
 			</div>{:else if model}<p class="notice">
-				Para este provedor, a Auren envia a descrição e usa os parâmetros nativos do modelo.
+				Para este provedor, a Minerva envia a descrição e usa os parâmetros nativos do modelo.
 				Dimensões e etapas do Horde não são enviadas.
 			</p>{/if}
 		<button disabled={busy || !selected}>Salvar preferências</button>
@@ -139,7 +139,7 @@
 			Aguardando o provedor. A fila de imagens pode demorar alguns minutos.
 		</p>{/if}
 	{#each files as file}<figure>
-			<img src={file.url} alt="Imagem gerada pela Auren" />
+			<img src={file.url} alt="Imagem gerada pela Minerva" />
 			<figcaption><a href={file.url} download={file.name}>Salvar imagem gerada</a></figcaption>
 		</figure>{/each}
 	<p class="notice">

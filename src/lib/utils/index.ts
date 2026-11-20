@@ -37,12 +37,15 @@ export const resolveDefaultModelIds = (
 	models: { id: string; info?: { meta?: { hidden?: boolean } } }[],
 	...preferences: (string[] | null | undefined)[]
 ): string[] => {
-	const available = models.filter((model) => !model.info?.meta?.hidden).map((model) => model.id);
+	const visible = models.filter((model) => !model.info?.meta?.hidden).map((model) => model.id);
 	for (const preference of preferences) {
-		const selected = [...new Set(preference ?? [])].filter((id) => available.includes(id));
+		const selected = [...new Set(preference ?? [])].filter((id) => visible.includes(id));
 		if (selected.length) return selected;
 	}
-	return available.length ? [available[0]] : [];
+	if (visible.includes('minerva.harmonia')) return ['minerva.harmonia'];
+	if (visible.includes('minerva.sabia')) return ['minerva.sabia'];
+	if (visible.includes('minerva.impeto')) return ['minerva.impeto'];
+	return visible.length ? [visible[0]] : [];
 };
 
 export const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
