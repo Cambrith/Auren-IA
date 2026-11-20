@@ -1,7 +1,9 @@
 import { get, writable } from 'svelte/store';
 import {
+	generateDevTitle,
 	listDevHistory,
 	saveDevHistoryItem,
+	synthesizeDevTitle,
 	type DevHistorySummary
 } from '$lib/apis/dev';
 import type {
@@ -96,7 +98,7 @@ export async function persistDevLiveSession(
 		persistable.find((m) => m.role === 'user')?.content || 'Sessão Minerva Dev';
 	const title =
 		session.title ||
-		firstUser.replace(/\s+/g, ' ').trim().slice(0, 65) ||
+		synthesizeDevTitle(firstUser) ||
 		'Sessão Minerva Dev';
 
 	const nowSec = Date.now() / 1000;
@@ -132,5 +134,22 @@ export async function persistDevLiveSession(
 		}
 	} catch {
 		// silencioso
+	}
+}
+
+export async function refreshDynamicDevTitle(
+	token: string,
+	convId: string,
+	prompt: string,
+	model?: string | null
+): Promise<void> {
+	const dynamicTitle = await generateDevTitle(token, { prompt, model });
+	if (!dynamicTitle) return;
+	const updated = updateDevLiveSession(convId, (s) => ({
+		...s,
+		title: dynamicTitle
+	}));
+	if (updated) {
+		await persistDevLiveSession(token, convId, true);
 	}
 }

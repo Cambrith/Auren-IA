@@ -16,6 +16,7 @@
 		setDevMode,
 		stopDevRun,
 		streamDevChat,
+		synthesizeDevTitle,
 		type DevDirEntry,
 		type DevFileContentResponse,
 		type DevFileEntry,
@@ -46,6 +47,7 @@
 		devLiveSessions,
 		devNewSessionTrigger,
 		persistDevLiveSession,
+		refreshDynamicDevTitle,
 		reloadDevHistory,
 		updateDevLiveSession,
 		type DevLiveSession
@@ -956,12 +958,13 @@
 			userScrolledUp = false;
 		}
 		const baseMessages = existingSession ? existingSession.messages : messages;
+		const isFirstUserMessage = baseMessages.filter((m) => m.role === 'user').length === 0;
 		const nextMessages = [...baseMessages, userMsg, assistantMsg];
 		const firstUserText =
 			nextMessages.find((m) => m.role === 'user')?.content || 'Sessão Minerva Dev';
 		const computedTitle =
 			existingSession?.title ||
-			firstUserText.replace(/\s+/g, ' ').trim().slice(0, 65) ||
+			synthesizeDevTitle(firstUserText) ||
 			'Sessão Minerva Dev';
 
 		const sessionSnapshot: DevLiveSession = {
@@ -991,6 +994,14 @@
 		// Salva IMEDIATAMENTE ao enviar a primeira mensagem para já aparecer na barra lateral
 		const token = localStorage.token || '';
 		void persistDevLiveSession(token, targetConvId, true);
+		if (isFirstUserMessage) {
+			void refreshDynamicDevTitle(
+				token,
+				targetConvId,
+				firstUserText,
+				sessionSnapshot.model || null
+			);
+		}
 
 		if (currentConvId === targetConvId) {
 			await scrollToBottom(true);

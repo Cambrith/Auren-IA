@@ -320,6 +320,153 @@ export async function askDevSideQuestion(
 	return body;
 }
 
+const TRAILING_STOPWORDS = new Set([
+	'a',
+	'as',
+	'o',
+	'os',
+	'um',
+	'uma',
+	'uns',
+	'umas',
+	'de',
+	'do',
+	'da',
+	'dos',
+	'das',
+	'em',
+	'no',
+	'na',
+	'nos',
+	'nas',
+	'por',
+	'para',
+	'pra',
+	'com',
+	'sem',
+	'sob',
+	'sobre',
+	'que',
+	'se',
+	'e',
+	'ou',
+	'mas',
+	'ao',
+	'aos',
+	'à',
+	'às',
+	'meu',
+	'minha',
+	'meus',
+	'minhas',
+	'seu',
+	'sua'
+]);
+
+/**
+ * Gera instantaneamente um título preliminar conciso e com sentido (sem cortar palavras
+ * no meio e sem copiar muletas conversacionais do início da frase) enquanto o resumo
+ * dinâmico por IA é processado em segundo plano.
+ */
+export function synthesizeDevTitle(rawPrompt: string): string {
+	let text = (rawPrompt || '')
+		.replace(/^Arquivos em foco:[^\n]*\n+/i, '')
+		.replace(/```[\s\S]*?```/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+	if (!text) return 'Nova Sessão Dev';
+
+	// Pega a primeira sentença relevante
+	const firstSentence = text.split(/(?<=[.!?])\s+|\n+/)[0]?.trim() || text;
+
+	// Remove prefixos conversacionais comuns para focar direto na ação/tema
+	let cleaned = firstSentence
+		.replace(
+			/^(?:ol[aá]|oi|bom dia|boa tarde|boa noite|por favor|pfv|minerva)[,!\s-]*/i,
+			''
+		)
+		.replace(
+			/^(?:em (?:meu|minha) [a-zà-ú0-9_-]+\s*,?\s*)?(?:eu\s+)?(?:queria|quero|gostaria|preciso|consegue|pode|poderia|fa[çc]a com que|fa[çc]a|pe[çc]a ao mestre)\s+(?:que\s+)?(?:voc[êe]\s+)?/i,
+			''
+		)
+		.replace(
+			/^(?:no|na|em)\s+(?:meu|minha)\s+/i,
+			''
+		)
+		.trim();
+
+	if (!cleaned) cleaned = firstSentence;
+
+	// Divide em palavras completas (nunca corta palavra ao meio)
+	const words = cleaned
+		.replace(/^[,;:.!?-]+|[,;:.!?-]+$/g, '')
+		.split(/\s+/)
+		.filter(Boolean);
+
+	if (words.length === 0) return 'Nova Sessão Dev';
+
+	const selected = words.slice(0, 6);
+	while (
+		selected.length > 2 &&
+		TRAILING_STOPWORDS.has(
+			selected[selected.length - 1].toLowerCase().replace(/[,;:.!?-]+$/g, '')
+		)
+	) {
+		selected.pop();
+	}
+
+	const joined = selected
+		.join(' ')
+		.replace(/[,;:.!?-]+$/g, '')
+		.trim();
+	if (!joined) return 'Nova Sessão Dev';
+	return joined.charAt(0).toUpperCase() + joined.slice(1);
+}
+
+/**
+ * Solicita ao modelo ativo da Minerva Dev um título dinâmico de 2 a 5 palavras em pt-BR
+ * que resuma o objetivo da primeira mensagem com sentido completo.
+ */
+export async function generateDevTitle(
+	token: string,
+	payload: { prompt: string; model?: string | null }
+): Promise<string | null> {
+	const cleanPrompt = (payload.prompt || '')
+		.replace(/^Arquivos em foco:[^\n]*\n+/i, '')
+		.replace(/\s+/g, ' ')
+		.trim()
+		.slice(0, 700);
+	if (!cleanPrompt) return null;
+
+	const question =
+		'Gere APENAS um título dinâmico, curto e com sentido completo (de 2 a 5 palavras, em Português do Brasil) ' +
+		'que resuma o objetivo principal desta solicitação. NÃO copie as primeiras palavras literalmente, ' +
+		'NÃO corte palavras no meio, NÃO use aspas nem ponto final. ' +
+		'Exemplos: Arquivo Python do Mundo 2, Títulos em Português no Chat, Abertura do VSCodium, Revisão de Código do Projeto.\n\n' +
+		`Solicitação: ${cleanPrompt}`;
+
+	try {
+		const res = await askDevSideQuestion(token, {
+			question,
+			model: payload.model || null
+		});
+		const rawLine = (res?.answer || '')
+			.split(/\r?\n/)
+			.map((l) => l.trim())
+			.find((l) => l.length >= 3);
+		if (!rawLine) return null;
+		const cleaned = rawLine
+			.replace(/^(?:t[íi]tulo\s*:\s*)/i, '')
+			.replace(/^["'‘’“”`*#-]+|["'‘’“”`*.!?;:,-]+$/g, '')
+			.replace(/\s+/g, ' ')
+			.trim();
+		if (cleaned.length < 3 || cleaned.length > 75) return null;
+		return cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+	} catch {
+		return null;
+	}
+}
+
 export async function listDevHistory(token: string): Promise<DevHistorySummary[]> {
 	const res = await fetch(`${WEBUI_API_BASE_URL}/dev/history`, {
 		method: 'GET',
