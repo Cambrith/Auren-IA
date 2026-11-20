@@ -1321,7 +1321,7 @@
 			data-state={$showSidebar}
 		>
 			<div
-				class=" my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[var(--sidebar-width)] overflow-x-hidden scrollbar-hidden z-50 border-e border-gray-50 dark:border-gray-850/30"
+				class=" my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[var(--sidebar-width)] overflow-x-hidden scrollbar-none z-50"
 			>
 				<div
 					class="sidebar {$mobile
@@ -1448,7 +1448,7 @@
 				{/if}
 
 				<div
-					class="relative flex flex-col flex-1 overflow-y-auto scrollbar-hidden space-y-1.5 {$mobile
+					class="relative flex flex-col flex-1 overflow-y-auto scrollbar-none space-y-1.5 {$mobile
 						? 'pt-1.5'
 						: ''} pb-2.5"
 					style:display={inboxOpened ? 'none' : undefined}
@@ -1990,7 +1990,7 @@
 							</div>
 						{/if}
 
-						<div class=" flex-1 flex flex-col overflow-y-auto scrollbar-hidden">
+						<div class=" flex-1 flex flex-col overflow-y-auto scrollbar-none">
 							<div class="pt-1.5">
 								{#if $chats}
 									<div role="list">

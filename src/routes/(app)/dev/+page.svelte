@@ -1194,11 +1194,9 @@
 		? 'md:max-w-[calc(100%-var(--sidebar-width))]'
 		: ''} bg-white dark:bg-[#080d17] text-gray-900 dark:text-gray-100"
 >
-	<!-- Barra superior limpa integrada ao fundo do Chat Minerva (#080d17) para contrastar perfeitamente com a sidebar (#0d1727) -->
+	<!-- Barra superior limpa integrada ao fundo do Chat Minerva (#080d17) sem linha divisória -->
 	<header
-		class="flex h-11 shrink-0 items-center justify-between gap-2 bg-white/90 dark:bg-[#080d17]/95 backdrop-blur-sm px-3 {messages.length > 0
-			? 'border-b border-gray-200/70 dark:border-[#1a2b3d]'
-			: 'border-b border-transparent'}"
+		class="flex h-11 shrink-0 items-center justify-between gap-2 bg-white/90 dark:bg-[#080d17]/95 backdrop-blur-sm px-3"
 	>
 		<div class="flex items-center gap-2 min-w-0">
 			{#if !$showSidebar}
@@ -1651,8 +1649,8 @@
 					{/if}
 				</div>
 
-				<!-- Composer ancorado inferior (rail-composer-dock) -->
-				<div class="shrink-0 border-t border-gray-200/70 dark:border-[#1a2b3d] bg-white/90 dark:bg-[#080d17]/95 backdrop-blur-sm px-4 py-3">
+				<!-- Composer ancorado inferior (rail-composer-dock, sem linha horizontal divisória) -->
+				<div class="shrink-0 bg-white/90 dark:bg-[#080d17]/95 backdrop-blur-sm px-4 py-3">
 					<div class="mx-auto max-w-3xl">
 						<DevComposer
 							bind:this={composerRef}
