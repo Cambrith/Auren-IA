@@ -8,10 +8,12 @@
 	import {
 		devActiveHistoryId,
 		devHistoryItems,
+		devLiveSessions,
 		devNewSessionTrigger,
-		reloadDevHistory
+		reloadDevHistory,
+		removeDevLiveSession
 	} from '$lib/stores/dev';
-	import { deleteDevHistoryItem } from '$lib/apis/dev';
+	import { deleteDevHistoryItem, stopDevRun } from '$lib/apis/dev';
 	import DevToolIcon from '$lib/components/dev/DevToolIcon.svelte';
 	import {
 		user,
@@ -1511,6 +1513,8 @@
 							{:else}
 								<div class="px-1.5 space-y-0.5">
 									{#each filteredDevHistory as item (item.id)}
+										{@const liveSession = $devLiveSessions[item.id]}
+										{@const isItemRunning = Boolean(liveSession?.isStreaming)}
 										<div
 											class="group flex items-center justify-between rounded-xl px-2 py-1.5 text-[0.8125rem] leading-5 transition {$devActiveHistoryId === item.id
 												? 'bg-black/[0.045] dark:bg-white/[0.08] text-gray-900 dark:text-white font-medium'
@@ -1524,7 +1528,15 @@
 													if ($mobile) showSidebar.set(false);
 												}}
 											>
-												<div class="truncate">{item.title}</div>
+												<div class="flex items-center gap-1.5 min-w-0">
+													{#if isItemRunning}
+														<span
+															class="size-2 shrink-0 rounded-full bg-sky-400 animate-pulse"
+															title="Trabalhando em paralelo…"
+														></span>
+													{/if}
+													<div class="truncate">{item.title}</div>
+												</div>
 												{#if item.cwd}
 													<div class="mt-0.5 flex items-center gap-1 truncate font-mono text-[10px] text-gray-500 dark:text-gray-400/80">
 														<DevToolIcon name="folder" className="size-2.5 shrink-0 text-sky-400/80" />
@@ -1537,6 +1549,13 @@
 												class="ml-1 hidden group-hover:flex size-5 shrink-0 items-center justify-center rounded-md text-gray-400 hover:bg-rose-500/15 hover:text-rose-400 transition"
 												aria-label="Excluir conversa Dev"
 												on:click|stopPropagation={async () => {
+													if (liveSession?.abortController) {
+														liveSession.abortController.abort();
+													}
+													if (liveSession?.activeRunId) {
+														await stopDevRun(localStorage.token || '', liveSession.activeRunId).catch(() => {});
+													}
+													removeDevLiveSession(item.id);
 													await deleteDevHistoryItem(localStorage.token || '', item.id);
 													if ($devActiveHistoryId === item.id) {
 														devActiveHistoryId.set(null);

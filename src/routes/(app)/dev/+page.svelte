@@ -39,8 +39,17 @@
 		type EffortLevel,
 		type PermissionMode
 	} from '$lib/components/dev/types';
+	import { get } from 'svelte/store';
 	import { showSidebar } from '$lib/stores';
-	import { devActiveHistoryId, devNewSessionTrigger, reloadDevHistory } from '$lib/stores/dev';
+	import {
+		devActiveHistoryId,
+		devLiveSessions,
+		devNewSessionTrigger,
+		persistDevLiveSession,
+		reloadDevHistory,
+		updateDevLiveSession,
+		type DevLiveSession
+	} from '$lib/stores/dev';
 
 	// Estado do motor FCC & Minerva
 	let loadingStatus = true;
@@ -108,6 +117,35 @@
 
 	let feedContainer: HTMLElement | null = null;
 	let composerRef: DevComposer | null = null;
+	let userScrolledUp = false;
+
+	// Sessões em execução em paralelo
+	$: activeLiveSession = currentConvId ? ($devLiveSessions[currentConvId] ?? null) : null;
+	$: if (activeLiveSession) {
+		messages = activeLiveSession.messages;
+		isStreaming = activeLiveSession.isStreaming;
+		activeRunId = activeLiveSession.activeRunId;
+		abortController = activeLiveSession.abortController;
+		sessionId = activeLiveSession.sessionId;
+		queuedPrompt = activeLiveSession.queuedPrompt;
+		turnStartedAt = activeLiveSession.turnStartedAt;
+	}
+	$: backgroundRunningSessions = Object.values($devLiveSessions).filter(
+		(s) => s.isStreaming && s.convId !== currentConvId
+	);
+	$: if (isStreaming && turnStartedAt > 0) {
+		turnElapsedSec = Math.max(0, (Date.now() - turnStartedAt) / 1000);
+		if (!elapsedInterval) {
+			elapsedInterval = setInterval(() => {
+				if (isStreaming && turnStartedAt > 0) {
+					turnElapsedSec = Math.max(0, (Date.now() - turnStartedAt) / 1000);
+				}
+			}, 100);
+		}
+	} else if (!isStreaming && elapsedInterval) {
+		clearInterval(elapsedInterval);
+		elapsedInterval = null;
+	}
 
 	// Reativos derivados
 	$: folderName = cwd ? cwd.split('/').filter(Boolean).pop() || cwd : 'PC inteiro';
@@ -154,9 +192,25 @@
 		}, 2400);
 	}
 
-	async function scrollToBottom() {
+	function handleFeedScroll() {
+		if (!feedContainer) return;
+		const dist =
+			feedContainer.scrollHeight - feedContainer.scrollTop - feedContainer.clientHeight;
+		if (dist > 90) {
+			userScrolledUp = true;
+		} else if (dist <= 45) {
+			userScrolledUp = false;
+		}
+	}
+
+	async function scrollToBottom(force = false) {
+		if (force) {
+			userScrolledUp = false;
+		} else if (userScrolledUp) {
+			return;
+		}
 		await tick();
-		if (feedContainer) {
+		if (feedContainer && (force || !userScrolledUp)) {
 			feedContainer.scrollTop = feedContainer.scrollHeight;
 		}
 	}
@@ -354,18 +408,47 @@
 
 	$: if ($devNewSessionTrigger > lastNewTrigger) {
 		lastNewTrigger = $devNewSessionTrigger;
-		if (!isStreaming) {
-			currentConvId = null;
-			lastLoadedConvId = null;
-			sessionId = null;
-			messages = [];
-			attachedFiles = [];
-			queuedPrompt = null;
-		}
+		openBlankSessionView();
+	}
+
+	function openBlankSessionView() {
+		currentConvId = null;
+		lastLoadedConvId = null;
+		sessionId = null;
+		messages = [];
+		isStreaming = false;
+		activeRunId = null;
+		abortController = null;
+		attachedFiles = [];
+		queuedPrompt = null;
+		userScrolledUp = false;
+		mascotMood = 'idle';
 	}
 
 	async function loadSavedConversation(convId: string) {
-		if (isStreaming) return;
+		const inMemory = get(devLiveSessions)[convId];
+		if (inMemory) {
+			currentConvId = inMemory.convId;
+			lastLoadedConvId = inMemory.convId;
+			const nextCwd = inMemory.cwd || '';
+			if (nextCwd !== cwd) {
+				cwd = nextCwd;
+				void Promise.all([refreshGit(), refreshProjectContext()]);
+			} else {
+				void refreshGit();
+			}
+			extraDirs = [...inMemory.extraDirs];
+			sessionId = inMemory.sessionId;
+			messages = inMemory.messages;
+			isStreaming = inMemory.isStreaming;
+			activeRunId = inMemory.activeRunId;
+			abortController = inMemory.abortController;
+			queuedPrompt = inMemory.queuedPrompt;
+			turnStartedAt = inMemory.turnStartedAt;
+			await scrollToBottom(true);
+			return;
+		}
+
 		try {
 			const rec = await getDevHistoryItem(localStorage.token || '', convId);
 			currentConvId = rec.id;
@@ -378,34 +461,42 @@
 				await refreshGit();
 			}
 			sessionId = rec.session_id || null;
-			messages = Array.isArray(rec.messages) ? rec.messages : [];
-			await scrollToBottom();
+			const loadedMessages = Array.isArray(rec.messages) ? rec.messages : [];
+			messages = loadedMessages;
+			isStreaming = false;
+			activeRunId = null;
+			abortController = null;
+			queuedPrompt = null;
+			devLiveSessions.update((map) => ({
+				...map,
+				[rec.id]: {
+					convId: rec.id,
+					title: rec.title || 'Sessão Minerva Dev',
+					cwd: nextCwd,
+					extraDirs: [...extraDirs],
+					sessionId: rec.session_id || null,
+					permissionMode,
+					effort,
+					model: rec.model || activeModel || '',
+					modelName: activeModelName,
+					messages: loadedMessages,
+					isStreaming: false,
+					activeRunId: null,
+					abortController: null,
+					queuedPrompt: null,
+					turnStartedAt: 0,
+					updatedAt: rec.updated_at || Date.now() / 1000
+				}
+			}));
+			await scrollToBottom(true);
 		} catch (err: any) {
 			toast.error(err?.message || 'Não foi possível abrir esta conversa Dev.');
 		}
 	}
 
 	async function persistCurrentConversation() {
-		const persistable = messages.filter((m) => m.role !== 'system_card');
-		if (persistable.length === 0) return;
-		const firstUser = persistable.find((m) => m.role === 'user')?.content || 'Sessão Minerva Dev';
-		const title = firstUser.replace(/\s+/g, ' ').trim().slice(0, 65) || 'Sessão Minerva Dev';
-		try {
-			const saved = await saveDevHistoryItem(localStorage.token || '', {
-				id: currentConvId,
-				title,
-				cwd,
-				session_id: sessionId,
-				model: activeModel || null,
-				messages: persistable.map((m) => ({ ...m, streaming: false, phase: '' }))
-			});
-			currentConvId = saved.id;
-			lastLoadedConvId = saved.id;
-			devActiveHistoryId.set(saved.id);
-			await reloadDevHistory(localStorage.token || '');
-		} catch {
-			// silencioso
-		}
+		if (!currentConvId) return;
+		await persistDevLiveSession(localStorage.token || '', currentConvId, true);
 	}
 
 	async function selectMode(modeId: string) {
@@ -499,32 +590,34 @@
 	}
 
 	function startNewSession() {
-		if (isStreaming) return;
-		currentConvId = null;
-		lastLoadedConvId = null;
+		const hadRunning = isStreaming;
 		devActiveHistoryId.set(null);
-		sessionId = null;
-		messages = [];
-		attachedFiles = [];
-		queuedPrompt = null;
-		mascotMood = 'idle';
-		toast.success('Nova sessão iniciada.');
+		openBlankSessionView();
+		toast.success(
+			hadRunning
+				? 'Nova conversa aberta (a sessão anterior segue trabalhando em paralelo).'
+				: 'Nova sessão iniciada.'
+		);
 	}
 
 	function pushSystemCard(card: NonNullable<DevMessage['card']>) {
-		messages = [
-			...messages,
-			{
-				id: crypto.randomUUID(),
-				role: 'system_card',
-				content: '',
-				tools: [],
-				phase: '',
-				streaming: false,
-				card
-			}
-		];
-		scrollToBottom();
+		const cardMsg: DevMessage = {
+			id: crypto.randomUUID(),
+			role: 'system_card',
+			content: '',
+			tools: [],
+			phase: '',
+			streaming: false,
+			card
+		};
+		messages = [...messages, cardMsg];
+		if (currentConvId) {
+			updateDevLiveSession(currentConvId, (s) => ({
+				...s,
+				messages: [...s.messages, cardMsg]
+			}));
+		}
+		scrollToBottom(true);
 	}
 
 	function exportMarkdown() {
@@ -740,20 +833,32 @@
 	}
 
 	function toggleToolExpand(msgId: string, toolId: string) {
-		messages = messages.map((m) =>
+		const mapFn = (m: DevMessage) =>
 			m.id !== msgId
 				? m
 				: {
 						...m,
 						tools: m.tools.map((t) => (t.id === toolId ? { ...t, expanded: !t.expanded } : t))
-					}
-		);
+					};
+		messages = messages.map(mapFn);
+		if (currentConvId) {
+			updateDevLiveSession(currentConvId, (s) => ({
+				...s,
+				messages: s.messages.map(mapFn)
+			}));
+		}
 	}
 
 	function toggleThinkingExpand(msgId: string) {
-		messages = messages.map((m) =>
-			m.id !== msgId ? m : { ...m, thinkingExpanded: !m.thinkingExpanded }
-		);
+		const mapFn = (m: DevMessage) =>
+			m.id !== msgId ? m : { ...m, thinkingExpanded: !m.thinkingExpanded };
+		messages = messages.map(mapFn);
+		if (currentConvId) {
+			updateDevLiveSession(currentConvId, (s) => ({
+				...s,
+				messages: s.messages.map(mapFn)
+			}));
+		}
 	}
 
 	async function copyText(txt: string, label = 'Copiado!') {
@@ -765,24 +870,54 @@
 		}
 	}
 
+	function setSessionQueue(val: string | null) {
+		queuedPrompt = val;
+		if (currentConvId) {
+			updateDevLiveSession(currentConvId, (s) => ({ ...s, queuedPrompt: val }));
+		}
+	}
+
 	async function stopGeneration() {
-		queuedPrompt = null;
+		const targetId = currentConvId;
+		setSessionQueue(null);
 		if (abortController) {
 			abortController.abort();
 		}
 		if (activeRunId) {
 			await stopDevRun(localStorage.token || '', activeRunId).catch(() => {});
 		}
+		if (targetId) {
+			updateDevLiveSession(targetId, (s) => ({
+				...s,
+				queuedPrompt: null
+			}));
+		}
 	}
 
-	async function sendPrompt(overrideText?: string) {
-		const rawText = (overrideText ?? promptText).trim();
-		const filesSnapshot = [...attachedFiles];
-		if (!rawText && filesSnapshot.length === 0) return;
-		if (isStreaming) return;
+	async function sendPrompt(overrideText?: string, targetConvIdOverride?: string) {
+		const isForegroundCall = !targetConvIdOverride || targetConvIdOverride === currentConvId;
+		const existingSession = targetConvIdOverride
+			? get(devLiveSessions)[targetConvIdOverride]
+			: currentConvId
+				? get(devLiveSessions)[currentConvId]
+				: undefined;
 
-		if (!overrideText) promptText = '';
-		attachedFiles = [];
+		if (existingSession?.isStreaming) return;
+
+		const rawText = (overrideText ?? promptText).trim();
+		const filesSnapshot = isForegroundCall ? [...attachedFiles] : [];
+		if (!rawText && filesSnapshot.length === 0) return;
+
+		if (!overrideText && isForegroundCall) promptText = '';
+		if (isForegroundCall) attachedFiles = [];
+
+		let targetConvId = targetConvIdOverride || currentConvId;
+		if (!targetConvId) {
+			targetConvId = crypto.randomUUID().replace(/-/g, '').slice(0, 12);
+			currentConvId = targetConvId;
+			lastLoadedConvId = targetConvId;
+			devActiveHistoryId.set(targetConvId);
+		}
 
 		const promptForModel =
 			filesSnapshot.length > 0
@@ -801,6 +936,7 @@
 		};
 
 		const assistantId = crypto.randomUUID();
+		const sessionModelName = existingSession?.modelName || activeModelName;
 		const assistantMsg: DevMessage = {
 			id: assistantId,
 			role: 'assistant',
@@ -810,24 +946,62 @@
 			tools: [],
 			phase: 'Minerva está analisando…',
 			streaming: true,
-			modelName: activeModelName,
+			modelName: sessionModelName,
 			createdAt: Date.now()
 		};
 
-		messages = [...messages, userMsg, assistantMsg];
-		isStreaming = true;
-		turnStartedAt = Date.now();
-		turnElapsedSec = 0;
-		if (elapsedInterval) clearInterval(elapsedInterval);
-		elapsedInterval = setInterval(() => {
-			turnElapsedSec = (Date.now() - turnStartedAt) / 1000;
-		}, 100);
+		const sessionAbort = new AbortController();
+		const startedAt = Date.now();
+		if (isForegroundCall) {
+			userScrolledUp = false;
+		}
+		const baseMessages = existingSession ? existingSession.messages : messages;
+		const nextMessages = [...baseMessages, userMsg, assistantMsg];
+		const firstUserText =
+			nextMessages.find((m) => m.role === 'user')?.content || 'Sessão Minerva Dev';
+		const computedTitle =
+			existingSession?.title ||
+			firstUserText.replace(/\s+/g, ' ').trim().slice(0, 65) ||
+			'Sessão Minerva Dev';
 
-		abortController = new AbortController();
-		await scrollToBottom();
+		const sessionSnapshot: DevLiveSession = {
+			convId: targetConvId,
+			title: computedTitle,
+			cwd: existingSession ? existingSession.cwd : cwd,
+			extraDirs: existingSession ? [...existingSession.extraDirs] : [...extraDirs],
+			sessionId: existingSession ? existingSession.sessionId : sessionId,
+			permissionMode: existingSession ? existingSession.permissionMode : permissionMode,
+			effort: existingSession ? existingSession.effort : effort,
+			model: existingSession ? existingSession.model : activeModel || '',
+			modelName: sessionModelName,
+			messages: nextMessages,
+			isStreaming: true,
+			activeRunId: null,
+			abortController: sessionAbort,
+			queuedPrompt: existingSession?.queuedPrompt ?? null,
+			turnStartedAt: startedAt,
+			updatedAt: Date.now() / 1000
+		};
+
+		devLiveSessions.update((map) => ({
+			...map,
+			[targetConvId!]: sessionSnapshot
+		}));
+
+		// Salva IMEDIATAMENTE ao enviar a primeira mensagem para já aparecer na barra lateral
+		const token = localStorage.token || '';
+		void persistDevLiveSession(token, targetConvId, true);
+
+		if (currentConvId === targetConvId) {
+			await scrollToBottom(true);
+		}
 
 		const updateAssistant = (updater: (m: DevMessage) => DevMessage) => {
-			messages = messages.map((m) => (m.id === assistantId ? updater(m) : m));
+			updateDevLiveSession(targetConvId!, (s) => ({
+				...s,
+				updatedAt: Date.now() / 1000,
+				messages: s.messages.map((m) => (m.id === assistantId ? updater(m) : m))
+			}));
 		};
 
 		let hadError = false;
@@ -835,22 +1009,31 @@
 
 		try {
 			await streamDevChat(
-				localStorage.token || '',
+				token,
 				{
 					prompt: promptForModel,
-					cwd,
-					session_id: sessionId,
-					permission_mode: permissionMode,
-					model: activeModel || null,
-					effort: effort || null,
-					extra_dirs: extraDirs
+					cwd: sessionSnapshot.cwd,
+					session_id: sessionSnapshot.sessionId,
+					permission_mode: sessionSnapshot.permissionMode,
+					model: sessionSnapshot.model || null,
+					effort: sessionSnapshot.effort || null,
+					extra_dirs: sessionSnapshot.extraDirs
 				},
 				{
 					onRun: ({ run_id }) => {
-						activeRunId = run_id;
+						updateDevLiveSession(targetConvId!, (s) => ({
+							...s,
+							activeRunId: run_id
+						}));
 					},
 					onInit: ({ session_id }) => {
-						if (session_id) sessionId = session_id;
+						if (session_id) {
+							updateDevLiveSession(targetConvId!, (s) => ({
+								...s,
+								sessionId: session_id
+							}));
+							void persistDevLiveSession(token, targetConvId!, false);
+						}
 					},
 					onThinking: ({ text }) => {
 						updateAssistant((m) => ({
@@ -865,7 +1048,9 @@
 							content: m.content + delta,
 							phase: 'Respondendo…'
 						}));
-						scrollToBottom();
+						if (currentConvId === targetConvId) {
+							void scrollToBottom(false);
+						}
 					},
 					onToolUse: ({ name, label, icon, summary, input }) => {
 						updateAssistant((m) => {
@@ -893,7 +1078,9 @@
 								]
 							};
 						});
-						scrollToBottom();
+						if (currentConvId === targetConvId) {
+							void scrollToBottom(false);
+						}
 					},
 					onToolResult: ({ text: resText, is_error }) => {
 						updateAssistant((m) => {
@@ -909,15 +1096,23 @@
 							}
 							return { ...m, tools, phase: 'Avaliando resultado…' };
 						});
-						scrollToBottom();
+						void persistDevLiveSession(token, targetConvId!, false);
+						if (currentConvId === targetConvId) {
+							void scrollToBottom(false);
+						}
 					},
 					onResult: ({ session_id, text: finalText, is_error, duration_ms }) => {
-						if (session_id) sessionId = session_id;
+						if (session_id) {
+							updateDevLiveSession(targetConvId!, (s) => ({
+								...s,
+								sessionId: session_id
+							}));
+						}
 						if (is_error) hadError = true;
 						updateAssistant((m) => ({
 							...m,
 							content: (m.content || finalText || '').trim(),
-							durationMs: duration_ms ?? Date.now() - turnStartedAt,
+							durationMs: duration_ms ?? Date.now() - startedAt,
 							isError: is_error,
 							streaming: false,
 							phase: ''
@@ -936,14 +1131,16 @@
 					onDone: () => {
 						updateAssistant((m) => ({
 							...m,
-							durationMs: m.durationMs ?? Date.now() - turnStartedAt,
+							durationMs: m.durationMs ?? Date.now() - startedAt,
 							streaming: false,
 							phase: ''
 						}));
-						refreshGit();
+						if (currentConvId === targetConvId) {
+							void refreshGit();
+						}
 					}
 				},
-				abortController.signal
+				sessionAbort.signal
 			);
 		} catch (err: any) {
 			wasAborted = err?.name === 'AbortError';
@@ -960,21 +1157,29 @@
 				phase: ''
 			}));
 		} finally {
-			isStreaming = false;
-			activeRunId = null;
-			abortController = null;
-			if (elapsedInterval) {
-				clearInterval(elapsedInterval);
-				elapsedInterval = null;
-			}
-			pulseMascotMood(hadError ? 'idle' : 'happy');
-			await persistCurrentConversation();
-			await scrollToBottom();
+			const finished = updateDevLiveSession(targetConvId!, (s) => ({
+				...s,
+				isStreaming: false,
+				activeRunId: null,
+				abortController: null,
+				updatedAt: Date.now() / 1000
+			}));
+			await persistDevLiveSession(token, targetConvId!, true);
 
-			if (queuedPrompt && !wasAborted) {
-				const next = queuedPrompt;
-				queuedPrompt = null;
-				await sendPrompt(next);
+			if (currentConvId === targetConvId) {
+				pulseMascotMood(hadError ? 'idle' : 'happy');
+				await scrollToBottom(false);
+			} else if (finished && !wasAborted) {
+				toast.success(`Sessão "${finished.title}" concluiu a tarefa em segundo plano.`);
+			}
+
+			const nextQueued = finished?.queuedPrompt;
+			if (nextQueued && !wasAborted) {
+				updateDevLiveSession(targetConvId!, (s) => ({
+					...s,
+					queuedPrompt: null
+				}));
+				await sendPrompt(nextQueued, targetConvId!);
 			}
 		}
 	}
@@ -1032,6 +1237,23 @@
 
 		<!-- Ícones de ação minimalistas à direita (estilo topbar do Claude Code Desktop) -->
 		<div class="flex items-center gap-1 shrink-0">
+			{#if backgroundRunningSessions.length > 0}
+				<button
+					type="button"
+					class="inline-flex items-center gap-1.5 rounded-lg bg-sky-500/12 px-2.5 py-1 text-xs font-medium text-sky-600 dark:text-sky-300 hover:bg-sky-500/20 transition"
+					title={`Alternar para: ${backgroundRunningSessions[0].title}`}
+					on:click={() => {
+						devActiveHistoryId.set(backgroundRunningSessions[0].convId);
+					}}
+				>
+					<span class="size-2 rounded-full bg-sky-400 animate-pulse"></span>
+					<span>
+						{backgroundRunningSessions.length}
+						{backgroundRunningSessions.length === 1 ? 'em paralelo' : 'em paralelo'}
+					</span>
+				</button>
+			{/if}
+
 			<button
 				type="button"
 				class="inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs text-gray-500 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-800/80 hover:text-gray-900 dark:hover:text-slate-100 transition"
@@ -1160,8 +1382,8 @@
 							{fccOnline}
 							on:send={(e) => sendPrompt(e.detail)}
 							on:copyBranch={() => copyText(gitBranch, 'Branch copiada!')}
-							on:queue={(e) => (queuedPrompt = e.detail)}
-							on:cancelQueue={() => (queuedPrompt = null)}
+							on:queue={(e) => setSessionQueue(e.detail)}
+							on:cancelQueue={() => setSessionQueue(null)}
 							on:stop={stopGeneration}
 							on:selectMode={(e) => selectMode(e.detail)}
 							on:selectModel={(e) => selectManualModel(e.detail)}
@@ -1231,14 +1453,26 @@
 				</div>
 			{:else}
 				<!-- TRANSCRIPT ATIVO (estilo Claude Code Desktop) -->
-				<div bind:this={feedContainer} class="flex-1 overflow-y-auto px-4 py-6">
+				<div
+					bind:this={feedContainer}
+					on:scroll={handleFeedScroll}
+					class="relative flex-1 overflow-y-auto px-4 py-6"
+				>
 					<div class="mx-auto max-w-3xl space-y-6">
 						{#each messages as msg (msg.id)}
 							{#if msg.role === 'system_card' && msg.card}
 								<DevSystemCard
 									id={msg.id}
 									card={msg.card}
-									on:dismiss={(e) => (messages = messages.filter((m) => m.id !== e.detail))}
+									on:dismiss={(e) => {
+										messages = messages.filter((m) => m.id !== e.detail);
+										if (currentConvId) {
+											updateDevLiveSession(currentConvId, (s) => ({
+												...s,
+												messages: s.messages.filter((m) => m.id !== e.detail)
+											}));
+										}
+									}}
 									on:copy={(e) => copyText(e.detail)}
 								/>
 							{:else if msg.role === 'user'}
@@ -1402,6 +1636,19 @@
 							{/if}
 						{/each}
 					</div>
+
+					{#if userScrolledUp}
+						<div class="pointer-events-none sticky bottom-2 mt-4 flex justify-center z-20">
+							<button
+								type="button"
+								class="pointer-events-auto inline-flex items-center gap-1.5 rounded-full border border-sky-500/30 bg-white/95 dark:bg-[#0f1726]/95 px-3 py-1.5 text-xs font-medium text-sky-600 dark:text-sky-300 shadow-lg backdrop-blur-md hover:bg-sky-50 dark:hover:bg-slate-800 transition"
+								on:click={() => scrollToBottom(true)}
+							>
+								<span>↓</span>
+								<span>{isStreaming ? 'Acompanhar execução' : 'Ir para o final'}</span>
+							</button>
+						</div>
+					{/if}
 				</div>
 
 				<!-- Composer ancorado inferior (rail-composer-dock) -->
@@ -1431,8 +1678,8 @@
 							{fccOnline}
 							on:send={(e) => sendPrompt(e.detail)}
 							on:copyBranch={() => copyText(gitBranch, 'Branch copiada!')}
-							on:queue={(e) => (queuedPrompt = e.detail)}
-							on:cancelQueue={() => (queuedPrompt = null)}
+							on:queue={(e) => setSessionQueue(e.detail)}
+							on:cancelQueue={() => setSessionQueue(null)}
 							on:stop={stopGeneration}
 							on:selectMode={(e) => selectMode(e.detail)}
 							on:selectModel={(e) => selectManualModel(e.detail)}
