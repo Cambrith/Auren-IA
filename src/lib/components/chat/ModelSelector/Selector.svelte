@@ -1289,7 +1289,9 @@
 
 							<!-- svelte-ignore a11y-no-static-element-interactions -->
 							<div
-								class="min-h-0 flex-1 overflow-y-auto scroll-pt-7"
+								class="min-h-0 flex-1 overflow-y-auto scroll-pt-7 {isMinervaModeOnly
+									? 'space-y-1 p-1'
+									: ''}"
 								style="max-height: 22rem;"
 								id="model-selector-list"
 								role="listbox"

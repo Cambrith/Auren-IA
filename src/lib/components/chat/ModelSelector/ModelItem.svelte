@@ -78,20 +78,22 @@
 	aria-label={$i18n.t('Select {{modelName}} model', { modelName: item.label })}
 	aria-describedby={localizedDescription ? `model-description-${index}` : undefined}
 	class="focus-ring group/item relative flex min-h-9 w-full cursor-pointer select-none items-center rounded-xl {isMinervaMode
-		? 'px-3 py-2'
-		: 'px-2 py-1'} text-left text-[0.8125rem] font-normal text-gray-700 outline-hidden transition-colors duration-75 dark:text-gray-100 {($settings?.highContrastMode ??
-	false)
-		? 'hover:bg-gray-200 dark:hover:bg-gray-800'
-		: 'hover:bg-gray-50/50 dark:hover:bg-gray-800/45'} {index === selectedModelIdx &&
-	!compareEnabled
-		? ($settings?.highContrastMode ?? false)
-			? 'bg-gray-200 dark:bg-gray-800'
-			: 'bg-gray-50/70 dark:bg-gray-800/60'
-		: ''} {isSelected
-		? ($settings?.highContrastMode ?? false)
-			? 'bg-gray-200 dark:bg-gray-800'
-			: 'bg-gray-50/70 dark:bg-gray-800/60'
-		: ''}"
+		? 'px-3 py-2.5 border'
+		: 'px-2 py-1'} text-left text-[0.8125rem] font-normal text-gray-700 outline-hidden transition-colors duration-100 dark:text-gray-100 {isMinervaMode
+		? isSelected
+			? ($settings?.highContrastMode ?? false)
+				? 'border-gray-400 bg-gray-200 dark:border-gray-600 dark:bg-gray-800'
+				: 'border-sky-500/25 bg-sky-500/[0.08] dark:border-sky-400/20 dark:bg-sky-400/[0.08]'
+			: index === selectedModelIdx && !compareEnabled
+				? 'border-gray-200/70 bg-gray-50/70 dark:border-white/[0.06] dark:bg-gray-800/55'
+				: 'border-transparent hover:border-gray-200/60 hover:bg-gray-50/60 dark:hover:border-white/[0.05] dark:hover:bg-gray-800/45'
+		: `${($settings?.highContrastMode ?? false) ? 'hover:bg-gray-200 dark:hover:bg-gray-800' : 'hover:bg-gray-50/50 dark:hover:bg-gray-800/45'} ${
+				(index === selectedModelIdx && !compareEnabled) || isSelected
+					? ($settings?.highContrastMode ?? false)
+						? 'bg-gray-200 dark:bg-gray-800'
+						: 'bg-gray-50/70 dark:bg-gray-800/60'
+					: ''
+			}`}"
 	data-arrow-selected={index === selectedModelIdx}
 	data-value={item.value}
 	on:focus={() => {
@@ -141,18 +143,25 @@
 			<div class="flex shrink-0 items-center gap-1">
 				{#each meta.badges.slice(0, 2) as badge}
 					<span
-						class="hidden sm:inline-flex shrink-0 rounded-md px-1.5 py-0.5 text-[0.625rem] font-medium leading-none {badge === 'Equilíbrio e velocidade' ||
+						class="hidden sm:inline-flex shrink-0 items-center rounded-md px-2 py-0.5 text-[0.625rem] font-medium leading-none {badge === 'Equilíbrio e velocidade' ||
 						badge === 'Equilíbrio e inteligência'
-							? 'bg-sky-500/10 text-sky-600 dark:bg-sky-400/15 dark:text-sky-300'
+							? 'bg-sky-500/12 text-sky-600 dark:bg-sky-400/15 dark:text-sky-300'
 							: badge === 'Inteligência máxima' || badge === 'Raciocínio' || badge === 'Visão'
-								? 'bg-violet-500/10 text-violet-600 dark:bg-violet-400/15 dark:text-violet-300'
+								? 'bg-violet-500/12 text-violet-600 dark:bg-violet-400/15 dark:text-violet-300'
 								: badge === 'Velocidade e disponibilidade' || badge === 'Código'
-									? 'bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300'
+									? 'bg-emerald-500/12 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300'
 									: 'bg-gray-500/10 text-gray-600 dark:bg-gray-400/15 dark:text-gray-300'}"
 					>
 						{badge}
 					</span>
 				{/each}
+				{#if isMinervaMode}
+					<span class="inline-flex w-4 shrink-0 items-center justify-end text-sky-500 dark:text-sky-400">
+						{#if isSelected}
+							<Check className="size-3.5" />
+						{/if}
+					</span>
+				{/if}
 				{#if showProviderTag && !isMinervaMode}
 					<span class="shrink-0 text-[0.625rem] font-normal text-gray-400 dark:text-gray-500">
 						{meta.provider.chipLabel}
@@ -330,66 +339,68 @@
 		{/if}
 	</div>
 
-	<div
-		class="ml-auto flex shrink-0 items-center {($settings?.highContrastMode ?? false)
-			? 'gap-0.5'
-			: 'gap-1.5'} pl-2"
-	>
-		{#if !selectionOnly && $user?.role === 'admin' && item.model.loaded}
-			<Tooltip
-				content={`${$i18n.t('Eject')}`}
-				className="flex-shrink-0 group-hover/item:opacity-100 group-focus-within/item:opacity-100 opacity-0 "
-			>
-				<button
-					class="focus-ring flex {($settings?.highContrastMode ?? false)
-						? 'size-6 items-center justify-center rounded-lg'
-						: ''}"
-					aria-label={$i18n.t('Eject model')}
-					on:click={(e) => {
-						e.preventDefault();
-						e.stopPropagation();
-						unloadModelHandler(item.value);
+	{#if !isMinervaMode}
+		<div
+			class="ml-auto flex shrink-0 items-center {($settings?.highContrastMode ?? false)
+				? 'gap-0.5'
+				: 'gap-1.5'} pl-2"
+		>
+			{#if !selectionOnly && $user?.role === 'admin' && item.model.loaded}
+				<Tooltip
+					content={`${$i18n.t('Eject')}`}
+					className="flex-shrink-0 group-hover/item:opacity-100 group-focus-within/item:opacity-100 opacity-0 "
+				>
+					<button
+						class="focus-ring flex {($settings?.highContrastMode ?? false)
+							? 'size-6 items-center justify-center rounded-lg'
+							: ''}"
+						aria-label={$i18n.t('Eject model')}
+						on:click={(e) => {
+							e.preventDefault();
+							e.stopPropagation();
+							unloadModelHandler(item.value);
+						}}
+					>
+						<ArrowUpTray className="size-3" />
+					</button>
+				</Tooltip>
+			{/if}
+
+			{#if !selectionOnly}
+				<ModelItemMenu
+					{onComment}
+					bind:show={showMenu}
+					model={item.model}
+					{pinModelHandler}
+					{deleteModelHandler}
+					{onEdit}
+					copyLinkHandler={() => {
+						copyLinkHandler(item.model);
 					}}
 				>
-					<ArrowUpTray className="size-3" />
-				</button>
-			</Tooltip>
-		{/if}
+					<button
+						aria-label={`${$i18n.t('More Options')}`}
+						class="focus-ring flex {($settings?.highContrastMode ?? false)
+							? 'size-6 items-center justify-center rounded-lg'
+							: ''}"
+						on:click={(e) => {
+							e.preventDefault();
+							e.stopPropagation();
+							showMenu = !showMenu;
+						}}
+					>
+						<EllipsisHorizontal />
+					</button>
+				</ModelItemMenu>
+			{/if}
 
-		{#if !selectionOnly && !isMinervaMode}
-			<ModelItemMenu
-				{onComment}
-				bind:show={showMenu}
-				model={item.model}
-				{pinModelHandler}
-				{deleteModelHandler}
-				{onEdit}
-				copyLinkHandler={() => {
-					copyLinkHandler(item.model);
-				}}
-			>
-				<button
-					aria-label={`${$i18n.t('More Options')}`}
-					class="focus-ring flex {($settings?.highContrastMode ?? false)
-						? 'size-6 items-center justify-center rounded-lg'
-						: ''}"
-					on:click={(e) => {
-						e.preventDefault();
-						e.stopPropagation();
-						showMenu = !showMenu;
-					}}
-				>
-					<EllipsisHorizontal />
-				</button>
-			</ModelItemMenu>
-		{/if}
-
-		{#if isSelected}
-			<div>
-				<Check className="size-3" />
-			</div>
-		{/if}
-	</div>
+			{#if isSelected}
+				<div>
+					<Check className="size-3" />
+				</div>
+			{/if}
+		</div>
+	{/if}
 </button>
 
 <style>
