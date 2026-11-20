@@ -3113,7 +3113,6 @@
 					noteChatDebug('normalized empty selected models after load', { selectedModels });
 				}
 
-				oldSelectedModelIds = structuredClone(selectedModels);
 				if ($config?.auren?.local) selectedModels = normalizeSelectedModels(selectedModels);
 
 				chatContent.history ??= convertMessagesToHistory(chatContent.messages);
